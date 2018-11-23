@@ -1,0 +1,126 @@
+/* CSS Document */
+@charset "utf-8";
+.cl {
+  *zoom: 1;
+}
+.cl:after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: "\200B";
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: 16px Microsoft YaHei, "\5B8B\4F53", Arial, HELVETICA;
+  color: #333;
+  background: #29241f;
+}
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+button,
+textarea,
+blockquote,
+p {
+  padding: 0;
+  margin: 0;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+input,
+button {
+  font-family: "Microsoft YaHei";
+}
+img {
+  vertical-align: top;
+  border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+a,
+label {
+  blr: expression(this.onFocus=this.blur());
+}
+a {
+  text-decoration: none;
+}
+:focus {
+  outline-style: none;
+}
+.fl {
+  float: left;
+  _display: inline;
+}
+.fr {
+  float: right;
+  _display: inline;
+}
+.wraps {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+}
+.img {
+  height: 500px;
+}
+.img .btn {
+  position: absolute;
+  right: 427px;
+  width: 176px;
+  height: 57px;
+  _background: url(about:blank);
+}
+.img .wraps {
+  height: 100%;
+}
+.img1-1 {
+  background:url(../images/app_bj_01.jpg) no-repeat center 0; height:1000px;
+}
+.img1-2 {
+  background:url(../images/vip_02.jpg) no-repeat center 0; height:460px;
+}
+.img1-3 {
+  background:url(../images/vip_03.jpg) no-repeat center 0;height:560px;
+}
+.img1-3 .btn {
+  width: 202px;
+  height: 74px;
+  top: 444px;
+  left: 637px;
+}
+.tel_left{ width:361px; height:698px;background:url(../images/app_01.png) no-repeat center 0; left:107px; top:95px; position:absolute;}
+.tel_right{ width:617px; top:257px; right: 0; position:absolute;}
+.tel_title{ float:left; line-height: 70px; color: #fff;}
+.tel_title strong {font-size: 50px;}
+.tel_title p {font-size: 54px;}
+.tel_down{ width:356px; height:56px; float:left; margin-top:42px;}
+.tel_down p { line-height: 56px; font-size: 20px; color: #fff;}
+.tel_line{ width:525px; float:left; margin-top:20px;}
+.tel_line_left{ width:144px; height:132px; float:left;}
+.tel_line_right{ width:195px; height:132px; float:left; margin-left:25px;}
+.tel_line_right_btn1{ width:195px; height:54px; float:left;}
+.tel_line_right_btn2{ width:195px; height:54px; float:left; margin-top:24px;}
