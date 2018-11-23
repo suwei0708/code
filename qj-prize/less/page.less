@@ -1,0 +1,438 @@
+/**
+ *  MAIN -----------------
+ *  页面样式代码
+ */
+@import url(../../common/common.less);
+
+body {
+    margin: 0;
+    padding: 0;
+    font: 16px Microsoft YaHei, "\5B8B\4F53", Arial, HELVETICA;
+    color: #333;
+    background: #ffe012;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, blockquote, p {
+    padding: 0;
+    margin: 0;
+}
+ol, ul, li {
+    list-style: none;
+}
+input, button {
+    font-family: "Microsoft YaHei";
+}
+img {
+    vertical-align: top;
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+a, label {
+    blr: ~'expression(this.onFocus=this.blur())';
+}
+a {
+    text-decoration: none;
+}
+:focus {
+    outline-style: none;
+}
+.fl {
+    float: left;
+    _display: inline;
+}
+.fr {
+    float: right;
+    _display: inline;
+}
+@page-w: 1000px;
+.wrapper {
+    width: @page-w;
+    margin: 0 auto;
+}
+.top-img {
+    margin: 0 0 -168px;
+    background: url(../images/bg.jpg) no-repeat center 0;
+    .wrap {
+        .pos(r);
+        width: 1000px;
+        height: 650px;
+        span {
+            .pos(a);
+            top: 378px;
+            left: 568px;
+            width: 26px;
+            .height(38px);
+            font-size: 28px;
+            color: #000;
+            text-align: center;
+        }
+    }
+}
+.prize {
+    .pos(a);
+    top: 0;
+    left: 194px;
+    width: 881px;
+    height: 879px;
+    z-index: 990;
+    margin: 0 0 -68px;
+    background: url(../images/machine.png) no-repeat 0 0;
+    &-box {
+        .pos(r);
+        height: 879px;
+
+        .btn-box {
+            .pos(a);
+            top: 131px;
+            left: 0;
+            .btn {
+                .dis(b);
+                width: 276px;
+                height: 83px;
+                margin: 0 0 10px;
+                background: url(../images/icon.png) no-repeat;
+                &-invite {
+                    background-position: 0 0;
+                    &:hover {
+                        background-position: 0 -90px;
+                    }
+                }
+                &-check {
+                    background-position: 0 -180px;
+                    &:hover {
+                        background-position: 0 -270px;
+                    }
+                }
+            }
+        }
+        .name-list {
+            .pos(a);
+            top: 328px;
+            left: 0;
+            width: 272px;
+            padding: 18px 0 30px;
+            border: 2px solid #000;
+            .bdr(10px);
+            background: #fff;
+            .tit {
+                width: 239px;
+                height: 60px;
+                margin: 0 auto 20px;
+                background: url(../images/icon.png) no-repeat 0 -980px;
+            }
+            .list {
+                .ov(h);
+                height: 31 * 8px;
+                li {
+                    width: 240px;
+                    margin: 0 auto;
+                    .height(31px);
+                    color: #666;
+                    .name {
+                        .ov(h);
+                        .dis(ib);
+                        width: 160px;
+                        padding: 0 0 0 10px;
+                        margin: 0 5px 0 0;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+    }
+
+    .table {
+        width: 590px;
+        // margin: 124px 0 0 160px;
+        border-spacing: 7px;
+        .luck-unit {
+            width: 189px - 4;
+            height: 188px - 47 - 4;
+            padding: 47px 0 0;
+            text-align: center;
+            background: #fff;
+            border: 2px solid #580c0b;
+            .bdr(5px);
+        }
+        .luck-unit-no {
+            height: 188px - 24 - 4;
+            padding: 24px 0 0;
+        }
+        .active {
+            background: #fffc00;
+        }
+        .prize-btn {
+            .dis(b);
+            width: 189px;
+            height: 188px;
+            background: url(../images/icon.png) no-repeat 0 -360px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -550px;
+            }
+            .luck-num {
+                padding: 125px 0 0;
+                text-align: center;
+                color: #fffc00;
+            }
+        }
+    }
+}
+
+.help-friends {
+    .pos(r);
+    width: 1032px;
+    height: 215px;
+    padding: 200px 0 0;
+    margin: 0 auto;
+    background: url(../images/friend.png) no-repeat 0 0;
+    .list {
+        .ov(h);
+        width: 755px;
+        height: 32 *3px;
+        margin: 0 auto;
+        font-size: 0;
+        li {
+            .dis(ib);
+            .height(32px);
+            width: 755 / 3 - 10px;
+            margin: 0 5px;
+            vertical-align: top;
+            color: #666;
+            font-size: 16px;
+        }
+    }
+    .star1 {
+        .pos(a);
+        top: 276px;
+        right: -86px;
+        width: 28px;
+        height: 34px;
+        background: url(../images/star1.png) no-repeat 0 0;
+    }
+}
+
+.rule {
+    .pos(r);
+    width: 1234px;
+    height: 572px - 146;
+    padding: 146px 0 0;
+    margin: 10px auto 0;
+    background: url(../images/rule.png) no-repeat 0 0;
+    ul {
+        .ov(h);
+        width: 755px;
+        height: 54 * 4px + 3;
+        margin: 0 auto;
+        font-size: 0;
+        li {
+            .height(54px);
+            border-bottom: 1px solid #e5e5e5;
+            color: #666;
+            font-size: 16px;
+        }
+    }
+    .star1 {
+        .pos(a);
+        top: 70px;
+        left: -30px;
+        width: 34px;
+        height: 42px;
+        background: url(../images/star2.png) no-repeat 0 0;
+    }
+}
+
+#mask {
+    .dis(n);
+    .pos(f);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    opacity: .6;
+    filter: alpha(opacity=60);
+    z-index: 998;
+}
+
+.popup {
+    .dis(n);
+    .pos(a);
+    top: 50%;
+    left: 17px;
+    width: 560px - 110;
+    padding: 60px 55px 45px;
+    // .translateY(-50%);
+    border: 2px solid #000;
+    .bdr(5px);
+    background: #fff;
+    z-index: 999;
+    &-pos {
+        .pos(a);
+        top: 0;
+        left: 0;
+        width: 590px;
+        height: 590px;
+        margin: 124px 0 0 160px;
+    }
+    .tit {
+        .pos(r);
+        .height(130px);
+        text-align: center;
+        background: #17d061;
+        .bdr(10px);
+        border: 2px solid #000;
+        font-size: 18px;
+        span {
+            .pos(a);
+            top: 20px;
+            left: 5%;
+            width: 90%;
+            line-height: 32px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+    }
+    .text {
+        line-height: 34px;
+        padding: 12px 0 0;
+        color: #666;
+        font-size: 16px;
+        text-align: center;
+    }
+    .suc {
+        .dis(n);
+        .pos(a);
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+    }
+    .popup-x {
+        .pos(a);
+        top: 22px;
+        right: 22px;
+        width: 22px;
+        height: 22px;
+        background: url(../images/icon.png) no-repeat -210px -360px;
+        cursor: pointer;
+    }
+    .popup-btn {
+        padding: 25px 0 0;
+        text-align: center;
+        a {
+            .dis(ib);
+            width: 149px;
+            height: 56px;
+        }
+        .btn-sure {
+            background: url(../images/icon.png) no-repeat 0 -1040px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -1100px;
+            }
+        }
+        .btn-continue {
+            background: url(../images/icon.png) no-repeat 0 -1160px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -1220px;
+            }
+        }
+        .btn-copy {
+            background: url(../images/icon.png) no-repeat 0 -860px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -920px;
+            }
+        }
+        .btn-give {
+            background: url(../images/icon.png) no-repeat 0 -740px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -800px;
+            }
+        }
+        .btn-close {
+            background: url(../images/icon.png) no-repeat 0 -1400px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -1460px;
+            }
+        }
+        .btn-add {
+            width: 311px;
+            background: url(../images/icon.png) no-repeat 0 -1280px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -1340px;
+            }
+        }
+        .btn-share {
+            width: 243px;
+            background: url(../images/icon.png) no-repeat 0 -1520px;
+            &:hover {
+                background: url(../images/icon.png) no-repeat 0 -1580px;
+            }
+        }
+    }
+    &-give {
+        .text {
+            .dis(n);
+        }
+    }
+    &-check {
+        .tit {
+            padding: 40px 50px;
+            text-align: left;
+            height: auto;
+        }
+        ul {
+            .ov(h);
+            .ovy(a);
+            max-height: 32px * 8;
+            _height: 32px * 8;
+        }
+        li {
+            .height(32px);
+        }
+    }
+
+    &-prize-quan {
+        top: 220px;
+        left: 30px;
+        width: 540px;
+        height: 346px;
+        padding: 0;
+        border: 0;
+        .title {
+            .pos(a);
+            top: -74px;
+            left: 128px;
+            width: 287px;
+            height: 215px;
+            background: url(../images/prize-tit.png) no-repeat 0 0;
+        }
+        .text {
+            line-height: 70px;
+            padding: 153px 0 0;
+            font-weight: 700;
+            font-size: 30px;
+        }
+        .popup-btn .btn-sure {
+            width: 160px;
+            height: 44px;
+            line-height: 44px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            background: #ff8d00;
+            .bdr(5px);
+            &:hover {
+                background: #ffa600;
+            }
+        }
+    }
+}
+// 分享
+.bdsharebuttonbox {
+    .pos(a);
+    bottom: 0;
+    z-index: 9;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
