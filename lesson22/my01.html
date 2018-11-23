@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/three.js/three.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var scene = new THREE.Scene();  // 构建场景
+
+    var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000); // 构建摄像机
+
+    camera.position.x = -30;
+    camera.position.y = 40;
+    camera.position.z = 60;
+    camera.lookAt(scene.position);
+
+    var renderer = new THREE.WebGLRenderer();  // 构建绘制对象
+    renderer.setClearColor(new THREE.Color(0xefefef,1.0));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMapEnabled = true;
+
+    var planeGeometry = new THREE.PlaneGeometry(70, 50, 1, 1);
+    var planeMaterial = new THREE.MeshLambertMaterial({color: 0xcccccc, color: 0xf0f0f0, color: 0xfff000});
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+    plane.rotation.x = -.5 * Math.PI;  // 实地
+    plane.position.x = 0;
+    plane.position.y = 0;
+    plane.position.z = 0;
+
+    scene.add(plane);
+
+    var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+
+    scene.add(ambientLight);
+
+    var spotLight = new THREE.SpotLight(0xffffff);
+    spotLight.position.x = -40;
+    spotLight.position.y = 60;
+    spotLight.position.z = -10;
+
+    scene.add(spotLight);
+
+    document.body.appendChild(renderer.domElement);
+
+    // renderer.render(scene, camera);  // 渲染
+    var cubeGeometry = new THREE.BoxGeometry(5, 5, 5);
+    var cubeMaterial = new THREE.MeshLambertMaterial({color: 0xff0000});
+    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+    var cylinderGeometry = new THREE.CylinderGeometry(2,3,15);
+    var cylinderMaterial = new THREE.MeshLambertMaterial({color:0x77ff78});
+    var cylinder = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
+
+    // cube.position.x = -30 + Math.round(Math.random() * planeGeometry.parameters.width);
+    // cube.position.y = Math.round(Math.random() * 5);
+    // cube.position.z = -20 + Math.round(Math.random() * planeGeometry.parameters.height);
+
+    // scene.add(cube);
+    addCube();
+    render();
+
+
+    function addCube() {
+        // var cubeGeometry = new THREE.BoxGeometry(10, 10, 10);
+        // var cubeMaterial = new THREE.MeshLambertMaterial({color: 0xff0000});
+        // var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+        cube.position.x = -30 + Math.round(Math.random() * planeGeometry.parameters.width);
+        cube.position.y = Math.round(Math.random() * 5);
+        cube.position.z = -20 + Math.round(Math.random() * planeGeometry.parameters.height);
+
+        cylinder.position.x = -30 + Math.round(Math.random() * planeGeometry.parameters.width);
+        cylinder.position.y = Math.round(Math.random() * 5);
+        cylinder.position.z = -20 + Math.round(Math.random() * planeGeometry.parameters.height);
+
+        scene.add(cube);
+        scene.add(cylinder);
+
+    }
+
+    function render() {
+        // addCube();
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+        cube.rotation.x += 0.02;
+        cube.rotation.y += 0.02;
+        cube.rotation.z += 0.02;
+
+        cylinder.rotation.x += 0.02;
+        cylinder.rotation.y += 0.02;
+        cylinder.rotation.z += 0.02;
+
+    }
+</script>
+</body>
+</html>

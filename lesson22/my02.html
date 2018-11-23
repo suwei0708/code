@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/three.js/three.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var scene = new THREE.Scene();  // 构建场景
+
+    var geometry = new THREE.BoxGeometry(100, 100, 100); // 创建立方体
+    var material = new THREE.MeshLambertMaterial({color: 0xff0000}); // 材质
+    var mesh = new THREE.Mesh(geometry, material); // 构建网格模型
+
+    scene.add(mesh);  // 模型放入场景
+
+    var light = new THREE.PointLight(0xffffff);    // 构建白色点光源
+    light.position.set(300, 400, 200);    // 设置光源位置
+
+    scene.add(light);   // 光源放入场景
+
+    var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 1000); // 创建相机
+    camera.position.set(200, 200, 200);    // 设置相机位置
+    camera.lookAt(scene.position);  // 相机放入场景中心
+
+    var renderer = new THREE.WebGLRenderer();   // 创建渲染器
+    renderer.setSize(window.innerWidth, window.innerHeight);    // 设置渲染器大小
+    document.body.appendChild(renderer.domElement);     // 渲染场景对象
+
+    renderer.render(scene, camera);      // 渲染场景相机
+
+
+</script>
+</body>
+</html>
