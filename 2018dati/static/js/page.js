@@ -271,6 +271,7 @@ function area(answer, score, num) {
     resultNum = resultNum + score;
     if(num == 7) {
         var result = 'a';
+        $('#score').val(resultNum - 20);
         if(resultNum <= 60) {
             result = 'a';
         }
