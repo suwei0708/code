@@ -322,16 +322,22 @@ $(function() {
     */
     // 我的奖品
     $('.ztbtn-myluckdraw').on('click', function() {
-        $('.ztpopup-lucydraw').show();
-        var _widht = document.documentElement.clientWidth; //屏幕宽
-        var _height = document.documentElement.clientHeight; //屏幕高
-        var boxWidth = jQuery('.ztpopup-lucydraw .ztpopup-box').outerWidth();
-        var boxHeight = jQuery('.ztpopup-lucydraw .ztpopup-box').outerHeight();
-        //让提示框居中
-        jQuery('.ztpopup-lucydraw .ztpopup-box').css({
-            top: (_height - boxHeight) / 2 + 'px',
-            left: (_widht - boxWidth) / 2 + 'px'
-        });
+        var prize = rnd(0, 1);
+        if(prize) {
+            $('.ztpopup-lucydraw').show();
+            var _widht = document.documentElement.clientWidth; //屏幕宽
+            var _height = document.documentElement.clientHeight; //屏幕高
+            var boxWidth = jQuery('.ztpopup-lucydraw .ztpopup-box').outerWidth();
+            var boxHeight = jQuery('.ztpopup-lucydraw .ztpopup-box').outerHeight();
+            //让提示框居中
+            jQuery('.ztpopup-lucydraw .ztpopup-box').css({
+                top: (_height - boxHeight) / 2 + 'px',
+                left: (_widht - boxWidth) / 2 + 'px'
+            });
+        }
+        else {
+            $.ztMsg.Alert('liwu', '暂无抽中奖品，继续加油吧！');
+        }
     });
     // 获奖名单滚动
     if($('.zt-luckdraw-win').length) {
