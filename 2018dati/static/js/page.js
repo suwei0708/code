@@ -146,7 +146,7 @@ function initPageEvents() {
         })
         .done(function(res) {
             var wxData = {
-                title: $.trim($('#form input[name=name]').val()) + '长沙市文明办、长沙公安交警队认证您为第' + res.total_user + '名交通文明践行者，城市文明接力邀您一起加入！',
+                title: $.trim($('#form input[name=name]').val()) + '：长沙公安交警队认证您为第' + res.total_user + '名交通文明践行者，城市文明接力邀您一起加入！',
                 desc: '122全国交通安全日答题测验，成绩满分将有机会亲临老司机挑战赛现场，用车技赢取华为mate20和千元油卡'
             };
             weixin.bindData(wxData);
@@ -283,6 +283,7 @@ function area(answer, score, num) {
         else {
             result = 'd';
         }
+        $('.page8').find('.police').attr('src', app.baseUrl + 'p8/police-' + result + '.png');
         $('.page8').find('.result').attr('src', app.baseUrl + 'p8/' + result + '.png');
         $('#ringoImage').attr('src', app.baseUrl + 'p8/result-' + result + '.png');
     }
