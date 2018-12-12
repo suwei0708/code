@@ -2071,3 +2071,47 @@ body {
 body .bd_weixin_popup .bd_weixin_popup_foot {
     font-size: 12px;
 }
+
+/* 保存成功提示 */
+.vote-tips {
+    .dis(n);
+    .pos(f);
+    bottom: 80px;
+    left: 50%;
+    z-index: 999;
+    height: 65px;
+    line-height: 65px;
+    padding: 0 50px;
+    margin: 0 0 0 -25px;
+    background: @yellow;
+    font-size: 16px;
+    text-align: center;
+    color: #2f2e2e;
+    white-space: nowrap;
+    .bdr(3px);
+    .icon-gou {
+        .ov(h);
+        .dis(ib);
+        vertical-align: middle;
+        padding: 5px;
+        margin: -3px 10px 0 0;
+        background: #2f2e2e;
+        color: @yellow;
+        font-size: 12px;
+        .bdr(50%);
+    }
+    .icon-fail {
+        .ov(h);
+        .dis(ib);
+        vertical-align: middle;
+        padding: 5px;
+        margin: -3px 10px 0 0;
+        background: red;
+        color: @yellow;
+        font-size: 12px;
+        .bdr(50%);
+    }
+    .num {
+        font-size: 22px;
+    }
+}

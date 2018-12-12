@@ -79,7 +79,7 @@ $(function() {
     /*
      * 参选设计师
     */
-    var voteNum = 3; //投票次数
+    var voteNum = 0; //投票次数
     $('.list-election').on('click', '.ztbtn', function() {
         if(!$(this).hasClass('ztbtn-dis')) {
             if(voteNum == 0) {
@@ -92,6 +92,7 @@ $(function() {
                 voteNum--;
                 // 票数加1
                 $(this).parents('li').find('.num').html(+$(this).parents('li').find('.num').html() + 1);
+                voteTips('suc', '您今天还可以投 <span class="num">' + voteNum + ' </span>票');
             }
         };
     });
@@ -431,6 +432,12 @@ $(function() {
                 callback();
             }
         });
+        jQuery('#ztpopup').on('click', function() {
+            $(this).remove();
+        });
+        jQuery('#ztpopup').on('click', '.ztpopup-box', function(e) {
+            e.stopPropagation();
+        });
     }
     //取消按钮事件
     var btnNo = function() {
@@ -727,3 +734,26 @@ function copyToClipboard(){
         });
     }
 })(jQuery);
+
+// 保存成功失败 status为suc或者fail，cont为提示的内容
+var tipTimeout;
+function voteTips(status, cont, times) {
+    var time;
+    if (status == 'suc') {
+        icon = 'gou'
+    }
+    if (status == 'fail') {
+        icon = 'fail'
+    }
+    times ? time = times : time = 1000
+    jQuery('body').append('<div class="vote-tips">' + '<span class="icon icon-' + icon + '"></span>' + '<span class="text">' + cont + '</span>' + '</div>');
+    jQuery('.vote-tips').css({
+        'margin-left': -jQuery('.vote-tips').outerWidth() / 2
+    }).show();
+    if(tipTimeout) {
+        clearTimeout(tipTimeout);
+    }
+    tipTimeout = setTimeout(function() {
+        jQuery('.vote-tips').remove();
+    }, time);
+};
