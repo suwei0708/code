@@ -184,7 +184,7 @@ function initPageEvents() {
             var path = window.location.href;
             var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
             var wxData = {
-                title: $.trim($('#form input[name=name]').val()) + '，2019，为长沙写首诗 ',
+                title: $.trim($('#form input[name=author]').val()) + '，2019，为长沙写首诗 ',
                 imgUrl: baseUrl + $('#ringoImage').attr('src'),
                 desc: '诗意狂欢，和一座城市跨年'
             };
