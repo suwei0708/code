@@ -37,12 +37,12 @@ app.init = function () {
         all: function() {
             setTimeout(function() {
                 $('.loading').hide();
-                hanldeAnimate(0);
+                hanldeAnimate(2);
             }, 500);
         }
     });
 
-    var initialSlide = 0;
+    var initialSlide = 2;
     var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
     app.swiper = new Swiper('.swiper-container', {
         direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
@@ -119,52 +119,95 @@ function initPageEvents() {
         $(this).hide();
     });
 
+    // 换模版
+    var temp = 1;
+    $('.btn-switch').on('click', function() {
+        var newTemp = rnd(1, 10);
+        if(newTemp == temp) {
+            if(newTemp == 10) {
+                newTemp = 1;
+            }
+            else {
+                newTemp++
+            }
+        }
+        temp = newTemp;
+        $('#ringoImage').attr('src', 'static/img/p2/temp' + temp + '.jpg');
+    });
+
     // form提交
-    $('.page2').on('click', '.btn', function() {
+    $('.page2').on('click', '.btn2', function() {
         if(!isClick) {return false;}
-        if(!$.trim($('#form input[name=name]').val())) {
-            alert('姓名不能为空！');
+
+        var title = $.trim($('#form input[name=title]').val()),
+            text1 = $.trim($('#form input[name=text1]').val()),
+            text2 = $.trim($('#form input[name=text2]').val()),
+            text3 = $.trim($('#form input[name=text3]').val()),
+            author = $.trim($('#form input[name=author]').val()),
+            sampleImage = document.getElementById('ringoImage'),
+            bg = document.getElementById('bg'),
+            ecode = document.getElementById('ecode');
+        if(!$.trim(title)) {
+            alert('标题不能为空！');
+            return false;
+        }
+        else if(!$.trim(text1)) {
+            alert('第一行字不能为空！');
+            return false;
+        }
+        else if(!$.trim(text2)) {
+            alert('第二行字不能为空！');
+            return false;
+        }
+        else if(!$.trim(text3)) {
+            alert('第三行字不能为空！');
+            return false;
+        }
+        else if(!$.trim(author)) {
+            alert('作者不能为空！');
             return false;
         }
 
+        var content = text1 + '::' + text2 + '::' + text3;
+        $('#form input[name=content]').val(content);
         isClick = 0;
 
-        $('#form input[name=name]').focus();
+        $('#form input[name=title]').focus();
 
         $.ajax({
-            url: 'https://m.xinliling.com/trees?type=3',
+            url: 'https://m.xinliling.com/poems',
             type: 'POST',
             dataType: 'json',
             data: $('#form').serialize()
         })
         .done(function(res) {
+            var path = window.location.href;
+            var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
             var wxData = {
                 title: $.trim($('#form input[name=name]').val()) + '，2019，为长沙写首诗 ',
+                imgUrl: baseUrl + $('#ringoImage').attr('src'),
                 desc: '诗意狂欢，和一座城市跨年'
             };
             weixin.bindData(wxData);
             weixin.bindShareInfo();
 
-            var name = $.trim($('#form input[name=name]').val());
-            $('.page8').find('.name').html(name);
-            var sampleImage = document.getElementById('ringoImage'),
-                ecode = document.getElementById('ecode'),
-                canvas = convertImageToCanvas(sampleImage, ecode, name);
-
-            // canvas画图
-            document.getElementById('canvasHolder').appendChild(canvas);
-            document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
-
-            $('#form input[name=name]').blur();
-            alert('报名成功！');
-            app.swiper.slideTo(3, 0, false);
         })
         .fail(function(res) {
             if(res.status == 422) {
                 alert(res.responseText);
             }
             else {
-                alert('网络错误，请稍后重试');
+                // alert('网络错误，请稍后重试');
+
+                var canvas = convertImageToCanvas(bg, sampleImage, ecode, title, text1, text2, text3, author);
+
+                // canvas画图
+                document.getElementById('canvasHolder').appendChild(canvas);
+                document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
+
+                $('#form input[name=title]').blur();
+                // alert('报名成功！');
+                app.swiper.slideTo(3, 0, false);
             }
         })
         .always(function() {
@@ -173,29 +216,6 @@ function initPageEvents() {
 
         return false;
     });
-}
-/**
- * 返回是否是PC页面
- *
- * @return {boolean} true / false
- */
-function checkIsPC() {
-    var system = {
-        win: false,
-        mac: false,
-        xll: false
-    };
-    var p = navigator.platform;
-    system.win = p.indexOf('Win') == 0;
-    system.mac = p.indexOf('Mac') == 0;
-    system.x11 = (p == 'X11') || (p.indexOf('Linux') == 0);
-    var winWidth = $(window).width();
-    if (winWidth > app.DEFAULT_WIDTH && (system.win || system.mac || system.xll)) {
-        return true;
-    }
-    else {
-        return false;
-    }
 }
 
 function hanldeAnimate(curIndex) {
@@ -220,21 +240,29 @@ function isIOS() {
 }
 
 // Converts image to canvas; returns new canvas element
-function convertImageToCanvas(image, ecode, name) {
+function convertImageToCanvas(bg, image, ecode, title, text1, text2, text3, author) {
     var canvas = document.createElement('canvas');
-    canvas.width = image.width;
-    canvas.height = image.height;
+    canvas.width = bg.width;
+    canvas.height = bg.height;
     var ctx = canvas.getContext('2d');
     ctx.save();//保存状态
 
-    ctx.drawImage(image, 0, 0);
+    ctx.drawImage(bg, 0, 0);
 
-    ctx.drawImage(ecode, 499, 933, 160, 160);
+    ctx.drawImage(image, 48, 70, 654, 558);
 
-    ctx.translate(90, 180);//设置画布上的(0,0)位置，也就是旋转的中心点
-    ctx.fillStyle = '#2c225e';   // 文字填充颜色
-    ctx.font = 'bold 42px Microsoft Yahei';
-    ctx.fillText(name, 0, 0);
+    ctx.drawImage(ecode, 569, 1046, 135, 135);
+
+    // ctx.translate(90, 180);//设置画布上的(0,0)位置，也就是旋转的中心点
+    ctx.fillStyle = '#2e3192';   // 文字填充颜色
+    ctx.font = '100px Microsoft Yahei';
+    ctx.fillText(title, 100, 775);
+    ctx.font = '42px Microsoft Yahei';
+    ctx.fillText(text1, 100, 890);
+    ctx.fillText(text2, 100, 940);
+    ctx.fillText(text3, 100, 993);
+    ctx.font = '30px Microsoft Yahei';
+    ctx.fillText(author, 117, 1080);
     ctx.restore();//恢复状态
 
     ctx.stroke();
@@ -249,3 +277,7 @@ function convertCanvasToImage(canvas) {
     image.src = canvas.toDataURL('image/png');
     return image;
 }
+
+function rnd(n, m) {
+    return Math.floor(Math.random() * (m - n + 1) + n)
+};

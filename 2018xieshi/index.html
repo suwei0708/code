@@ -73,13 +73,25 @@
             <article class="swiper-slide page2 swiper-no-swiping">
                 <div class="box">
                     <form id="form">
-                        <input type="text" name="name" placeholder="姓名" maxlength="10">
-                        <input type="text" name="title" placeholder="在这里输入标题哦" maxlength="10">
-                        <input type="text" name="text1" placeholder="第一行" maxlength="15">
-                        <input type="text" name="text2" placeholder="第二行" maxlength="15">
-                        <input type="text" name="text3" placeholder="第三行" maxlength="15">
-                        <button class="btn">发布</button>
+                        <input type="text" class="text" name="author" placeholder="姓名" maxlength="10" value="姓名">
+                        <input type="text" class="text" name="title" placeholder="在这里输入标题哦" maxlength="10" value="标题">
+                        <img id="ringoImage" src="static/img/p2/temp1.jpg">
+                        <input type="text" class="text" name="text1" placeholder="第一行" maxlength="15" value="第一行">
+                        <input type="text" class="text" name="text2" placeholder="第二行" maxlength="15" value="第二行">
+                        <input type="text" class="text" name="text3" placeholder="第三行" maxlength="15" value="第三行">
+                        <input type="hidden" name="content">
+                        <button class="btn1" type="button">我的作品</button>
+                        <button class="btn2">发布</button>
+                        <div class="btn-switch">换个模板</div>
                     </form>
+                </div>
+            </article>
+            <article class="swiper-slide page3 swiper-no-swiping">
+                <div class="box">
+                    <img id="bg" style="display: none" src="static/img/p3/bg.jpg">
+                    <img id="ecode" style="display: none" src="static/img/p3/ecode.png">
+                    <div id="canvasHolder" style="display: none"></div>
+                    <div id="pngHolder"></div>
                 </div>
             </article>
         </div>
