@@ -130,6 +130,12 @@ a {
         .translate(-50%, -50%);
     }
 }
+.user-select(@all: all) {
+    -webkit-user-select: @all;
+    user-select: @all;
+    -webkit-touch-callout: @all;
+    pointer-events: @all;
+}
 
 /* 页面样式 */
 .page {
@@ -147,12 +153,12 @@ a {
             width: 52px;
         }
         .text1 {
-            top: 846px;
+            top: 826px;
             left: 233px;
             width: 289px;
         }
         .text2 {
-            top: 995px;
+            top: 975px;
             left: 246px;
             width: 261px;
         }
@@ -162,9 +168,16 @@ a {
             width: 450px;
         }
         .pen {
-            top: 860px;
+            top: 840px;
             left: 497px;
             width: 53px;
+        }
+        .btn {
+            top: 1016px;
+            left: 308px;
+            width: 135px;
+            cursor: pointer;
+            .user-select();
         }
     }
 
@@ -191,10 +204,7 @@ a {
         }
         .btn-box {
             img {
-                -webkit-user-select: all;
-                user-select: all;
-                -webkit-touch-callout: all;
-                pointer-events: all;
+                .user-select();
             }
         }
         .btn1 {
@@ -247,48 +257,114 @@ a {
         }
     }
     &2 {
+        .tit {
+            top: 85px;
+            left: 84px;
+            width: 261px;
+        }
+        .pen {
+            top: 55px;
+            left: 354px;
+            width: 51px;
+        }
+        .btn-switch {
+            top: 108px;
+            left: 518px;
+            width: 147px;
+            cursor: pointer;
+            .user-select();
+        }
+        #form {
+            width: 569px;
+            padding: 160px 0 0;
+            margin: 0 auto;
+            font-size: 0;
+        }
         .text {
             .dis(b);
             width: 569px;
-            height: 86px;
-            line-height: 86px;
-            margin: 0 auto;
-            font-size: 40px;
+            height: 89px;
+            line-height: 70px;
+            padding: 16px 0 3px;
+            font-size: 36px;
             color: #2e3192;
             border: none;
-            border-bottom: 3px solid #abaacc;
-            background: none;
+            background: url(../img/p2/line3.png) no-repeat bottom center;
             text-align: center;
+            .user-select();
+            &::-webkit-input-placeholder{
+                color: #abaacc;
+            }
+        }
+        .title {
+            .dis(ib);
+            vertical-align: top;
+            width: 270px;
+            background: url(../img/p2/line1.png) no-repeat bottom center;
+        }
+        .author {
+            .dis(ib);
+            vertical-align: top;
+            width: 183px;
+            margin-left: 116px;
+            background: url(../img/p2/line2.png) no-repeat bottom center;
         }
         #ringoImage {
             .pos(s);
             .dis(b);
-            margin: 0 auto;
+            margin: 27px auto 0;
         }
         .btn1 {
-            .dis(b);
-            width: 200px;
-            height: 40px;
-            line-height: 40px;
+            top: 1060px;
+            left: 52px;
+            width: 177px;
+            .user-select();
         }
         .btn2 {
-            .dis(b);
-            width: 200px;
-            height: 40px;
-            line-height: 40px;
-        }
-        .btn-switch {
-            line-height: 50px;
-            font-size: 40px;
-            cursor: pointer;
+            top: 1060px;
+            left: 528px;
+            width: 135px;
+            .user-select();
         }
     }
     &3 {
         img {
-            -webkit-user-select: all;
-            user-select: all;
-            -webkit-touch-callout: all;
-            pointer-events: all;
+            .user-select();
+        }
+    }
+    &4 {
+        img {
+            .pos(s);
+            .dis(b);
+        }
+        .tit {
+            padding-top: 83px;
+            margin: 0 auto;
+        }
+        .list {
+            height: 1074px;
+            padding: 20px 0 100px 55px;
+            font-size: 0;
+            ul {
+                height: 850px;
+                .ovy(a);
+            }
+            li {
+                .dis(ib);
+                vertical-align: top;
+                margin: 15px 0 0 55px;
+                width: 235px;
+                img {
+                    width: 235px;
+                    height: 201px;
+                }
+                p {
+                    line-height: 70px;
+                    font-size: 30px;
+                    color: #2e3192;
+                    text-align: center;
+                }
+            }
         }
     }
 }
@@ -688,6 +764,10 @@ a {
     }
 }
 
+.delay0 {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
 .delay3 {
     -webkit-animation-delay: .3s;
     animation-delay: .3s;

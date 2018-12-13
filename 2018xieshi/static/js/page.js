@@ -16,10 +16,10 @@ app.music = $('audio')[0];
 
 app.init = function () {
     //微信下兼容音乐处理
-    // if(app.music) {app.music.play()}
-    // document.addEventListener('WeixinJSBridgeReady', function () {
-    //     app.music.play();
-    // }, false);
+    if(app.music) {app.music.play()}
+    document.addEventListener('WeixinJSBridgeReady', function () {
+        app.music.play();
+    }, false);
 
     app.loop = getUrlParameterByName('loop') || false;
 
@@ -37,12 +37,12 @@ app.init = function () {
         all: function() {
             setTimeout(function() {
                 $('.loading').hide();
-                hanldeAnimate(2);
+                hanldeAnimate(0);
             }, 500);
         }
     });
 
-    var initialSlide = 2;
+    var initialSlide = 0;
     var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
     app.swiper = new Swiper('.swiper-container', {
         direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
@@ -90,9 +90,7 @@ $(function () {
 var result = [];
 function initPageEvents() {
     // 防止拖动出现黑块
-    document.body.addEventListener('touchmove', function (e) {
-      e.preventDefault();
-    }, {passive: false});
+    document.body.addEventListener('touchmove', bodyScroll, {passive: false});
 
     // 分享
     $('body').on('click', function() {
@@ -100,10 +98,18 @@ function initPageEvents() {
             $('.share-box').hide();
         }
     });
-
+    if(localStorage.getItem('author')) {
+        $('#form input[name=author]').val(localStorage.getItem('author'));
+    }
     $('.page0').on('click', function() {
         app.swiper.slideTo(1, 0, false);
         hanldeAnimate(1);
+    });
+
+    $('.page0').on('click', '.btn', function() {
+        app.swiper.slideTo(2, 0, false);
+        hanldeAnimate(2);
+        return false;
     });
 
     $('.page1').on('click', '.btn1', function() {
@@ -132,7 +138,45 @@ function initPageEvents() {
             }
         }
         temp = newTemp;
-        $('#ringoImage').attr('src', 'static/img/p2/temp' + temp + '.jpg');
+        $('#ringoImage').attr('src', 'static/img/temp/temp' + temp + '.jpg');
+    });
+
+    // 我的作品
+    var worksList = [];
+    $('.page2').on('click', '.btn1', function() {
+        if(!isClick) {return false;}
+
+        $.ajax({
+            url: 'https://m.xinliling.com/poems/list',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                uid: localStorage.getItem('uid')
+            }
+        })
+        .done(function(res) {
+            if(res.list.length == 0) {
+                alert('您暂未发布作品！');
+                return false;
+            }
+            worksList = res.list;
+            var dom;
+            for (var i = 0; i < worksList.length; i++) {
+                var newList = worksList[i].content.split('::');
+                dom += '<li><img src="static/img/temp/temp' + newList[3] + '.jpg" alt=""><p>' + worksList[i].title + '</p></li>'
+            }
+            $('.page4 .list ul').html(dom);
+
+            document.body.removeEventListener('touchmove', bodyScroll, {passive: false});
+            app.swiper.slideTo(4, 0, false);
+            hanldeAnimate(4);
+        })
+        .fail(function() {
+            alert('网络错误，请稍后重试');
+        })
+        .always(function() {
+            isClick = 1;
+        });
     });
 
     // form提交
@@ -168,8 +212,9 @@ function initPageEvents() {
             return false;
         }
 
-        var content = text1 + '::' + text2 + '::' + text3;
-        $('#form input[name=content]').val(content);
+        $('#form input[name=uid]').val(localStorage.getItem('uid'));
+        var text = text1 + '::' + text2 + '::' + text3 + '::' + temp;
+        $('#form input[name=text]').val(text);
         isClick = 0;
 
         $('#form input[name=title]').focus();
@@ -191,23 +236,25 @@ function initPageEvents() {
             weixin.bindData(wxData);
             weixin.bindShareInfo();
 
+            localStorage.setItem('uid', res.uid);
+            localStorage.setItem('author', author);
+
+            var canvas = convertImageToCanvas(bg, sampleImage, ecode, title, text1, text2, text3, author);
+
+            // canvas画图
+            document.getElementById('canvasHolder').appendChild(canvas);
+            document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
+
+            $('#form input[name=title]').blur();
+            alert('发布成功！');
+            app.swiper.slideTo(3, 0, false);
         })
         .fail(function(res) {
             if(res.status == 422) {
                 alert(res.responseText);
             }
             else {
-                // alert('网络错误，请稍后重试');
-
-                var canvas = convertImageToCanvas(bg, sampleImage, ecode, title, text1, text2, text3, author);
-
-                // canvas画图
-                document.getElementById('canvasHolder').appendChild(canvas);
-                document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
-
-                $('#form input[name=title]').blur();
-                // alert('报名成功！');
-                app.swiper.slideTo(3, 0, false);
+                alert('网络错误，请稍后重试');
             }
         })
         .always(function() {
@@ -215,6 +262,41 @@ function initPageEvents() {
         });
 
         return false;
+    });
+
+    // 点击查看作品
+    $('.page4').on('click', 'li', function() {
+        document.body.addEventListener('touchmove', bodyScroll, {passive: false});
+
+        var dom;
+        var i = $(this).index();
+        var newList = worksList[i].content.split('::');
+
+        var title = worksList[i].title,
+            text1 = newList[0],
+            text2 = newList[1],
+            text3 = newList[2],
+            author = worksList[i].author,
+            sampleImage = document.getElementById('ringoImage'),
+            bg = document.getElementById('bg'),
+            ecode = document.getElementById('ecode');
+        sampleImage.src = 'static/img/temp/temp' + newList[3] + '.jpg'
+        var path = window.location.href;
+        var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+        var wxData = {
+            title: $.trim($('#form input[name=author]').val()) + '，2019，为长沙写首诗 ',
+            imgUrl: baseUrl + $('#ringoImage').attr('src'),
+            desc: '诗意狂欢，和一座城市跨年'
+        };
+        weixin.bindData(wxData);
+        weixin.bindShareInfo();
+
+        var canvas = convertImageToCanvas(bg, sampleImage, ecode, title, text1, text2, text3, author);
+
+        // canvas画图
+        document.getElementById('canvasHolder').appendChild(canvas);
+        document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
+        app.swiper.slideTo(3, 0, false);
     });
 }
 
@@ -255,14 +337,14 @@ function convertImageToCanvas(bg, image, ecode, title, text1, text2, text3, auth
 
     // ctx.translate(90, 180);//设置画布上的(0,0)位置，也就是旋转的中心点
     ctx.fillStyle = '#2e3192';   // 文字填充颜色
-    ctx.font = '100px Microsoft Yahei';
-    ctx.fillText(title, 100, 775);
-    ctx.font = '42px Microsoft Yahei';
-    ctx.fillText(text1, 100, 890);
-    ctx.fillText(text2, 100, 940);
-    ctx.fillText(text3, 100, 993);
-    ctx.font = '30px Microsoft Yahei';
-    ctx.fillText(author, 117, 1080);
+    ctx.font = '90px Microsoft Yahei';
+    ctx.fillText(title, 105, 782);
+    ctx.font = '36px Microsoft Yahei';
+    ctx.fillText(text1, 105, 866);
+    ctx.fillText(text2, 105, 910);
+    ctx.fillText(text3, 105, 952);
+    ctx.font = '24px Microsoft Yahei';
+    ctx.fillText(author, 105, 1025);
     ctx.restore();//恢复状态
 
     ctx.stroke();
@@ -281,3 +363,7 @@ function convertCanvasToImage(canvas) {
 function rnd(n, m) {
     return Math.floor(Math.random() * (m - n + 1) + n)
 };
+
+function bodyScroll(event) {
+    event.preventDefault();
+}
