@@ -160,7 +160,7 @@ function initPageEvents() {
                 return false;
             }
             worksList = res.list;
-            var dom;
+            var dom = '';
             for (var i = 0; i < worksList.length; i++) {
                 var newList = worksList[i].content.split('::');
                 dom += '<li><img src="static/img/temp/temp' + newList[3] + '.jpg" alt=""><p>' + worksList[i].title + '</p></li>'
@@ -337,14 +337,17 @@ function convertImageToCanvas(bg, image, ecode, title, text1, text2, text3, auth
 
     // ctx.translate(90, 180);//设置画布上的(0,0)位置，也就是旋转的中心点
     ctx.fillStyle = '#2e3192';   // 文字填充颜色
-    ctx.font = '90px Microsoft Yahei';
-    ctx.fillText(title, 105, 782);
-    ctx.font = '36px Microsoft Yahei';
-    ctx.fillText(text1, 105, 866);
-    ctx.fillText(text2, 105, 910);
-    ctx.fillText(text3, 105, 952);
-    ctx.font = '24px Microsoft Yahei';
-    ctx.fillText(author, 105, 1025);
+    ctx.font = '60px Microsoft Yahei';
+    ctx.fillText(title, 100, 756);
+    ctx.font = '30px Microsoft Yahei';
+    ctx.fillText(text1, 105, 833);
+    ctx.fillText(text2, 105, 869);
+    ctx.fillText(text3, 105, 905);
+    ctx.font = '21px Microsoft Yahei';
+    ctx.fillText(author, 105, 970);
+    ctx.fillStyle = '#999';   // 文字填充颜色
+    ctx.font = '18px Microsoft Yahei';
+    ctx.fillText('*长按保存图片', 105, 1042);
     ctx.restore();//恢复状态
 
     ctx.stroke();
