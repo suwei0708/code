@@ -1661,6 +1661,148 @@ body {
                 }
             }
         }
+        .luckysupporter {
+            padding: 30px 0;
+            .zt-tit {
+                .more {
+                    padding: 52px 0 0;
+                }
+            }
+            ul {
+                padding: 10px 0 0;
+                width: 1240px;
+                margin: 0 auto;
+                font-size: 0;
+            }
+            li {
+                .dis(ib);
+                vertical-align: top;
+                width: 222px;
+                margin: 93px 22px 0 0;
+                text-align: center;
+                background: #0d0d0d;
+                .img {
+                    overflow: hidden;
+                    position: relative;
+                    top: -57px;
+                    left: 0;
+                    width: 97px;
+                    height: 97px;
+                    margin: 0 auto -57px;
+                    -webkit-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    border: 8px solid #080808;
+                }
+                h2 {
+                    overflow: hidden;
+                    height: 38px;
+                    line-height: 38px;
+                    margin: 0 5px;
+                    font-size: 18px;
+                    a {
+                        color: #999;
+                        &:after {
+                            content: '';
+                            display: inline-block;
+                            *display: inline;
+                            *zoom: 1;
+                            vertical-align: middle;
+                            margin: -3px 0 0 10px;
+                            width: 17px;
+                            height: 19px;
+                            background: url(../images/prize.png) no-repeat 0 0;
+                        }
+                        &:hover {
+                            color: @yellow;
+                        }
+                    }
+                }
+                .avatar {
+                    padding: 15px 0 30px;
+                    img {
+                        margin: 0 5px;
+                        -webkit-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+        .address {
+            padding: 30px 0 60px;
+            .list {
+                padding: 42px 130px 50px 0;
+                margin: 35px 0 0;
+                font-size: 0;
+                background: #0d0d0d;
+                .tit {
+                    padding: 0 0 25px 60px;
+                    line-height: 30px;
+                    font-size: 14px;
+                    color: #666;
+                }
+                dl {
+                    font-size: 0;
+                    margin-bottom: 24px;
+                    dt {
+                        .dis(ib);
+                        vertical-align: top;
+                        width: 93px;
+                        text-align: right;
+                        font-size: 16px;
+                        color: #666;
+                        line-height: 52px;
+                    }
+                    dd {
+                        .dis(ib);
+                        vertical-align: top;
+                        margin-left: 30px;
+                        .input {
+                            width: 944px - 20px;
+                            padding: 0 10px;
+                            height: 50px;
+                            line-height: 50px;
+                            border: 1px solid #1b1b1b;
+                            font-size: 16px;
+                            color: #b6b6b6;
+                            background: #0d0d0d;
+                        }
+                        .btn {
+                            .dis(b);
+                            width: 140px;
+                            height: 44px;
+                            line-height: 44px;
+                            text-align: center;
+                            margin-top: 16px;
+                            border: 0;
+                            font-size: 16px;
+                            color: #0d0d0d;
+                            cursor: pointer;
+                            background: @brown;
+                            &:hover {
+                                background: @yellow;
+                            }
+                        }
+                    }
+                    &.half {
+                        .dis(ib);
+                        vertical-align: middle;
+                        width: 50%;
+                        dd {
+                            .input {
+                                width: 300px;
+                            }
+                        }
+                    }
+                    &.tr {
+                        text-align: right;
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -367,6 +367,22 @@ $(function() {
             $.ztMsg.Alert('tan', '抽奖次数用完啦，去竞猜十强赢奖品吧~', '竞猜十强', '竞猜.html#navlink');
         }
     });
+
+    // 公布结果保存地址
+    $('.zt-publish').on('click', '.address .btn', function() {
+        var len = 0;
+        $.each($(this).parents('.address').find('.input'), function(i) {
+            if(!$.trim($(this).val())) {
+                $.ztMsg.Alert('tan', $(this).parents('dl').find('dt').text() + '不能为空');
+                return false;
+            }
+            len++;
+        });
+        if(len == $(this).parents('.address').find('.input').length) {
+            $.ztMsg.Alert('gou', '提交成功');
+        }
+        return false;
+    });
 });
 })(jQuery);
 
