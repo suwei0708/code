@@ -36,8 +36,19 @@ app.init = function () {
         },
         all: function() {
             setTimeout(function() {
-                $('.loading').hide();
-                hanldeAnimate(0);
+                var loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+                var delayedTime = 3000;
+                if(loadTime >= delayedTime) {
+                    $('.loading').hide();
+                    hanldeAnimate(0);
+                }
+                else {
+                    setTimeout(function(){
+                        $('.loading').hide();
+                        hanldeAnimate(0);
+                    }, delayedTime - loadTime);
+                }
+
             }, 500);
         }
     });
@@ -126,7 +137,8 @@ function initPageEvents() {
     });
 
     // 换模版
-    var temp = 1;
+    var temp = rnd(1, 31);
+    $('#ringoImage').attr('src', 'static/img/temp/temp' + temp + '.jpg');
     $('.btn-switch').on('click', function() {
         var newTemp = rnd(1, 31);
         if(newTemp == temp) {
@@ -230,7 +242,6 @@ function initPageEvents() {
             var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
             var wxData = {
                 title: $.trim($('#form input[name=author]').val()) + '，2019，为长沙写首诗 ',
-                imgUrl: baseUrl + $('#ringoImage').attr('src'),
                 desc: '诗意狂欢，和一座城市跨年'
             };
             weixin.bindData(wxData);
@@ -336,18 +347,19 @@ function convertImageToCanvas(bg, image, ecode, title, text1, text2, text3, auth
     ctx.drawImage(ecode, 569, 1046, 135, 135);
 
     // ctx.translate(90, 180);//设置画布上的(0,0)位置，也就是旋转的中心点
-    ctx.fillStyle = '#2e3192';   // 文字填充颜色
+    ctx.fillStyle = '#4d4d4d';   // 文字填充颜色
     ctx.font = '60px Microsoft Yahei';
     ctx.fillText(title, 100, 756);
     ctx.font = '30px Microsoft Yahei';
     ctx.fillText(text1, 105, 833);
     ctx.fillText(text2, 105, 869);
     ctx.fillText(text3, 105, 905);
+    ctx.fillStyle = '#93918d';   // 文字填充颜色
     ctx.font = '21px Microsoft Yahei';
     ctx.fillText(author, 105, 970);
     ctx.fillStyle = '#999';   // 文字填充颜色
-    ctx.font = '18px Microsoft Yahei';
-    ctx.fillText('*长按保存图片', 105, 1042);
+    ctx.font = '15px Microsoft Yahei';
+    ctx.fillText('*长按保存图片', 588, 1007);
     ctx.restore();//恢复状态
 
     ctx.stroke();
