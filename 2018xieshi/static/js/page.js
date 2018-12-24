@@ -128,9 +128,9 @@ function initPageEvents() {
     // 换模版
     var temp = 1;
     $('.btn-switch').on('click', function() {
-        var newTemp = rnd(1, 10);
+        var newTemp = rnd(1, 31);
         if(newTemp == temp) {
-            if(newTemp == 10) {
+            if(newTemp == 31) {
                 newTemp = 1;
             }
             else {
