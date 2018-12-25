@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(../../../common/common-pc.less);
+@import url(../../../../common/common-pc.less);
 
 @red: #dc0000;
 @cb-ah: #a7231a;
@@ -304,8 +304,20 @@ body {
             background: url(../images/header-bg.jpg) repeat-x 0 0;
             .logo {
                 .dis(b);
-                padding: 27px 0 0;
-                height: 51px;
+                padding: 21px 0 0;
+                height: 56px;
+            }
+            .nav {
+                line-height: 28px;
+                padding: 53px 0 0;
+                a {
+                    margin-left: 26px;
+                    font-size: 14px;
+                    color: #000;
+                    &:hover, &.brown {
+                        color: @brown;
+                    }
+                }
             }
         }
     }
@@ -356,6 +368,7 @@ body {
         li {
             padding: 12px 0 7px;
             border-bottom: 1px solid #e6e6e6;
+            .cl();
         }
         .line {
             .dis(ib);
@@ -529,7 +542,8 @@ body {
                 vertical-align: top;
                 line-height: 44px;
                 font-size: 24px;
-                padding: 0 22px;
+                width: 135px;
+                text-align: center;
                 border-bottom: 4px solid #bfbfbf;
                 &.cur, &:hover {
                     color: #a1745b;
@@ -562,13 +576,6 @@ body {
                 text-align: right;
                 font-size: 12px;
                 color: #969696;
-            }
-        }
-        &.mt40 {
-            .tab-tit {
-                a {
-                    padding: 0 23px;
-                }
             }
         }
     }
@@ -660,6 +667,31 @@ body {
                             .dis(n);
                         }
                     }
+                }
+            }
+        }
+    }
+    // 新书推荐
+    &-xstj {
+        .cb-list {
+            padding: 18px 0 0;
+            li {
+                padding: 14px 0;
+                img {
+                    margin-right: 17px;
+                }
+                h3 {
+                    font-size: 14px;
+                    line-height: 18px;
+                    height: 18px * 3;
+                }
+                p {
+                    padding: 5px 0 0;
+                    line-height: 22px;
+                    height: 22px * 3;
+                    max-height: none;
+                    font-size: 12px;
+                    color: #464646;
                 }
             }
         }
