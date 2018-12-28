@@ -34,6 +34,10 @@ $(function() {
             hoverPause: true
         });
     };
+
+    $('.wh-sycc').on('mouseover', 'li', function() {
+        $(this).addClass('cur').siblings().removeClass('cur');
+    });
 });
 })(jQuery);
 

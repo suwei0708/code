@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(../../../common/common-pc.less);
+@import url(../../../../common/common-pc.less);
 
 @red: #dc0000;
 @wh: #a6937c;
@@ -480,9 +480,9 @@ body {
             }
         }
         .list {
-            margin: 40px 0 0 0;
+            margin: 15px 0 0 0;
             li {
-                .height(31px);
+                .height(36px);
                 .text-e(1);
                 font-size: 16px;
                 a {
@@ -573,32 +573,39 @@ body {
         }
     }
     // 守艺传承,戏剧歌舞
-    &-sycc, &-xjgw {
-        .item {
-            width: 230px;
-            margin: 25px 7px 0 0;
-        }
+    &-sycc {
         .list {
-            margin: 25px 0 0;
+            .pos(r);
+            margin: 25px 0 0 237px;
             li {
-                max-height: 24px * 2;
-                line-height: 24px;
-                .text-e(2);
-                border-top: 1px solid #fff;
-                border-bottom: 1px solid #e5e5e5;
+                p {
+                    max-height: 24px * 2;
+                    line-height: 24px;
+                    .text-e(2);
+                    border-top: 1px solid #fff;
+                    border-bottom: 1px solid #e5e5e5;
+                }
+                img {
+                    .dis(n);
+                    .pos(a);
+                    top: 0;
+                    left: -237px;
+                    width: 230px;
+                    height: 200px;
+                    max-width: none;
+                }
                 a {
                     .dis(b);
                     color: #0e0e0e;
                     font-size: 14px;
-                    &:hover {
+                }
+                &.cur {
+                    p {
                         background: #f6f6f6;
                         color: @wh;
                     }
-                }
-                &.first {
-                    a {
-                        background: #f6f6f6;
-                        color: @wh;
+                    img {
+                        .dis(b);
                     }
                 }
             }
