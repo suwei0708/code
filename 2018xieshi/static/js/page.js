@@ -207,6 +207,10 @@ function initPageEvents() {
             alert('标题不能为空！');
             return false;
         }
+        else if(!$.trim(author)) {
+            alert('作者不能为空！');
+            return false;
+        }
         else if(!$.trim(text1)) {
             alert('第一行字不能为空！');
             return false;
@@ -217,10 +221,6 @@ function initPageEvents() {
         }
         else if(!$.trim(text3)) {
             alert('第三行字不能为空！');
-            return false;
-        }
-        else if(!$.trim(author)) {
-            alert('作者不能为空！');
             return false;
         }
 
@@ -345,6 +345,8 @@ function convertImageToCanvas(bg, image, ecode, title, text1, text2, text3, auth
     ctx.drawImage(image, 48, 70, 654, 558);
 
     ctx.drawImage(ecode, 569, 1046, 135, 135);
+
+    ctx.drawImage(document.getElementById('logo'), 593, 908, 85, 63);
 
     // ctx.translate(90, 180);//设置画布上的(0,0)位置，也就是旋转的中心点
     ctx.fillStyle = '#4d4d4d';   // 文字填充颜色
