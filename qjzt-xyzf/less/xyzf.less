@@ -1,0 +1,170 @@
+/**
+ *  MAIN -----------------
+ *  页面样式代码
+ */
+@import url(../../../common/common-pc.less);
+@page-w: 1220px;
+@green: #2ed25d;
+@green-h: #48f579;
+@blue: #0097f8;
+@blue-h: #26a5ff;
+@yellow: #ffa800;
+@yellow-h: #ffba00;
+.xyzf {
+    &-banner {
+        .ov(h);
+        .wrap {
+            .pos(r);
+        }
+        &-big {
+            height: 500px;
+            img {
+                .pos(a);
+                top: 0;
+                left: 50%;
+                width: 1920px;
+                height: 500px;
+                margin-left: -1920px / 2;
+                max-width: none;
+            }
+        }
+        &-small {
+            .ovy(a);
+            .pos(a);
+            top: 35px;
+            right: 0;
+            width: 300px;
+            height: 150px * 3;
+            li {
+                margin-bottom: 20px;
+                cursor: pointer;
+                .opacity(.8);
+                img {
+                    width: 300px;
+                    height: 130px;
+                    .bdr(4px);
+                }
+                &.cur {
+                    .opacity(1);
+                }
+            }
+        }
+    }
+    &-sld1 {
+        .pos(r);
+        .sld1-img {
+            width: @page-w + 10px;
+            font-size: 0;
+            margin-right: -16px;
+            li {
+                .dis(ib);
+                vertical-align: top;
+                width: 394px - 102;
+                padding: 64px 40px 38px 62px;
+                margin-right: 16px;
+                background: #fff;
+                .bdr(4px);
+                img {
+                    width: 80px;
+                    height: 80px;
+                    .bdr(50%);
+                }
+            }
+            .tit {
+                line-height: 30px;
+                padding: 35px 0 0;
+                font-size: 14px;
+                color: #999;
+                h3 {
+                    .dis(i);
+                    font-weight: 700;
+                    color: #333;
+                    font-size: 16px;
+                    margin-right: 20px;
+                }
+            }
+            .cont {
+                .ov(h);
+                height: 32px * 2;
+                line-height: 32px;
+                margin-top: 26px;
+                .text-e(2);
+                font-size: 16px;
+                color: #444;
+            }
+            .more {
+                line-height: 34px;
+                padding: 34px 0 0;
+                a {
+                    .dis(ib);
+                    vertical-align: top;
+                    width: 110px;
+                    height: 34px;
+                    line-height: 34px;
+                    font-size: 14px;
+                    color: #999;
+                }
+            }
+        }
+        .qj-fanyezuobianjiantou, .qj-fanyeyoubianjiantou {
+            font-family:"qjfont" !important;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0;
+            // .dis(n);
+            position: absolute;
+            top: 0;
+            .ov(h);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            z-index: 55;
+            cursor: pointer;
+            color: #d1d1d1;
+            text-align: center;
+            &:before {
+                font-size: 20px;
+            }
+        }
+        .qj-fanyezuobianjiantou {
+            left: 0;
+        }
+        .qj-fanyeyoubianjiantou {
+            right: 0;
+        }
+        &:hover {
+            .qj-fanyezuobianjiantou, .qj-fanyeyoubianjiantou {
+                .dis(b);
+            }
+        }
+    }
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+    z-index: 6;
+    width: 100%;
+    height: 8px;
+    line-height: 8px;
+    text-align: center;
+    li {
+        .dis(i);
+    }
+    a {
+        .dis(ib);
+        .ov(h);
+        width: 8px;
+        height: 8px;
+        margin: 0 3px;
+        background: #dddddd;
+        line-height: 200px;
+        .bdr(8px);
+    }
+    .cur {
+        a {
+            background: #666;
+        }
+    }
+}
