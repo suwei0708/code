@@ -1,4 +1,24 @@
 $(function() {
+    // 右侧悬浮选中
+    setTimeout(function() {
+        if(!$('.xyzf-talk').find('.hover').length) {
+            $('.xyzf-talk').find('.cur').removeClass('cur').addClass('hover');
+        }
+    }, 2000);
+    $('.xyzf-talk').on('mouseover', 'li', function() {
+        if(!$('.xyzf-talk').find('.hover').length) {
+            $('.xyzf-talk').find('.cur').removeClass('cur');
+        }
+        $(this).find('a').addClass('hover').parent().siblings('li').find('a').removeClass('hover');
+    });
+
+    // 右侧悬浮电话弹窗
+    $('.xyzf-talk').on('click', 'li', function() {
+        if($(this).index() == 2) {
+            $('.popup-xyphone, .mask').show();
+        }
+    })
+
     $('.xyzf-banner-big').find('li').hide().eq(0).show();
     $('.xyzf-banner-small').find('li').eq(0).addClass('cur');
     $('.xyzf-banner-small').on('mouseover', 'li', function() {
