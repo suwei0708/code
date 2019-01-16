@@ -1,0 +1,417 @@
+/**
+ *  MAIN -----------------
+ *  页面样式代码
+ */
+@import url(../../../common/common-pc.less);
+
+body {
+    .ovx(h);
+    margin: 0;
+    padding: 0;
+    font: 16px Microsoft YaHei, "\5B8B\4F53", Arial, HELVETICA;
+    color: #333;
+    background: #0d0e4c;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, blockquote, p {
+    padding: 0;
+    margin: 0;
+}
+ol, ul, li {
+    list-style: none;
+}
+input, button {
+    font-family: "Microsoft YaHei";
+}
+img {
+    vertical-align: top;
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+a, label {
+    blr: ~'expression(this.onFocus=this.blur())';
+}
+a {
+    text-decoration: none;
+}
+:focus {
+    outline-style: none;
+}
+.fl {
+    float: left;
+    _display: inline;
+}
+.fr {
+    float: right;
+    _display: inline;
+}
+@page-w: 1000px;
+.wraps {
+    width: @page-w;
+    margin: 0 auto;
+}
+.img {
+    .ov(h);
+    width: 100%;
+    height: 500px;
+    .bg-img {
+        .pos(a);
+        top: 0;
+        left: 50%;
+        width: 2560px;
+        max-width: none;
+        margin-left: -2560px / 2;
+    }
+    .wraps {
+        .pos(r);
+        height: 100%;
+    }
+    .btn {
+        .pos(a);
+        .ov(h);
+        width: 182px;
+        height: 64px;
+        font-size: 0;
+        // background: rgba(0, 0, 0, .5);
+    }
+    &1 {
+        &-3 {
+            .btn {
+                top: 167px;
+                height: 50px;
+                &1 {
+                    left: 231px;
+                }
+                &2 {
+                    left: 745px;
+                }
+            }
+        }
+        &-5 {
+            height: 469px;
+        }
+    }
+    &2 {
+        height: 650px;
+    }
+    &3 {
+        &-2 {
+            .btn {
+                top: 42px;
+                left: 664px;
+            }
+        }
+        &-3 {
+            .ov(v);
+            .wraps {
+                .ov(v);
+            }
+            .btn {
+                height: 70px;
+                top: -30px;
+                left: 821px;
+            }
+        }
+        &-4 {
+            .ov(v);
+            .wraps {
+                .ov(v);
+            }
+            .btn1 {
+                top: -31px;
+                left: 0;
+            }
+            .btn2 {
+                height: 70px;
+                top: 424px;
+                left: 820px;
+            }
+        }
+        &-5 {
+            .btn {
+                top: 445px;
+                height: 50px;
+                &1 {
+                    left: 231px;
+                }
+                &2 {
+                    left: 745px;
+                }
+            }
+        }
+        &-6 {
+            height: 418px;
+        }
+    }
+    &4 {
+
+    }
+    &5 {
+        height: 660px;
+        .btn {
+            top: 441px;
+            left: 657px;
+        }
+    }
+    &6 {
+        height: 580px;
+    }
+}
+.btn-talk {
+    @w: 186px;
+    @h: 392px;
+    .pos(f);
+    _position: absolute;
+    z-index: 999;
+    top: 50%;
+    right: 10px;
+    width: @w;
+    height: @h;
+    margin-top: -(@h) / 2px;
+
+    img {
+        width: @w;
+        height: @h;
+    }
+}
+
+.zt-blue {
+    color: #abfbc1;
+}
+.zt-yellow {
+    color: #ffae00;
+}
+.scrollbox {
+    .pos(a);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 418px;
+    overflow: hidden;
+    height: 375px;
+    padding-top: 150px;
+    padding-left: 38px;
+    li {
+        line-height: 50px;
+        margin-bottom: 15px;
+        .cl();
+        font-size: 16px;
+    }
+    .img {
+        width: 50px;
+        height: 50px;
+        float: left;
+        .bdr(50%);
+    }
+    .name {
+        .dis(b);
+        width: 120px;
+        .text-e(1);
+        margin-left: 18px;
+    }
+    .cont {
+        margin-left: 10px;
+        color: #3553a3;
+    }
+    .time {
+        color: #3553a3;
+    }
+}
+#scrollDiv {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#sld-zt{
+    @h: 375px;
+    .pos(a);
+    top: 0px;
+    left: 0;
+    width: 1012px;
+    margin: 0 auto;
+    height: @h;
+    clear: both;
+
+    .slides_container {
+        width: 1012px;
+        height: @h;
+        .ov(h);
+    }
+    .pagination {
+        .pos(a);
+        bottom: -40px;
+        left: 0;
+        z-index: 9;
+        width: 100%;
+        height: 12px;
+        line-height: 12px;
+        text-align: center;
+        li {
+            .dis(ib);
+            vertical-align: top;
+            margin: 0 4px;
+        }
+        a {
+            .ov(h);
+            .dis(ib);
+            vertical-align: top;
+            width: 8px;
+            height: 8px;
+            border: 2px solid #3553a3;
+            .bdr(50%);
+            font-size: 0;
+            line-height: 200%;
+        }
+        .cur a {
+            width: 12px;
+            height: 12px;
+            border: 0;
+            background: #3553a3;
+        }
+    }
+}
+
+#times {
+    .pos(a);
+    top: 212px;
+    left: 295px;
+    text-align: center;
+    font-size: 0;
+    .item {
+        .dis(ib);
+        vertical-align: top;
+        margin-right: 20px;
+        .num {
+            &-bg {
+                .ov(h);
+                display: inline-block;
+                vertical-align: middle;
+                width: 42px;
+                height: 71px;
+                line-height: 74px;
+                margin: 0 1px;
+                text-align: center;
+                *font-size: 55px;
+                span {
+                    width: 21px;
+                    height: 30px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    background: url(../images/times.png) no-repeat;
+                }
+                .num {
+                    &0 {
+                        background-position: center 0;
+                    }
+                    &1 {
+                        background-position: center -40px;
+                    }
+                    &2 {
+                        background-position: center -40px * 2;
+                    }
+                    &3 {
+                        background-position: center -40px * 3;
+                    }
+                    &4 {
+                        background-position: center -40px * 4;
+                    }
+                    &5 {
+                        background-position: center -40px * 5;
+                    }
+                    &6 {
+                        background-position: center -40px * 6;
+                    }
+                    &7 {
+                        background-position: center -40px * 7;
+                    }
+                    &8 {
+                        background-position: center -40px * 8;
+                    }
+                    &9 {
+                        background-position: center -40px * 9;
+                    }
+                }
+            }
+        }
+    }
+    .dot {
+        .pos(r);
+        .dis(ib);
+        vertical-align: middle;
+        width: 9px;
+        height: 71px;
+        margin: 0 5px;
+        span {
+            .dis(b);
+            width: 9px;
+            height: 9px;
+            margin-top: 42px;
+            background: #bbb;
+            .bdr(50%);
+            &.dot1 {
+                margin-top: 25px;
+            }
+            &.dot2 {
+                margin-top: 4px;
+            }
+        }
+    }
+    .bar {
+        .dis(ib);
+        vertical-align: middle;
+        height: 71px;
+        margin: 0 15px;
+        span {
+            .dis(b);
+            width: 22px;
+            height: 7px;
+            margin-top: 32px;
+            background: #bbb;
+        }
+    }
+}
+
+.silder-box-zt {
+    position: relative;
+    z-index: 9;
+    margin: 0 auto;
+    width: @page-w;
+    font-size: 14px;
+    .silder {
+        .ov(h);
+        width: @page-w;
+        height: 340px;
+    }
+
+    li {
+        .pos(r);
+        .ov(h);
+        float: left;
+        width: 200px;
+        height: 638px;
+    }
+    .zt-btn {
+        position: absolute;
+        top: 310px;
+        cursor: pointer;
+        width: 10px;
+        height: 16px;
+        background: url(../images/arrow.png) no-repeat;
+    }
+    .left1 {
+        left: -58px;
+        background-position: center -16px;
+        &:hover {
+            background-position: center 0;
+        }
+    }
+    .right1 {
+        right: -58px;
+        background-position: center -48px;
+        &:hover {
+            background-position: center -32px;
+        }
+    }
+}
