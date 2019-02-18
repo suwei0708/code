@@ -1,0 +1,23 @@
+{
+  "index.html": {
+    "resources": [
+      "html/tab1.html"
+    ],
+    "refer": [
+      "html/tab1.html",
+      "html/tab2.html",
+      "html/tab3.html"
+    ]
+  },
+  "html/tab1.html": {
+    "resources": [
+      "html/tab1_guanzhu.html"
+    ],
+    "refer": [
+      "html/tab1_tuijian.html",
+      "html/tab1_guanzhu.html",
+      "html/tab1_wenzhang.html",
+      "html/tab1_linggan.html"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style>
+			.systemList li .right img{
+				width: 50%;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="systemList">
+					<li>
+						<div class="left">
+							<img src="../images/icon_tx.jpg" >
+						</div>
+						<div class="right">
+							<h3>可乐加冰啊</h3>
+							<p>怎么样才能和你一样优秀?</p>
+							<time>2天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<img src="../images/icon_tx.jpg" >
+						</div>
+						<div class="right">
+							<h3>久布设计</h3>
+							<p>小丑老师能不能发那个女王节做手表的链接素材给我，你那个不存在了！</p>
+							<time>2天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<img src="../images/icon_tx.jpg" >
+						</div>
+						<div class="right">
+							<h3>陆启超</h3>
+							<p>终于找到站在巅峰的男人了~~~~~~~</p>
+							<div class="workReview_list_time_pinglun">
+								<ul>
+									<li><strong>OOCCFF/小丑：</strong>链接：https://pan.baidu.com/s/1NanfoIsqf-QyUSA9ZvMObA 密码：kj38</li>
+									<li><strong>青博</strong><em>回复</em><strong>陆启操：</strong> 谢谢分享</li>
+								</ul>
+								<a class="zhankai">展开<em>7</em>条回复</a>
+							</div>
+							<time>2天前</time>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			//页面滚动
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/icon.css" rel="stylesheet" />
+		<link href="../css/swiper.min.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-title {
+				font-size: 1.8rem;
+				color: #333;
+			}
+			.mui-title .mui-badge{
+				padding: 4px;
+				background: #21bb1d;
+				margin-right: .5rem;
+				margin-top: -5px;
+			}
+			.mui-scrollbar {
+				display: none !important;
+			}
+		</style>
+	</head>
+
+	<body style="background: #f7f8fa;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title"><span class="mui-badge"></span>宝爷在上</h1>
+			<a class="mui-pull-right iconRight"><i class="icon icon-gengduo" style="color: #666;font-size: 2rem;"></i></a>
+		</header>
+		
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="padding: 13rem 0 7rem 0;background: #f7f8fa;">
+			<div class="mui-scroll">
+				<ul class="chatList">
+					<li class="left">
+						<time>2018.10.24   10:50</time>
+						<div class="content">
+							<img src="../images/icon_tx.jpg" >
+							<p>
+								我是个初级设计， 看了你的海报创意以及视觉， 内心非常崇拜。能否请教一下，这个人物的皮肤为何这么清晰。
+							</p>
+						</div>
+					</li>
+					<li class="right">
+						<time>2018.10.25   10:50</time>
+						<div class="content">
+							<img src="../images/icon_tx.jpg" >
+							<p>
+								多去观察人家作品的细节，多做练习。
+							</p>
+						</div>
+					</li>
+					<li class="left">
+						<time>2018.10.26   10:50</time>
+						<div class="content">
+							<img src="../images/icon_tx.jpg" >
+							<p>
+								我是个初级设计， 看了你的海报创意以及视觉， 内心非常崇拜。能否请教一下，这个人物的皮肤为何这么清晰。
+							</p>
+						</div>
+					</li>
+					<li class="right">
+						<time>08:50</time>
+						<div class="content">
+							<img src="../images/icon_tx.jpg" >
+							<p>
+								多去观察人家作品的细节，多做练习。
+							</p>
+						</div>
+					</li>
+					<li class="left">
+						<time>10:50</time>
+						<div class="content">
+							<img src="../images/icon_tx.jpg" >
+							<p>
+								我是个初级设计， 看了你的海报创意以及视觉， 内心非常崇拜。能否请教一下，这个人物的皮肤为何这么清晰。
+							</p>
+						</div>
+					</li>
+					<li class="right">
+						<time></time>
+						<div class="content">
+							<img src="../images/icon_tx.jpg" >
+							<p>
+								多去观察人家作品的细节，多做练习。
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- 头部 个人列表 -->
+		<div class="swiper-container chatFixed">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"><span class="mui-badge"></span></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+				<div class="swiper-slide" title="宝爷在上" style="background-image:url(../images/icon_tx.jpg)"></div>
+			</div>
+		</div>
+		<!-- 头部半圆弧度 -->
+		<div class="chatFixedImg"></div>
+		
+		<!-- 底部发送按钮 -->
+		<div class="chatInput">
+			<input type="text" placeholder="请输入..." />
+			<a>发送</a>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/swiper.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			//跳转到指定索引 swiper.slideTo(5);
+			var swiper = new Swiper('.swiper-container', {
+				slideToClickedSlide:true,
+				centeredSlides: true,
+				slidesPerView: 'auto',
+				loop : false,
+				onSlideChangeEnd : function(e){
+					var activeTitle = $('.swiper-slide-active').attr("title");
+					//console.log(e.activeIndex)
+					//console.log(activeTitle)
+					$('.mui-title').text(activeTitle)
+				}
+				// spaceBetween: 20
+			});
+			
+			//发送按钮 事件
+			document.querySelector('.chatInput a').addEventListener('tap',function(){
+				var inputVale = $('.chatInput input').val();
+				if (inputVale == '') {
+					mui.toast('发送内容不能为空！');
+					return;
+				}
+				mui.toast(inputVale);
+				//关闭软键盘
+				document.activeElement.blur();
+				$('.chatInput input').val('');
+			})
+			
+			//页面滚动
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			
+			// 右上角 打开 举报页面
+			document.querySelector('.iconRight').addEventListener('tap',function(){
+				mui.openWindow({
+					url: 'report.html',
+					id: 'report.html',
+					extras: {},
+					show: {
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false,
+					}
+				});
+			});
+			
+			// 判断 time 为空的时候隐藏time
+			mui('.chatList time').each(function(){
+				var timeText = $(this).text();
+				if (timeText == '') {
+					$(this).hide();
+				} 
+			})
+		</script>
+	</body>
+
+</html>

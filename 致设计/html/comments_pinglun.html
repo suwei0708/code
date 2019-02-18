@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style>
+			.systemList li .right img{
+				width: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="systemList">
+					<li>
+						<div class="left">
+							<img src="../images/icon_tx.jpg" >
+						</div>
+						<div class="right">
+							<h3>宝爷在上</h3>
+							<p>在此，我承认视觉效果非常不错，但是我有个问题，在视觉效果和产品营销，两者取其重，会突出那个？做设计的，会注重视觉效果，消费者注重商品和宣传，上面的图片我比较喜欢第二张，第三张和最后一张，效果比较好的是..</p>
+							<img src="../images/xiaoxi.jpg" >
+							<div class="workReview_list_time_pinglun">
+								<ul>
+									<li><strong>路启超：</strong>有目的学习，带着问题看书，听完老师的课真的很受用，谢谢老师的讲解！</li>
+									<li><strong>青博</strong><em>回复</em><strong>陆启操：</strong> 谢谢分享</li>
+								</ul>
+								<a class="zhankai">展开<em>7</em>条回复</a>
+							</div>
+							<time>2天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<img src="../images/icon_tx.jpg" >
+						</div>
+						<div class="right">
+							<h3>宝爷在上</h3>
+							<p>在此，我承认视觉效果非常不错，但是我有个问题，在视觉效果和产品营销</p>
+							<img src="../images/xiaoxi.jpg" >
+							<time>2天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<img src="../images/icon_tx.jpg" >
+						</div>
+						<div class="right">
+							<h3>宝爷在上</h3>
+							<p>在此，我承认视觉效果非常不错，但是我有个问题，在视觉效果和产品营销</p>
+							<img src="../images/xiaoxi.jpg" >
+							<time>2天前</time>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			//页面滚动
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+		</script>
+	</body>
+
+</html>
