@@ -86,4 +86,7 @@ $(function() {
             prev: 'izf-fanyel'
         });
     }
+
+    // 点击小图显示大图
+    jQuery_New("a[rel^='gallery[modal]']").prettyPhoto({theme: 'duotive-modal', opacity:0.5, show_title: false, overlay_gallery:true});
 });
