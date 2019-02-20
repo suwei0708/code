@@ -1,0 +1,98 @@
+@charset "utf-8";
+@import url(../../../common/flexible.less);
+@import url(../../../common/common.less);
+
+@page-w: 750;
+.wrap {
+    background: #5e11ca;
+}
+.ztimg {
+    .pos(r);
+    img {
+        .dis(b);
+        width: 100%;
+    }
+    .btn {
+        .pos(a);
+        left: 50%;
+        .translateX(-50%);
+    }
+    &1 {
+        .btn {
+            .t(376);
+            .w(189);
+        }
+    }
+    &4 {
+        .btn {
+            .t(402);
+            .w(590);
+        }
+    }
+}
+
+.box-zt {
+    background: none;
+    .tit {
+        .h(137);
+        .mgs(b, -70);
+    }
+    .list {
+        .w(690);
+        .pd(90, 0, 50);
+        margin: 0 auto;
+        background: #f8f8f8;
+        .bdr(14 / 75rem);
+        ul {
+            .pds(l, 25);
+        }
+        li {
+            .w(290);
+            .mg(20, 0, 0, 20);
+            border: none;
+            background: #fff;
+            .bdr(10 / 75rem);
+            img {
+                .dis(b);
+                .w(290);
+                .h(210);
+                .pos(s);
+                .bdr(10 / 75rem);
+            }
+            a {
+                .dis(b);
+                .pos(r);
+            }
+            p {
+                text-align: right;
+            }
+            .btn {
+                .mg(-3, 10, 0, 0);
+            }
+            .ico3 {
+                display: inline-block;
+                vertical-align: middle;
+                background: url(https://www.qiaojiang.tv/Public/Static/images/qj-ico3.png) no-repeat;
+                background-size: 297px 152px;
+            }
+            .ico3-lz {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 9;
+                width: 76px;
+                height: 54px;
+                background-position: -60px 0;
+            }
+        }
+        > .btn {
+            .dis(b);
+            .w(590);
+            margin: 0 auto;
+            .mgs(t, 50);
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
