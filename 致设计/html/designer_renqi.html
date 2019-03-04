@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/icon.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style>
+			.inspirationA{
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 3;
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="inspirationA">
+			<a>周排行</a>|
+			<a>月排行</a>|
+			<a>总排行</a>
+		</div>
+		
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="padding-top: 5rem;">
+			<div class="mui-scroll">
+				<div class="designerTop">
+					<img src="../images/icon_tx1.jpg" >
+					<h3>宝爷在上<i class="icon icon-tuijianshejishi" style="color: #ff6c00;"></i><i class="icon icon-zhuanfangshejishi" style="color: #0084ff;"></i></h3>
+					<p>思想和灵魂自由、狂热的舞！</p>
+					<div>
+						<span>总排行 109052</span>
+						<span>人气 <em>191</em></span>
+						<span>粉丝 <em>1090</em></span>
+					</div>
+				</div>
+				
+				<ul class="designerUl">
+					<li>
+						<div class="left">
+							<span>1</span>
+						</div>
+						<div class="right">
+							<div class="title">
+								<div class="img">
+									<img src="../images/icon_tx.jpg" >
+									<h3>宝爷在上</h3>
+									<span>人气  <em>36</em></span>
+								</div>
+								<a>关注</a>
+							</div>
+							<div class="zuopin">
+								<img src="../images/zuopin1.jpg" >
+								<img src="../images/zuopin2.jpg" >
+								<img src="../images/zuopin1.jpg" >
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<span>2</span>
+						</div>
+						<div class="right">
+							<div class="title">
+								<div class="img">
+									<img src="../images/icon_tx.jpg" >
+									<h3>宝爷在上</h3>
+									<span>人气  <em>36</em></span>
+								</div>
+								<a>关注</a>
+							</div>
+							<div class="zuopin">
+								<img src="../images/zuopin1.jpg" >
+								<img src="../images/zuopin2.jpg" >
+								<img src="../images/zuopin1.jpg" >
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<span>3</span>
+						</div>
+						<div class="right">
+							<div class="title">
+								<div class="img">
+									<img src="../images/icon_tx.jpg" >
+									<h3>宝爷在上</h3>
+									<span>人气  <em>36</em></span>
+								</div>
+								<a>关注</a>
+							</div>
+							<div class="zuopin">
+								<img src="../images/zuopin1.jpg" >
+								<img src="../images/zuopin2.jpg" >
+								<img src="../images/zuopin1.jpg" >
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<span>4</span>
+						</div>
+						<div class="right">
+							<div class="title">
+								<div class="img">
+									<img src="../images/icon_tx.jpg" >
+									<h3>宝爷在上</h3>
+									<span>人气  <em>36</em></span>
+								</div>
+								<a>关注</a>
+							</div>
+							<div class="zuopin">
+								<img src="../images/zuopin1.jpg" >
+								<img src="../images/zuopin2.jpg" >
+								<img src="../images/zuopin1.jpg" >
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			mui('.inspirationA').on('tap','a',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			var scroll = mui('.mui-scroll-wrapper').scroll();
+			document.querySelector('.mui-scroll-wrapper' ).addEventListener('scroll', function (e ) {
+				if (scroll.y >= -40) {
+					$('.inspirationA').css('border-bottom','1px solid #fff');
+				} else {
+					$('.inspirationA').css('border-bottom','1px solid #eee');
+				}
+			})
+		</script>
+	</body>
+
+</html>

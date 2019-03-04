@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style>
+			.tabChildA a{
+				padding: 0 3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #eee;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="tabChildA">
+				<a class="mui-active" id="defaultTab" href="comments_pinglun.html">评论</a>
+				<a href="comments_liuyan.html">留言</a>
+			</div>
+		</header>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//分类 子页面
+			var subpages = ['comments_pinglun.html', 'comments_liuyan.html'];
+			var subpage_style = {
+				top: '44px',
+				bottom: '0px'
+			};
+			var aniShow = {};
+			
+			mui.plusReady(function() {
+				//循环子页面
+				var self = plus.webview.currentWebview();
+				for (var i = 0; i < 2; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if (i > 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow, temp);
+					}
+					self.append(sub);
+				}
+				
+				//首次进来 加载页面
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".tabChildA>a.mui-active");
+				if (defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
+			
+			//当前激活选项
+			var activeTab = subpages[0];
+			//选项卡点击事件
+			mui('.tabChildA').on('tap', 'a', function(e) {
+				$(this).addClass('mui-active').siblings().removeClass('mui-active');
+				var targetTab = this.getAttribute('href');
+				if (targetTab == activeTab) {
+					return;
+				}
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if (mui.os.ios || aniShow[targetTab]) {
+					plus.webview.show(targetTab);
+				} else {
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow, temp);
+					plus.webview.show(targetTab, "fade-in", 300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+		</script>
+	</body>
+
+</html>

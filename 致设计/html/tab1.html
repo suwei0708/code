@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/icon.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #eee;">
+			<div class="search mui-pull-left" id="search"><span class="icon icon-fangdajing"></span></div>
+			<div class="tabChildA mui-scroll" style="left: 0;">
+				<a class="mui-control-item mui-active" data-wid="tab1_guanzhu.html">关注</a>
+				<a class="mui-control-item" data-wid="tab1_tuijian.html" id="defaultTab">推荐</a>
+				<a class="mui-control-item" data-wid="tab1_wenzhang.html">文章</a>
+				<a class="mui-control-item" data-wid="tab1_linggan.html">灵感</a>
+			</div>
+			<div class="tab1Lei mui-pull-right" id="tab1Lei"><span class="icon icon-fenlei"></span></div>
+		</header>
+
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/webviewGroup.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			var group = null;
+			mui.plusReady(function() {
+				var _self = plus.webview.currentWebview();
+				group = new webviewGroup(_self.id, {
+					items: [{
+						id: "tab1_guanzhu.html",
+						url: "tab1_guanzhu.html",
+						styles:{
+							top: '44px',
+							bottom: '0px'
+						},
+						extras: {}
+					}, {
+						id: "tab1_tuijian.html",
+						url: "tab1_tuijian.html",
+						styles:{
+							top: '44px',
+							bottom: '0px'
+						},
+						extras: {}
+					}, {
+						id: "tab1_wenzhang.html",
+						url: "tab1_wenzhang.html",
+						styles:{
+							top: '44px',
+							bottom: '0px'
+						},
+						extras: {}
+					}, {
+						id: "tab1_linggan.html",
+						url: "tab1_linggan.html",
+						styles:{
+							top: '44px',
+							bottom: '0px'
+						},
+						extras: {}
+					}],
+					onChange: function(obj) {
+						var c = document.querySelector(".mui-control-item.mui-active");
+						if(c) {
+							c.classList.remove("mui-active");
+						}
+						var target = document.querySelector(".mui-scroll .mui-control-item:nth-child(" + (parseInt(obj.index) + 1) + ")");
+						target.classList.add("mui-active");
+						if(target.scrollIntoView) {
+							target.scrollIntoView();
+						}
+					}
+				});
+				
+				//首次进来 加载推荐页面
+				if(mui.os.android){
+					//console.log('安卓')
+					setTimeout(function(){
+						if ($('.tabChildA a.mui-active').text() != '推荐') {
+							var defaultTab = document.getElementById("defaultTab");
+							//模拟首页点击
+							mui.trigger(defaultTab, 'tap');
+						}
+					},200)
+				} else{
+					//console.log('苹果')
+					group.switchTab('tab1_tuijian.html');
+				}
+					
+	   				
+			});
+			//点击切换
+			mui(".mui-scroll").on("tap", ".mui-control-item", function(e) {
+				$(this).addClass('mui-active').siblings().removeClass('mui-active');
+				var wid = this.getAttribute("data-wid");
+				group.switchTab(wid);
+			});
+
+
+			//搜索打开新页面
+			document.getElementById('search').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'search.html',
+					id: 'search.html',
+					extras: {},
+					show: {
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false,
+					}
+				})
+			})
+			
+			//分类打开页面
+			document.getElementById('tab1Lei').addEventListener('tap', function() {
+				var textActive = $('.tabChildA .mui-active').text();
+				if (textActive == '推荐' || textActive == '文章' || textActive == '灵感') {
+					mui.openWindow({
+						url: 'tab1_class.html',
+						id: 'tab1_class.html',
+						extras: {
+							textActive:textActive
+						},
+						show: {
+							autoShow: true,
+						},
+						waiting: {
+							autoShow: false,
+						}
+					});
+				} 
+			})
+		</script>
+	</body>
+
+</html>

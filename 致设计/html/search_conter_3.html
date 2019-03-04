@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.css">
+		<link rel="stylesheet" href="../css/icon.css">
+		<link rel="stylesheet" href="../css/public.css">
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="articleA">
+					<a>领域</a>
+					<a>精选</a>
+					<a>排序</a>
+				</div>
+				<ul class="articleUl list">
+					<li>
+						<div class="conttent">
+							<div class="left">
+								<img src="../images/wenzhang.jpg" alt="">
+							</div>
+							<div class="right">
+								<h2 class="mui-ellipsis-2">高手如何玩转汽车海报 <i class="icon icon-tuijian"></i></h2>
+								<p>视频教程</p>
+								<div class="tipsCont">
+									<span><i class="icon icon-liulanliang"></i>1334</span>
+									<span><i class="icon icon-dianzan"></i>467</span>
+									<span><i class="icon icon-liuyan"></i>108</span>
+								</div>
+							</div>
+						</div>
+						<div class="title mui-clearfix">
+							<img src="../images/icon_tx.jpg"  class="mui-pull-left" >
+							<h3 class="mui-pull-left">亮剑摄影网校</h3>
+							<time class="mui-pull-right">3天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="conttent">
+							<div class="left">
+								<img src="../images/wenzhang.jpg" alt="">
+							</div>
+							<div class="right">
+								<h2 class="mui-ellipsis-2">高手如何玩转汽车海报 <i class="icon icon-tuijian"></i></h2>
+								<p>视频教程</p>
+								<div class="tipsCont">
+									<span><i class="icon icon-liulanliang"></i>1334</span>
+									<span><i class="icon icon-dianzan"></i>467</span>
+									<span><i class="icon icon-liuyan"></i>108</span>
+								</div>
+							</div>
+						</div>
+						<div class="title mui-clearfix">
+							<img src="../images/icon_tx.jpg"  class="mui-pull-left" >
+							<h3 class="mui-pull-left">亮剑摄影网校</h3>
+							<time class="mui-pull-right">3天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="conttent">
+							<div class="left">
+								<img src="../images/wenzhang.jpg" alt="">
+							</div>
+							<div class="right">
+								<h2 class="mui-ellipsis-2">高手如何玩转汽车海报 <i class="icon icon-tuijian"></i></h2>
+								<p>视频教程</p>
+								<div class="tipsCont">
+									<span><i class="icon icon-liulanliang"></i>1334</span>
+									<span><i class="icon icon-dianzan"></i>467</span>
+									<span><i class="icon icon-liuyan"></i>108</span>
+								</div>
+							</div>
+						</div>
+						<div class="title mui-clearfix">
+							<img src="../images/icon_tx.jpg"  class="mui-pull-left" >
+							<h3 class="mui-pull-left">亮剑摄影网校</h3>
+							<time class="mui-pull-right">3天前</time>
+						</div>
+					</li>
+					<li>
+						<div class="conttent">
+							<div class="left">
+								<img src="../images/wenzhang.jpg" alt="">
+							</div>
+							<div class="right">
+								<h2 class="mui-ellipsis-2">高手如何玩转汽车海报 <i class="icon icon-tuijian"></i></h2>
+								<p>视频教程</p>
+								<div class="tipsCont">
+									<span><i class="icon icon-liulanliang"></i>1334</span>
+									<span><i class="icon icon-dianzan"></i>467</span>
+									<span><i class="icon icon-liuyan"></i>108</span>
+								</div>
+							</div>
+						</div>
+						<div class="title mui-clearfix">
+							<img src="../images/icon_tx.jpg"  class="mui-pull-left" >
+							<h3 class="mui-pull-left">亮剑摄影网校</h3>
+							<time class="mui-pull-right">3天前</time>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="popover" class="mui-popover">
+			<ul class="popoverUl">
+				<li>全部文章</li>
+				<li>经验文章</li>
+				<li>设计教程</li>
+				<li>视频教程</li>
+			</ul>
+		</div>
+		<style>
+			.mui-popover{
+				width: 40%;
+				border-radius: 10px;
+				top: 5rem;
+			}
+			.popoverUl li{
+				height: 5rem;
+				line-height: 5rem;
+				font-size: 1.6rem;
+				color: #333;
+				border-bottom: 1px solid #eee;
+				padding-left: 2rem;
+			}
+			.popoverUl li.active{
+				color: #0084ff;
+				background: url(../images/icon_dui.png) no-repeat 80% center / 14px auto;
+			}
+			.popoverUl li:last-child{ 
+				border: none;
+			}
+		</style>
+
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script>
+			mui.init();
+			
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			
+			//点击显示遮罩和层
+			mui('.articleA').on('tap','a',function(){
+				mui('#popover').popover('toggle');//show hide toggle
+				
+				var index = $(this).index();
+				if (index == 0) {
+					$('#popover').css({
+						'left':'1.5rem'
+					});
+					return false;
+				} 
+				if (index == 1) {
+					$('#popover').css({
+						'left':'33%'
+					});
+					return false;
+				} 
+				if (index == 2) {
+					$('#popover').css({
+						'left':'56%'
+					});
+					return false;
+				} 
+			})
+			mui('.popoverUl').on('tap','li',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+				mui('#popover').popover('toggle');
+			});
+
+	
+
+		</script>
+	</body>
+
+</html>

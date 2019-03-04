@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+		<style>
+			.messageHeader{
+				border-bottom: 1rem solid #f7f7f7;
+			}
+			.mui-btn-red{
+				background: #fd4043;
+			}
+			.mui-table-view-cell:after{
+				/* height: 0; */
+				background-color : #eee;
+				right: 15px;
+			}
+			.mui-table-view-cell.mui-active{
+				background: #fff;
+			}
+			.mui-table-view-cell.mui-active>.mui-slider-handle {
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #eee;">
+		    <h1 class="mui-title">消息</h1>
+		</header>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="messageHeader">
+					<ul>
+						<li data-title='评论'><img src="../images/icon_xx1.jpg" alt=""><span>评论/留言</span></li>
+						<li data-title='获赞'><img src="../images/icon_xx2.jpg" alt=""><span>获赞</span></li>
+						<li data-title='粉丝'><img src="../images/icon_xx3.jpg" alt=""><span>粉丝</span></li>
+						<li data-title='通知'><img src="../images/icon_xx4.jpg" alt=""><span>通知</span></li>
+					</ul>
+				</div>
+				<div class="messageList">
+					<div class="messageListHeader">
+						<h3>私信</h3>
+						<span>清除</span>
+					</div>
+					<ul class="messageListUl">
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle">
+								<div class="left">
+									<div class="imgIcon">
+										<img src="../images/icon_tx.jpg" >
+										<span class="mui-badge">9</span>
+									</div>
+									<div class="cont">
+										<h2>与礼</h2>
+										<p class="mui-ellipsis">你好在吗，我觉得你的作品很棒~</p>
+									</div>
+								</div>
+								<div class="right">
+									1天前
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle">
+								<div class="left">
+									<div class="imgIcon">
+										<img src="../images/icon_tx.jpg" >
+										<span class="mui-badge">91</span>
+									</div>
+									<div class="cont">
+										<h2>与礼</h2>
+										<p class="mui-ellipsis">人人车个人二手车交易市场，低价出售个人二人人车个人二手车交易市场，低价出售个人二</p>
+									</div>
+								</div>
+								<div class="right">
+									1天前
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle">
+								<div class="left">
+									<div class="imgIcon">
+										<img src="../images/icon_tx.jpg" >
+										<span class="mui-badge">100</span>
+									</div>
+									<div class="cont">
+										<h2>与礼</h2>
+										<p class="mui-ellipsis">人人车个人二手车交易市场，低价出售个人二人人车个人二手车交易市场，低价出售个人二</p>
+									</div>
+								</div>
+								<div class="right">
+									1天前
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle">
+								<div class="left">
+									<div class="imgIcon">
+										<img src="../images/icon_tx.jpg" >
+									</div>
+									<div class="cont">
+										<h2>与礼</h2>
+										<p class="mui-ellipsis">人人车个人二手车交易市场，低价出售个人二人人车个人二手车交易市场，低价出售个人二</p>
+									</div>
+								</div>
+								<div class="right">
+									1天前
+								</div>
+							</div>
+						</li>
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red">删除</a>
+							</div>
+							<div class="mui-slider-handle">
+								<div class="left">
+									<div class="imgIcon">
+										<img src="../images/icon_tx.jpg" >
+									</div>
+									<div class="cont">
+										<h2>与礼</h2>
+										<p class="mui-ellipsis">人人车个人二手车交易市场，低价出售个人二人人车个人二手车交易市场，低价出售个人二</p>
+									</div>
+								</div>
+								<div class="right">
+									1天前
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript"> 
+			mui.init();
+			mui.plusReady(function(){
+				
+			});
+			
+			//页面滚动
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			
+			// 消息头部 4个分类
+			mui('.messageHeader').on('tap','li',function(){
+				var dataTitle = $(this).attr('data-title');
+				if (dataTitle == '评论') {
+					mui.openWindow({
+						url: 'comments.html',
+						id: 'comments.html',
+						extras: {},
+						show: {
+							autoShow: true,
+						},
+						waiting: {
+							autoShow: false,
+						}
+					});
+					return false;
+				}
+				if (dataTitle == '获赞') {
+					mui.openWindow({
+						url: 'praise.html',
+						id: 'praise.html',
+						extras: {},
+						show: {
+							autoShow: true,
+						},
+						waiting: {
+							autoShow: false,
+						}
+					});
+					return false;
+				}
+				if (dataTitle == '粉丝') {
+					mui.openWindow({
+						url: 'fans.html',
+						id: 'fans.html',
+						extras: {},
+						show: {
+							autoShow: true,
+						},
+						waiting: {
+							autoShow: false,
+						}
+					});
+					return false;
+				}
+				if (dataTitle == '通知') {
+					mui.openWindow({
+						url: 'message.html',
+						id: 'message.html',
+						extras: {},
+						show: {
+							autoShow: true,
+						},
+						waiting: {
+							autoShow: false,
+						}
+					});
+					return false;
+				}
+			})
+			
+			
+			// 聊天列表进详情
+			mui('.messageListUl').on('tap','li',function(){
+				mui.openWindow({
+					url: 'chat.html',
+					id: 'chat.html',
+					extras: {},
+					show: {
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false,
+					}
+				});
+			})
+			
+			//判断消息大于三位的时候 显示...
+			mui('.mui-badge').each(function(){
+				var badge = $(this).text();
+				if (badge >= 100) {
+					$(this).text('...');
+				}
+			});
+			
+			(function($) {
+				var btnArray = ['确认', '取消'];
+				$('.messageListUl').on('tap', '.mui-btn', function(event) {
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该条记录？', '提示', btnArray, function(e) {
+						if (e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

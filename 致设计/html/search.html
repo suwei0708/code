@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/icon.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav searchHeader" style="border-bottom: 1px solid #eee;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="searchVal">
+				<input id="searchIpt" type="text" placeholder="请输入您需要查找的内容"/>
+				<a id="searchDelete"><span class="icon icon-qingchu"></span></a>
+			</div>
+			<div class="search mui-pull-right" id="searchLogo" style="right: 10px;"><span>搜索</span></div>
+			<!-- <div class="search mui-pull-right" id="searchLogo"><span class="icon icon-fangdajing" style="color: #ccc;"></span></div> -->
+		</header>
+		<div class="mui-content">
+			<!-- 热门搜索 -->
+			<div class="searchHot">
+				<h3>热门搜索</h3>
+				<div class="searchHotA">
+					<a>C4D建模</a>
+					<a>双11首页设计欣赏</a>
+					<a>设计专访</a>
+					<a>电器详情页</a>
+					<a>首页</a>
+					<a>海报</a>
+				</div>
+			</div>
+
+			<!-- 历史搜索 -->
+			<div class="searchHistory">
+				<h3>历史搜索 <span class="icon icon-shanchu mui-pull-right"></span></h3>
+				<ul class="searchHistoryUl">
+					<li>C4D建模 <span class="icon icon-shanchu1 mui-pull-right"></span></li>
+					<li>双11首页设计欣赏<span class="icon icon-shanchu1 mui-pull-right"></span></li>
+					<li>设计专访<span class="icon icon-shanchu1 mui-pull-right"></span></li>
+					<li>电器详情页<span class="icon icon-shanchu1 mui-pull-right"></span></li>
+					<li>首页<span class="icon icon-shanchu1 mui-pull-right"></span></li>
+					<li>海报<span class="icon icon-shanchu1 mui-pull-right"></span></li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			//搜索获取焦点  显示删除按钮
+			$('#searchIpt').bind('input propertychange', function() {
+				var inputVal = $(this).val();
+				if (inputVal != '' || inputVal >= 1) {
+					$('#searchDelete').show();
+				} else {
+					$('#searchDelete').hide();
+				}
+			});
+			//删除搜索的内容
+			document.getElementById('searchDelete').addEventListener('tap', function() {
+				$('#searchIpt').val('');
+				$(this).hide();
+			});
+			//监听键盘换行搜索
+			document.getElementById("searchIpt").addEventListener("keypress", function(event) {
+				var inputVal = $(this).val();
+				if (event.keyCode == "13") {
+					document.activeElement.blur(); //收起虚拟键盘
+					if(inputVal){
+						openSearch(inputVal)
+					} else {
+						mui.toast('搜索条件不能为空！');
+					}
+					$('#searchIpt').val('');
+					$('#searchDelete').hide();
+				}
+			});
+			//搜索完毕 打开条件页面
+			document.getElementById('searchLogo').addEventListener('tap',function(){
+				var inputVal = $('#searchIpt').val();
+				if(inputVal){
+					openSearch(inputVal)
+				} else {
+					mui.toast('搜索条件不能为空！');
+				}
+				document.activeElement.blur(); //收起虚拟键盘
+				$('#searchIpt').val('');
+				$('#searchDelete').hide();
+			});
+			
+			function openSearch(inputVal){
+				mui.openWindow({
+					url: 'search_conter.html',
+					id: 'search_conter.html',
+					extras: {
+						inputVal:inputVal
+					},
+					show: {
+						autoShow: true,
+					},
+					waiting: {
+						autoShow: false,
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

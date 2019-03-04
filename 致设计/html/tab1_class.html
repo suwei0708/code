@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/public.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #eee;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-content">
+			<ul class="tab1Class">
+				
+			</ul>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			var liActive;
+			var self;
+			
+			mui.plusReady(function(){
+				
+				self = plus.webview.currentWebview();
+				var html = '';
+				
+				if (self.textActive == '推荐') {
+					$('.mui-bar-nav h1').text('作品推荐');
+					html = '<li>作品推荐</li><li>店铺首页</li><li>详情页</li><li>专题页</li><li>海报/钻展</li>';
+					$('.tab1Class').append(html);
+					return false;
+				} 
+				if (self.textActive == '文章') {
+					$('.mui-bar-nav h1').text('经验文章');
+					html = '<li>设计教程</li><li>经验分享</li><li>视频教程</li>';
+					$('.tab1Class').append(html);
+					return false;
+				} 
+				if (self.textActive == '灵感') {
+					$('.mui-bar-nav h1').text('创意灵感');
+					html = '<li>灵感创意</li><li>店铺首页</li><li>详情页</li><li>专题页</li><li>海报/钻展</li><li>平面</li><li>UI</li><li>网页</li> <li>摄影</li><li>插画</li><li>三维/C4D</li><li>其它</li>';
+					$('.tab1Class').append(html);
+					return false;
+				} 
+				
+			});
+			
+			mui('.tab1Class').on('tap','li',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+				liActive = $(this).text();
+				
+				//推荐
+				var tab1_tuijian = plus.webview.getWebviewById('tab1_tuijian.html');
+				//文章
+				var tab1_wenzhang = plus.webview.getWebviewById('tab1_wenzhang.html');
+				//灵感
+				var tab1_linggan = plus.webview.getWebviewById('tab1_linggan.html');
+				
+				//触发列表界面的自定义事件（refresh）,从而进行数据刷新
+				if (self.textActive == '推荐') {
+					if (liActive) {
+						mui.fire(tab1_tuijian,'refreshA',{
+							liActive:liActive
+						});
+						plus.webview.currentWebview().close();
+					}	
+					return false; 
+				} 
+				if (self.textActive == '文章') {
+					if (liActive) {
+						mui.fire(tab1_wenzhang,'refreshA',{
+							liActive:liActive
+						});
+						plus.webview.currentWebview().close();
+					}	
+					return false; 
+				} 
+				if (self.textActive == '灵感') {
+					if (liActive) {
+						mui.fire(tab1_linggan,'refreshA',{
+							liActive:liActive
+						});
+						plus.webview.currentWebview().close();
+					}	
+					return false; 
+				} 
+			});
+		</script>
+	</body>
+
+</html>
