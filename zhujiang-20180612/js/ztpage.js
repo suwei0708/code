@@ -3,6 +3,7 @@ $(function() {
         $('#sld-zt').slides({
             generatePagination: false,
             generateNextPrev: true,
+            effect: "slide",
             play: 3000,
             pause: 2500,
             hoverPause: true
@@ -62,8 +63,8 @@ $(function() {
 
 
     // 点击小图显示大图
-    jQuery_New("a[rel^='gallery1[modal]']").prettyPhoto({theme: 'duotive-modal', opacity:0.5, show_title: false, overlay_gallery:true});
-    jQuery_New("a[rel^='gallery2[modal]']").prettyPhoto({theme: 'duotive-modal', opacity:0.5, show_title: false, overlay_gallery:true});
+    jQuery("a[rel^='gallery1[modal]']").prettyPhoto({theme: 'duotive-modal', opacity:0.5, show_title: false, overlay_gallery:true});
+    jQuery("a[rel^='gallery2[modal]']").prettyPhoto({theme: 'duotive-modal', opacity:0.5, show_title: false, overlay_gallery:true});
 
 });
 
