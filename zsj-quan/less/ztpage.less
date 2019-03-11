@@ -4,10 +4,13 @@
  */
 @import url(../../../common/common-pc.less);
 
-@page-w: 1222px;
+@page-w: 1220px;
 @yellow: #fdcc21;
 @green: #4bc065;
 @red: #f22974;
+
+@blue: #0084ff;
+@blue-h: #0f92fb;
 .wraps {
     .pos(r);
     width: @page-w;
@@ -17,6 +20,38 @@
 }
 .zt {
     &-part {
+        .tit {
+            .pos(r);
+            padding: 42px 0 30px;
+            text-align: center;
+            h2 {
+                line-height: 40px;
+                font-size: 26px;
+                color: #424242;
+            }
+            p {
+                margin-top: 5px;
+                line-height: 34px;
+                font-size: 16px;
+                color: #656565;
+            }
+            .btn {
+                .pos(a);
+                right: 0;
+                top: 72px;
+                width: 130px;
+                height: 36px;
+                line-height: 36px;
+                background: @blue;
+                color: #fff;
+                text-align: center;
+                font-size: 14px;
+                .bdr(4px);
+                &:hover {
+                    background: @blue-h;
+                }
+            }
+        }
         &1 {
             padding: 25px 0 40px;
             .cl();
@@ -48,20 +83,136 @@
             }
         }
         &2 {
-            .tit {
-                padding: 42px 0 30px;
-                text-align: center;
-                h2 {
-                    line-height: 40px;
-                    font-size: 26px;
-                    color: #2a2a2a;
+            padding: 0 0 10px;
+            .list {
+                font-size: 0;
+                ul {
+                    .cl();
+                    margin-right: -20px;
                 }
-                p {
-                    line-height: 34px;
-                    font-size: 16px;
-                    color: #666;
+                li {
+                    .dis(ib);
+                    vertical-align: top;
+                    width: 228px;
+                    padding: 51px 0 0;
+                    margin: 0 20px 20px 0;
+                    text-align: center;
+                    background: #fff;
+                    .bdr(4px);
+                    p {
+                        padding: 15px 0 28px;
+                        line-height: 26px;
+                        font-size: 16px;
+                        color: #333;
+                    }
+                    img {
+                        .dis(ib);
+                        vertical-align: top;
+                        width: 156px;
+                    }
                 }
             }
+        }
+        &3 {
+            padding: 0 0 30px;
+            .list {
+                text-align: center;
+                img {
+                    .dis(ib);
+                    vertical-align: top;
+                }
+                .img {
+                    margin-bottom: 74px;
+                }
+            }
+        }
+        &4 {
+            padding: 0 0 30px;
+            margin-bottom: 80px;
+            .tit {
+                padding-bottom: 6px;
+            }
+            .list {
+                text-align: center;
+                img {
+                    .dis(ib);
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
+.popup-addecode {
+    .input {
+        .pos(r);
+        padding-top: 40px;
+        line-height: 23px;
+        font-size: 14px;
+        .cl();
+        text-align: left;
+        dt {
+            float: left;
+            width: 98px;
+            line-height: 44px;
+            color: #666;
+            text-align: right;
+            span {
+                margin-right: 5px;
+                color: #ff5050;
+            }
+        }
+        dd {
+            float: left;
+            margin-left: 30px;
+            .qjfont {
+                .pos(a);
+                top: 12px;
+                right: 10px;
+                font-size: 20px;
+                color: #cdcdcd;
+            }
+        }
+        .txt, .textarea {
+            width: 330px;
+            height: 22px;
+            line-height: 22px;
+            font-size: 14px;
+            color: #666;
+            padding: 10px;
+            border: 1px solid #eee;
+            .bdr(4px);
+            &:focus {
+                border: 1px solid @blue;
+            }
+        }
+        .textarea {
+            resize: none;
+            height: 68px;
+        }
+        .num-box {
+            .pos(a);
+            bottom: 0;
+            right: 20px;
+            overflow: hidden;
+            height: 50px;
+            line-height: 50px;
+            color: #ccc;
+            font-size: 0;
+            .num {
+                font-size: 12px;
+            }
+            .length {
+                .dis(n);
+            }
+        }
+    }
+    .btn-box {
+        padding: 40px 0 0 128px;
+        text-align: left;
+        a {
+            width: 150px;
+            .height(44px);
+            text-align: center;
         }
     }
 }
