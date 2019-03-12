@@ -157,27 +157,28 @@
     </div>
 
     <!--弹窗增加二维码 start -->
-    <div class="popup-box popup-addecode" style="display: block">
+    <div class="popup-box popup-addecode">
         <div class="popup">
             <span class="popup-close icon-close"></span>
             <div class="popup-ct">
                 <dl class="input">
                     <dt><span class="red">*</span> 致圈名称：</dt>
                     <dd class="pr">
-                        <input class="txt" placeholder="请输入交流圈名称">
+                        <input class="text" placeholder="请输入交流圈名称">
                     </dd>
                 </dl>
                 <dl class="input">
                     <dt><span class="red">*</span> 群二维码</dt>
                     <dd class="pr">
-                        <div class="img">
-                            <img src="../images/zhoulian/fm_1.png" width="290" height="180">
+                        <div class="img" id="zt-imgbox">
+                            <img src="images/upload.jpg" width="180" height="180" id="zt-img">
+                            <input class="choosefile" type="file" name="cover" id="chooseImg">
                         </div>
-                        <p class="fm-tips">封面尺寸：200 * 200 px，不超过1M</p>
+                        <p class="fm-tips">尺寸：200 * 200 px，不超过1M</p>
                     </dd>
                 </dl>
                 <div class="popup-btn-box">
-                    <a href="javascript:;" class="btn btn-blue btn-login-password">确定</a>
+                    <a href="javascript:;" class="btn">确定</a>
                 </div>
             </div>
         </div>
