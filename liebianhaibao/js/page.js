@@ -61,7 +61,6 @@ $(function() {
     $('.popup-box').on('click', function() {
         return false;
     });
-
 });
 
 // Converts image to canvas; returns new canvas element
