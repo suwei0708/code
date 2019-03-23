@@ -1,0 +1,365 @@
+/**
+ *  MAIN -----------------
+ *  页面样式代码
+ */
+@import url(../../../common/common-pc.less);
+@page-w: 1240px;
+body {
+    background: #fff;
+}
+.zticon {
+    font-size: 0;
+    background: url(../images/zticon.png) no-repeat;
+}
+.wraps {
+    .ov(h);
+    width: @page-w;
+    margin: 0 auto;
+}
+.img {
+    .ov(h);
+    .pos(r);
+    width: 100%;
+    height: 500px;
+
+    .wraps {
+        .pos(r);
+        height: 100%;
+    }
+    .bg {
+        .pos(a);
+        top: 0;
+        left: 50%;
+        width: 1920px;
+        max-width: none;
+        margin-left: -1920px / 2;
+    }
+    &1 {
+        &-3 {
+            .zticon {
+                .pos(a);
+                top: 240px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 0;
+                &:hover {
+                    background-position: -170px 0;
+                }
+            }
+            .btn {
+                &1 {
+                    left: 122px;
+                }
+                &2 {
+                    left: 539px;
+                }
+                &3 {
+                    left: 935px;
+                }
+            }
+        }
+        &-7 {
+            .zticon {
+                .pos(a);
+                top: 51px;
+                left: 533px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 -50px;
+                &:hover {
+                    background-position: -170px -50px;
+                }
+            }
+        }
+        &-8 {
+            .zticon {
+                .pos(a);
+                top: 209px;
+                left: 538px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 -50px;
+                &:hover {
+                    background-position: -170px -50px;
+                }
+            }
+        }
+        &-9 {
+            .zticon {
+                .pos(a);
+                top: 154px;
+                left: 543px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 -580px;
+                &:hover {
+                    background-position: -170px -580px;
+                }
+            }
+        }
+        &-11 {
+            height: 422px;
+        }
+    }
+
+    &2 {
+        .ov(h);
+        height: 696px;
+        background: #fff;
+        .wraps {
+            overflow: visible;
+        }
+    }
+    &3 {
+        &-2 {
+            height: 586px;
+        }
+    }
+    &4 {
+        background: #fff;
+    }
+    &5 {
+        &-1 {
+            .zticon {
+                .pos(a);
+                top: 41px;
+                left: 538px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 -370px;
+                &:hover {
+                    background-position: -170px -370px;
+                }
+            }
+        }
+        &-7 {
+            z-index: 5;
+            padding-bottom: 37px;
+            margin-bottom: -37px;
+            .wraps {
+                .ov(v);
+            }
+            .zticon {
+                .pos(a);
+                top: 487px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 0;
+                &:hover {
+                    background-position: -170px 0;
+                }
+            }
+            .btn {
+                &1 {
+                    left: 106px;
+                }
+                &2 {
+                    left: 539px;
+                }
+                &3 {
+                    left: 970px;
+                }
+            }
+        }
+        &-8 {
+            z-index: 4;
+            padding-bottom: 126px;
+            margin-bottom: -126px;
+            .wraps {
+                .ov(v);
+            }
+            .zticon {
+                .pos(a);
+                top: 469px;
+                left: 122px;
+                width: 155px;
+                height: 155px;
+                background-position: 0 -420px;
+                &:hover {
+                    background-position: -170px -420px;
+                }
+            }
+        }
+        &-9 {
+            height: 384px;
+            .zticon {
+                .pos(a);
+                top: 306px;
+                left: 508px;
+                width: 162px;
+                height: 48px;
+                background-position: 0 -630px;
+                &:hover {
+                    background-position: -170px -630px;
+                }
+            }
+        }
+    }
+}
+
+.btn-talk {
+    @w: 199px;
+    @h: 507px;
+    .pos(f);
+    _position: absolute;
+    z-index: 999;
+    top: 50%;
+    right: 0;
+    width: @w;
+    height: @h;
+    margin-top: -@h / 2;
+    background: url(../images/talk.png) no-repeat 0 0;
+    .zticon {
+        .pos(a);
+        bottom: 30px;
+        left: 23px;
+        width: 162px;
+        height: 48px;
+        background-position: 0 0;
+        &:hover {
+            background: url(../images/zticon.png) no-repeat -170px 0;
+        }
+    }
+}
+
+/* sld轮播图 */
+.tab-xyzp {
+    font-size: 0;
+    text-align: center;
+
+    .zticon {
+        .ov(h);
+        .dis(ib);
+        width: 148px;
+        height: 44px;
+        line-height: 120px;
+        margin: 0 6px;
+        cursor: pointer;
+        font-weight: 700;
+        &1 {
+            background-position: 0 -220px;
+            &.cur, &:hover {
+                background-position: -170px -220px;
+            }
+        }
+        &2 {
+            background-position: 0 -270px;
+            &.cur, &:hover {
+                background-position: -170px -270px;
+            }
+        }
+        &3 {
+            background-position: 0 -320px;
+            &.cur, &:hover {
+                background-position: -170px -320px;
+            }
+        }
+        &.cur, &:hover {
+            .bdr(22px);
+        }
+    }
+}
+
+#sld-zt{
+    @h: 612px;
+    .pos(r);
+    width: 1240px;
+    margin: 40px auto 0;
+    height: @h;
+    clear: both;
+
+    .slides_container {
+        .ov(h);
+        width: 1240px;
+        height: @h;
+    }
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        .ov(h);
+        text-indent: -999px;
+        width: 56px;
+        height: 56px;
+        margin: -86px 0 0;
+        cursor: pointer;
+    }
+    .prev {
+        left: -92px;
+        background: url(../images/zticon.png) no-repeat 0 -100px;
+        &:hover {
+            background-position: -170px -100px;
+        }
+    }
+    .next {
+        right: -92px;
+        background: url(../images/zticon.png) no-repeat 0 -160px;
+        &:hover {
+            background-position: -170px -160px;
+        }
+    }
+    .pagination {
+        .dis(n);
+    }
+    .sld-img {
+        .ov(h);
+        width: 1240px;
+        .cl();
+
+        li {
+            float: left;
+            margin: 0 20px 20px 0;
+            img {
+                width: 295px;
+                height: 295px;
+                .bdr(4px);
+            }
+        }
+        .mr0 {
+            margin-right: 0;
+        }
+    }
+}
+
+.slider-box {
+    position: relative;
+    margin: 0 auto;
+    width: @page-w;
+    height: 340px;
+    white-space: nowrap;
+
+    li {
+        float: left;
+        margin-right: 40px;
+        width: 280px;
+        height: 340px;
+        img {
+            width: 280px;
+            height: 340px;
+            .bdr(4px);
+        }
+    }
+    .zticon {
+        position: absolute;
+        top: 50%;
+        .ov(h);
+        text-indent: -999px;
+        width: 57px;
+        height: 56px;
+        margin: -56px / 2 0 0;
+        cursor: pointer;
+    }
+    .btl {
+        left: -92px;
+        background-position: 0 -100px;
+        &:hover {
+            background-position: -170px -100px;
+        }
+    }
+    .btr {
+        right: -92px;
+        background-position: 0 -160px;
+        &:hover {
+            background-position: -170px -160px;
+        }
+    }
+}
