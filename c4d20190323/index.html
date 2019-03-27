@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2019-C4D</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 官网通用css start-->
+    <link rel="stylesheet" href="https://www.qiaojiang.tv/Public/Static/css/gallery.css">
+    <link rel="stylesheet" href="http://www.qiaojiang.tv/Public/Static/css/page.css">
+    <link rel="stylesheet" href="http://www.qiaojiang.tv/Public/Static/css/iconfont.css">
+    <!-- 官网通用css end-->
+    <link rel="stylesheet" href="css/page-zt.css">
+</head>
+<body>
+    <!-- 官网通用头部 start -->
+    <div class="header">
+        <a href="http://www.qiaojiang.tv" class="logo fl"><img src="http://www.qiaojiang.tv/Public/Static/images/logo.png" height="50" width="193" alt="巧匠学院"></a>
+        <div class="fl nav">
+            <ul>
+                <li><a href="http://www.qiaojiang.tv/">首页</a></li>
+                <li><a href="http://www.qiaojiang.tv/video/">全部课程<span class="qjfont qj-xiangxiajiantou"></span></a>
+                    <ul class="nav-sub">
+                        <li><a href="http://www.qiaojiang.tv/video/">视频课程</a></li>
+                        <li><a href="http://www.qiaojiang.tv/study/">学习路径</a></li>
+                        <li><a href="http://www.qiaojiang.tv/touxu/">系列课程</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://www.qiaojiang.tv/lianzai/">软件入门<span class="in1 in1-more"></span></a>
+                    <div class="nav-sub rjrm-sub">
+                        <ul class="fl">
+                            <li><a target="_blank" href="http://www.qiaojiang.tv/video/198.html"><span class="fl in1 soft1"></span><span class="name">Photoshop</span></a>
+                                <p>ps新手入门</p>
+                            </li>
+                            <li><a target="_blank" href="http://www.qiaojiang.tv/video/183.html"><span class="fl in1 soft2"></span><span class="name">Illustrator</span></a>
+                                <p>Ai新手入门</p>
+                            </li>
+                            <li><a target="_blank" href="http://www.qiaojiang.tv/video/119.html"><span class="fl in1 soft3"></span><span class="name">Cinema 4D</span></a>
+                                <p>C4D新手入门</p>
+                            </li>
+                            <li><a target="_blank" href="http://www.qiaojiang.tv/video/470.html"><span class="fl in1 soft5"></span><span class="name">After Effects</span></a>
+                                <p>AE新手入门</p>
+                            </li>
+                            <li><a target="_blank" href="http://www.qiaojiang.tv/video/488.html"><span class="fl in1 soft4"></span><span class="name">Premiere</span></a>
+                                <p>PR新手入门</p>
+                            </li>
+                        </ul>
+                        <div class="fr">
+                            <div class="kt-vip"><span class="in1 in1-vip"></span>
+                                <p>巧匠VIP</p>
+                            </div>
+                            <div class="kc">
+                                <p>共<span class="yellow">1749</span>课程
+                                    <br><span class="yellow">49</span>万人已学习
+                                    <br>投资自己才能逆袭未来</p>
+                            </div><a href="http://www.qiaojiang.tv/study/" class="more">更多入门课程<span class="in1 in1-arrow"></span></a></div>
+                    </div>
+                </li>
+                <li><a href="http://www.qiaojiang.tv/article/">经验文章<span class="nico nico-new"></span></a></li>
+                <li class="nav-more"><a href="http://www.qiaojiang.tv/uservip/">VIP特权</a></li>
+                <li class="nav-more"><a href="http://www.qiaojiang.tv/About/Index/">关于巧匠</a></li>
+                <li><a href="javascript:;">更多<span class="in1 in1-more"></span></a>
+                    <ul class="nav-sub">
+                        <li class="nav-more"><a href="http://www.qiaojiang.tv/uservip/">VIP特权</a></li>
+                        <li class="nav-more"><a href="http://www.qiaojiang.tv/About/Index/">关于巧匠</a></li>
+                        <li><a target="_blank" href="http://www.qiaojiang.tv/xuqiu/">需求</a></li>
+                        <li><a href="http://www.qiaojiang.tv/teacher/">老师</a></li>
+                        <li><a href="http://www.qiaojiang.tv/xueyuan/">学员作品</a></li>
+                        <li><a href="http://www.qiaojiang.tv/allqq/">QQ群联盟</a></li>
+                        <li><a href="http://www.qiaojiang.tv/notice/">公告</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <form id="searchform" method="post" action="">
+            <div></div>
+        </form>
+        <div class="fl search">
+            <input type="text" class="fl txt" id="searchkey" placeholder="搜索感兴趣的课程">
+            <button class="fl btn"><span id="bsearch" class="nico nico-so"></span></button>
+            <div class="search-hot"></div>
+            <div class="search-tip">
+                <dl class="search-tip-his">
+                    <dt><a href="javascript:;" class="fr clear-his"><span class="nico nico-his"></span></a>历史搜索</dt>
+                    <dd><a href="http://www.qiaojiang.tv/search/fasf/">fasf</a></dd>
+                </dl>
+                <dl class="search-tip-hot">
+                    <dt>热门搜索</dt>
+                </dl>
+            </div>
+        </div>
+        <!-- 登录前 start -->
+        <div class="tips fr">
+            <a href="javascript:;" id="qj_login" class="qq">登录</a><a href="javascript:;" id="qj_reg" class="wx">注册</a>
+        </div>
+        <!-- 登录前 end -->
+        <a href="http://www.qiaojiang.tv/app" class="fr app"><span class="nico nico-app"></span><span class="txt">巧匠APP<br><span class="yellow">立即下载</span></span></a>
+    </div>
+    <!-- 官网通用头部 end -->
+    <div class="img img1-1">
+        <img src="images/img1_01.jpg" class="bg">
+    </div>
+    <div class="img img1-2">
+        <img src="images/img1_02.jpg" class="bg">
+    </div>
+    <div class="img img1-3">
+        <img src="images/img1_03.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn1" target="_blank">我要学习</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn2" target="_blank">我要学习</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn3" target="_blank">我要学习</a>
+        </div>
+    </div>
+    <div class="img img1-4">
+        <img src="images/img1_04.jpg" class="bg">
+    </div>
+    <div class="img img1-5">
+        <img src="images/img1_05.jpg" class="bg">
+    </div>
+    <div class="img img1-6">
+        <img src="images/img1_06.jpg" class="bg">
+    </div>
+    <div class="img img1-7">
+        <img src="images/img1_07.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon" target="_blank">立即报名</a>
+        </div>
+    </div>
+    <div class="img img1-8">
+        <img src="images/img1_08.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon" target="_blank">立即报名</a>
+        </div>
+    </div>
+    <div class="img img1-9">
+        <img src="images/img1_09.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon" target="_blank">立即报名</a>
+        </div>
+    </div>
+    <div class="img img1-10">
+        <img src="images/img1_10.jpg" class="bg">
+    </div>
+    <div class="img img1-11">
+        <img src="images/img1_11.jpg" class="bg">
+    </div>
+
+    <div class="img2">
+        <div class="wraps">
+            <ul class="tab-xyzp">
+                <li class="zticon zticon1 cur">场景类</li>
+                <li class="zticon zticon2">字体类</li>
+                <li class="zticon zticon3">卡通类</li>
+            </ul>
+            <!-- 轮播图 start -->
+            <div id="sld-zt">
+                <ul class="slides_container">
+                    <li>
+                        <ul class="sld-img">
+                            <li><a rel="gallery2[modal]" href="images/student-big/cjl/01.jpg" target="_blank"><img src="images/student-small/cjl/01.jpg"></a></li>
+                            <li><a rel="gallery2[modal]" href="images/student-big/cjl/02.jpg" target="_blank"><img src="images/student-small/cjl/02.jpg"></a></li>
+                            <li><a rel="gallery2[modal]" href="images/student-big/cjl/03.jpg" target="_blank"><img src="images/student-small/cjl/03.jpg"></a></li>
+                            <li class="mr0"><a rel="gallery2[modal]" href="images/student-big/cjl/04.jpg" target="_blank"><img src="images/student-small/cjl/04.jpg"></a></li>
+                            <li><a rel="gallery2[modal]" href="images/student-big/cjl/05.jpg" target="_blank"><img src="images/student-small/cjl/05.jpg"></a></li>
+                            <li><a rel="gallery2[modal]" href="images/student-big/cjl/06.jpg" target="_blank"><img src="images/student-small/cjl/06.jpg"></a></li>
+                            <li><a rel="gallery2[modal]" href="images/student-big/cjl/07.jpg" target="_blank"><img src="images/student-small/cjl/07.jpg"></a></li>
+                            <li class="mr0"><a rel="gallery2[modal]" href="images/student-big/cjl/08.jpg" target="_blank"><img src="images/student-small/cjl/08.jpg"></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="sld-img">
+                            <li><a rel="gallery[modal]" href="images/student-big/ztl/01.jpg" target="_blank"><img src="images/student-small/ztl/01.jpg"></a></li>
+                            <li><a rel="gallery[modal]" href="images/student-big/ztl/02.jpg" target="_blank"><img src="images/student-small/ztl/02.jpg"></a></li>
+                            <li><a rel="gallery[modal]" href="images/student-big/ztl/03.jpg" target="_blank"><img src="images/student-small/ztl/03.jpg"></a></li>
+                            <li class="mr0"><a rel="gallery[modal]" href="images/student-big/ztl/04.png" target="_blank"><img src="images/student-small/ztl/04.jpg"></a></li>
+                            <li><a rel="gallery[modal]" href="images/student-big/ztl/05.jpg" target="_blank"><img src="images/student-small/ztl/05.jpg"></a></li>
+                            <li><a rel="gallery[modal]" href="images/student-big/ztl/06.jpg" target="_blank"><img src="images/student-small/ztl/06.jpg"></a></li>
+                            <li><a rel="gallery[modal]" href="images/student-big/ztl/07.jpg" target="_blank"><img src="images/student-small/ztl/07.jpg"></a></li>
+                            <li class="mr0"><a rel="gallery[modal]" href="images/student-big/ztl/08.jpg" target="_blank"><img src="images/student-small/ztl/08.jpg"></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="sld-img">
+                            <li><a rel="gallery4[modal]" href="images/student-big/ktl/01.jpg" target="_blank"><img src="images/student-small/ktl/01.jpg"></a></li>
+                            <li><a rel="gallery4[modal]" href="images/student-big/ktl/02.jpg" target="_blank"><img src="images/student-small/ktl/02.jpg"></a></li>
+                            <li><a rel="gallery4[modal]" href="images/student-big/ktl/03.jpg" target="_blank"><img src="images/student-small/ktl/03.jpg"></a></li>
+                            <li class="mr0"><a rel="gallery4[modal]" href="images/student-big/ktl/04.jpg" target="_blank"><img src="images/student-small/ktl/04.jpg"></a></li>
+                            <li><a rel="gallery4[modal]" href="images/student-big/ktl/05.jpg" target="_blank"><img src="images/student-small/ktl/05.jpg"></a></li>
+                            <li><a rel="gallery4[modal]" href="images/student-big/ktl/06.png" target="_blank"><img src="images/student-small/ktl/06.jpg"></a></li>
+                            <li><a rel="gallery4[modal]" href="images/student-big/ktl/07.jpg" target="_blank"><img src="images/student-small/ktl/07.jpg"></a></li>
+                            <li class="mr0"><a rel="gallery4[modal]" href="images/student-big/ktl/08.png" target="_blank"><img src="images/student-small/ktl/08.jpg"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 轮播图 end -->
+        </div>
+    </div>
+
+    <div class="img img3-1">
+        <img src="images/img3_01.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon" target="_blank">我要拜师</a>
+        </div>
+    </div>
+    <div class="img img3-2">
+        <img src="images/img3_02.jpg" class="bg">
+    </div>
+    <div class="img4">
+        <div class="slider-box">
+            <div class="slider">
+                <ul>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/01.jpg" target="_blank">
+                            <img src="images/teacher-small/01.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/02.jpg" target="_blank">
+                            <img src="images/teacher-small/02.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/03.jpg" target="_blank">
+                            <img src="images/teacher-small/03.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/04.jpg" target="_blank">
+                            <img src="images/teacher-small/04.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/05.jpg" target="_blank">
+                            <img src="images/teacher-small/05.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/06.jpg" target="_blank">
+                            <img src="images/teacher-small/06.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/07.jpg" target="_blank">
+                            <img src="images/teacher-small/07.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="gallery5[modal]" href="images/teacher-big/08.jpg" target="_blank">
+                            <img src="images/teacher-small/08.jpg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="zticon btl"></div>
+            <div class="zticon btr"></div>
+        </div>
+    </div>
+
+    <div class="img img5-1">
+        <img src="images/img5_01.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn" target="_blank">我要改变</a>
+        </div>
+    </div>
+    <div class="img img5-2">
+        <img src="images/img5_02.jpg" class="bg">
+    </div>
+    <div class="img img5-3">
+        <img src="images/img5_03.jpg" class="bg">
+    </div>
+    <div class="img img5-4">
+        <img src="images/img5_04.jpg" class="bg">
+    </div>
+    <div class="img img5-5">
+        <img src="images/img5_05.jpg" class="bg">
+    </div>
+    <div class="img img5-6">
+        <img src="images/img5_06.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn" target="_blank">我要改变</a>
+        </div>
+    </div>
+    <div class="img img5-7">
+        <img src="images/img5_07.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn1" target="_blank">我要学习</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn2" target="_blank">我要学习</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn3" target="_blank">我要学习</a>
+        </div>
+    </div>
+    <div class="img img5-8">
+        <img src="images/img5_08.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon" target="_blank">咨询老师</a>
+        </div>
+    </div>
+    <div class="img img5-9">
+        <img src="images/img5_09.jpg" class="bg">
+        <div class="wraps">
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn1" target="_blank">我要学习</a>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" class="zticon btn2" target="_blank">我要学习</a>
+        </div>
+    </div>
+
+    <!--官网通用footer start -->
+    <div class="footer">
+        <div class="cl wrap">
+            <div class="ft-menu">
+                <dl>
+                    <dt>巧匠</dt>
+                    <dd><a href="http://www.qiaojiang.tv/About/">关于巧匠</a></dd>
+                    <dd><a href="http://www.qiaojiang.tv/About/Contact">联系我们</a></dd>
+                    <dd><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=2&uin=800171148" title="巧匠客服" target="_blank">在线客服</a></dd>
+                </dl>
+                <dl>
+                    <dt>规则</dt>
+                    <dd><a href="http://www.qiaojiang.tv/About/Fuwu">服务条款</a></dd>
+                    <dd><a href="http://www.qiaojiang.tv/About/Tkxz">退款规则</a></dd>
+                    <dd><a href="http://www.qiaojiang.tv/About/Wzsm">版权声明</a></dd>
+                </dl>
+                <dl>
+                    <dt>频道</dt>
+                    <dd><a title="ps视频教程" href="http://www.qiaojiang.tv/video/">视频教程</a></dd>
+                    <dd><a title="ps视频教程" href="http://www.qiaojiang.tv/video/">软件入门</a></dd>
+                    <dd><a title="ps视频教程" href="http://www.qiaojiang.tv/study/">学习路径</a></dd>
+                </dl>
+                <dl>
+                    <dt>学员</dt>
+                    <dd><a href="javascript:void(0)">学员作品</a></dd>
+                    <dd><a href="javascript:void(0)">学员专访</a></dd>
+                </dl>
+            </div>
+            <div class="ft-about">
+                <ul>
+                    <li><img src="http://www.qiaojiang.tv/Public/Static/images/ecode-ftapp.jpg">
+                        <p>APP下载</p>
+                    </li>
+                    <li><img src="http://www.qiaojiang.tv/Public/Static/images/ecode-ftgzh.jpg" alt="巧匠公众号" height="132" width="132">
+                        <p>微信公众号</p</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ft-copy">
+        <div class="cl wrap">
+            <div class="fl">巧匠课堂（qiaojiang.tv） 高端电商设计师培训品牌 &copy; 2015-2018 备案号:京ICP备14060168号-4</div>
+            <div class="fr" id="TimeShow"></div>
+        </div>
+    </div>
+    <!--官网通用footer end -->
+
+    <!-- 悬浮窗 -->
+    <div class="btn-talk">
+        <a class="zticon" href="http://wpa.qq.com/msgrd?v=3&uin=180675045&site=qq&menu=yes" target="_blank"></a>
+    </div>
+
+    <!-- 基础JS脚本部分 -->
+    <!-- 官网通用css、js start-->
+    <script src="http://www.qiaojiang.tv/Public/Static/js/jquery-1.9.1.min.js"></script>
+    <script src="http://www.qiaojiang.tv/Public/Static/js/page.js" type="text/javascript"></script>
+    <!-- 官网通用css、js end-->
+
+    <script src="http://www.qiaojiang.tv/Public/Static/js/slides.min.jquery.js"></script>
+    <script src="http://www.qiaojiang.tv/Public/Static/js/mySystem.js"></script>
+    <script src="http://www.qiaojiang.tv/Public/Static/js/jquery.scripts.js"></script>
+    <script src="http://www.qiaojiang.tv/Public/Static/js/jquery.prettyphoto.min.js" type="text/javascript"></script>
+
+    <script src="js/page-zt.js"></script>
+</body>
+</html>

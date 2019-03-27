@@ -50,6 +50,7 @@ a {
 @yellow: #fdcc21;
 @green: #4bc065;
 @red: #f22974;
+@blue: #0084ff;
 .wraps {
     .pos(r);
     width: @page-w;
@@ -564,11 +565,6 @@ a {
     background: url(../images/tit-bg.png) no-repeat center 0;
     text-align: center;
     color: #fff;
-}
-
-.pub2 {
-    height: 745px;
-    background: url(../images/pub-img2.jpg) no-repeat center 0;
     h4 {
         line-height: 50px;
         padding-top: 60px;
@@ -594,6 +590,27 @@ a {
     p {
         line-height: 36px;
     }
+    .info {
+        .pos(r);
+        line-height: 35px;
+        padding-bottom: 20px;
+        margin-bottom: 25px;
+        &:after {
+            content: '';
+            .pos(a);
+            left: 50%;
+            bottom: 0;
+            width: 26px;
+            height: 4px;
+            background: #fff;
+        }
+    }
+}
+
+.pub2 {
+    height: 745px;
+    background: url(../images/pub-img2.jpg) no-repeat center 0;
+    
     .zsj-box {
         li {
             width: 1220px;
@@ -635,5 +652,67 @@ a {
                 }
             }
         }
+    }
+}
+.pub3 {
+    height: 796px;
+    background: url(../images/pub-img3.jpg) no-repeat center 0;
+    .zsj-box {
+        li {
+            width: 393px;
+            background: none;
+            .img-box {
+                width: 393px;
+                height: 340px;
+                img {
+                    width: 393px;
+                    height: 340px;
+                }
+            }
+            .user {
+                padding: 21px 0 0;
+                .height(40px);
+                border: none;
+                .sjs-name {
+                    float: left;
+                    font-size: 18px;
+                    max-width: 200px;
+                    a {
+                        font-size: 18px;
+                        color: #fff;
+                        &:hover {
+                            color: @blue;
+                        }
+                    }
+                }
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+                h3 {
+                    padding: 0 0 0 50px;
+                    .height(40px);
+                    a {
+                        font-size: 18px;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pub4 {
+    height: 1039px;
+    background: url(../images/pub-img4.jpg) no-repeat center 0;
+    .pub-tit {
+        margin-bottom: 20px;
+    }
+}
+.pub5 {
+    height: 2367px;
+    background: url(../images/pub-img5.jpg) no-repeat center 0;
+    .pub-tit {
+        margin-bottom: 65px;
     }
 }
