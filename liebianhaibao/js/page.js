@@ -75,11 +75,12 @@ function convertImageToCanvas(image, ecode, avatar, name) {
 
     circleImg(ctx, avatar, 21, 23, 50);
 
-    ctx.drawImage(ecode, 371, 692, 148, 148);
+    ctx.drawImage(ecode, 537, 1120, 173, 173);
 
     ctx.fillStyle = '#ffeaca';   // 文字填充颜色
-    ctx.font = '32px Microsoft Yahei';
+    ctx.font = '28px Microsoft Yahei';
     ctx.fillText(name, 135, 66);
+    ctx.font = '22px Microsoft Yahei';
     ctx.fillText('邀你一起组团学习', 135, 110);
     ctx.restore();//恢复状态
 
