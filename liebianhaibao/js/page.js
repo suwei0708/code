@@ -73,15 +73,15 @@ function convertImageToCanvas(image, ecode, avatar, name) {
 
     ctx.drawImage(image, 0, 0);
 
-    circleImg(ctx, avatar, 21, 23, 50);
+    circleImg(ctx, avatar, 25, 47, 60);
 
     ctx.drawImage(ecode, 537, 1120, 173, 173);
 
-    ctx.fillStyle = '#ffeaca';   // 文字填充颜色
-    ctx.font = '28px Microsoft Yahei';
-    ctx.fillText(name, 135, 66);
-    ctx.font = '22px Microsoft Yahei';
-    ctx.fillText('邀你一起组团学习', 135, 110);
+    ctx.fillStyle = '#fff';   // 文字填充颜色
+    ctx.font = '40px Microsoft Yahei';
+    ctx.fillText(name, 170, 110);
+    ctx.font = '32px Microsoft Yahei';
+    ctx.fillText('邀你一起组团学习', 170, 158);
     ctx.restore();//恢复状态
 
     ctx.stroke();
