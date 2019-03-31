@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>寻找代言猫——因爱同行  为爱上色</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script>
+    var deviceWidth =  parseInt(window.screen.width);var deviceScale = deviceWidth/750;var ua = navigator.userAgent;if (/Android (\d+\.\d+)/.test(ua)){var version = parseFloat(RegExp.$1);if(version>2.3){document.write('<meta name="viewport" content="width=750,initial-scale='+deviceScale+', minimum-scale = '+deviceScale+', maximum-scale = '+deviceScale+', target-densitydpi=device-dpi">');}else{document.write('<meta name="viewport" content="width=750,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');}} else {document.write('<meta name="viewport" content="width=750, user-scalable=no">');}
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="static/css/page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="static/js/imgpreload.min.js"></script>
+    <script src="static/js/HGame.js"></script>
+</head>
+<body>
+<div style="display: none;"><img src="static/img/share.jpg"></div>
+<section class="loading">
+    <div>
+        <div class="percentage"><div id="percentage"></div></div>
+    </div>
+</section>
+
+<div id="content">
+    <!-- 主题滑动页面 -->
+    <section class="swiper-container">
+        <div class="swiper-wrapper">
+            <article class="swiper-slide page1 swiper-no-swiping">
+                <img src="static/img/p1/bg.jpg" class="bg u-no">
+                <img src="static/img/p1/logo1.png" class="logo1">
+                <img src="static/img/p1/logo2.png" class="logo2 u-no">
+                <img src="static/img/p1/logo3.png" class="logo3">
+                <img src="static/img/p1/t1.png" class="text1 fade-in-out2 u-no">
+                <img src="static/img/p1/t2.png" class="text2 shake u-no">
+                <img src="static/img/p1/btn-rule.png" class="btn-rule">
+                <div class="btn-box">
+                    <img src="static/img/p1/btn.png" class="btn fade-in-out3">
+                </div>
+            </article>
+
+            <article class="swiper-slide page2 swiper-no-swiping">
+                <img src="static/img/p2/bg.jpg" class="bg u-no">
+                <div class="main">
+                    <span class="prev"></span>
+                    <span class="next"></span>
+                    <div id="boxRender"></div>
+                </div>
+                <div class="color-box">
+                    <span class="cur" style="background: #ec89a6;" data-r="236" data-g="137" data-b="166"></span>
+                    <span style="background: #30adac;" data-r="48" data-g="173" data-b="172"></span>
+                    <span style="background: #d74b48;" data-r="215" data-g="75" data-b="72"></span>
+                    <span style="background: #6769af;" data-r="103" data-g="105" data-b="175"></span>
+                    <span style="background: #ef9d37;" data-r="239" data-g="157" data-b="55"></span>
+                    <span style="background: #1294c1;" data-r="18" data-g="148" data-b="193"></span>
+                    <span style="background: #9bce7f;" data-r="155" data-g="206" data-b="127"></span>
+                    <span style="background: #3160b4;" data-r="49" data-g="96" data-b="180"></span>
+                    <span style="background: #7fa8ac;" data-r="127" data-g="168" data-b="172"></span>
+                    <span style="background: #2b1c21;" data-r="43" data-g="28" data-b="33"></span>
+                    <span style="background: #7e6b5a;" data-r="126" data-g="107" data-b="90"></span>
+                    <span style="background: #01735a;" data-r="1" data-g="115" data-b="90"></span>
+                </div>
+                <div class="btn-box">
+                    <img class="btn btn1" src="./static/img/p2/btn1.png" alt="">
+                    <img class="btn btn2" src="./static/img/p2/btn2.png" alt="">
+                    <img class="btn btn3" src="./static/img/p2/btn3.png" alt="">
+                    <img class="btn btn4" src="./static/img/p2/btn4.png" alt="">
+                </div>
+            </article>
+
+            <article class="swiper-slide page3 swiper-no-swiping">
+                <img src="static/img/p3/bg.jpg" class="bg u-no">
+                <img src="static/img/p1/t1.png" class="t1 u-no">
+                <div class="main">
+                    <img src="./static/img/p2/main.png" alt="">
+                </div>
+                <img class="t2" src="./static/img/p3/t2.png" alt="">
+                <div class="btn-box">
+                    <img src="static/img/p3/btn1.png" class="btn btn1">
+                    <img src="static/img/p3/btn2.png" class="btn btn2">
+                </div>
+            </article>
+
+            <article class="swiper-slide page4 swiper-no-swiping">
+                <img src="static/img/p4/bg.jpg" class="bg u-no">
+                <img src="static/img/p1/btn-rule.png" class="btn-rule">
+                <div class="user">
+                    <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3463497491,2076913186&fm=58" alt="">
+                    <p>Celery 的作品</p>
+                </div>
+                <div class="main">
+                    <img src="./static/img/p2/main.png" alt="">
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">
+                        <img src="static/img/p4/btn1.png">
+                        <div><span class="num">5718</span>票</div>
+                    </div>
+                    <img src="static/img/p4/btn2.png" class="btn btn2">
+                </div>
+            </article>
+
+            <article class="swiper-slide page5 swiper-no-swiping">
+                <img src="static/img/p1/btn-rule.png" class="btn-rule">
+                <img src="static/img/p1/t1.png" class="text1 u-no">
+                <div class="list">
+                    <ul>
+                        <li>
+                            <img class="img" src="./static/img/p2/main.png" alt="">
+                            <div class="btn">
+                                <img src="static/img/p5/btn.png">
+                                <div><span class="num">5718</span>票</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img class="img" src="./static/img/p2/main.png" alt="">
+                            <div class="btn">
+                                <img src="static/img/p5/btn.png">
+                                <div><span class="num">5718</span>票</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img class="img" src="./static/img/p2/main.png" alt="">
+                            <div class="btn">
+                                <img src="static/img/p5/btn.png">
+                                <div><span class="num">5718</span>票</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img class="img" src="./static/img/p2/main.png" alt="">
+                            <div class="btn">
+                                <img src="static/img/p5/btn.png">
+                                <div><span class="num">5718</span>票</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img class="img" src="./static/img/p2/main.png" alt="">
+                            <div class="btn">
+                                <img src="static/img/p5/btn.png">
+                                <div><span class="num">5718</span>票</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img class="img" src="./static/img/p2/main.png" alt="">
+                            <div class="btn">
+                                <img src="static/img/p5/btn.png">
+                                <div><span class="num">5718</span>票</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="swiper-slide page6 swiper-no-swiping">
+                <img src="static/img/p6/t1.png" class="text1 u-no">
+                <div class="box">
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <div class="num">1</div>
+                                <div class="img">
+                                    <span>
+                                        <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3463497491,2076913186&fm=58" alt="">
+                                    </span>
+                                </div>
+                                <div class="prize">一等奖</div>
+                                <div class="info">超级豪华五天四夜游</div>
+                            </li>
+                            <li>
+                                <div class="num">2</div>
+                                <div class="img">
+                                    <span>
+                                        <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3463497491,2076913186&fm=58" alt="">
+                                    </span>
+                                </div>
+                                <div class="prize">二等奖</div>
+                                <div class="info">超级豪华五天四夜游</div>
+                            </li>
+                            <li>
+                                <div class="num">3</div>
+                                <div class="img">
+                                    <span>
+                                        <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3463497491,2076913186&fm=58" alt="">
+                                    </span>
+                                </div>
+                                <div class="prize">三等奖</div>
+                                <div class="info">超级豪华五天四夜游</div>
+                            </li>
+                            <li>
+                                <div class="num">4</div>
+                                <div class="img">
+                                    <span>
+                                        <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3463497491,2076913186&fm=58" alt="">
+                                    </span>
+                                </div>
+                                <div class="prize">四等奖</div>
+                                <div class="info">超级豪华五天四夜游</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swiper-slide page7 swiper-no-swiping">
+                <img src="static/img/p7/bg.jpg" class="bg u-no">
+                <img src="static/img/p1/t1.png" class="text1 fade-in-out2 u-no">
+                <img src="static/img/p1/t2.png" class="text2 shake u-no">
+                <div class="info">
+                    <p>长按下方二维码识别关注</p>
+                    <p>【龙湖长沙洋湖天街】</p>
+                    <p>点击子菜单【为爱上色】参与活动</p>
+                    <div class="ecode">
+                        <img src="./static/img/p7/ecode.jpg" alt="">
+                    </div>
+                </div>
+                <img src="static/img/p7/ft-bg.png" class="ft-bg u-no">
+            </article>
+
+            <article class="swiper-slide page8 swiper-no-swiping">
+                <img src="static/img/p7/bg.jpg" class="bg u-no">
+                <img src="static/img/p1/t1.png" class="text1 fade-in-out2 u-no">
+                <img src="static/img/p1/t2.png" class="text2 shake u-no">
+                <div class="info info2">
+                    <p>中奖名单将在活动结束后</p>
+                    <p>以图文形式在</p>
+                    <p>【龙湖长沙洋湖天街】公众号进行公布</p>
+                    <p>请及时关注查看</p>
+                    <div class="ecode">
+                        <img src="./static/img/p7/ecode.jpg" alt="">
+                    </div>
+                </div>
+                <img src="static/img/p7/ft-bg.png" class="ft-bg u-no">
+            </article>
+        </div>
+    </section>
+
+    <!-- 弹窗活动规则 start -->
+    <div class="popup-box popup-rule-box">
+        <div class="popup popup-rule">
+            <div class="box">
+                <div class="tit">【活动规则】</div>
+                <div class="ct">
+                    <p>1.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>2.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>3.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>4.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>5.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                </div>
+                <img src="./static/img/p1/logo4.png" alt="" class="logo">
+            </div>
+            <img src="./static/img/p1/close.png" alt="" class="close">
+        </div>
+    </div>
+    <!-- 弹窗活动规则 end -->
+
+    <!-- 弹窗五江天街介绍 start -->
+    <div class="popup-box popup-intro-box">
+        <div class="popup popup-intro">
+            <div class="box">
+                <div class="tit">五江天街介绍：</div>
+                <div class="ct">
+                    <p>1.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>2.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>3.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>4.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>5.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                </div>
+                <img src="./static/img/p1/logo4.png" alt="" class="logo">
+            </div>
+            <img src="./static/img/p1/close.png" alt="" class="close">
+        </div>
+    </div>
+    <!-- 弹窗五江天街介绍 end -->
+
+    <!-- 弹窗投票成功 start -->
+    <div class="popup-suc-box">
+        <div class="popup-suc">
+            <img src="./static/img/p3/popup-suc.png" alt="">
+            <img src="./static/img/p3/btn-vote.png" alt="" class="btn-vote">
+        </div>
+    </div>
+    <!-- 弹窗投票成功 start -->
+
+    <!-- 弹窗投票规则 start -->
+    <div class="popup-box popup-vote-box">
+        <div class="popup popup-vote">
+            <div class="box">
+                <div class="tit">【投票规则】</div>
+                <div class="ct">
+                    <p>1.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>2.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>3.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>4.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                    <p>5.规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规。</p>
+                </div>
+                <img src="./static/img/p1/logo4.png" alt="" class="logo">
+            </div>
+            <img src="./static/img/p1/close.png" alt="" class="close">
+        </div>
+    </div>
+    <!-- 弹窗投票规则 start -->
+
+    <!-- 弹窗分享 start -->
+    <div class="popup-box popup-share-box">
+        <div class="popup-share">
+            <img src="./static/img/p4/share.png" alt="">
+        </div>
+    </div>
+    <!-- 弹窗分享 start -->
+</div>
+
+<!-- 基础JS脚本部分 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+<!-- 当前页面自定义JS -->
+<script src="static/js/data.js"></script>
+<script src="static/js/page.js"></script>
+
+<!-- 微信分享文字自定义 -->
+<!-- <script src="static/js/weixin.js"></script> -->
+<script>
+// $(function() {
+//     var path = window.location.href;
+//     var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+//     var wxData = {
+//         imgUrl: baseUrl + 'static/img/share.jpg',
+//         link: baseUrl + 'index.html',
+//         title: '寻找代言猫——因爱同行  为爱上色',
+//         desc: '龙湖长沙洋湖天街携手金鹰955全城“爱它总动员”，为萌宠猫涂鸦上色，公益你我、因爱同行！'
+//     };
+//     weixin.bindData(wxData);
+// });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?397b676cb941823a1840dfb7d8c17253";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>
