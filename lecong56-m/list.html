@@ -155,7 +155,7 @@
             domDown: {
                 domClass: 'dropload-down',
                 domRefresh: '<div class="dropload-refresh">上拉加载更多</div>',
-                domLoad: '<div class="dropload-load"><div class="loading"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>正在加载</div>',
+                domLoad: '<div class="dropload-load">正在加载</div>',
                 domNoData: '<div class="dropload-noData">已无数据</div>'
             },
             loadDownFn: function (me) {
@@ -168,6 +168,7 @@
                 }
                 // 加载页面
                 setTimeout(function () {
+                    console.log(curpage)
                     var li;
                     for (i=0; i<6; i++) {
                         li = `<li class="bdr10">

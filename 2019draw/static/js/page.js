@@ -9,7 +9,7 @@ app.height;
 app.loop = false;  // 循环展示
 app.DEFAULT_WIDTH = 750;
 app.DEFAULT_HEIGHT = 1212;
-app.baseUrl = 'static/img/';
+app.baseUrl = 'https://m.xinliling.com';
 
 app.init = function () {
 
@@ -20,43 +20,95 @@ app.init = function () {
     $.each($('#content img'), function(index) {
         the_images.push($(this).attr('src'));
     });
-    $.imgpreload(the_images,{
-        each: function(i) {
-            var status = $(this).data('loaded') ? 'success' : 'error';
-            if (status == "success") {
-                var v = (i.length / the_images.length).toFixed(2);
-                $("#percentage").width(Math.round(v * 100) + '%');
+
+    // 请求授权
+    oauth();
+    function oauth() {
+        $.ajax({
+            url: app.baseUrl + '/oauth',
+            type: 'GET',
+            dataType: 'json'
+        })
+        .done(function(res) {
+            if(res.status=="401"){
+                oauth();
+                return false;
             }
-        },
-        all: function() {
-            setTimeout(function() {
-                $('.loading').remove();
-            }, 500);
-        }
-    });
+            app.userInfo = res.data;
+            $('.page4 .user').find('img').attr('src', app.userInfo.avatar);
+            $('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
+            // 加载图片
+            $.imgpreload(the_images,{
+                each: function(i) {
+                    var status = $(this).data('loaded') ? 'success' : 'error';
+                    if (status == "success") {
+                        var v = (i.length / the_images.length).toFixed(2);
+                        $("#percentage").width(Math.round(v * 100) + '%');
+                    }
+                },
+                all: function() {
+                    setTimeout(function() {
+                        $('.loading').remove();
+                        // 未关注跳转到关注页
+                        if(!app.userInfo.subscribe) {
+                            app.swiper.slideTo(5, 0, false);
+                        }
+                        // 已结束跳转页
+                        // app.swiper.slideTo(6, 0, false);
+                    }, 500);
+                }
+            });
 
-    var initialSlide = 5;
-    var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
-    app.swiper = new Swiper('.swiper-container', {
-        direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
-        loop: app.loop,  // 循环展示
-        longSwipesRatio: 0.1,
-        initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
-        preventClicks: true,
-        preventClicksPropagation: true,
-        width: app.DEFAULT_WIDTH,
-        height: swiperH,
-        noSwiping : true
-        // on: {
-        //     slideNextTransitionStart: function(){
-        //         var index = this.activeIndex;
-        //     },
-        //     slideChangeTransitionEnd: function(){
-        //         var index = this.activeIndex;
-        //     }
-        // }
-    });
+            // 初始化
+            var initialSlide = 0;
+            var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
+            app.swiper = new Swiper('.swiper-container', {
+                direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
+                loop: app.loop,  // 循环展示
+                longSwipesRatio: 0.1,
+                initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
+                preventClicks: true,
+                preventClicksPropagation: true,
+                width: app.DEFAULT_WIDTH,
+                height: swiperH,
+                noSwiping : true
+            });
+        })
+        .fail(function() {
+            // alert('网络错误，请稍候再试！');
 
+            // 加载图片
+            $.imgpreload(the_images,{
+                each: function(i) {
+                    var status = $(this).data('loaded') ? 'success' : 'error';
+                    if (status == "success") {
+                        var v = (i.length / the_images.length).toFixed(2);
+                        $("#percentage").width(Math.round(v * 100) + '%');
+                    }
+                },
+                all: function() {
+                    setTimeout(function() {
+                        $('.loading').remove();
+                    }, 500);
+                }
+            });
+
+            // 初始化
+            var initialSlide = 0;
+            var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
+            app.swiper = new Swiper('.swiper-container', {
+                direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
+                loop: app.loop,  // 循环展示
+                longSwipesRatio: 0.1,
+                initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
+                preventClicks: true,
+                preventClicksPropagation: true,
+                width: app.DEFAULT_WIDTH,
+                height: swiperH,
+                noSwiping : true
+            });
+        });
+    };
     // 初始化音乐按钮
     // initMusic();
 };
@@ -147,11 +199,43 @@ function initPageEvents() {
     })
     // 完成
     .on('click', '.btn1', function () {
-        $('.page3').find('.main').html(canvasToImage($('#boxRender').find('canvas')[0]));
+        $('.page3, .page4').find('.main').html(canvasToImage($('#boxRender').find('canvas')[0]));
         app.swiper.slideTo(2, 0, false);
     })
     // 看大家的
     .on('click', '.btn2', function () {
+        if(!isClicks) {
+            return false;
+        }
+        isClicks = false;
+        $.ajax({
+            url: app.baseUrl + '/draw/index',
+            type: 'POST',
+            dataType: 'json',
+            data: {param1: 'value1'},
+        })
+        .done(function(res) {
+            if(res.status == 200) {
+                alert(res.data);
+                return false;
+            }
+            for (var i = 0; i < res.data.length; i++) {
+                var dom = '<li>'
+                                + '<img class="img" src="' + res.data[i].image + '" alt="">'
+                                + '<div class="btn">'
+                                    + '<img src="static/img/p5/btn.png">'
+                                    + '<div data-id="' + res.data[i].id + '""><span class="num">' + res.data[i].vote + '</span>票</div>'
+                                + '</div>'
+                            + '</li>';
+            }
+            $('.page5').find('ul').append(dom);
+        })
+        .fail(function() {
+            alert('网络错误，请稍候再试！');
+        })
+        .always(function() {
+            isClicks = true;
+        });
         app.swiper.slideTo(4, 0, false);
         document.body.removeEventListener('touchmove', bodyScroll, {passive: false});
     })
@@ -171,7 +255,30 @@ function initPageEvents() {
     })
     // 提交作品
     .on('click', '.btn2', function () {
-        $('.popup-suc-box').show();
+        if(!isClicks) {
+            return false;
+        }
+        isClicks = false;
+        $.ajax({
+            url: app.baseUrl + '/draw/save',
+            type: 'POST',
+            dataType: 'json',
+            data: {param1: 'value1'},
+        })
+        .done(function() {
+            if(res.status == 200) {
+                alert(res.data);
+                return false;
+            }
+            $('.page4').find('btn1').attr('data-id', res.data.id);
+            $('.popup-suc-box').show();
+        })
+        .fail(function() {
+            alert('网络错误，请稍候再试！');
+        })
+        .always(function() {
+            isClicks = true;
+        });
     });
 
     /** 弹窗 */
@@ -192,9 +299,28 @@ function initPageEvents() {
             return false;
         }
         isClicks = false;
-        $(this).find('.num').html(+$(this).find('.num').html() + 1);
-        alert('投票成功');
-        isClicks = true;
+        var _this = $(this);
+        $.ajax({
+            url: app.baseUrl + '/draw/save',
+            type: 'POST',
+            dataType: 'json',
+            data: {id: _this.attr('data-id')},
+        })
+        .done(function() {
+            if(res.status == 200) {
+                alert(res.data);
+                return false;
+            }
+            _this.find('.num').html(+_this.find('.num').html() + 1);
+            alert('投票成功');
+
+        })
+        .fail(function() {
+            alert('网络错误，请稍候再试！');
+        })
+        .always(function() {
+            isClicks = true;
+        });
     })
     // 点击分享
     .on('click', '.btn2', function() {
@@ -218,6 +344,7 @@ function initPageEvents() {
     });
 
     $('.back').on('click', function() {
+        document.body.addEventListener('touchmove', bodyScroll, {passive: false});
         app.swiper.slideTo(1, 0, false);
     });
 
@@ -312,6 +439,40 @@ function initPageEvents() {
 
     }
     changeDraw(imgNum);
+
+    // 上拉加载
+    var curpage = 1;  // 页数
+    var totalpage = 5; // 总页数
+    // dropload
+    var dropload = $("#wrapper").dropload({
+        scrollArea: this,
+        domDown: {
+            domClass: 'dropload-down',
+            domRefresh: '<div class="dropload-refresh">上拉加载更多</div>',
+            domLoad: '<div class="dropload-load"><div class="loading"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>正在加载</div>',
+            domNoData: '<div class="dropload-noData">已无数据</div>'
+        },
+        loadDownFn: function (me) {
+            // 判断是否只有一页或者加载完毕
+            if(totalpage <= 1 || curpage == totalpage) {
+                me.lock();
+                me.noData();
+                me.resetload();
+                return;
+            }
+            // 加载页面
+            setTimeout(function () {
+                console.log(curpage)
+                var li;
+                for (i=0; i<6; i++) {
+                    li = `<li class="bdr10">afas</li>`;
+                    $("#wrapper ul").append(li);
+                }
+                curpage = parseInt(curpage) + 1;
+                me.resetload();
+            }, 500);
+        }
+    });
 }
 /**
  * 返回是否是PC页面
