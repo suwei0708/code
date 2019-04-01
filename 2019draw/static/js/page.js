@@ -35,7 +35,7 @@ app.init = function () {
         }
     });
 
-    var initialSlide = 1;
+    var initialSlide = 5;
     var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
     app.swiper = new Swiper('.swiper-container', {
         direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
@@ -217,6 +217,10 @@ function initPageEvents() {
         isClicks = true;
     });
 
+    $('.back').on('click', function() {
+        app.swiper.slideTo(1, 0, false);
+    });
+
     // 画图
     var canvas = new HGAME.canvas();
     var testBox = document.getElementById('boxRender');
@@ -252,6 +256,7 @@ function initPageEvents() {
             }
         }
         txt.putImageData(data, 0, 0);
+
         return c;
     }
     var div = document.createElement("div");
@@ -290,11 +295,10 @@ function initPageEvents() {
                             clickFun: function () {
                                 if (typeof this.bufferImg == "undefined") {
                                     this.bufferImg = this.img;
-                                    this.img = changeImgColor(this.bufferImg, colorObj
-                                        .r, colorObj.g, colorObj.b);
-                                } else {
-                                    this.img = changeImgColor(this.bufferImg, colorObj
-                                        .r, colorObj.g, colorObj.b);
+                                    this.img = changeImgColor(this.bufferImg, colorObj.r, colorObj.g, colorObj.b);
+                                }
+                                else {
+                                    this.img = changeImgColor(this.bufferImg, colorObj.r, colorObj.g, colorObj.b);
                                 }
                             }
                         }));
@@ -308,7 +312,6 @@ function initPageEvents() {
 
     }
     changeDraw(imgNum);
-
 }
 /**
  * 返回是否是PC页面
