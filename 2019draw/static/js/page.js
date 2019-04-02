@@ -9,11 +9,22 @@ app.height;
 app.loop = false;  // 循环展示
 app.DEFAULT_WIDTH = 750;
 app.DEFAULT_HEIGHT = 1212;
-app.baseUrl = 'https://m.xinliling.com';
+app.userInfo = [];
+app.token = '';
+app.drawId = 0;
+if (document.domain.indexOf('.com') < 0) {
+	app.baseUrl = 'http://m.xinliling.loc/api/draw';
+	app.appId = 'wx6104ad130cf65c5c';
+}
+else {
+	app.baseUrl = 'https://m.xinliling.com/api/draw';
+	app.appId = 'wx143ffe911d9d2118';
+}
 
 app.init = function () {
 
     app.loop = getUrlParameterByName('loop') || false;
+    app.drawId = getUrlParameterByName('draw_id');
 
     // 加载完成后隐藏loading
     var the_images = [];
@@ -22,21 +33,33 @@ app.init = function () {
     });
 
     // 请求授权
-    oauth();
-    function oauth() {
+    login();
+    function login() {
+    	var code = getUrlParameterByName('code') || false;
+		var state = getUrlParameterByName('state');
+		var redirect = location.href.split('?')[0];
+		if (app.drawId) redirect += '?draw_id=' + app.drawId;
+		var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + app.appId + "&redirect_uri=" + redirect + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+    	if (!code) {
+    		window.location = url;
+    		return false;
+		}
+
         $.ajax({
-            url: app.baseUrl + '/oauth',
+            url: app.baseUrl + '/login',
             type: 'GET',
-            dataType: 'json'
+            dataType: 'json',
+			data: {code: code, state: state},
         })
         .done(function(res) {
-            if(res.status=="401"){
-                oauth();
-                return false;
+			app.userInfo = res.info;
+			app.token = res.jwt;
+
+            if (res.hasOwnProperty('image')) {
+                $('.page4 .user').find('img').attr('src', app.userInfo.avatar);
+                $('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
             }
-            app.userInfo = res.data;
-            $('.page4 .user').find('img').attr('src', app.userInfo.avatar);
-            $('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
+
             // 加载图片
             $.imgpreload(the_images,{
                 each: function(i) {
@@ -49,12 +72,20 @@ app.init = function () {
                 all: function() {
                     setTimeout(function() {
                         $('.loading').remove();
-                        // 未关注跳转到关注页
+                        // // 未关注跳转到关注页
                         if(!app.userInfo.subscribe) {
-                            app.swiper.slideTo(5, 0, false);
+                            app.swiper.slideTo(6, 0, false);
                         }
                         // 已结束跳转页
-                        // app.swiper.slideTo(6, 0, false);
+                        if (app.userInfo.is_end) {
+                            app.swiper.slideTo(7, 0, false);
+                        }
+                        if (app.userInfo.id) {
+                            $('.page1').find('.btn-start').remove();
+                        }
+                        else {
+                            $('.page1').find('.btn-vote').remove();
+                        }
                     }, 500);
                 }
             });
@@ -76,41 +107,10 @@ app.init = function () {
         })
         .fail(function() {
             // alert('网络错误，请稍候再试！');
-
-            // 加载图片
-            $.imgpreload(the_images,{
-                each: function(i) {
-                    var status = $(this).data('loaded') ? 'success' : 'error';
-                    if (status == "success") {
-                        var v = (i.length / the_images.length).toFixed(2);
-                        $("#percentage").width(Math.round(v * 100) + '%');
-                    }
-                },
-                all: function() {
-                    setTimeout(function() {
-                        $('.loading').remove();
-                    }, 500);
-                }
-            });
-
-            // 初始化
-            var initialSlide = 0;
-            var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
-            app.swiper = new Swiper('.swiper-container', {
-                direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
-                loop: app.loop,  // 循环展示
-                longSwipesRatio: 0.1,
-                initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
-                preventClicks: true,
-                preventClicksPropagation: true,
-                width: app.DEFAULT_WIDTH,
-                height: swiperH,
-                noSwiping : true
-            });
+			window.location = url;
+			return false;
         });
     };
-    // 初始化音乐按钮
-    // initMusic();
 };
 
 /**
@@ -133,11 +133,6 @@ function getUrlParameterByName(name) {
  */
 $(function () {
     app.init();
-    //微信下兼容音乐处理
-    // if(app.music1) {app.music1.play();}
-    // document.addEventListener("WeixinJSBridgeReady", function () {
-    //     app.music1.play();
-    // }, false);
     initPageEvents();
 });
 
@@ -145,7 +140,6 @@ $(function () {
  * 页面交互事件的初始化写这里
  */
 function initPageEvents() {
-
     // 防止拖动出现黑块
     document.body.addEventListener('touchmove', bodyScroll, {passive: false});
 
@@ -207,35 +201,13 @@ function initPageEvents() {
         if(!isClicks) {
             return false;
         }
-        isClicks = false;
-        $.ajax({
-            url: app.baseUrl + '/draw/index',
-            type: 'POST',
-            dataType: 'json',
-            data: {param1: 'value1'},
-        })
-        .done(function(res) {
-            if(res.status == 200) {
-                alert(res.data);
-                return false;
-            }
-            for (var i = 0; i < res.data.length; i++) {
-                var dom = '<li>'
-                                + '<img class="img" src="' + res.data[i].image + '" alt="">'
-                                + '<div class="btn">'
-                                    + '<img src="static/img/p5/btn.png">'
-                                    + '<div data-id="' + res.data[i].id + '""><span class="num">' + res.data[i].vote + '</span>票</div>'
-                                + '</div>'
-                            + '</li>';
-            }
-            $('.page5').find('ul').append(dom);
-        })
-        .fail(function() {
-            alert('网络错误，请稍候再试！');
-        })
-        .always(function() {
-            isClicks = true;
-        });
+        if(app.userInfo.id) {
+            $('.page5').find('.back').remove();
+        }
+        $('.page5').find('ul').html('');
+        pageNum = 1;
+        loadMore = true;
+        getData(pageNum);
         app.swiper.slideTo(4, 0, false);
         document.body.removeEventListener('touchmove', bodyScroll, {passive: false});
     })
@@ -259,22 +231,22 @@ function initPageEvents() {
             return false;
         }
         isClicks = false;
+
         $.ajax({
-            url: app.baseUrl + '/draw/save',
+            url: app.baseUrl + '/save',
             type: 'POST',
             dataType: 'json',
-            data: {param1: 'value1'},
+			beforeSend: function(request) {
+				request.setRequestHeader('JWT-Token', app.token);
+			},
+            data: {picture: $(canvasToImage($('#boxRender').find('canvas')[0])).attr('src')},
         })
-        .done(function() {
-            if(res.status == 200) {
-                alert(res.data);
-                return false;
-            }
-            $('.page4').find('btn1').attr('data-id', res.data.id);
+        .done(function(res) {
+            $('.page4').find('.btn1').attr('data-id', res.id);
             $('.popup-suc-box').show();
         })
-        .fail(function() {
-            alert('网络错误，请稍候再试！');
+        .fail(function(err) {
+            alert(err.responseText || '网络错误，请稍候再试！');
         })
         .always(function() {
             isClicks = true;
@@ -298,29 +270,8 @@ function initPageEvents() {
         if(!isClicks) {
             return false;
         }
-        isClicks = false;
         var _this = $(this);
-        $.ajax({
-            url: app.baseUrl + '/draw/save',
-            type: 'POST',
-            dataType: 'json',
-            data: {id: _this.attr('data-id')},
-        })
-        .done(function() {
-            if(res.status == 200) {
-                alert(res.data);
-                return false;
-            }
-            _this.find('.num').html(+_this.find('.num').html() + 1);
-            alert('投票成功');
-
-        })
-        .fail(function() {
-            alert('网络错误，请稍候再试！');
-        })
-        .always(function() {
-            isClicks = true;
-        });
+        vote(_this);
     })
     // 点击分享
     .on('click', '.btn2', function() {
@@ -337,10 +288,8 @@ function initPageEvents() {
         if(!isClicks) {
             return false;
         }
-        isClicks = false;
-        $(this).find('.num').html(+$(this).find('.num').html() + 1);
-        alert('投票成功');
-        isClicks = true;
+        var _this = $(this);
+        vote(_this);
     });
 
     $('.back').on('click', function() {
@@ -441,38 +390,17 @@ function initPageEvents() {
     changeDraw(imgNum);
 
     // 上拉加载
-    var curpage = 1;  // 页数
-    var totalpage = 5; // 总页数
-    // dropload
-    var dropload = $("#wrapper").dropload({
-        scrollArea: this,
-        domDown: {
-            domClass: 'dropload-down',
-            domRefresh: '<div class="dropload-refresh">上拉加载更多</div>',
-            domLoad: '<div class="dropload-load"><div class="loading"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>正在加载</div>',
-            domNoData: '<div class="dropload-noData">已无数据</div>'
-        },
-        loadDownFn: function (me) {
-            // 判断是否只有一页或者加载完毕
-            if(totalpage <= 1 || curpage == totalpage) {
-                me.lock();
-                me.noData();
-                me.resetload();
-                return;
+    var pageNum = 1;
+    var loadMore = true;
+    $('#wrapper').on('scroll', function() {
+        if($(this).scrollTop() + $(this).height() >= $(this).find('ul').height()) {
+            pageNum++;
+            if (loadMore) {
+                getData(pageNum);
             }
-            // 加载页面
-            setTimeout(function () {
-                console.log(curpage)
-                var li;
-                for (i=0; i<6; i++) {
-                    li = `<li class="bdr10">afas</li>`;
-                    $("#wrapper ul").append(li);
-                }
-                curpage = parseInt(curpage) + 1;
-                me.resetload();
-            }, 500);
         }
     });
+
 }
 /**
  * 返回是否是PC页面
@@ -515,6 +443,78 @@ function bodyScroll(event) {
 function canvasToImage(canvas) {
     var image = new Image();
     image.crossOrigin='anonymous';
-    image.src = canvas.toDataURL('image/png');
+    image.src = canvas.toDataURL('image/jpeg');
     return image;
+}
+
+// 排行榜
+function getData(page) {
+    isClicks = false;
+    $.ajax({
+            url: app.baseUrl + '/index',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                page: page
+            },
+            beforeSend: function (request) {
+                request.setRequestHeader('JWT-Token', app.token);
+            },
+        })
+        .done(function (res) {
+            if(res.length <= 0) {
+                loadMore = false;
+                return false;
+            }
+            for (var i = 0; i < res.length; i++) {
+                var dom = '<li>' +
+                    // '<img class="img" src="' + res[i].image + '" alt="">' +
+                    '<img class="img" src="./static/img/p2/main.png" alt="">' +
+                    '<div class="btn" data-id="' + res[i].id + '"">' +
+                    '<img src="static/img/p5/btn.png">' +
+                    '<div><span class="num">' + res[i].vote + '</span>票</div>' +
+                    '</div>' +
+                    '</li>';
+                $('.page5').find('ul').append(dom);
+            }
+        })
+        .fail(function () {
+            alert('网络错误，请稍候再试！');
+        })
+        .always(function () {
+            isClicks = true;
+        });
+}
+
+// 投票
+function vote(_this) {
+    isClicks = false;
+    $.ajax({
+        url: app.baseUrl + '/vote',
+        type: 'POST',
+        dataType: 'json',
+        beforeSend: function (request) {
+            request.setRequestHeader('JWT-Token', app.token);
+        },
+        data: {
+            id: _this.attr('data-id')
+        },
+    })
+    .done(function (res) {
+        if (res.responseText == '投票成功') {
+            _this.find('.num').html(+_this.find('.num').html() + 1);
+            alert('投票成功');
+            return false;
+        }
+        else {
+            alert('投票失败');
+        }
+    })
+    .fail(function (res) {
+        console.log(res);
+        alert(res.responseText || '网络错误，请稍候再试！');
+    })
+    .always(function () {
+        isClicks = true;
+    });
 }
