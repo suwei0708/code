@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>寻找代言猫——因爱同行  为爱上色</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script>
+    var deviceWidth =  parseInt(window.screen.width);var deviceScale = deviceWidth/750;var ua = navigator.userAgent;if (/Android (\d+\.\d+)/.test(ua)){var version = parseFloat(RegExp.$1);if(version>2.3){document.write('<meta name="viewport" content="width=750,initial-scale='+deviceScale+', minimum-scale = '+deviceScale+', maximum-scale = '+deviceScale+', target-densitydpi=device-dpi">');}else{document.write('<meta name="viewport" content="width=750,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');}} else {document.write('<meta name="viewport" content="width=750, user-scalable=no">');}
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="static/css/page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="static/js/imgpreload.min.js"></script>
+    <script src="https://omg.js.org/omg.min.js"></script>
+</head>
+<body>
+<section class="loading">
+    <div>
+        <div class="percentage"><div id="percentage"></div></div>
+    </div>
+</section>
+
+<div id="content">
+    <!-- 主题滑动页面 -->
+    <section class="swiper-container">
+        <div class="swiper-wrapper">
+            <article class="swiper-slide page2 swiper-no-swiping">
+                <img src="static/img/p2/bg.jpg" class="bg u-no">
+                <div class="main">
+                    <span class="prev"></span>
+                    <span class="next"></span>
+                    <div id="boxRender"><canvas id="canvas"></canvas></div>
+                </div>
+                <div class="color-box">
+                    <span class="cur" style="background: #fed3dd;" data-r="254" data-g="211" data-b="221"></span>
+                    <span style="background: #61d9bd;" data-r="97" data-g="217" data-b="189"></span>
+                    <span style="background: #ef5b5b;" data-r="239" data-g="91" data-b="91"></span>
+                    <span style="background: #8d8fef;" data-r="141" data-g="143" data-b="239"></span>
+                    <span style="background: #ffa952;" data-r="255" data-g="169" data-b="82"></span>
+                    <span style="background: #2bafdd;" data-r="43" data-g="175" data-b="221"></span>
+                    <span style="background: #a3de82;" data-r="163" data-g="222" data-b="130"></span>
+                    <span style="background: #f7f39a;" data-r="247" data-g="243" data-b="154"></span>
+                    <span style="background: #fcbbd5;" data-r="252" data-g="187" data-b="213"></span>
+                    <span style="background: #2b1c21;" data-r="43" data-g="28" data-b="33"></span>
+                    <span style="background: #c4f8c8;" data-r="196" data-g="248" data-b="200"></span>
+                    <span style="background: #239d60;" data-r="35" data-g="157" data-b="96"></span>
+                </div>
+                <div class="btn-box">
+                    <img class="btn btn1" src="./static/img/p2/btn1.png" alt="">
+                    <img class="btn btn2" src="./static/img/p2/btn2.png" alt="">
+                    <img class="btn btn3" src="./static/img/p2/btn3.png" alt="">
+                    <img class="btn btn4" src="./static/img/p2/btn4.png" alt="">
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<!-- 基础JS脚本部分 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+<!-- 当前页面自定义JS -->
+<script src="static/js/data.js"></script>
+<!-- <script src="static/js/page.js"></script> -->
+<script>
+// 加载完成后隐藏loading
+	var the_images = [];
+	$.each($('#content img'), function(index) {
+		the_images.push($(this).attr('src'));
+	});
+
+	// 加载图片
+	$.imgpreload(the_images,{
+		each: function(i) {
+			var status = $(this).data('loaded') ? 'success' : 'error';
+			if (status == "success") {
+				var v = (i.length / the_images.length).toFixed(2);
+				$("#percentage").width(Math.round(v * 100) + '%');
+			}
+		},
+		all: function() {
+			$('.loading').remove();
+		}
+    });
+</script>
+<script>
+    var stage = omg({
+        element: document.getElementById('canvas'),
+        width: 647,
+        height: 693,
+        enableGlobalTranslate: true,
+        prepareImage: true
+    });
+
+    stage.init();
+
+    for (var i = 0; i < whxyInfo[0].length; i++) {
+        console.log(whxyInfo[0][i].x)
+        var img = stage.graphs.image({
+            x: whxyInfo[0][i].x,
+            y: whxyInfo[0][i].y,
+            width: whxyInfo[0][i].w,
+            height: whxyInfo[0][i].h,
+            sliceX: 0,
+            sliceY: 0,
+            sliceWidth: 0,
+            sliceHeight: 0,
+            src: data[0][i + 1]
+        })
+        .on('touchstart', function (res) {
+            console.log(res, i);
+            stage.show();
+        })
+        .config({
+            drag: false,
+            changeIndex: false
+        });
+        stage.addChild(img);
+    }
+
+
+    stage.show();
+
+    function changeImgColor(img, r, g, b) {
+        var c = document.getElementById("canvas");
+        var txt = c.getContext("2d");
+        c.width = 647;
+        c.height = 693;
+        txt.drawImage(img, 0, 0);
+        var data = txt.getImageData(0, 0, c.width, c.height);
+        for (var q = 0; q < data.data.length; q += 4) {
+            if (data.data[q + 3] > 100) {
+                data.data[q] = r;
+                data.data[q + 1] = g;
+                data.data[q + 2] = b;
+            }
+        }
+        txt.putImageData(data, 0, 0);
+
+        return c;
+    }
+</script>
+</body>
+</html>

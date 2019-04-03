@@ -12,6 +12,9 @@ app.DEFAULT_HEIGHT = 1212;
 app.userInfo = [];
 app.token = '';
 app.drawId = 0;
+app.loadMore = true;
+app.pageNum = 1;
+app.img;
 if (document.domain.indexOf('.com') < 0) {
 	app.baseUrl = 'http://m.xinliling.loc/api/draw';
 	app.appId = 'wx6104ad130cf65c5c';
@@ -20,28 +23,48 @@ else {
 	app.baseUrl = 'https://m.xinliling.com/api/draw';
 	app.appId = 'wx143ffe911d9d2118';
 }
+app.rank = false;   //用于切换排行榜的时候确认是否已经存在数据
+app.voteNum = 0;    //已投票次数
+
+//获取缓存
+var storage = window.localStorage;
+app.token = storage.getItem('longfor-token') || '';
+if (app.token) {
+	app.userInfo = JSON.parse(storage.getItem('longfor-user'));
+}
+
+//将投票次数记录到本地
+var today = new Date().toLocaleDateString();
+var todayNum = storage.getItem(today);
+if (todayNum !== null) {
+	app.voteNum = +todayNum;
+}
+else {
+	storage.removeItem(new Date(new Date().getTime() - 24*60*60*1000).toLocaleDateString());  //删除昨天的
+	storage.setItem(today, app.voteNum);
+}
+
 
 app.init = function () {
 
     app.loop = getUrlParameterByName('loop') || false;
     app.drawId = getUrlParameterByName('draw_id');
 
-    // 加载完成后隐藏loading
-    var the_images = [];
-    $.each($('#content img'), function(index) {
-        the_images.push($(this).attr('src'));
-    });
-
     // 请求授权
-    login();
+    if (!app.token) login();
+    else {
+    	//活动已结束
+		if (app.userInfo.is_end) pageInit();
+		updateStatus();
+	}
     function login() {
     	var code = getUrlParameterByName('code') || false;
-		var state = getUrlParameterByName('state');
+    	var state = getUrlParameterByName('state');
 		var redirect = location.href.split('?')[0];
 		if (app.drawId) redirect += '?draw_id=' + app.drawId;
 		var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + app.appId + "&redirect_uri=" + redirect + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     	if (!code) {
-    		window.location = url;
+    		window.location.replace = url;
     		return false;
 		}
 
@@ -54,64 +77,135 @@ app.init = function () {
         .done(function(res) {
 			app.userInfo = res.info;
 			app.token = res.jwt;
+			storage.setItem('longfor-token', app.token);
+			storage.setItem('longfor-user', JSON.stringify(app.userInfo));
 
-            if (res.hasOwnProperty('image')) {
-                $('.page4 .user').find('img').attr('src', app.userInfo.avatar);
-                $('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
-            }
-
-            // 加载图片
-            $.imgpreload(the_images,{
-                each: function(i) {
-                    var status = $(this).data('loaded') ? 'success' : 'error';
-                    if (status == "success") {
-                        var v = (i.length / the_images.length).toFixed(2);
-                        $("#percentage").width(Math.round(v * 100) + '%');
-                    }
-                },
-                all: function() {
-                    setTimeout(function() {
-                        $('.loading').remove();
-                        // // 未关注跳转到关注页
-                        if(!app.userInfo.subscribe) {
-                            app.swiper.slideTo(6, 0, false);
-                        }
-                        // 已结束跳转页
-                        if (app.userInfo.is_end) {
-                            app.swiper.slideTo(7, 0, false);
-                        }
-                        if (app.userInfo.id) {
-                            $('.page1').find('.btn-start').remove();
-                        }
-                        else {
-                            $('.page1').find('.btn-vote').remove();
-                        }
-                    }, 500);
-                }
-            });
-
-            // 初始化
-            var initialSlide = 0;
-            var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
-            app.swiper = new Swiper('.swiper-container', {
-                direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
-                loop: app.loop,  // 循环展示
-                longSwipesRatio: 0.1,
-                initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
-                preventClicks: true,
-                preventClicksPropagation: true,
-                width: app.DEFAULT_WIDTH,
-                height: swiperH,
-                noSwiping : true
-            });
+			pageInit();
         })
         .fail(function() {
-            // alert('网络错误，请稍候再试！');
-			window.location = url;
+            // alertTips('网络错误，请稍候再试！');
+			window.location.replace = url;
 			return false;
         });
-    };
+    }
 };
+
+function updateStatus() {
+	$.ajax({
+		url: app.baseUrl + '/update',
+		type: 'GET',
+		dataType: 'json',
+		beforeSend: function (request) {
+			request.setRequestHeader('JWT-Token', app.token);
+		},
+		data: {
+			id: app.userInfo.hasOwnProperty('id') ? app.userInfo.id : 0
+		},
+	})
+	.done(function(res) {
+		app.userInfo = res.info;
+		app.token = res.jwt;
+		storage.setItem('longfor-token', app.token);
+		storage.setItem('longfor-user', JSON.stringify(app.userInfo));
+
+		pageInit();
+	})
+	.fail(function() {
+		alertTips('网络错误，请稍候再试！');
+	});
+}
+
+function pageInit() {
+
+	// 加载完成后隐藏loading
+	var the_images = [];
+	$.each($('#content img'), function(index) {
+		the_images.push($(this).attr('src'));
+	});
+
+	if (app.userInfo.hasOwnProperty('image')) {
+		$('.page4 .user').find('img').attr('src', app.userInfo.avatar);
+		$('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
+		$('.page4').find('.main').html('<img src="' + app.userInfo.image + '">');
+		$('.page4').find('.num').html(app.userInfo.vote);
+		$('.page4').find('.btn1').attr('data-id', app.userInfo.id);
+	}
+
+	// 加载图片
+	$.imgpreload(the_images,{
+		each: function(i) {
+			var status = $(this).data('loaded') ? 'success' : 'error';
+			if (status == "success") {
+				var v = (i.length / the_images.length).toFixed(2);
+				$("#percentage").width(Math.round(v * 100) + '%');
+			}
+		},
+		all: function() {
+			setTimeout(function() {
+				// 已结束跳转页
+				if (app.userInfo.is_end) {
+					$('.loading').remove();
+					app.swiper.slideTo(7, 0, false);
+					return false;
+				}
+				// 用户分享的
+				if (app.drawId && app.drawId != app.userInfo.id) {
+					$.ajax({
+						url: app.baseUrl + '/view',
+						type: 'GET',
+						dataType: 'json',
+						beforeSend: function (request) {
+							request.setRequestHeader('JWT-Token', app.token);
+						},
+						data: {
+							id: app.drawId
+						},
+					})
+                    .done(function (res) {
+                        $('.page9 .user').find('img').attr('src', res.avatar);
+                        $('.page9 .user').find('p').html(res.nickname + '的作品');
+                        $('.page9').find('.main').html('<img src="' + res.image + '">');
+                        $('.page9').find('.num').html(res.vote);
+                        $('.page9').find('.btn1').attr('data-id', res.id);
+                        app.swiper.slideTo(8, 0, false);
+                        $('.loading').remove();
+                    })
+                    .fail(function (res) {
+                        alertTips(res.responseText || '网络错误，请稍候再试！');
+                    })
+                    .always(function () {
+                        isClicks = true;
+                    });
+				}
+				else {
+					$('.loading').remove();
+					// 首页按钮显示
+					if (app.userInfo.id) {
+						$('.page1').find('.btn-start').remove();
+					} else {
+						$('.page1').find('.btn-vote').remove();
+					}
+				}
+
+			}, 500);
+		}
+	});
+
+	// 初始化
+	var initialSlide = 0;
+	var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
+	app.swiper = new Swiper('.swiper-container', {
+		direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
+		loop: app.loop,  // 循环展示
+		longSwipesRatio: 0.1,
+		initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
+		preventClicks: true,
+		preventClicksPropagation: true,
+		width: app.DEFAULT_WIDTH,
+		height: swiperH,
+		noSwiping : true
+	});
+}
 
 /**
  * 获取URL中的参数
@@ -155,6 +249,18 @@ function initPageEvents() {
     })
     .on('click', '.logo3', function() {
         $('.popup-intro-box').show();
+    })
+    // 开始涂鸦
+    .on('click', '.btn-start', function () {
+        app.swiper.slideTo(1, 0, false);
+    })
+    // 去投票
+    .on('click', '.btn-vote', function () {
+        if (!isClicks) {
+            return false;
+        }
+        share(app.userInfo.id);
+        app.swiper.slideTo(3, 0, false);
     });
 
     // 点击规则隐藏
@@ -166,11 +272,6 @@ function initPageEvents() {
     });
 
     /** 2p */
-    // 开始涂鸦
-    $('.page1').on('click', '.btn', function () {
-        app.swiper.slideTo(1, 0, false);
-    });
-
     // 选择颜色
     $('.color-box').on('click', 'span', function () {
         $(this).addClass('cur').siblings().removeClass('cur');
@@ -196,21 +297,6 @@ function initPageEvents() {
         $('.page3, .page4').find('.main').html(canvasToImage($('#boxRender').find('canvas')[0]));
         app.swiper.slideTo(2, 0, false);
     })
-    // 看大家的
-    .on('click', '.btn2', function () {
-        if(!isClicks) {
-            return false;
-        }
-        if(app.userInfo.id) {
-            $('.page5').find('.back').remove();
-        }
-        $('.page5').find('ul').html('');
-        pageNum = 1;
-        loadMore = true;
-        getData(pageNum);
-        app.swiper.slideTo(4, 0, false);
-        document.body.removeEventListener('touchmove', bodyScroll, {passive: false});
-    })
     // 奖品展示
     .on('click', '.btn3', function () {
         app.swiper.slideTo(5, 0, false);
@@ -221,12 +307,8 @@ function initPageEvents() {
     });
 
     /** 3p */
-    // 返回修改
-    $('.page3').on('click', '.btn1', function () {
-        app.swiper.slideTo(1, 0, false);
-    })
     // 提交作品
-    .on('click', '.btn2', function () {
+    $('.page3').on('click', '.btn2', function () {
         if(!isClicks) {
             return false;
         }
@@ -242,40 +324,82 @@ function initPageEvents() {
             data: {picture: $(canvasToImage($('#boxRender').find('canvas')[0])).attr('src')},
         })
         .done(function(res) {
+        	app.userInfo.id = res.id;
+        	app.userInfo.image = res.image;
+        	app.userInfo.vote = 0;
+        	storage.setItem('longfor-user', JSON.stringify(app.userInfo));
             $('.page4').find('.btn1').attr('data-id', res.id);
             $('.popup-suc-box').show();
         })
         .fail(function(err) {
-            alert(err.responseText || '网络错误，请稍候再试！');
+            alertTips(err.responseText || '网络错误，请稍候再试！');
         })
         .always(function() {
             isClicks = true;
         });
     });
 
+    // 返回修改
+    $('.page3').on('click', '.btn1', function () {
+        app.swiper.slideTo(1, 0, false);
+    })
+    // 看大家的
+    $('.page2 .btn2, .page4 .everywork, .page9 .everywork').on('click', function () {
+        if (!isClicks) {
+            return false;
+        }
+        if (app.userInfo.id) {
+            $('.page5').find('.back').remove();
+        }
+
+		if (!app.rank) {
+			$('.page5').find('ul').html('');
+			app.pageNum = 1;
+			app.loadMore = true;
+			getData(app.pageNum);
+        }
+        share();
+        app.swiper.slideTo(4, 0, false);
+        document.body.removeEventListener('touchmove', bodyScroll, {
+            passive: false
+        });
+    });
+    // 点击投票
+    $('.page5, .page4, .page9').on('click', '.btn', function () {
+        if (!isClicks) {
+            return false;
+        }
+
+		// 未关注跳转到关注页
+		if (!app.userInfo.subscribe) {
+			app.swiper.slideTo(6, 0, false);
+			return false;
+		}
+
+        var _this = $(this);
+        vote(_this);
+    })
+
     /** 弹窗 */
     // 去投票
     $('.popup-suc-box').on('click', '.btn-vote', function () {
         $('.popup-suc-box').hide();
+        share(app.userInfo.id);
         app.swiper.slideTo(3, 0, false);
     });
 
     /** 4p */
     // 点击规则显示
-    $('.page4').on('click', '.btn-rule', function() {
+    $('.page4, .page9').on('click', '.btn-rule', function () {
         $('.popup-vote-box').show();
-    })
-    // 点击投票
-    .on('click', '.btn1', function() {
-        if(!isClicks) {
-            return false;
-        }
-        var _this = $(this);
-        vote(_this);
-    })
+    });
     // 点击分享
-    .on('click', '.btn2', function() {
+    $('.page4').on('click ', '.btn2 ', function() {
         $('.popup-share-box').show();
+    });
+    // 去涂鸦
+    $('.page9').on('click', '.btn2', function () {
+        app.swiper.slideTo(1, 0, false);
     });
 
     /** 5p */
@@ -283,13 +407,13 @@ function initPageEvents() {
     $('.page5').on('click', '.btn-rule', function() {
         $('.popup-vote-box').show();
     })
-    // 点击投票
-    .on('click', '.btn', function() {
-        if(!isClicks) {
+    // 我的作品
+    .on('click', '.mywork', function () {
+        if (!isClicks) {
             return false;
         }
-        var _this = $(this);
-        vote(_this);
+        share(app.userInfo.id);
+        app.swiper.slideTo(3, 0, false);
     });
 
     $('.back').on('click', function() {
@@ -299,6 +423,7 @@ function initPageEvents() {
 
     // 画图
     var canvas = new HGAME.canvas();
+    app.hisArr = [];
     var testBox = document.getElementById('boxRender');
     testBox.appendChild(canvas.dom);
     var animate = new HGAME.animate({
@@ -332,13 +457,15 @@ function initPageEvents() {
             }
         }
         txt.putImageData(data, 0, 0);
+        console.log(c, 'c')
 
         return c;
     }
-    var div = document.createElement("div");
-
     function changeDraw(num) {
+        // 重置点击事件
+        HGAME.event.clickBuffer = [];
         /*加载数据*/
+        var div = document.createElement("div");
         var source = new HGAME.source({
             loadCall: function (num, allNum) {
                 div.innerHTML = "加载资源" + num + "/" + allNum;
@@ -347,7 +474,7 @@ function initPageEvents() {
             },
             loaded: function () {
                 testBox.removeChild(div);
-                var img = new HGAME.Object2D({
+                app.img = new HGAME.Object2D({
                     img: this.data[0],
                     w: 647,
                     h: 693,
@@ -355,13 +482,13 @@ function initPageEvents() {
                     y: 0
                 });
                 canvas.child = new Array();
-                canvas.add(img);
+                canvas.add(app.img);
 
                 var THIS = this;
-                img.child = new Array();
+                app.img.child = new Array();
                 each(this.data, function (intX) {
                     if (intX >= 1) {
-                        img.add(new HGAME.Object2D({
+                        app.img.add(new HGAME.Object2D({
                             x: whxyInfo[num][intX - 1].x,
                             y: whxyInfo[num][intX - 1].y,
                             w: whxyInfo[num][intX - 1].w,
@@ -376,6 +503,12 @@ function initPageEvents() {
                                 else {
                                     this.img = changeImgColor(this.bufferImg, colorObj.r, colorObj.g, colorObj.b);
                                 }
+                                app.hisArr.push({
+                                    'img': this.bufferImg,
+                                    'r': colorObj.r,
+                                    'g': colorObj.g,
+                                    'b': colorObj.b
+                                });
                             }
                         }));
                     }
@@ -389,18 +522,23 @@ function initPageEvents() {
     }
     changeDraw(imgNum);
 
+    $('#drawback').on('click', function() {
+        app.hisArr.length--;
+        var nums = app.hisArr.length - 1;
+        console.log(app.img.img, 'app.img.img')
+        app.img.img = changeImgColor(app.hisArr[nums].img, app.hisArr[nums].r, app.hisArr[nums].g, app.hisArr[nums].b);
+        console.log(app.img.img, 'backimg')
+        animate.run();
+    });
+
     // 上拉加载
-    var pageNum = 1;
-    var loadMore = true;
     $('#wrapper').on('scroll', function() {
         if($(this).scrollTop() + $(this).height() >= $(this).find('ul').height()) {
-            pageNum++;
-            if (loadMore) {
-                getData(pageNum);
+            if (app.loadMore) {
+                getData(app.pageNum);
             }
         }
     });
-
 }
 /**
  * 返回是否是PC页面
@@ -443,52 +581,65 @@ function bodyScroll(event) {
 function canvasToImage(canvas) {
     var image = new Image();
     image.crossOrigin='anonymous';
-    image.src = canvas.toDataURL('image/jpeg');
+    image.src = canvas.toDataURL('image/jpeg', 0.8);
     return image;
 }
 
 // 排行榜
 function getData(page) {
     isClicks = false;
+    app.rank = true;
+    if (page == 1) {
+        $('.spinner-box').show();
+    }
     $.ajax({
-            url: app.baseUrl + '/index',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                page: page
-            },
-            beforeSend: function (request) {
-                request.setRequestHeader('JWT-Token', app.token);
-            },
-        })
-        .done(function (res) {
-            if(res.length <= 0) {
-                loadMore = false;
-                return false;
-            }
-            for (var i = 0; i < res.length; i++) {
-                var dom = '<li>' +
-                    // '<img class="img" src="' + res[i].image + '" alt="">' +
-                    '<img class="img" src="./static/img/p2/main.png" alt="">' +
-                    '<div class="btn" data-id="' + res[i].id + '"">' +
-                    '<img src="static/img/p5/btn.png">' +
-                    '<div><span class="num">' + res[i].vote + '</span>票</div>' +
-                    '</div>' +
-                    '</li>';
-                $('.page5').find('ul').append(dom);
-            }
-        })
-        .fail(function () {
-            alert('网络错误，请稍候再试！');
-        })
-        .always(function () {
-            isClicks = true;
-        });
+        url: app.baseUrl + '/index',
+        type: 'GET',
+        dataType: 'json',
+        data: {
+            page: page
+        },
+        beforeSend: function (request) {
+            request.setRequestHeader('JWT-Token', app.token);
+        },
+    })
+    .done(function (res) {
+        if(res.length <= 0) {
+            app.loadMore = false;
+            return false;
+        }
+        for (var i = 0; i < res.length; i++) {
+            var dom = '<li>' +
+                '<img class="img" src="' + res[i].image + '" alt="">' +
+                '<div class="btn" data-id="' + res[i].id + '"">' +
+                '<img src="static/img/p5/btn.png">' +
+                '<div><span class="num">' + res[i].vote + '</span>票</div>' +
+                '</div>' +
+                '</li>';
+            $('.page5').find('ul').append(dom);
+        }
+        app.pageNum++;
+    })
+    .fail(function () {
+        alertTips('网络错误，请稍候再试！');
+    })
+    .always(function () {
+        isClicks = true;
+        if (page == 1) {
+            $('.spinner-box').hide();
+        }
+    });
 }
 
 // 投票
 function vote(_this) {
+	if (app.voteNum > 2) {
+		alertTips('您今天的投票次数已经用完！');
+		return false;
+	}
+
     isClicks = false;
+    $('.spinner-box').show();
     $.ajax({
         url: app.baseUrl + '/vote',
         type: 'POST',
@@ -501,20 +652,52 @@ function vote(_this) {
         },
     })
     .done(function (res) {
-        if (res.responseText == '投票成功') {
-            _this.find('.num').html(+_this.find('.num').html() + 1);
-            alert('投票成功');
-            return false;
-        }
-        else {
-            alert('投票失败');
-        }
+		_this.find('.num').html(+_this.find('.num').html() + 1);
+		alertTips('投票成功');
+		app.voteNum++;
+		storage.setItem(today, app.voteNum);
     })
     .fail(function (res) {
-        console.log(res);
-        alert(res.responseText || '网络错误，请稍候再试！');
+        if (res.responseText == '投票成功') {
+            _this.find('.num').html(+_this.find('.num').html() + 1);
+            app.voteNum++;
+            storage.setItem(today, app.voteNum);
+        }
+        alertTips(res.responseText || '网络错误，请稍候再试！');
     })
     .always(function () {
         isClicks = true;
+        $('.spinner-box').hide();
     });
+}
+
+var alertTimes;
+function alertTips(txt, times) {
+    if(!$('.alerttips-box').length) {
+        $('#content').append('<div class="alerttips-box"><div class="alerttips"></div></div>');
+        $('body').append();
+    }
+    $('.alerttips').html(txt);
+    $('.alerttips-box').show();
+    times ? time = times : time = 2000;
+    clearTimeout(alertTimes);
+    alertTimes = setTimeout(function () {
+        $('.alerttips-box').hide();
+    }, time);
+}
+function share(id) {
+    var path = window.location.href;
+    var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+    if(id) {
+        var wxData = {
+            link: baseUrl + 'index.html?draw_id=' + id
+        };
+        weixin.bindData(wxData);
+    }
+    else {
+        var wxData = {
+            link: baseUrl + 'index.html'
+        };
+        weixin.bindData(wxData);
+    }
 }
