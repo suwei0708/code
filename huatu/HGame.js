@@ -188,7 +188,7 @@ HGAME.canvas=function(Obj){
     this.txt=this.dom.getContext("2d");
     this.txt.draw=function(O){
         if(O.img){
-            debugger;
+            // debugger;
             THIS.txt.drawImage( O.img, O.w* O.W_INT,  O.h* O.H_INT, O.w, O.h, O.CONST_BUF_X, O.CONST_BUF_Y, O.w, O.h);
         }else{
             THIS.txt.fillStyle= O.color;
