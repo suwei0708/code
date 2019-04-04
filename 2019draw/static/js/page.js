@@ -60,11 +60,13 @@ app.init = function () {
     function login() {
     	var code = getUrlParameterByName('code') || false;
     	var state = getUrlParameterByName('state');
-		var redirect = location.href.split('?')[0];
-		if (app.drawId) redirect += '?draw_id=' + app.drawId;
-		var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + app.appId + "&redirect_uri=" + redirect + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+		
     	if (!code) {
-    		window.location.replace = url;
+            var redirect = location.href.split('?')[0];
+            if (app.drawId) redirect += '?draw_id=' + app.drawId;
+            //var toRedirect = encodeURIComponent(app.baseUrl + '?r=' + redirect);
+            var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + app.appId + "&redirect_uri=" + redirect + "&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect";
+    		window.location.replace(url);
     		return false;
 		}
 
@@ -78,13 +80,13 @@ app.init = function () {
 			app.userInfo = res.info;
 			app.token = res.jwt;
 			storage.setItem('longfor-token', app.token);
-			storage.setItem('longfor-user', JSON.stringify(app.userInfo));
+            storage.setItem('longfor-user', JSON.stringify(app.userInfo));
 
 			pageInit();
         })
         .fail(function() {
             // alertTips('网络错误，请稍候再试！');
-			window.location.replace = url;
+			window.location = url;
 			return false;
         });
     }
@@ -123,10 +125,10 @@ function pageInit() {
 		the_images.push($(this).attr('src'));
 	});
 
-	if (app.userInfo.hasOwnProperty('image')) {
-		$('.page4 .user').find('img').attr('src', app.userInfo.avatar);
-		$('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
-		$('.page4').find('.main').html('<img src="' + app.userInfo.image + '">');
+    $('.page4 .user').find('img').attr('src', app.userInfo.avatar);
+    $('.page4 .user').find('p').html(app.userInfo.nickname + '的作品');
+    if (app.userInfo.hasOwnProperty('image')) {
+		$('.page4').find('.main').html('<img src="/' + app.userInfo.image + '">');
 		$('.page4').find('.num').html(app.userInfo.vote);
 		$('.page4').find('.btn1').attr('data-id', app.userInfo.id);
 	}
@@ -164,7 +166,7 @@ function pageInit() {
                     .done(function (res) {
                         $('.page9 .user').find('img').attr('src', res.avatar);
                         $('.page9 .user').find('p').html(res.nickname + '的作品');
-                        $('.page9').find('.main').html('<img src="' + res.image + '">');
+                        $('.page9').find('.main').html('<img src="/' + res.image + '">');
                         $('.page9').find('.num').html(res.vote);
                         $('.page9').find('.btn1').attr('data-id', res.id);
                         app.swiper.slideTo(8, 0, false);
@@ -457,7 +459,6 @@ function initPageEvents() {
             }
         }
         txt.putImageData(data, 0, 0);
-        console.log(c, 'c')
 
         return c;
     }
