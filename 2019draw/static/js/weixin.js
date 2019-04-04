@@ -35,6 +35,7 @@ var weixin = (function () {
 
     $.ajax({
         url: 'https://m.xinliling.com/wechat/js',
+        // url: 'http://m.xinliling.loc/wechat/js',
         dataType: 'json',
         success: function (data) {
             if (data.timestamp && data.nonceStr && data.signature) {
@@ -46,7 +47,6 @@ var weixin = (function () {
                 else {
                     weixinInit(data);
                 }
-
             }
         }
     });
@@ -98,13 +98,6 @@ var weixin = (function () {
 
     exports.bindData = bindData;
     exports.bindShareInfo = bindShareInfo;
-
-    var audio = $('audio');
-    if (audio.length && audio.attr('autoplay')) {
-        $(document.body).one('touchstart', function () {
-            audio.get(0).play();
-        });
-    }
 
     return exports;
 })();

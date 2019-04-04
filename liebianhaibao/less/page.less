@@ -85,8 +85,17 @@ html, body {
 .bg-yellow {
     background: #ff9900;
 }
+
 .bg-red {
     background: @red;
+}
+
+.bg-green {
+    background: #1dab19;
+}
+
+.bg-black {
+    background: #343434;
 }
 
 
@@ -476,6 +485,11 @@ html, body {
     strong {
         .fz(48);
     }
+    del {
+        strong {
+            .fz(36);
+        }
+    }
     .btn-box {
         border-top: 2 / @font solid #f0f0f0;
         .pd(15, 0);
@@ -533,6 +547,7 @@ html, body {
             #pngHolder {
                 .w(530);
                 margin: 0 auto;
+                .mgs(b, -50);
                 img {
                     .dis(b);
                     width: 100%;
@@ -542,16 +557,16 @@ html, body {
                 .pos(r);
                 .w(700);
                 .pd(30, 10);
-                .mg(63, 0, 0, -85);
-                .lh(36);
-                background: #fff;
+                .mg(0, 0, 0, -85);
+                .lh(46);
+                background: #fff7bb;
                 .bdr(10 / @font);
                 color: #333;
-                .fz(28);
+                .fz(30);
                 text-align: center;
                 border: 3 / @font solid #ff9900;
                 strong {
-                    color: #ff6600;
+                    color: red;
                     .fz(40);
                 }
                 &:before {
@@ -559,9 +574,13 @@ html, body {
                     .pos(a);
                     .t(-60);
                     .l(2);
-                    .w(109);
-                    .h(103);
-                    background: url(../images/popup.png) no-repeat 0 0 / cover;
+                    .w(93);
+                    .h(114);
+                    background: url(../images/popup.gif) no-repeat 0 0 / cover;
+                }
+                .red {
+                    color: red;
+                    .fz(40);
                 }
             }
         }

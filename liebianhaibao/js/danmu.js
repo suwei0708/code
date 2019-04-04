@@ -1,21 +1,21 @@
 var arrdata = [{
     "headimg": "http://zkres.myzaker.com/img_upload/cms/article_img/10146/up_10146_15456602552018.jpg",
-    "message": "66666",
+    "message": "积分打2秒前购买了课程",
     "vote": 3
 }, {
     "headimg": "http://zkres.myzaker.com/img_upload/cms/article_img/10146/up_10146_15456602552018.jpg",
-    "message": "不错666",
+    "message": "积分打2秒前购买了课程",
     "vote": 21
 }, {
     "headimg": "http://zkres.myzaker.com/img_upload/cms/article_img/10146/up_10146_15456602552018.jpg",
-    "message": "很好666很好很好很好",
+    "message": "积分打2秒前购买了课程",
     "vote": 2
 }, {
     "headimg": "http://zkres.myzaker.com/img_upload/cms/article_img/10146/up_10146_15456602552018.jpg",
-    "message": "阿萨德机卡分离进阿斯科利解放看来sad",
+    "message": "积分打2秒前购买了课程",
     "vote": 2
 }]
-var locaScreen = [120, 160, 200, 240, 280];
+var locaScreen = [60, 130, 300, 370, 460];
 var num = -1;
 var timer;
 var olN = 0;
@@ -30,7 +30,7 @@ function initScreen() {
             num = 0
         }
         $('#danmu-box').append(createScreenPraise(arrdata[num].headimg, arrdata[num].message, arrdata[num].vote, arrdata[num].state, arrdata[num].id));
-    }, 3000);
+    }, 1000);
 }
 
 function createScreenPraise(heading, message) {
@@ -62,7 +62,7 @@ function createScreen(elem) {
         top: _top,
         color: "#333"
     });
-    var time = 20000;
+    var time = 6800;
     $(elem).animate({
         left: "-" + _left + "px"
     }, time, function() {

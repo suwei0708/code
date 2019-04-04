@@ -18,11 +18,11 @@
 <body>
 <div style="display: none;"><img src="static/img/share.jpg"></div>
 <section class="loading">
-    <div>
-        <div class="percentage"><div id="percentage"></div></div>
+    <div class="percentage">
+        <div id="percentage"><img src="./static/img/loading.png" alt=""></div>
     </div>
 </section>
-
+<audio src="static/music/bg.mp3" preload="auto" loop autobuffer="true"></audio>
 <div id="content">
     <!-- 主题滑动页面 -->
     <section class="swiper-container">
@@ -48,8 +48,11 @@
                     <span class="next"></span>
                     <div id="boxRender"></div>
                 </div>
+                <div class="tool-box">
+                    <a href="javascript:;" id="eraser" style="font-size: 20px;"><img src="./static/img/p2/eraser.png" alt=""></a>
+                    <a href="javascript:;" id="drawback" style="font-size: 20px;"><img src="./static/img/p2/drawback.png" alt=""></a>
+                </div>
                 <div class="color-box">
-                    <a href="javascript:;" id="drawback" style="font-size: 20px;">撤销</a>
                     <span class="cur" style="background: #fed3dd;" data-r="254" data-g="211" data-b="221"></span>
                     <span style="background: #61d9bd;" data-r="97" data-g="217" data-b="189"></span>
                     <span style="background: #ef5b5b;" data-r="239" data-g="91" data-b="91"></span>
@@ -274,10 +277,11 @@
             <div class="box">
                 <div class="tit">【投票规则】</div>
                 <div class="ct">
-                    <p>1、可以将拉票页面分享至各个微信群以及朋友圈，号召亲友为自己的作品投票</p>
-                    <p>2、每个用户每天可以投3票，这3票可以投给自己或者其他人的作品</p>
-                    <p>3、禁止刷票行为</p>
-                    <p>4、投票截止时间：2019年4月16日12点</p>
+                    <p>1、将拉票页面分享至朋友圈，号召亲友为自己的作品投票吧</p>
+                    <p>2、每个用户可为自己或亲友每天累计投3票</p>
+                    <p>3、投票截止时间：2019年4月16日12点</p>
+                    <p>4、立即关注“龙湖长沙洋湖天街”微信公众号，在4月17日微信推送惊喜揭晓获奖人名单。</p>
+                    <p></p>
                 </div>
                 <img src="./static/img/p1/logo4.png" alt="" class="logo">
             </div>
@@ -323,7 +327,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
 <!-- 当前页面自定义JS -->
 <script src="static/js/data.js"></script>
-<script src="static/js/page.js"></script>
+<script src="static/js/page.min.js"></script>
 
 <!-- 微信分享文字自定义 -->
 <script src="static/js/weixin.js"></script>

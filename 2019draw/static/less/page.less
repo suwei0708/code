@@ -74,44 +74,34 @@ a {
     left: 50%;
     width: 750px;
     height: 100%;
-    background-color: rgba(0, 0, 0, .8);
-    text-align: center;
     .translate(-50% -50%);
-    background: #000;
-    > div {
+    background: #4a4b8d;
+    .percentage {
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 396px;
-        height: 74px;
+        width: 278px;
+        height: 38px;
+        border: 7px solid #fff;
+        .bdr(19px);
         .translate(-50% -50%);
     }
-    .percentage {
-        .ov(h);
-        .pos(a);
-        top: 33px;
-        left: 42px;
-        width: 310px;
-        height: 8px;
-        .bdr(10px);
-        #percentage {
-            width: 0;
-            height: 8px;
-            background: #fff;
-            .bdr(10px);
-        }
+    #percentage {
+        .pos(r);
+        width: 0;
+        height: 100%;
+        background: rgb(71, 34, 156);
+        background: -moz-linear-gradient(top, rgb(71, 34, 156) 0%, rgb(100, 48, 170) 50%, rgb(71, 34, 156) 100%);
+        background: -webkit-linear-gradient(top, rgb(71, 34, 156) 0%, rgb(100, 48, 170) 50%, rgb(71, 34, 156) 100%);
+        background: linear-gradient(to bottom, rgb(71, 34, 156) 0%, rgb(100, 48, 170) 50%, rgb(71, 34, 156) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#47229c', endColorstr='#47229c', GradientType=0);
+        .bdr(19px);
     }
-    .img {
+    img {
         .pos(a);
-        top: 0;
-        left: 0;
-        width: 396px;
-    }
-    .text {
-        .pos(a);
-        top: -11px;
-        left: 138px;
-        width: 154px;
+        bottom: 0;
+        right: -6px;
+        width: 62px;
     }
 }
 
@@ -219,6 +209,20 @@ a {
                         .triangle(right, 24px, #fff);
                     }
                 }
+            }
+        }
+        .tool-box {
+            .pos(a);
+            top: 782px;
+            left: 0;
+            width: 100%;
+            font-size: 0;
+            text-align: center;
+            img {
+                .pos(s);
+                .dis(ib);
+                vertical-align: top;
+                margin: 0 67px;
             }
         }
         .color-box {

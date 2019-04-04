@@ -14,6 +14,7 @@ app.token = '';
 app.drawId = 0;
 app.loadMore = true;
 app.pageNum = 1;
+app.music = $('audio')[0];
 app.img;
 if (document.domain.indexOf('.com') < 0) {
 	app.baseUrl = 'http://m.xinliling.loc/api/draw';
@@ -46,6 +47,13 @@ else {
 
 
 app.init = function () {
+    //微信下兼容音乐处理
+    if (app.music) {
+        app.music.play()
+    }
+    document.addEventListener('WeixinJSBridgeReady', function () {
+        app.music.play();
+    }, false);
 
     app.loop = getUrlParameterByName('loop') || false;
     app.drawId = getUrlParameterByName('draw_id');
@@ -60,7 +68,7 @@ app.init = function () {
     function login() {
     	var code = getUrlParameterByName('code') || false;
     	var state = getUrlParameterByName('state');
-		
+
     	if (!code) {
             var redirect = location.href.split('?')[0];
             if (app.drawId) redirect += '?draw_id=' + app.drawId;
@@ -86,7 +94,7 @@ app.init = function () {
         })
         .fail(function() {
             // alertTips('网络错误，请稍候再试！');
-			window.location = url;
+			window.location.replace(url);
 			return false;
         });
     }
@@ -193,20 +201,22 @@ function pageInit() {
 		}
 	});
 
-	// 初始化
-	var initialSlide = 0;
-	var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
-	app.swiper = new Swiper('.swiper-container', {
-		direction: 'vertical',  // 是竖排还是横排滚动，不填时默认是横排
-		loop: app.loop,  // 循环展示
-		longSwipesRatio: 0.1,
-		initialSlide: initialSlide,   // 初始展示页是第几页（从0开始
-		preventClicks: true,
-		preventClicksPropagation: true,
-		width: app.DEFAULT_WIDTH,
-		height: swiperH,
-		noSwiping : true
-	});
+    // 初始化
+    $(window).scrollTop(0);
+    var initialSlide = 0;
+    // var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
+    var swiperH = $(window).height();
+    app.swiper = new Swiper('.swiper-container', {
+        direction: 'vertical', // 是竖排还是横排滚动，不填时默认是横排
+        loop: app.loop, // 循环展示
+        longSwipesRatio: 0.1,
+        initialSlide: initialSlide, // 初始展示页是第几页（从0开始
+        preventClicks: true,
+        preventClicksPropagation: true,
+        width: app.DEFAULT_WIDTH,
+        height: swiperH,
+        noSwiping: true
+    });
 }
 
 /**
@@ -315,7 +325,7 @@ function initPageEvents() {
             return false;
         }
         isClicks = false;
-
+        $('.spinner-box').show();
         $.ajax({
             url: app.baseUrl + '/save',
             type: 'POST',
@@ -338,6 +348,7 @@ function initPageEvents() {
         })
         .always(function() {
             isClicks = true;
+            $('.spinner-box').hide();
         });
     });
 
@@ -416,6 +427,9 @@ function initPageEvents() {
         }
         share(app.userInfo.id);
         app.swiper.slideTo(3, 0, false);
+        document.body.addEventListener('touchmove', bodyScroll, {
+            passive: false
+        });
     });
 
     $('.back').on('click', function() {
@@ -463,6 +477,7 @@ function initPageEvents() {
         return c;
     }
     function changeDraw(num) {
+        app.hisArr = [];
         // 重置点击事件
         HGAME.event.clickBuffer = [];
         /*加载数据*/
@@ -508,7 +523,8 @@ function initPageEvents() {
                                     'img': this.bufferImg,
                                     'r': colorObj.r,
                                     'g': colorObj.g,
-                                    'b': colorObj.b
+                                    'b': colorObj.b,
+                                    'cur': this.bufferImg.src.substring(this.bufferImg.src.lastIndexOf("\/") + 1, this.bufferImg.src.length).replace('.png', '') - 1
                                 });
                             }
                         }));
@@ -523,13 +539,37 @@ function initPageEvents() {
     }
     changeDraw(imgNum);
 
-    $('#drawback').on('click', function() {
-        app.hisArr.length--;
-        var nums = app.hisArr.length - 1;
-        console.log(app.img.img, 'app.img.img')
-        app.img.img = changeImgColor(app.hisArr[nums].img, app.hisArr[nums].r, app.hisArr[nums].g, app.hisArr[nums].b);
-        console.log(app.img.img, 'backimg')
-        animate.run();
+    $('#drawback').on('click', function () {
+        if (app.hisArr.length <= 0) {
+            return false;
+        }
+        var len = app.hisArr.length - 1;
+        if (len > 0) {
+            for (var i = len - 1; i >= 0; i--) {
+                if (app.hisArr[len].cur == app.hisArr[i].cur) {
+                    app.img.child[app.hisArr[len].cur].img = changeImgColor(app.hisArr[i].img, app.hisArr[i].r, app.hisArr[i].g, app.hisArr[i].b);
+                    app.hisArr.pop();
+                    return false;
+                }
+                else {
+                    app.img.child[app.hisArr[len].cur].img = changeImgColor(app.hisArr[len].img, 255, 255, 255);
+                }
+            }
+        }
+        else {
+            app.img.child[app.hisArr[len].cur].img = changeImgColor(app.hisArr[len].img, 255, 255, 255);
+        }
+        // animate.run();
+        app.hisArr.pop();
+    });
+
+    $('#eraser').on('click', function() {
+        colorObj = {
+            r: 255,
+            g: 255,
+            b: 255
+        };
+        $('.color-box').find('span').removeClass('cur');
     });
 
     // 上拉加载
@@ -611,7 +651,7 @@ function getData(page) {
         }
         for (var i = 0; i < res.length; i++) {
             var dom = '<li>' +
-                '<img class="img" src="' + res[i].image + '" alt="">' +
+                '<img class="img" src="/' + res[i].image + '" alt="">' +
                 '<div class="btn" data-id="' + res[i].id + '"">' +
                 '<img src="static/img/p5/btn.png">' +
                 '<div><span class="num">' + res[i].vote + '</span>票</div>' +
@@ -690,15 +730,17 @@ function share(id) {
     var path = window.location.href;
     var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
     if(id) {
-        var wxData = {
+        wxData = {
             link: baseUrl + 'index.html?draw_id=' + id
         };
         weixin.bindData(wxData);
+        weixin.bindShareInfo();
     }
     else {
-        var wxData = {
+        wxData = {
             link: baseUrl + 'index.html'
         };
         weixin.bindData(wxData);
+        weixin.bindShareInfo();
     }
 }
