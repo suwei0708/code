@@ -16,6 +16,7 @@ app.loadMore = true;
 app.pageNum = 1;
 app.music = $('audio')[0];
 app.img;
+app.initialSlide = 0;
 if (document.domain.indexOf('.com') < 0) {
 	app.baseUrl = 'http://m.xinliling.loc/api/draw';
 	app.appId = 'wx6104ad130cf65c5c';
@@ -59,12 +60,13 @@ app.init = function () {
     app.drawId = getUrlParameterByName('draw_id');
 
     // 请求授权
-    if (!app.token) login();
-    else {
-    	//活动已结束
-		if (app.userInfo.is_end) pageInit();
-		updateStatus();
-	}
+    // if (!app.token) login();
+    // else {
+    // 	//活动已结束
+	// 	if (app.userInfo.is_end) pageInit();
+	// 	updateStatus();
+    // }
+    pageInit();
     function login() {
     	var code = getUrlParameterByName('code') || false;
     	var state = getUrlParameterByName('state');
@@ -191,9 +193,9 @@ function pageInit() {
 					$('.loading').remove();
 					// 首页按钮显示
 					if (app.userInfo.id) {
-						$('.page1').find('.btn-start').remove();
+						$('.btn-start').remove();
 					} else {
-						$('.page1').find('.btn-vote').remove();
+						$('.btn-vote').remove();
 					}
 				}
 
@@ -202,15 +204,13 @@ function pageInit() {
 	});
 
     // 初始化
-    $(window).scrollTop(0);
-    var initialSlide = 0;
     // var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
     var swiperH = $(window).height();
     app.swiper = new Swiper('.swiper-container', {
         direction: 'vertical', // 是竖排还是横排滚动，不填时默认是横排
         loop: app.loop, // 循环展示
         longSwipesRatio: 0.1,
-        initialSlide: initialSlide, // 初始展示页是第几页（从0开始
+        initialSlide: app.initialSlide, // 初始展示页是第几页（从0开始
         preventClicks: true,
         preventClicksPropagation: true,
         width: app.DEFAULT_WIDTH,
@@ -256,18 +256,17 @@ function initPageEvents() {
     $('.page1').on('click', '.btn-rule', function() {
         $('.popup-rule-box').show();
     })
-    .on('click', '.logo1', function() {
-        $('.popup-intro-box').show();
-    })
-    .on('click', '.logo3', function() {
-        $('.popup-intro-box').show();
-    })
+    .on('click', '.btn', function() {
+        hanldeAnimate(9);
+        app.swiper.slideTo(9, 0, false);
+    });
+
     // 开始涂鸦
-    .on('click', '.btn-start', function () {
+    $('.btn-start').on('click', function () {
         app.swiper.slideTo(1, 0, false);
     })
     // 去投票
-    .on('click', '.btn-vote', function () {
+    $('.btn-vote').on('click', function () {
         if (!isClicks) {
             return false;
         }
@@ -580,6 +579,16 @@ function initPageEvents() {
             }
         }
     });
+
+    $('.page10').on('click', '.btn', function() {
+        hanldeAnimate(5);
+        app.swiper.slideTo(5, 0, false);
+    });
+
+    $('.btn-replay').on('click', function() {
+        app.swiper.slideTo(0, 0, false);
+    });
+
 }
 /**
  * 返回是否是PC页面
