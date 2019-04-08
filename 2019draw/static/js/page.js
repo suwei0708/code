@@ -60,13 +60,13 @@ app.init = function () {
     app.drawId = getUrlParameterByName('draw_id');
 
     // 请求授权
-    // if (!app.token) login();
-    // else {
-    // 	//活动已结束
-	// 	if (app.userInfo.is_end) pageInit();
-	// 	updateStatus();
-    // }
-    pageInit();
+    if (!app.token) login();
+    else {
+    	//活动已结束
+		if (app.userInfo.is_end) pageInit();
+		updateStatus();
+    }
+    // pageInit();
     function login() {
     	var code = getUrlParameterByName('code') || false;
     	var state = getUrlParameterByName('state');
@@ -156,7 +156,7 @@ function pageInit() {
 			setTimeout(function() {
 				// 已结束跳转页
 				if (app.userInfo.is_end) {
-					$('.loading').remove();
+                    $('.loading').remove();
 					app.swiper.slideTo(7, 0, false);
 					return false;
 				}
@@ -191,21 +191,22 @@ function pageInit() {
 				}
 				else {
 					$('.loading').remove();
-					// 首页按钮显示
-					if (app.userInfo.id) {
-						$('.btn-start').remove();
-					} else {
-						$('.btn-vote').remove();
-					}
-				}
+					hanldeAnimate(0);
+                }
 
+                // 开始页按钮显示
+                if (app.userInfo.id) {
+                    $('.swiper-slide').find('.btn-start').remove();
+                } else {
+                    $('.swiper-slide').find('.btn-vote').remove();
+                }
 			}, 500);
 		}
 	});
 
     // 初始化
-    // var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
-    var swiperH = $(window).height();
+    var swiperH = $(window).height() > app.DEFAULT_HEIGHT ? $(window).height() : app.DEFAULT_HEIGHT;
+    // var swiperH = $(window).height();
     app.swiper = new Swiper('.swiper-container', {
         direction: 'vertical', // 是竖排还是横排滚动，不填时默认是横排
         loop: app.loop, // 循环展示
@@ -217,6 +218,17 @@ function pageInit() {
         height: swiperH,
         noSwiping: true
     });
+
+    // 高度小的缩放
+    var winH = $(window).height();
+    if (winH < app.DEFAULT_HEIGHT) {
+        var initScale = winH / app.DEFAULT_HEIGHT;
+        $('#content').css({
+            'height': app.DEFAULT_HEIGHT,
+            '-webkit-transform': 'scale(1, ' + initScale + ')',
+            'transform': 'scale(1, ' + initScale + ')'
+        });
+    }
 }
 
 /**
@@ -263,7 +275,7 @@ function initPageEvents() {
 
     // 开始涂鸦
     $('.btn-start').on('click', function () {
-        app.swiper.slideTo(1, 0, false);
+        app.swiper.slideTo(10, 0, false);
     })
     // 去投票
     $('.btn-vote').on('click', function () {
@@ -308,9 +320,9 @@ function initPageEvents() {
         $('.page3, .page4').find('.main').html(canvasToImage($('#boxRender').find('canvas')[0]));
         app.swiper.slideTo(2, 0, false);
     })
-    // 奖品展示
+    // 重选
     .on('click', '.btn3', function () {
-        app.swiper.slideTo(5, 0, false);
+        app.swiper.slideTo(10, 0, false);
     })
     // 重画
     .on('click', '.btn4', function () {
@@ -361,7 +373,12 @@ function initPageEvents() {
             return false;
         }
         if (app.userInfo.id) {
-            $('.page5').find('.back').remove();
+            $('.page5').find('.mywork').show();
+            $('.page5').find('.back').hide();
+        }
+        else {
+            $('.page5').find('.mywork').hide();
+            $('.page5').find('.back').show();
         }
 
 		if (!app.rank) {
@@ -411,7 +428,8 @@ function initPageEvents() {
     });
     // 去涂鸦
     $('.page9').on('click', '.btn2', function () {
-        app.swiper.slideTo(1, 0, false);
+        hanldeAnimate(0);
+        app.swiper.slideTo(0, 0, false);
     });
 
     /** 5p */
@@ -447,9 +465,9 @@ function initPageEvents() {
         }
     });
     var colorObj = {
-        r: 236,
-        g: 137,
-        b: 166
+        r: 254,
+        g: 211,
+        b: 221
     };
     $('.color-box').on('click', 'span', function() {
         colorObj.r = $(this).attr("data-r");
@@ -472,7 +490,6 @@ function initPageEvents() {
             }
         }
         txt.putImageData(data, 0, 0);
-
         return c;
     }
     function changeDraw(num) {
@@ -586,7 +603,29 @@ function initPageEvents() {
     });
 
     $('.btn-replay').on('click', function() {
+        $('.popup-votesuc-box').hide();
+        hanldeAnimate(0);
         app.swiper.slideTo(0, 0, false);
+    });
+
+    $('.popup-votesuc-box').on('click', '.close', function() {
+        $('.popup-votesuc-box').hide();
+    });
+
+    //  确定画哪副图
+    $('.page11').on('click', 'li', function () {
+        $(this).addClass('cur').siblings().removeClass('cur');
+    });
+
+    $('.page11').on('click', '.btn', function () {
+        var num = $('.page11').find('.cur').index();
+        changeDraw(num);
+        imgNum = num;
+        $('.spinner-box').show();
+        setTimeout(function() {
+            $('.spinner-box').hide();
+            app.swiper.slideTo(1, 0, false);
+        }, 2000);
     });
 
 }
@@ -661,11 +700,13 @@ function getData(page) {
         for (var i = 0; i < res.length; i++) {
             var dom = '<li>' +
                 '<img class="img" src="/' + res[i].image + '" alt="">' +
+                // '<img class="img" src="./static/img/p2/main.png" alt="">' +
+                '<div class="name">' + res[i].nickname + '</div>' +
                 '<div class="btn" data-id="' + res[i].id + '"">' +
                 '<img src="static/img/p5/btn.png">' +
                 '<div><span class="num">' + res[i].vote + '</span>票</div>' +
                 '</div>' +
-                '</li>';
+            '</li>';
             $('.page5').find('ul').append(dom);
         }
         app.pageNum++;
@@ -703,7 +744,7 @@ function vote(_this) {
     })
     .done(function (res) {
 		_this.find('.num').html(+_this.find('.num').html() + 1);
-		alertTips('投票成功');
+        $('.popup-votesuc-box').show();
 		app.voteNum++;
 		storage.setItem(today, app.voteNum);
     })

@@ -32,13 +32,13 @@
                 <img src="static/img/p1/logo1.png" class="logo1 u-no">
                 <img src="static/img/p1/logo2.png" class="logo2 u-no">
                 <img src="static/img/p1/logo3.png" class="logo3 u-no">
-                <img src="static/img/p1/t1.png" class="text1 u-no">
-                <img src="static/img/p1/t2.png" class="text2 u-no">
-                <img src="static/img/p1/cat.png" class="cat u-no">
-                <img src="static/img/p1/dog.png" class="dog u-no">
+                <img src="static/img/p1/t1.png" class="text1 u-no" data-anim="fade-in">
+                <img src="static/img/p1/t2.png" class="text2 u-no" data-anim="fade-in delay5">
+                <img src="static/img/p1/cat.png" class="cat u-no" data-anim="right-in delay10">
+                <img src="static/img/p1/dog.png" class="dog u-no" data-anim="left-in delay15">
                 <img src="static/img/p1/text.png" class="text u-no">
                 <img src="static/img/p1/btn-rule.png" class="btn-rule">
-                <div class="btn-box">
+                <div class="btn-box" data-anim="fade-in delay20">
                     <img src="static/img/p1/btn.png" class="btn fade-in-out">
                 </div>
             </article>
@@ -46,8 +46,8 @@
             <article class="swiper-slide page2 swiper-no-swiping">
                 <img src="static/img/p2/bg.jpg" class="bg u-no">
                 <div class="main">
-                    <span class="prev"></span>
-                    <span class="next"></span>
+                    <!-- <span class="prev"></span>
+                    <span class="next"></span> -->
                     <div id="boxRender"></div>
                 </div>
                 <div class="tool-box">
@@ -63,7 +63,7 @@
                     <span style="background: #2bafdd;" data-r="43" data-g="175" data-b="221"></span>
                     <span style="background: #a3de82;" data-r="163" data-g="222" data-b="130"></span>
                     <span style="background: #f7f39a;" data-r="247" data-g="243" data-b="154"></span>
-                    <span style="background: #fcbbd5;" data-r="252" data-g="187" data-b="213"></span>
+                    <span style="background: #689eff;" data-r="104" data-g="158" data-b="255"></span>
                     <span style="background: #2b1c21;" data-r="43" data-g="28" data-b="33"></span>
                     <span style="background: #c4f8c8;" data-r="196" data-g="248" data-b="200"></span>
                     <span style="background: #239d60;" data-r="35" data-g="157" data-b="96"></span>
@@ -71,8 +71,8 @@
                 <div class="btn-box">
                     <img class="btn btn1" src="./static/img/p2/btn1.png" alt="">
                     <img class="btn btn2" src="./static/img/p2/btn2.png" alt="">
-                    <img class="btn btn3" src="./static/img/p2/btn3.png" alt="">
                     <img class="btn btn4" src="./static/img/p2/btn4.png" alt="">
+                    <img class="btn btn3" src="./static/img/p2/btn3.png" alt="">
                 </div>
             </article>
 
@@ -110,6 +110,7 @@
             <article class="swiper-slide page5 swiper-no-swiping">
                 <img src="static/img/p1/btn-rule.png" class="btn-rule">
                 <img src="static/img/p1/t1.png" class="text1 u-no">
+                <img src="static/img/p1/t2.png" class="text2 u-no">
                 <div class="pos-btn-box">
                     <img src="static/img/p5/mywork.png" class="mywork">
                     <img src="static/img/p5/back.png" class="back">
@@ -125,7 +126,8 @@
                 <img src="static/img/p6/t1.png" class="text1 u-no" data-anim="fade-in">
                 <img src="./static/img/p6/t2.png" class="text2 u-no" data-anim="top-in delay5" alt="">
                 <img src="./static/img/p6/t3.png" class="text3 u-no" data-anim="top-in delay10" alt="">
-                <div class="btn-box" data-anim="fade-in delay15">
+                <p data-anim="top-in delay15">礼品领取规则详见“龙湖长沙洋湖天街”微信推文</p>
+                <div class="btn-box" data-anim="fade-in delay20">
                     <img src="static/img/p6/btn.png" class="btn btn-start" data-anim="fade-in-out">
                     <img src="static/img/p6/btn-vote.png" class="btn btn-vote" data-anim="fade-in-out">
                 </div>
@@ -199,6 +201,20 @@
                     <img src="static/img/p10/btn-next.png" class="btn fade-in-out">
                 </div>
             </article>
+
+            <article class="swiper-slide page11 swiper-no-swiping">
+                <img src="static/img/p11/bg.jpg" class="bg u-no">
+                <img src="static/img/p11/t1.png" class="text1 u-no">
+                <ul class="list">
+                    <li class="cur"><img src="./static/img/i1/item.jpg" alt=""></li>
+                    <li><img src="./static/img/i2/item.jpg" alt=""></li>
+                    <li><img src="./static/img/i3/item.jpg" alt=""></li>
+                    <li><img src="./static/img/i4/item.jpg" alt=""></li>
+                </ul>
+                <div class="btn-box">
+                    <img src="static/img/p10/btn-next.png" class="btn fade-in-out">
+                </div>
+            </article>
         </div>
     </section>
 
@@ -208,12 +224,10 @@
             <div class="box">
                 <div class="tit">【活动规则】</div>
                 <div class="ct">
-                    <p>1. 为爱上色：为你的爱宠涂上颜色</p>
-                    <p>2. 参与票选：上传并保存</p>
-                    <p>3. 票选最高奖：地球仓生态度假酒店价值880元滨水草地房入住一晚资格</p>
-                    <p>4. 票选前10奖：龙湖亲善官“龙小湖”公仔一个</p>
-                    <p>5. 活动截止时间：4月16号中午12点</p>
-                    <p>6. 本活动投票最终解释权归主办方所有</p>
+                    <p>为爱上色：动动手指为你的爱宠涂上颜色</p>
+                    <p>1. 参与票选：提交作品并分享至亲友投票</p>
+                    <p>2. 截止时间：4月16日12点</p>
+                    <p>本活动投票最终解释权归主办方所有</p>
                 </div>
                 <img src="./static/img/p1/logo4.png" alt="" class="logo">
             </div>
@@ -253,6 +267,7 @@
         <div class="popup-votesuc">
             <img src="./static/img/p4/popup-vote-suc.png" alt="">
             <img src="./static/img/p4/btn3.png" alt="" class="btn btn-replay">
+            <img src="./static/img/p1/close.png" alt="" class="close">
         </div>
     </div>
     <!-- 弹窗投票成功 start -->
@@ -263,11 +278,11 @@
             <div class="box">
                 <div class="tit">【投票规则】</div>
                 <div class="ct">
-                    <p>1、将拉票页面分享至朋友圈，号召亲友为自己的作品投票吧</p>
-                    <p>2、每个用户可为自己或亲友每天累计投3票</p>
-                    <p>3、投票截止时间：2019年4月16日12点</p>
-                    <p>4、获奖名单公布：2019年4月17日17点</p>
-                    <p>5、立即关注“<span class="red">龙湖长沙洋湖天街</span>”微信公众号，在4月17日微信推送惊喜揭晓获奖人名单。</p>
+                    <p>将拉票页面分享至朋友圈，号召亲友为自己的作品投票吧</p>
+                    <p>1. 参与者可为自己或亲友每天累计投3票</p>
+                    <p>2. 投票截止时间：4月16日12点</p>
+                    <p>3. 获奖名单公布：4月17日17点</p>
+                    <p>立即关注“<span class="red">龙湖长沙洋湖天街</span>”微信公众号，在4月17日微信推送惊喜揭晓获奖名单</p>
                     <p></p>
                 </div>
                 <img src="./static/img/p1/logo4.png" alt="" class="logo">
@@ -283,7 +298,9 @@
             <img src="./static/img/p4/share.png" alt="">
         </div>
     </div>
-    <!-- 弹窗分享 start -->
+    <!-- 弹窗分享 end -->
+
+    <!-- 加载动画 start -->
     <div class="spinner-box">
         <div class="spinner-mask">
             <div class="spinner">
@@ -308,6 +325,7 @@
             </div>
         </div>
     </div>
+    <!-- 加载动画 end -->
 </div>
 
 <!-- 基础JS脚本部分 -->
