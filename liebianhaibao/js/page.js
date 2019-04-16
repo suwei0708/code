@@ -39,7 +39,11 @@ $(function() {
     };
 
     var draw = false;
-    $('.fixed-coin').on('click', function() {
+    $('.fixed-coin, .btn-share').on('click', function() {
+        if($(this).data('popup') == 1) {
+            $('.popup-share').show();
+            return false;
+        }
         if(!draw) {
             var sampleImage = document.getElementById('ringoImage'),
                 ecode = document.getElementById('ecode'),

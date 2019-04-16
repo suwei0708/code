@@ -377,7 +377,7 @@ html, body {
     .ct9 {
         text-align: justify;
     }
-    #video, .video {
+    #video {
         .ov(h);
         .dis(b);
         .w(690);
@@ -386,6 +386,20 @@ html, body {
         .mgs(t, 40);
         .bdr(15 / @font);
         background: #000;
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .video {
+        .ov(h);
+        .dis(b);
+        .w(750);
+        .h(544);
+        .pd(7, 61, 132);
+        margin: 0 auto;
+        .mgs(t, 40);
+        background: url(../images/tv.png) no-repeat center center / cover;
         video {
             width: 100%;
             height: 100%;
@@ -610,8 +624,17 @@ html, body {
     }
     &-share {
         &-box {
-            .w(632);
-            .mg(14, 0, 0, 80);
+            .w(690);
+            .mg(14, 0, 0, 30);
+            &:before {
+                content: '';
+                .pos(a);
+                .t(108);
+                .l(60);
+                .w(93);
+                .h(114);
+                background: url(../images/popup.gif) no-repeat 0 0 / cover;
+            }
             img {
                 .dis(b);
                 width: 100%;
@@ -621,7 +644,7 @@ html, body {
                 .w(230);
                 .lh(72);
                 margin: 0 auto;
-                .mgs(t, 60);
+                .mgs(t, 35);
                 border: 2 / @font solid #fff;
                 .bdr(10 / @font);
                 .fz(36);

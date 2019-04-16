@@ -110,14 +110,26 @@
 
         <div class="fixed-bar">
             <div class="btn-box">
-                <a href="#" class="btn">邀请好友一起上课成长</a>
+                <a href="javascript:;" class="btn btn-share" data-popup="1">邀请好友一起上课成长</a>
+            </div>
+        </div>
+
+        <div class="popup popup-poster">
+            <div class="popup-box">
+                <img id="ringoImage" style="display: none" src="images/poster-down.jpg">
+                <img id="ecode" style="display: none" src="images/ecode.png">
+                <img id="avatar" style="display: none" src="images/bg.jpg">
+                <div id="canvasHolder" style="display: none"></div>
+                <input id="name" type="hidden" value="唐僧">
+                <div id="pngHolder"></div>
+                <div class="tips">长按上方图片，点击【发送给朋友】<br><strong class="red">转发到好友微信群</strong><br>每邀请1位好友购买课程<br>您将立即获得<strong>4.9</strong>元的奖励</div>
             </div>
         </div>
 
         <div class="popup popup-share">
             <div class="popup-share-box">
                 <img src="images/popup-share.png" alt="">
-                <a href="javascript:;" class="btn-share">我知道了</a>
+                <a href="javascript:;" class="btn">我知道了</a>
             </div>
         </div>
     </div>
