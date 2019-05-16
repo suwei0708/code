@@ -20,23 +20,23 @@
 	<!-- header start -->
 	<div class="header">
 		<div class="header-main">
-			<a href="javascript:;" class="back"><span class="icon icon-fanhui"></span></a>
-			<a href="javascript:;" class="home"><span class="icon icon-zhuye"></span></a>
-			<a href="javascript:;" class="logo"><img src="./images/logo.png" alt=""></a>
+			<!-- <a href="javascript: history.go(-1);" class="back"><span class="icon icon-fanhui"></span></a>
+			<a href="index.html" class="home"><span class="icon icon-zhuye"></span></a> -->
+			<div class="title"><img src="./images/logo.png" alt=""></div>
 			<div class="header-menu">
 				<span class="icon icon-caidan"></span>
 				<ul>
-					<li><a href="#"><span class="icon icon-huiyuan"></span>會員中心</a></li>
-					<li><a href="#"><span class="icon icon-zhanneixin"></span>站內信​</a></li>
-					<li><a href="#"><span class="icon icon-qianbao"></span>電子錢包</a></li>
-					<li><a href="#"><span class="icon icon-tiyuguan"></span>體育館</a></li>
-					<li><a href="#"><span class="icon icon-shixun"></span>真人視訊館</a></li>
-					<li><a href="#"><span class="icon icon-youxi"></span>電子遊戲館</a></li>
-					<li><a href="#"><span class="icon icon-caipiao"></span>彩票館</a></li>
-					<li><a href="#"><span class="icon icon-qipai"></span>棋牌館</a></li>
-					<li><a href="#"><span class="icon icon-yingshi"></span>線上影城</a></li>
-					<li><a href="#"><span class="icon icon-youhui1"></span>優惠活動</a></li>
-					<li><a href="#"><span class="icon icon-diannao"></span>電腦版​</a></li>
+					<li><a href="會員中心.html"><span class="icon icon-huiyuan"></span>會員中心</a></li>
+					<li><a href="站內信​.html"><span class="icon icon-zhanneixin"></span>站內信​</a></li>
+					<li><a href="電子錢包.html"><span class="icon icon-qianbao"></span>電子錢包</a></li>
+					<li><a href="體育館.html"><span class="icon icon-tiyuguan"></span>體育館</a></li>
+					<li><a href="真人視訊館.html"><span class="icon icon-shixun"></span>真人視訊館</a></li>
+					<li><a href="電子遊戲館.html"><span class="icon icon-youxi"></span>電子遊戲館</a></li>
+					<li><a href="彩票館.html"><span class="icon icon-caipiao"></span>彩票館</a></li>
+					<li><a href="棋牌館.html"><span class="icon icon-qipai"></span>棋牌館</a></li>
+					<li><a href="線上影城.html"><span class="icon icon-yingshi"></span>線上影城</a></li>
+					<li><a href="優惠活動.html"><span class="icon icon-youhui1"></span>優惠活動</a></li>
+					<li><a href="電腦版​.html"><span class="icon icon-diannao"></span>電腦版​</a></li>
 					<li><a href="#"><span class="icon icon-dengchu"></span>登出​</a></li>
 				</ul>
 			</div>
@@ -55,7 +55,7 @@
 	</div>
 	<!-- header end -->
 
-    <div class="wrap">
+    <div class="wrap main">
         <!-- 轮播图 start -->
         <div class="swiper-container swiper1">
             <div class="swiper-wrapper">
@@ -68,35 +68,55 @@
                 <div class="swiper-slide">
                     <a href="list.html"><img src="images/banner.jpg" alt=""></a>
                 </div>
+                <div class="swiper-slide">
+                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
+                </div>
             </div>
             <div class="swiper-pagination pagination1"></div>
         </div>
-		<!-- 轮播图 end -->
+        <!-- 轮播图 end -->
+        <div class="index-list">
+            <ul>
+                <li><a href="#"><img src="./images/i1.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/i2.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/i3.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/i4.jpg" alt=""></a></li>
+                <li><a href="#"><img src="./images/i5.jpg" alt=""></a></li>
+            </ul>
+        </div>
 	</div>
 
 	<!-- footer start -->
 	<div class="footer flex-wrp">
-		<a class="li flex1 cur" href="index.html">
-			<img src="images/icon-home.png">
-			<img src="images/icon-home-cur.png">
-			<p>首页</p>
-		</a>
-		<a class="li flex1" href="index.html">
-			<img src="images/icon-log.png">
-			<img src="images/icon-log-cur.png">
-			<p>日志</p>
-		</a>
-		<button class="li flex1">
-			<img src="images/icon-share.png">
-			<img src="images/icon-share-cur.png">
-			<p>分享</p>
-		</button>
+	    <a class="li flex1 cur" href="index.html">
+	        <span class="icon icon-dating"></span>
+	        <p>大廳</p>
+	    </a>
+	    <a class="li flex1" href="儲值.html">
+	        <span class="icon icon-chuzhi"></span>
+	        <p>儲值</p>
+	    </a>
+	    <a class="li flex1" href="登入.html">
+	        <span class="icon icon-dengru"></span>
+	        <p>登入</p>
+	    </a>
+	    <a class="li flex1" href="優惠.html">
+	        <span class="icon icon-youhui"></span>
+	        <p>優惠</p>
+	    </a>
+	    <a class="li flex1" href="客服.html">
+	        <span class="icon icon-kefu"></span>
+	        <p>客服</p>
+	    </a>
 	</div>
 	<!-- footer end -->
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <!-- 轮播图 js start -->
-    <script src="js/swiper-3.4.0.jquery.min.js"></script>
+    <script src="js/swiper-4.5.0.jquery.min.js"></script>
     <!-- 轮播图 js end -->
 
     <script src="js/page.js"></script>

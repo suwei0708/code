@@ -2,12 +2,8 @@
 @import url(../../../common/common.less);
 @import url(../../../common/flexible.less);
 @page-w: 750;
-@gray-ico: #a2a2a2;
-@gray-l: #f1f1f3;
-@gray-9: #979797;
-@gray-5: #5f5f5f;
-@gray: #010101;
-@green: #1ce1b5;
+@blue: #2fa9b6;
+@yellow: #f6bd42;
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background: #fff;
 }
@@ -36,6 +32,7 @@ a {
 }
 html, body {
     // min-height: 100vh;
+    background: #efeff4;
     -webkit-overflow-scrolling: touch;
 }
 .fl {
@@ -45,14 +42,11 @@ html, body {
     float: right;
 }
 
-.gray {
-    color: #999 !important;
-}
-.green {
-    color: #1ce1b5 !important;
+.blue {
+    color: @blue !important;
 }
 .yellow {
-    color: #fdb11f !important;
+    color: @yellow  !important;
 }
 
 .text-e1 {
@@ -84,120 +78,156 @@ html, body {
 
 .wrap {
     .pos(r);
-    min-height: 100vh;
-    width: @page-w / @font;
-    max-width: @page-w / @font;
+    .w(675);
+    .pd(200, 0, 150);
     margin: 0 auto;
-    .pds(b, 98);
     .cl();
-    background: #eee;
 }
-
-// 首页轮播
-.swiper1 {
-    .mgs(b, -83);
-    .swiper-slide {
-        img {
-            .dis(b);
-            .w(750);
-            .h(400);
-        }
-    }
-    .swiper-pagination {
-        .b(115);
-    }
-    .swiper-pagination-bullet {
-        .w(13);
-        .h(13);
-        background: #037071;
-        opacity: 1;
-    }
-    .swiper-pagination-bullet-active {
-        .bdr(10px);
-        background: #fff;
-    }
-}
-
 // 头部
 .header {
-	.pos(f);
-	top: 0;
-	left: 50%;
-	z-index: 99;
-	.w(750);
-	.translateX(-50%);
-	&-main {
-		.pos(r);
-		.h(110);
-		line-height: 1;
-		background: @green;
-		text-align: center;
-		.back {
-			.pos(a);
-			top: 0;
-			left: 0;
-			.fz(40);
-			.pd(35, 20);
-			color: #fff;
-		}
-		.home {
-			.pos(a);
-			top: 0;
-			.l(80);
-			.fz(40);
-			.pd(35, 20);
-			color: #fff;
-		}
-		.logo {
-			.dis(b);
-			.mg(0, 160);
-			img {
-				.dis(ib);
-				vertical-align: top;
-				.mgs(t, 5);
-				.h(100);
-			}
-		}
-	}
-	&-menu {
-		.pos(a);
-		top: 0;
-		right: 0;
-		.fz(40);
-		.pd(35, 20);
-		.mgs(r, 20);
-		color: #fff;
-		ul {
-			// .dis(n);
-			.pos(a);
-			.t(120);
-			.r(0);
-			white-space: nowrap;
-			.w(750 / 2);
-			color: #fff;
-			background: #49484b;
-			.bdr(10 / @font);
-			li {
-				border-bottom: 1px solid #59585b;
-			}
-			a {
-				.dis(b);
-				.lhh(80);
-				color: #fff;
-				.fz(28);
-				.icon {
-					.mgs(r, 25);
-				}
-			}
-			&:before {
-				content: '';
-				.pos(a);
-				.r(20);
-				.t(-20);
-				.triangle(top, 20/@font, #49484b);
-			}
-		}
-	}
+    .pos(f);
+    top: 0;
+    left: 50%;
+    z-index: 99;
+    .w(750);
+    .translateX(-50%);
+
+    &-main {
+        .pos(r);
+        .h(100);
+        line-height: 1;
+        background: @blue;
+        text-align: center;
+
+        .back {
+            .pos(a);
+            top: 0;
+            left: 0;
+            .fz(40);
+            .pd(30, 15);
+            color: #fff;
+        }
+
+        .home {
+            .pos(a);
+            top: 0;
+            .l(80);
+            .fz(40);
+            .pd(30, 15);
+            color: #fff;
+        }
+
+        .title {
+            .dis(b);
+            .mg(0, 140);
+            .lhh(100);
+            color: #fff;
+            .fz(40);
+            img {
+                .dis(ib);
+                vertical-align: top;
+                .mgs(t, 5);
+                .h(90);
+            }
+        }
+    }
+
+    &-menu {
+        .pos(a);
+        top: 0;
+        right: 0;
+        z-index: 98;
+        .fz(40);
+        .pd(30, 15);
+        .mgs(r, 20);
+        color: #fff;
+
+        ul {
+            .dis(n);
+            .pos(a);
+            .t(100);
+            .r(0);
+            white-space: nowrap;
+            .w(750 / 2);
+            color: #fff;
+            background: #49484b;
+            .bdr(10 / @font);
+
+            li {
+                border-bottom: 1px solid #59585b;
+            }
+
+            a {
+                .dis(b);
+                .lhh(80);
+                color: #fff;
+                .fz(28);
+
+                .icon {
+                    .mgs(r, 25);
+                }
+            }
+
+            &:before {
+                content: '';
+                .pos(a);
+                .r(20);
+                .t(-20);
+                .triangle(top, 20/@font, #49484b);
+            }
+        }
+    }
+
+    &-info {
+        .h(81);
+        background: #f0eff5;
+        border-bottom: 1px solid #adadad;
+
+        li {
+            .pos(r);
+            .lhh(60);
+            .mg(10, 0);
+            text-align: center;
+
+            .icon {
+                .pos(a);
+                .fz(42);
+
+                &-zun {
+                    .t(9);
+                    .l(26);
+                    color: #7e673c;
+                }
+
+                &-youxiang {
+                    .t(5);
+                    .r(34);
+                    .fz(50);
+                    color: #ababab;
+                }
+
+                &-jinbi {
+                    .t(9);
+                    .l(26);
+                    color: #dfb04c;
+                }
+            }
+
+            &:last-child {
+                border-left: 1px solid #b5b4b5;
+            }
+
+            .name {
+                .fz(28);
+                color: #000;
+            }
+
+            .num {
+                .fz(28);
+                color: #1864c7;
+            }
+        }
+    }
 }
 
 // 通用底部
@@ -205,39 +235,76 @@ html, body {
     position: fixed;
     left: 50%;
     bottom: 0;
+    z-index: 99;
     .w(750);
+    .h(134);
     .translateX(-50%);
     text-align: center;
-    background: #fff;
+    background: @blue;
+
     .li {
-        .pd(8, 0, 0);
+        .pd(14, 0, 0);
         background: none;
         border: 0;
+        .icon {
+            .fz(62);
+            color: #fff;
+        }
     }
+
     p {
         display: block;
-        .lh(36);
-        color: #333;
-        .fz(20);
+        .lh(60);
+        color: #fff;
+        .fz(28);
     }
-    img {
-        display: block;
-        .w(54);
-        .h(54);
-        margin: 0 auto;
-        &:last-of-type {
-            display: none;
-        }
-    }
+
     .cur {
-        img:first-of-type {
-            display: none;
+        p, .icon {
+            color: @yellow;
         }
-        img:last-of-type {
-            display: block;
+    }
+}
+
+// 首页轮播
+.swiper1 {
+    .pds(b, 28);
+    .swiper-slide {
+        .ov(h);
+        .bdr(10 / @font);
+        img {
+            .dis(b);
+            .w(675);
+            .h(230);
+            .bdr(10 / @font);
         }
-        p {
-            color: #00b28a;
+    }
+    .swiper-pagination {
+        .lh(13);
+        .b(0);
+    }
+    .swiper-pagination-bullet {
+        .w(13);
+        .h(13);
+        background: #c4c4c6;
+        opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+        .bdr(10px);
+        background: #999;
+    }
+}
+
+.index {
+    &-list {
+        li {
+            .mgs(t, 14);
+            img {
+                .dis(b);
+                .w(675);
+                .h(130);
+                .bdr(10 / @font);
+            }
         }
     }
 }
