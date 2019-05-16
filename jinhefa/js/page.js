@@ -16,17 +16,17 @@ $(function() {
 
     // 下拉
     $('.header-menu').on('click', function(e) {
-        if ($(this).find('ul').is(':visible')) {
-            $(this).find('ul').slideUp();
+        if ($('.header-menu-sub').is(':visible')) {
+            $('.header-menu-sub').slideUp();
         }
         else {
-            $(this).find('ul').slideDown();
+            $('.header-menu-sub').slideDown();
         }
         e.stopPropagation()
     });
     $('body').on('click', function() {
-        if ($('.header-menu').find('ul').is(':visible')) {
-            $('.header-menu').find('ul').slideUp();
+        if ($('.header-menu-sub').is(':visible')) {
+            $('.header-menu-sub').slideUp();
         }
     })
 });

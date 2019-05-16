@@ -3,7 +3,7 @@
 @import url(../../../common/flexible.less);
 @page-w: 750;
 @blue: #2fa9b6;
-@yellow: #f6bd42;
+@yellow: #dfb04c;
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background: #fff;
 }
@@ -136,13 +136,12 @@ html, body {
         .pos(a);
         top: 0;
         right: 0;
-        z-index: 98;
+        z-index: 100;
         .fz(40);
         .pd(30, 15);
         .mgs(r, 20);
         color: #fff;
-
-        ul {
+        &-sub {
             .dis(n);
             .pos(a);
             .t(100);
@@ -153,21 +152,6 @@ html, body {
             background: #49484b;
             .bdr(10 / @font);
 
-            li {
-                border-bottom: 1px solid #59585b;
-            }
-
-            a {
-                .dis(b);
-                .lhh(80);
-                color: #fff;
-                .fz(28);
-
-                .icon {
-                    .mgs(r, 25);
-                }
-            }
-
             &:before {
                 content: '';
                 .pos(a);
@@ -176,12 +160,31 @@ html, body {
                 .triangle(top, 20/@font, #49484b);
             }
         }
+        ul {
+            // max-height: 900 / @font;
+            // .ovy(a);
+            li {
+                border-bottom: 1px solid #59585b;
+            }
+            a {
+                .dis(b);
+                .lhh(70);
+                color: #fff;
+                .fz(28);
+                text-align: left;
+                .pds(l, 90);
+
+                .icon {
+                    .mgs(r, 25);
+                }
+            }
+        }
     }
 
     &-info {
         .h(81);
         background: #f0eff5;
-        border-bottom: 1px solid #adadad;
+        border-bottom: 1px solid #ababab;
 
         li {
             .pos(r);
@@ -214,7 +217,7 @@ html, body {
             }
 
             &:last-child {
-                border-left: 1px solid #b5b4b5;
+                border-left: 1px solid #ababab;
             }
 
             .name {
@@ -235,7 +238,7 @@ html, body {
     position: fixed;
     left: 50%;
     bottom: 0;
-    z-index: 99;
+    z-index: 98;
     .w(750);
     .h(134);
     .translateX(-50%);
