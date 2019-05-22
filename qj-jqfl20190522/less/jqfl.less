@@ -152,12 +152,12 @@ a.yellow {
     &-nav {
         .pos(r);
         top: -50px;
-		padding-top: 10px;
         .box-shadow(0, 3px, 16px, #ebebeb);
 		background: #fff;
         li {
             float: left;
             margin-left: 75px;
+            padding-top: 10px;
             line-height: 60px;
             a {
                 .dis(b);
@@ -173,13 +173,25 @@ a.yellow {
         }
     }
     &-invitation {
+        .pos(r);
+        top: -50px;
+        border-top: 1px solid #efefef;
+        padding-bottom: 30px;
+        &:before {
+            content: '';
+            .pos(a);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: #fff;
+        }
         .list {
-            padding-bottom: 60px;
+            padding-bottom: 80px;
             font-size: 0;
             .box-shadow(0, 3px, 20px, rgba(235, 235, 235, .4));
             ul {
-                padding-bottom: 50px;
-                padding-top: 63px;
+                padding: 55px 0 70px;
             }
             li {
                 .dis(ib);
@@ -229,14 +241,19 @@ a.yellow {
                 }
             }
         }
-        .ct-copy {
+        .ct-copy-box {
             .ov(h);
             // margin-top: 48px;
             font-size: 0;
             text-align: center;
-            span {
+            > div {
                 .dis(ib);
-                width: 710px;
+                vertical-align: top;
+            }
+            .txt {
+                .dis(ib);
+                vertical-align: top;
+                width: 495px;
                 padding: 0 0 0 25px;
                 margin-right: -1px;
                 line-height: 42px;
@@ -248,6 +265,7 @@ a.yellow {
             }
             .btn {
                 .dis(ib);
+                vertical-align: top;
                 padding: 0 34px;
                 line-height: 44px;
                 background: @yellow;
@@ -259,22 +277,69 @@ a.yellow {
                     background: @yellow-h;
                 }
             }
+            .ct-price {
+                .pos(r);
+                margin-right: 30px;
+                &:before {
+                    content: '';
+                    .pos(a);
+                    top: 18px;
+                    left: 86px;
+                    width: 1px;
+                    height: 10px;
+                    background: #dcdcdc;
+                }
+                .txt {
+                    width: 165px;
+                    padding-left: 15px;
+                    color: #535353;
+                    input {
+                        .dis(ib);
+                        vertical-align: middle;
+                        margin: -1px 0 0 26px;
+                        width: 22px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        font-size: 14px;
+                        color: #535353;
+                        border: none;
+                        border-bottom: 1px solid #fff;
+                        -moz-appearance: textfield;
+                        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            appearance: none;
+                        }
+                        &:focus {
+                            border-bottom: 1px solid @blue;
+                        }
+                    }
+                }
+            }
         }
     }
     &-czhy {
-        padding: 20px 0 0;
-        .tit {
-            line-height: 24px;
-            font-size: 20px;
-            color: #666;
+        .pos(r);
+        top: -50px;
+        border-top: 1px solid #efefef;
+        margin-bottom: -20px;
+        &:before {
+            content: '';
+            .pos(a);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: #fff;
         }
         .list {
-            padding-top: 30px;
+            padding-top: 40px;
+            font-size: 0;
+            .box-shadow(0, 3px, 20px, rgba(235, 235, 235, .4));
             li {
                 border-bottom: 1px solid #f8f8f8;
                 padding: 26px 0;
                 color: #898989;
-                font-size: 0;
                 text-align: center;
                 .name {
                     .ov(h);
@@ -333,7 +398,7 @@ a.yellow {
         }
     }
     &-wallet {
-        margin: 15px 0 70px;
+        margin: 0 0 70px;
         border: 1px solid #f4f4f4;
         .tit {
             padding: 0 24px;
@@ -388,7 +453,6 @@ a.yellow {
     }
     &-xjtx {
         padding-bottom: 10px;
-        margin-top: 15px;
         .list {
             border: 1px solid #f0f0f0;
             li {

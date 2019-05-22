@@ -1,8 +1,33 @@
-$(function() {
+$(function () {
     // 复制
-    $('.jqfl-invitation').on('click', '.btn', function() {
+    $('.ct-copy').on('click', '.btn', function () {
         copyToClipboard();
         tipSave('suc', '复制成功!');
+    });
+    // 修改价格
+    $('.ct-price').on('click', '.btn', function () {
+        var val = $.trim($('.txt-price').val());
+        if (val && val >= 0 && val <= 98) {
+            var txt = '专注于 PS AI C4D高精教程的巧匠VIP ,在我这里购买可以优惠' + val + '元';
+            var link = 'http://www.qiaojiang.tv/fl/111'
+            console.log(txt)
+            $('.ct-copy').find('.txt').html(txt);  // 显示的文字
+            $('#contents').val(txt + ' ' + link); // 复制的文字
+
+            tipSave('suc', '修改成功!');
+        }
+        else {
+            tipSave('fail', '优惠价格错误');
+        }
+    });
+    $('.txt-price').on('change', function () {
+        var val = $.trim($(this).val());
+        if (!val || val < 0) {
+            $(this).val(0);
+        }
+        else if(val > 98) {
+            $(this).val(98);
+        }
     });
 
     // 菜单切换
