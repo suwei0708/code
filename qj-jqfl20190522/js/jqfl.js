@@ -5,14 +5,6 @@ $(function() {
         tipSave('suc', '复制成功!');
     });
 
-    // 滑动到复制位置
-    $('.jqfl-main').on('click', '.btn-invitation', function() {
-        $('.jqfl-nav li:eq(0)').trigger('click');
-        $('html, body').animate({
-            scrollTop: $('.jqfl-invitation').offset().top
-        },500);
-    });
-
     // 菜单切换
     $('.jqfl-nav').on('click', 'li', function() {
         $(this).addClass('cur').siblings('li').removeClass('cur');

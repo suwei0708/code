@@ -1,0 +1,55 @@
+$(function() {
+	var isClick = true;
+	$('.vote-box').on('click', '.btn', function() {
+		var voteUrl = '/xapi/vote/create.html';
+		if (!isClick) { return false; }
+		isClick = false;
+		$.ajax({
+			url: voteUrl,
+			type: 'POST',
+			dataType: 'json',
+			async: false,
+			data: {}
+		})
+		.done(function(res) {
+			if (res.status == '0') {
+				$('.num').html(+$('.num').html() + 1);
+				popup('suc', '投票成功！', '感谢您对本报社的支持~');
+			}
+			else {
+				popup('fail', '投票失败！', '每人只能投一次，谢谢支持...');
+			}
+		})
+		.fail(function() {
+			alert('网络错误，请稍候再试');
+		})
+		.always(function() {
+			isClick = true;
+		});
+	});
+
+
+    $('body').on('click', '.popup-box', function() {
+        $(this).remove();
+	})
+	.on('click', '.popup', function(e) {
+	    e.stopPropagation();
+	})
+	.on('click', '.popup .btn', function() {
+	    $(this).parents('.popup-box').remove();
+	});
+});
+
+function popup(status, txt1, txt2) {
+    var $dom = '<div class="popup-box popup-' + status + '">'
+					+'<div class="popup">'
+						+'<div class="icon"></div>'
+						+'<div class="txt">' + txt1 + '</div>'
+						+'<div class="tips">' + txt2 + '</div>'
+						+'<div class="btn-box">'
+							+'<button class="btn" type="button">知道了</button>'
+						+'</div>'
+					+'</div>'
+				+'</div>'
+	$('body').append($dom);
+}
