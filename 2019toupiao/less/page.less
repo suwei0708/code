@@ -78,9 +78,10 @@ html, body {
 			color: #fc0;
 		}
 	}
-	.btn {
+	.btn, .btn-back {
+		.dis(b);
 		width: 100%;
-		.lhh(115);
+		.lhh(100);
 		.mgs(t, 52);
 		border: none;
 		.fz(48);
@@ -92,7 +93,7 @@ html, body {
 			.pos(r);
 			.t(-8);
 			.dis(b);
-			.lhh(115);
+			.lhh(100);
 			z-index: 9;
 			background: #f90;
 			.bdr(10 / @font);
@@ -103,6 +104,9 @@ html, body {
 				background: #ffad33;
 			}
 		}
+	}
+	.btn-back {
+		.mgs(t, 20);
 	}
 }
 .popup {
