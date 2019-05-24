@@ -23,8 +23,10 @@ $(function() {
 	    });
 	}
 	var isClick = true;
-	$('.vote-box').on('click', '.btn', function() {
+	$('body').on('click', '.btn-vote', function() {
 		var voteUrl = '/xapi/vote/create.html';
+		var _this = $(this);
+		var id = _this.attr('data-id');
 		if (!isClick) { return false; }
 		isClick = false;
 		$.ajax({
@@ -32,11 +34,14 @@ $(function() {
 			type: 'POST',
 			dataType: 'json',
 			async: false,
-			data: {}
+			data: {
+				id: id
+			}
 		})
 		.done(function(res) {
 			if (res.status == '0') {
-				$('.num').html(+$('.num').html() + 1);
+				var $num = _this.parents('.vote-box').find('.num');
+				$num.html(+$num.html() + 1);
 				popup('suc', '投票成功！', '感谢您对本报社的支持~');
 			}
 			else {
