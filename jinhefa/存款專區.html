@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>金合發-首页</title>
+    <title>存款專區-金合發</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- 页面适配js -->
@@ -20,7 +20,9 @@
 	<!-- header start -->
 	<div class="header">
 		<div class="header-main">
-			<div class="title"><img src="./images/logo.png" alt=""></div>
+			<a href="javascript: history.go(-1);" class="back"><span class="icon icon-fanhui"></span></a>
+			<a href="index.html" class="home"><span class="icon icon-zhuye"></span></a>
+			<div class="title">存款專區</div>
 			<div class="header-menu">
 				<span class="icon icon-caidan"></span>
 				<div class="header-menu-sub">
@@ -56,47 +58,58 @@
 	<!-- header end -->
 
     <div class="wrap">
-        <!-- 轮播图 start -->
-        <div class="swiper-container swiper1">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-            </div>
-            <div class="swiper-pagination pagination1"></div>
-        </div>
-        <!-- 轮播图 end -->
-        <div class="index-list">
-            <ul>
-                <li><a href="#"><img src="./images/i1.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i2.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i3.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i4.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i5.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i6.jpg" alt=""></a></li>
-            </ul>
-        </div>
+		<form class="form-cunkuan form" action="#">
+			<div class="ct">
+				<div class="item">
+					<label>真實戶名</label>
+					<input type="text" class="text" placeholder="須與您銀行賬戶戶名相同，否則不能退款" autocomplete="off">
+				</div>
+				<div class="item">
+					<label>銀行代號</label>
+					<select class="text" placeholder="請選擇銀行">
+						<option value="0">選擇銀行1</option>
+						<option value="1">選擇銀行2</option>
+						<option value="2">選擇銀行3</option>
+						<option value="3">選擇銀行4</option>
+					</select>
+					<span class="icon icon-xiala"></span>
+				</div>
+				<div class="item">
+					<label>分行名稱</label>
+					<input type="text" class="text" placeholder="" autocomplete="off">
+				</div>
+				<div class="item">
+					<label>匯款賬號</label>
+					<input type="text" class="text" placeholder="" autocomplete="off">
+				</div>
+				<div class="item">
+					<label>提款密碼</label>
+					<input type="password" class="text" placeholder="" autocomplete="off">
+				</div>
+				<div class="item">
+					<div class="radio-box">
+						<div class="t">是否使用提款密碼</div>
+						<input id="radio1" type="radio" name="tkmm" value="0" checked>
+						<label for="radio1" class="radio">是</label>
+						<input id="radio2" type="radio" name="tkmm" value="1">
+						<label for="radio2" class="radio">否</label>
+					</div>
+
+				</div>
+				<div class="item">
+					<button type="submit" class="btn">確認修改</button>
+				</div>
+			</div>
+		</form>
 	</div>
 
 	<!-- footer start -->
 	<div class="footer flex-wrp">
-	    <a class="li flex1 cur" href="index.html">
+	    <a class="li flex1" href="index.html">
 	        <span class="icon icon-dating"></span>
 	        <p>首頁大廳</p>
 	    </a>
-	    <div class="li flex1 ft-cz">
+	    <div class="li flex1 ft-cz cur">
 	        <span class="icon icon-chuzhi"></span>
 			<p>儲值/托售</p>
 			<div class="cz-list">
