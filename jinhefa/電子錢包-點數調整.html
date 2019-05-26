@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>金合發-首页</title>
+    <title>點數調整-金合發</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- 页面适配js -->
@@ -20,7 +20,9 @@
 	<!-- header start -->
 	<div class="header">
 		<div class="header-main">
-			<div class="title"><img src="./images/logo.png" alt=""></div>
+			<a href="javascript: history.go(-1);" class="back"><span class="icon icon-fanhui"></span></a>
+			<a href="index.html" class="home"><span class="icon icon-zhuye"></span></a>
+			<div class="title">點數調整</div>
 			<div class="header-menu">
 				<span class="icon icon-caidan"></span>
 				<div class="header-menu-sub">
@@ -56,43 +58,44 @@
 	<!-- header end -->
 
     <div class="wrap">
-        <!-- 轮播图 start -->
-        <div class="swiper-container swiper1">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="list.html"><img src="images/banner.jpg" alt=""></a>
-                </div>
-            </div>
-            <div class="swiper-pagination pagination1"></div>
-        </div>
-        <!-- 轮播图 end -->
-        <div class="index-list">
-            <ul>
-                <li><a href="#"><img src="./images/i1.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i2.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i3.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i4.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i5.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./images/i6.jpg" alt=""></a></li>
-            </ul>
-        </div>
+        <div class="user-list">
+			<ul>
+			    <li><a href="電子錢包-儲值記錄.html">儲值記錄</a></li>
+			    <li><a href="電子錢包-托售記錄.html">托售記錄</a></li>
+			    <li><a href="電子錢包-轉點記錄.html">轉點記錄</a></li>
+			    <li><a href="電子錢包-點數調整.html" class="cur">點數調整</a></li>
+			    <li><a href="電子錢包-投註明細.html">投註明細</a></li>
+			</ul>
+		</div>
+		<div class="user-box">
+			<div class="tit">點數調整</div>
+			<div class="ct">
+			    <table class="table">
+			        <tbody>
+			            <tr>
+			                <th>操作時間</th>
+			                <th>遊戲類型</th>
+			                <th>轉點金額</th>
+			            </tr>
+			            <tr>
+			                <td>2019-5-26</td>
+			                <td>真人百家樂</td>
+			                <td>10000</td>
+			            </tr>
+			            <tr>
+			                <td>2019-5-25</td>
+			                <td>電子遊戲</td>
+			                <td>10000</td>
+			            </tr>
+			        </tbody>
+			    </table>
+			</div>
+		</div>
 	</div>
 
 	<!-- footer start -->
 	<div class="footer flex-wrp">
-	    <a class="li flex1 cur" href="index.html">
+	    <a class="li flex1" href="index.html">
 	        <span class="icon icon-dating"></span>
 	        <p>首頁大廳</p>
 	    </a>
@@ -106,7 +109,7 @@
 				</ul>
 			</div>
 	    </div>
-	    <a class="li flex1" href="會員中心.html">
+	    <a class="li flex1 cur" href="會員中心.html">
 	        <span class="icon icon-huiyuan"></span>
 	        <p>會員中心</p>
 	    </a>

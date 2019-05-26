@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>印象汨罗</title>
+    <title>端午印象：端午来了</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -267,18 +267,18 @@
 <script src="static/js/page.js"></script>
 
 <!-- 微信分享文字自定义 -->
-<!-- <script src="static/js/weixin.js"></script> -->
+<script src="static/js/weixin.js"></script>
 <script>
 $(function() {
-    // var path = window.location.href;
-    // var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
-    // var wxData = {
-    //     imgUrl: baseUrl + 'static/img/share.jpg',
-    //     link: baseUrl + 'index.html',
-    //     title: '寻找代言猫——因爱同行  为爱上色',
-    //     desc: '龙湖长沙洋湖天街携手金鹰955全城“爱它总动员”，为萌宠猫涂鸦上色，公益你我、因爱同行！'
-    // };
-	// weixin.bindData(wxData);
+    var path = window.location.href;
+    var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+    var wxData = {
+        imgUrl: baseUrl + 'static/img/share.jpg',
+        link: baseUrl + 'index.html',
+        title: '汨罗有两个年！这一个竟然在六月？',
+        desc: '6月6日-10日，就让我们“年”在一起！'
+    };
+	weixin.bindData(wxData);
 	var overscroll = function(el) {
 		el.addEventListener('touchstart', function() {
 			var top = el.scrollTop,
