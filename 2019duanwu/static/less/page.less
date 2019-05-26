@@ -193,14 +193,20 @@ a {
 				}
 			}
 		}
+		&-hand {
+			.dis(n);
+			top: 800px;
+			left: 190px;
+			width: 141px;
+		}
 	}
 }
 
 .page2 {
 	.ovy(a);
-	// -webkit-overflow-scrolling: touch;
 	.main {
 		.pos(r);
+		// -webkit-overflow-scrolling: touch;
 	}
 	img {
 		.pos(a);
@@ -233,6 +239,19 @@ a {
 			left: 750px;
 			top: 605px;
 			width: 338px;
+		}
+		&-hand {
+			.dis(n);
+			.pos(a);
+			top: 620px;
+			left: 389px;
+			z-index: 5;
+			width: 17px;
+			.hand {
+				top: 0;
+				left: 0;
+				width: 17px;
+			}
 		}
 		&-cloud1 {
 			top: 0;
@@ -757,8 +776,8 @@ a {
 .a-chuan {
 	background: url(../img/a-chuan.png);
 	background-size: 100%;
-	-webkit-animation: chuananim 1s steps(2) infinite;
-	animation: chuananim 1s steps(2) infinite;
+	-webkit-animation: chuananim 1s steps(3) infinite;
+	animation: chuananim 1s steps(3) infinite;
 	.chuan {
 		.dis(n);
 	}
@@ -766,7 +785,7 @@ a {
 @-webkit-keyframes chuananim {
     0% {
         opacity: 1;
-        background-position: 0 540px
+        background-position: 0 810px
     }
     100% {
         opacity: 1;
@@ -776,7 +795,7 @@ a {
 @keyframes chuananim {
     0% {
         opacity: 1;
-        background-position: 0 540px
+        background-position: 0 810px
     }
     100% {
         opacity: 1;
@@ -1026,8 +1045,8 @@ a {
 }
 
 .fade-in-out {
-    -webkit-animation: fade-in-out 1.2s ease-in-out 0s infinite both;
-    animation: fade-in-out 1.2s ease-in-out 0s infinite both;
+    -webkit-animation: fade-in-out 1s ease-in-out 0s infinite both;
+    animation: fade-in-out 1s ease-in-out 0s infinite both;
 }
 @-webkit-keyframes fade-in-out {
     0% {
@@ -1049,6 +1068,53 @@ a {
     }
     100% {
         opacity: 1;
+    }
+}
+
+
+.a-hand {
+	.pos(a);
+	top: 78px;
+	left: -20px;
+	width: 42px;
+	max-width: none;
+    -webkit-animation: handanim 1s ease-in-out 0s infinite both;
+	animation: handanim 1s ease-in-out 0s infinite both;
+	-webkit-transform-origin: left center;
+	transform-origin: left center;
+}
+@-webkit-keyframes handanim {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+    25% {
+        -webkit-transform: rotate(-10deg)
+    }
+    50% {
+        -webkit-transform: rotate(0)
+	}
+	75% {
+		-webkit-transform: rotate(10deg)
+	}
+    100% {
+        -webkit-transform: rotate(0)
+    }
+}
+@keyframes handanim {
+    0% {
+        transform: rotate(0)
+    }
+    25% {
+        transform: rotate(-10deg)
+    }
+    50% {
+        transform: rotate(0)
+	}
+	75% {
+		transform: rotate(10deg)
+	}
+    100% {
+        transform: rotate(0)
     }
 }
 
@@ -1141,8 +1207,8 @@ a {
 }
 
 .a-fengzheng {
-    -webkit-animation: fengzhenganim 3s ease-in-out 0s infinite both;
-	animation: fengzhenganim 3s ease-in-out 0s infinite both;
+    -webkit-animation: fengzhenganim 5s ease-in-out 0s infinite both;
+	animation: fengzhenganim 5s ease-in-out 0s infinite both;
 	-webkit-transform-origin: bottom right;
 	transform-origin: bottom right;
 }
@@ -1151,7 +1217,7 @@ a {
         -webkit-transform: rotate(0)
     }
     50% {
-        -webkit-transform: rotate(20deg)
+        -webkit-transform: rotate(10deg)
     }
     100% {
         -webkit-transform: rotate(0)
@@ -1162,7 +1228,7 @@ a {
         transform: rotate(0)
     }
     50% {
-        transform: rotate(20deg)
+        transform: rotate(10deg)
     }
     100% {
         transform: rotate(0)

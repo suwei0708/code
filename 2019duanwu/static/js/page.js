@@ -51,7 +51,9 @@ app.init = function() {
 						$('.page1').find('.p1-msg2').delay(1000).fadeOut();
 						$('.page1').find('.p1-msg3').delay(1000).fadeIn(400, function() {
 							$('.page1').find('.p1-bq').addClass('cur');
-							app.audio.pause();
+							$('.page1').find('.p1-hand').delay(500).fadeIn(500, function() {
+								app.audio.pause();
+							});
 						});
 					});
 				});
@@ -78,8 +80,11 @@ $(function() {
 var result = [];
 
 function initPageEvents() {
+	// 防止拖动出现黑块
+	document.body.addEventListener('touchmove', bodyScroll, { passive: false });
+
 	var chuanTop = +$('.qj-chuan').offset().top;
-	$('.p1-msg3').on('click', function() {
+	$('.p1-msg3, .p1-hand').on('click', function() {
 		$('.page-start').show();
 		app.audio.src = app.mxuanwo;
 		app.audio.play();
@@ -88,12 +93,14 @@ function initPageEvents() {
 			$('.page-start').fadeOut();
 			$('.page1').hide();
 			$('.page-noswiper').show();
+
+			document.body.removeEventListener('touchmove', bodyScroll, { passive: false });
 			$('.page2').fadeIn(400, function() {
 				chuanTop = +$('.qj-chuan').offset().top;
-
+				$('.qj-hand').show();
 				$('.qj-drop').animate({
 				    'left': '-10px'
-				}, 500, 'swing', function() {
+				}, 1500, function() {
 				    $('.qj-drop').fadeOut(400, function() {
 						app.audio.src = app.mmijing;
 						app.audio.play();
@@ -106,16 +113,12 @@ function initPageEvents() {
 	});
 
 	$('.scroll').on('scroll', function() {
+		$('.qj-hand').fadeOut(1000);
+		var $pos = $('.scroll').scrollTop();
 		$('.qj-chuan').css({
-			top: $('.scroll').scrollTop() + chuanTop
+			top: $pos + chuanTop
 		});
-		var $shan = +$('.qj-shan').position().top;
-		var $girl = +$('.qj-girl').position().top;
-		var $men = +$('.qj-men').position().top + $('.qj-men').height();
-		var $xiangnang = +$('.qj-xiangnang').position().top + $('.qj-xiangnang').height();
-		var $zongye = +$('.qj-zongye').position().top + $('.qj-zongye').height();
-		var $zongzi = +$('.qj-zongzi').position().top + $('.qj-zongzi').height();
-		if ($('.scroll').scrollTop() >= $zongzi) {
+		if ($pos >= 12100) {
 			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mlongzhou) {
 			    app.audio.src = app.mlongzhou;
 			    app.audio.play();
@@ -126,7 +129,7 @@ function initPageEvents() {
 			    }
 			}
 		}
-		else if ($('.scroll').scrollTop() >= $zongye) {
+		else if ($pos >= 10530 && $pos < 11800) {
 			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mzongzi) {
 			    app.audio.src = app.mzongzi;
 			    app.audio.play();
@@ -137,7 +140,7 @@ function initPageEvents() {
 			    }
 			}
 		}
-		else if($('.scroll').scrollTop() >= $xiangnang) {
+		else if ($pos >= 8200 && $pos < 9000) {
 			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mzhiyuan) {
 			    app.audio.src = app.mzhiyuan;
 			    app.audio.play();
@@ -148,7 +151,7 @@ function initPageEvents() {
 			    }
 			}
 		}
-		else if ($('.scroll').scrollTop() >= $men) {
+		else if ($pos >= 5300 && $pos < 6720) {
 			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mxiangnang) {
 			    app.audio.src = app.mxiangnang;
 			    app.audio.play();
@@ -159,7 +162,7 @@ function initPageEvents() {
 			    }
 			}
 		}
-		else if ($('.scroll').scrollTop() >= $girl) {
+		else if ($pos >= 3530 && $pos < 5070) {
 			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.maicao) {
 			    app.audio.src = app.maicao;
 			    app.audio.play();
@@ -170,7 +173,7 @@ function initPageEvents() {
 			    }
 			}
 		}
-		else if ($('.scroll').scrollTop() >= $shan) {
+		else if ($pos < 1530) {
 			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mmijing) {
 				app.audio.src = app.mmijing;
 				app.audio.play();
@@ -181,6 +184,9 @@ function initPageEvents() {
 				}
 			}
 		}
+		else {
+			app.audio.pause();
+		}
 	});
 
 	$('.btn-duanwu').on('click', function() {
@@ -189,6 +195,7 @@ function initPageEvents() {
 	});
 
 	$('.btn-tongyi').on('click', function() {
+		document.body.addEventListener('touchmove', bodyScroll, { passive: false });
 	    $('.page3').hide();
 	    $('.page4').fadeIn();
 	});
@@ -340,4 +347,8 @@ function convertCanvasToImage(canvas) {
     image.crossOrigin = 'anonymous';
     image.src = canvas.toDataURL('image/png');
     return image;
+}
+
+function bodyScroll(event) {
+    event.preventDefault();
 }
