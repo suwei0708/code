@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>印象汨罗</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-orientation" content="portrait">
+    <script>
+    var deviceWidth =  parseInt(window.screen.width);var deviceScale = deviceWidth/750;var ua = navigator.userAgent;if (/Android (\d+\.\d+)/.test(ua)){var version = parseFloat(RegExp.$1);if(version>2.3){document.write('<meta name="viewport" content="width=750,initial-scale='+deviceScale+', minimum-scale = '+deviceScale+', maximum-scale = '+deviceScale+', target-densitydpi=device-dpi">');}else{document.write('<meta name="viewport" content="width=750,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');}} else {document.write('<meta name="viewport" content="width=750, user-scalable=no">');}
+    </script>
+    <link rel="stylesheet" href="static/css/page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="static/js/imgpreload.min.js"></script>
+</head>
+<body>
+<div style="display: none;"><img src="static/img/share.jpg"></div>
+<section class="loading">
+	<div class="a-loading"></div>
+	<img class="fade-in-out" src="./static/img/loading.png" alt="">
+</section>
+
+<audio src="static/music/bg.mp3" preload="auto" loop autobuffer="true" id="bg"></audio>
+<audio src="static/music/p1.mp3" preload="auto" autobuffer="true" id="audio"></audio>
+<audio src="static/music/xuanwo.mp3" preload="auto" autobuffer="true"></audio>
+<audio src="static/music/mijing.mp3" preload="auto" autobuffer="true"></audio>
+<audio src="static/music/aicao.mp3" preload="auto" autobuffer="true"></audio>
+<audio src="static/music/xiangnang.mp3" preload="auto" autobuffer="true"></audio>
+<audio src="static/music/zhiyuan.mp3" preload="auto" autobuffer="true"></audio>
+<audio src="static/music/zongzi.mp3" preload="auto" autobuffer="true"></audio>
+<audio src="static/music/longzhou.mp3" preload="auto" autobuffer="true"></audio>
+<div id="content">
+	<!-- 主题滑动页面 -->
+	<div class="page page1">
+		<img src="./static/img/p1-bg.jpg" alt="" class="p1">
+		<img src="./static/img/p1-msg1.png" alt="" class="p1-msg1">
+		<img src="./static/img/p1-msg2.png" alt="" class="p1-msg2">
+		<img src="./static/img/p1-msg3.png" alt="" class="p1-msg3">
+		<div class="p1-bq">
+		    <img class="bq1" src="./static/img/p1-bq1.png" alt="">
+		    <img class="bq2" src="./static/img/p1-bq2.png" alt="">
+		</div>
+	</div>
+	<div class="page page2 scroll">
+		<div class="main">
+		    <img class="bg" src="./static/img/bg.jpg" alt="背景">
+		    <img class="qj-drop" src="./static/img/a-diaoren.png" alt="人">
+		    <div class="qj-chuan">
+		        <img class="chuan" src="./static/img/chuan.png" alt="船">
+		    </div>
+		    <img class="qj-ye" src="./static/img/qj-ye.png" alt="叶子">
+		    <img class="qj-cloud1" src="./static/img/a-cloud1.png" alt="云">
+		    <img class="qj-cloud2" src="./static/img/a-cloud2.png" alt="云">
+
+		    <img class="text1" src="./static/img/text1.png" alt="">
+		    <img class="tips tips1" src="./static/img/tips1.png" alt="">
+		    <div class="dot dot1">
+		        <img class="dot-anim" src="./static/img/dot.png" alt="">
+		        <img src="./static/img/dot.png" alt="">
+		    </div>
+
+		    <img class="qj-shan" src="./static/img/qj-shan.png" alt="山">
+		    <img class="qj-niao a-niao" src="./static/img/a-bird.png" alt="鸟">
+
+		    <img class="text2" src="./static/img/text2.png" alt="">
+		    <img class="tips tips2" src="./static/img/tips2.png" alt="">
+		    <div class="dot dot2">
+		        <img class="dot-anim" src="./static/img/dot.png" alt="">
+		        <img src="./static/img/dot.png" alt="">
+		    </div>
+
+		    <img class="qj-men" src="./static/img/qj-men.png" alt="门">
+		    <div class="qj-laoren a-laoren"></div>
+		    <div class="qj-girl">
+		        <img src="./static/img/a-shou.png" alt="" class="shou a-shou">
+		        <img src="./static/img/a-girl.png" alt="" class="girl">
+		    </div>
+
+		    <img class="qj-qiao1" src="./static/img/qj-qiao1.png" alt="桥1">
+		    <img class="qj-qiao2" src="./static/img/qj-qiao2.png" alt="桥2">
+		    <div class="qj-xiangnang a-xiangnang"></div>
+		    <div class="qj-fengzheng1 a-fengzheng1"></div>
+		    <div class="qj-fengzheng2 a-fengzheng2"></div>
+		    <div class="qj-fengzheng3 a-fengzheng3"></div>
+		    <img class="qj-fengzheng a-fengzheng" src="./static/img/a-fengzheng.png" alt="风筝">
+
+		    <img class="text3" src="./static/img/text3.png" alt="">
+		    <img class="tips tips3" src="./static/img/tips3.png" alt="">
+		    <div class="dot dot3">
+		        <img class="dot-anim" src="./static/img/dot.png" alt="">
+		        <img src="./static/img/dot.png" alt="">
+		    </div>
+
+		    <img class="qj-zongye" src="./static/img/qj-zongye.png" alt="粽叶">
+
+		    <img class="text4" src="./static/img/text4.png" alt="">
+		    <img class="tips tips4" src="./static/img/tips4.png" alt="">
+		    <div class="dot dot4">
+		        <img class="dot-anim" src="./static/img/dot.png" alt="">
+		        <img src="./static/img/dot.png" alt="">
+		    </div>
+
+		    <img class="qj-shu" src="./static/img/qj-shu.png" alt="大树">
+		    <div class="qj-zongzi a-zongzi"></div>
+
+		    <img class="text5" src="./static/img/text5.png" alt="">
+		    <img class="tips tips5" src="./static/img/tips5.png" alt="">
+		    <div class="dot dot5">
+		        <img class="dot-anim" src="./static/img/dot.png" alt="">
+		        <img src="./static/img/dot.png" alt="">
+		    </div>
+
+		    <div class="qj-longzhou-box">
+		        <div class="qj-longzhou1 a-lzmove1">
+		            <div class="a-longzhou"></div>
+		        </div>
+		        <div class="qj-longzhou2 a-lzmove2">
+		            <div class="a-longzhou"></div>
+		        </div>
+		        <div class="qj-longzhou3 a-lzmove3">
+		            <div class="a-longzhou"></div>
+		        </div>
+		    </div>
+		    <div class="qj-gu a-gu"></div>
+		    <img class="qj-btn btn-duanwu fade-scale-out" src="./static/img/a-btn.png" alt="">
+
+		    <img class="text6" src="./static/img/text6.png" alt="">
+		    <img class="tips tips6" src="./static/img/tips6.png" alt="">
+		    <div class="dot dot6">
+		        <img class="dot-anim" src="./static/img/dot.png" alt="">
+		        <img src="./static/img/dot.png" alt="">
+		    </div>
+		</div>
+	</div>
+	<div class="page page3">
+	    <img src="./static/img/bg2.jpg" alt="" class="bg">
+		<div class="box">
+			<img src="./static/img/p3-tit.png" alt="" class="tit">
+			<div class="slogan">自驾游招募</div>
+			<div class="list">
+				<dl>
+				    <dt>· 报名方式 ·</dt>
+				    <dd>选择出发日期，并提交个人信息，就有机会免费获得2019屈子文化园入园门票</dd>
+				</dl>
+				<dl>
+				    <dt>· 活动时间 ·</dt>
+				    <dd>活动报名：2019年5月27日-6月3日12:00</dd>
+				    <dd>名单公布：6月3日</dd>
+				    <dd>出发时间：6月7日-8日</dd>
+				</dl>
+				<dl>
+				    <dt>· 活动行程 ·</dt>
+				    <dd>统一往返时间，长沙有领队人员</dd>
+				    <dd>到达园区后，所有参与用户自由安排时间</dd>
+				</dl>
+				<dl>
+				    <dt>· 如何确认中奖 ·</dt>
+				    <dd>报名完成后，“金鹰955电台”根据您填写的资料进行电话回访，核对信息，并通知您是否赢得赠票（若无中奖，可尊享成人特惠门票98元/人福利，同时赠送20元端午文化周园区特色体验券）</dd>
+				    <dd>最终中奖名单将于6月3日将在此H5内以及“金鹰955电台”官方微信公布</dd>
+				</dl>
+				<dl>
+				    <dt>· 详情了解 ·</dt>
+				    <dd>在“金鹰955电台”公众号后台回复“端午节”即可获得本次活动详情</dd>
+				</dl>
+				<dl>
+				    <dt>· 出发前你需要知道的 ·</dt>
+				    <dd>1. 报名成功的用户，请保持手机畅通，留意工作人员信息核对电话</dd>
+				    <dd>2. 活动有效时间为2019年6月6日至10日9:00</dd>
+				    <dd>3. 出发城市为长沙，原则上将按照报名参与日期参与自驾游，调整出发时间需在工作人员通知时告知</dd>
+				    <dd>4. 参与用户园区个人消费费用需自行承担，“金鹰955电台”只提供入园门票名额</dd>
+				</dl>
+				<div class="btn-box">
+				    <img class="btn btn-tongyi" src="./static/img/btn-tongyi.png" alt="">
+				</div>
+				<div class="mz">
+				    <strong>[ 免责声明 ]</strong>
+				    <p>1.因个人原因最终无法参与活动的中奖者，将视为自动放弃，“金鹰955电台”拒绝赔付相关费用</p>
+				    <p>2.自驾游出行期间请注意安全，一切财产和人身安全损失，均由个人承担，“金鹰955电台”不承担相应法律责任</p>
+				    <p>3．“金鹰955电台”对本次活动保有最终解释权</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page page4">
+	    <img src="./static/img/bg2.jpg" alt="" class="bg">
+		<img src="./static/img/p4-bg.png" alt="" class="p4-bg">
+		<form class="form" id="form" action="#">
+			<img src="./static/img/p4.png" alt="" class="bg">
+			<div class="btn-tslx"></div>
+			<div class="label">
+			    <label><input type="radio" value="1" name="impression"><span></span></label>
+			    <label><input type="radio" value="2" name="impression"><span></span></label>
+			    <label><input type="radio" value="3" name="impression"><span></span></label>
+			    <label><input type="radio" value="4" name="impression"><span></span></label>
+			    <label><input type="radio" value="5" name="impression"><span></span></label>
+			    <label><input type="radio" value="6" name="impression"><span></span></label>
+			</div>
+			<div class="input">
+				<input type="text" class="text" name="name" class="text" maxlength="14">
+				<input type="number" class="text" name="mobile" class="text" maxlength="13">
+				<select name="date" class="text">
+					<option value="" disabled selected style="display: none">请填写参与自驾游时间</option>
+				    <option value="6月6日">6月6日</option>
+				    <option value="6月7日">6月7日</option>
+				    <option value="6月8日">6月8日</option>
+				    <option value="6月9日">6月9日</option>
+				    <option value="6月10日">6月10日</option>
+				</select>
+			</div>
+			<div class="btn-box">
+			    <img class="btn-yulan" src="./static/img/btn-yulan.png" alt="">
+			    <img class="btn-tijiao" src="./static/img/btn-tijiao.png" alt="">
+			</div>
+		</form>
+	</div>
+	<div class="page page5">
+	    <img src="./static/img/bg2.jpg" alt="" class="bg">
+	    <img src="./static/img/p5-bg.png" alt="" class="p5-bg">
+	    <div class="box">
+			<img src="./static/img/p5.png" alt="" class="p5">
+			<div class="btn-fanhui"></div>
+			<a href="tel:0730-2930116" class="btn-tel"></a>
+	    </div>
+	</div>
+	<div class="page page6">
+		<img id="ringoImage" style="display: none" src="./static/img/haibao1.jpg">
+		<img id="ecode" style="display: none" src="./static/img/ecode.jpg">
+		<div id="canvasHolder" style="display: none"></div>
+		<div id="pngHolder"></div>
+	</div>
+
+	<div class="page page-start"></div>
+	<div class="page page-noswiper"></div>
+
+    <!-- 加载动画 start -->
+    <div class="spinner-box">
+        <div class="spinner-mask">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 加载动画 end -->
+</div>
+
+<!-- 基础JS脚本部分 -->
+<!-- 当前页面自定义JS -->
+<script src="static/js/page.js"></script>
+
+<!-- 微信分享文字自定义 -->
+<!-- <script src="static/js/weixin.js"></script> -->
+<script>
+$(function() {
+    // var path = window.location.href;
+    // var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+    // var wxData = {
+    //     imgUrl: baseUrl + 'static/img/share.jpg',
+    //     link: baseUrl + 'index.html',
+    //     title: '寻找代言猫——因爱同行  为爱上色',
+    //     desc: '龙湖长沙洋湖天街携手金鹰955全城“爱它总动员”，为萌宠猫涂鸦上色，公益你我、因爱同行！'
+    // };
+	// weixin.bindData(wxData);
+	var overscroll = function(el) {
+		el.addEventListener('touchstart', function() {
+			var top = el.scrollTop,
+				totalScroll = el.scrollHeight,
+				currentScroll = top + el.offsetHeight
+			if (top === 0) {
+				el.scrollTop = 1
+			}
+			else if (currentScroll === totalScroll) {
+				el.scrollTop = top - 1
+			}
+		})
+		el.addEventListener('touchmove', function(evt) {
+			if (el.offsetHeight < el.scrollHeight) evt._isScroller = true
+		})
+	}
+	overscroll(document.querySelector('.scroll'));
+	document.body.addEventListener('touchmove', function(evt) {
+		if($('.scroll').is(':visible')) {
+			if (!evt._isScroller) {
+				evt.preventDefault();
+			}
+		}
+
+	})
+});
+
+
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?397b676cb941823a1840dfb7d8c17253";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

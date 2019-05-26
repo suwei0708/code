@@ -1,0 +1,343 @@
+/**
+ * app 模块
+ *
+ * @namespace
+ */
+var app = {};
+var resultNum = 0;
+var isClick = 1;
+app.width;
+app.height;
+app.loop = false; // 循环展示
+app.DEFAULT_WIDTH = 750;
+app.DEFAULT_HEIGHT = 1334;
+app.baseUrl = 'static/img/';
+app.music = $('#bg')[0];
+app.audio = $('#audio')[0];
+
+app.mxuanwo = 'static/music/xuanwo.mp3';
+app.mmijing = 'static/music/mijing.mp3';
+app.maicao = 'static/music/aicao.mp3';
+app.mxiangnang = 'static/music/xiangnang.mp3';
+app.mzhiyuan = 'static/music/zhiyuan.mp3';
+app.mzongzi = 'static/music/zongzi.mp3';
+app.mlongzhou = 'static/music/longzhou.mp3';
+
+app.init = function() {
+    //微信下兼容音乐处理
+	if (app.audio) { app.audio.play() }
+	document.addEventListener('WeixinJSBridgeReady', function() {
+	    app.audio.play();
+	}, false);
+
+    // 加载完成后隐藏loading
+	var the_images = [app.baseUrl + 'a-loading.png', app.baseUrl + 'start.png', app.baseUrl + 'a-chuan.png', app.baseUrl + 'a-gu.png', app.baseUrl + 'a-laoren.png', app.baseUrl + 'a-xiangnang.png', app.baseUrl + 'a-zongzi.png', app.baseUrl + 'a-fengzheng1.png', app.baseUrl + 'a-fengzheng2.png', app.baseUrl + 'a-fengzheng3.png', app.baseUrl + 'a-longzhou.png', app.baseUrl + 'haibao1.jpg', app.baseUrl + 'haibao2.jpg', app.baseUrl + 'haibao3.jpg', app.baseUrl + 'haibao4.jpg', app.baseUrl + 'haibao5.jpg'];
+
+    $.each($('#content img'), function() {
+        the_images.push($(this).attr('src'));
+    });
+    $.imgpreload(the_images, {
+        all: function() {
+            setTimeout(function() {
+				$('.loading').fadeOut();
+				$('.page1').show();
+				if (app.audio) { app.audio.play() }
+				document.addEventListener('WeixinJSBridgeReady', function() {
+					app.audio.play();
+				}, false);
+				$('.page1').find('.p1-msg1').fadeIn(400, function() {
+					$('.page1').find('.p1-msg1').delay(1500).fadeOut();
+					$('.page1').find('.p1-msg2').delay(1500).fadeIn(400, function() {
+						$('.page1').find('.p1-msg2').delay(1000).fadeOut();
+						$('.page1').find('.p1-msg3').delay(1000).fadeIn(400, function() {
+							$('.page1').find('.p1-bq').addClass('cur');
+							app.audio.pause();
+						});
+					});
+				});
+            }, 500);
+        }
+    });
+    // 初始化音乐按钮
+    // initMusic();
+};
+
+/**
+ * ==============================
+ * 页面主要JS逻辑交互
+ * ===============================
+ */
+$(function() {
+	app.init();
+    initPageEvents();
+});
+
+/**
+ * 页面交互事件的初始化写这里
+ */
+var result = [];
+
+function initPageEvents() {
+	var chuanTop = +$('.qj-chuan').offset().top;
+	$('.p1-msg3').on('click', function() {
+		$('.page-start').show();
+		app.audio.src = app.mxuanwo;
+		app.audio.play();
+		app.music.play();
+		setTimeout(function() {
+			$('.page-start').fadeOut();
+			$('.page1').hide();
+			$('.page-noswiper').show();
+			$('.page2').fadeIn(400, function() {
+				chuanTop = +$('.qj-chuan').offset().top;
+
+				$('.qj-drop').animate({
+				    'left': '-10px'
+				}, 500, 'swing', function() {
+				    $('.qj-drop').fadeOut(400, function() {
+						app.audio.src = app.mmijing;
+						app.audio.play();
+						$('.qj-chuan').addClass('a-chuan');
+						$('.page-noswiper').hide();
+				    });
+				});
+			});
+		}, 500);
+	});
+
+	$('.scroll').on('scroll', function() {
+		$('.qj-chuan').css({
+			top: $('.scroll').scrollTop() + chuanTop
+		});
+		var $shan = +$('.qj-shan').position().top;
+		var $girl = +$('.qj-girl').position().top;
+		var $men = +$('.qj-men').position().top + $('.qj-men').height();
+		var $xiangnang = +$('.qj-xiangnang').position().top + $('.qj-xiangnang').height();
+		var $zongye = +$('.qj-zongye').position().top + $('.qj-zongye').height();
+		var $zongzi = +$('.qj-zongzi').position().top + $('.qj-zongzi').height();
+		if ($('.scroll').scrollTop() >= $zongzi) {
+			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mlongzhou) {
+			    app.audio.src = app.mlongzhou;
+			    app.audio.play();
+			}
+			else {
+			    if (app.audio.pause) {
+			        app.audio.play();
+			    }
+			}
+		}
+		else if ($('.scroll').scrollTop() >= $zongye) {
+			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mzongzi) {
+			    app.audio.src = app.mzongzi;
+			    app.audio.play();
+			}
+			else {
+			    if (app.audio.pause) {
+			        app.audio.play();
+			    }
+			}
+		}
+		else if($('.scroll').scrollTop() >= $xiangnang) {
+			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mzhiyuan) {
+			    app.audio.src = app.mzhiyuan;
+			    app.audio.play();
+			}
+			else {
+			    if (app.audio.pause) {
+			        app.audio.play();
+			    }
+			}
+		}
+		else if ($('.scroll').scrollTop() >= $men) {
+			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mxiangnang) {
+			    app.audio.src = app.mxiangnang;
+			    app.audio.play();
+			}
+			else {
+			    if (app.audio.pause) {
+			        app.audio.play();
+			    }
+			}
+		}
+		else if ($('.scroll').scrollTop() >= $girl) {
+			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.maicao) {
+			    app.audio.src = app.maicao;
+			    app.audio.play();
+			}
+			else {
+			    if (app.audio.pause) {
+			        app.audio.play();
+			    }
+			}
+		}
+		else if ($('.scroll').scrollTop() >= $shan) {
+			if (app.audio.src.match(/2019duanwu\/(\S*)/)[1] != app.mmijing) {
+				app.audio.src = app.mmijing;
+				app.audio.play();
+			}
+			else {
+				if (app.audio.pause) {
+				    app.audio.play();
+				}
+			}
+		}
+	});
+
+	$('.btn-duanwu').on('click', function() {
+	    $('.page2').hide();
+		$('.page3').fadeIn();
+	});
+
+	$('.btn-tongyi').on('click', function() {
+	    $('.page3').hide();
+	    $('.page4').fadeIn();
+	});
+
+	$('.btn-tslx').on('click', function() {
+	    $('.page4').hide();
+	    $('.page5').fadeIn();
+	});
+
+	$('.btn-fanhui').on('click', function() {
+	    $('.page5').hide();
+	    $('.page4').fadeIn();
+	});
+
+	$('.dot').on('click', function() {
+		$(this).prev('.tips').fadeIn();
+	});
+	$('.tips').on('click', function() {
+		$(this).fadeOut();
+	});
+
+	// 预览
+	$('.btn-yulan').on('click', function() {
+		if (!isClick) { return false; }
+		if (!$.trim($('#form input[name=impression]:checked').val())) {
+			alert('请选择端午印象！');
+			return false;
+		}
+		if (!$.trim($('#form input[name=name]').val())) {
+			alert('姓名不能为空！');
+			return false;
+		}
+		if (!$.trim($('#form input[name=mobile]').val())) {
+			alert('电话号码不能为空！');
+			return false;
+		}
+		if (!(/^1\d{10}$/.test($.trim($('#form input[name=mobile]').val())))) {
+			alert('电话号码格式不正确');
+			return false;
+		}
+		if (!$.trim($('#form select[name=date] option:selected').val())) {
+			alert('日期不能为空！');
+			return false;
+		}
+		isClick = 0;
+
+		$('#form input[name=name]').focus();
+		$('.spinner-box').show();
+		$('#ringoImage').attr('src', './static/img/haibao' + $('#form input[name = impression]:checked').val() + '.jpg ')
+
+		setTimeout(function() {
+			// canvas画图
+			var sampleImage = document.getElementById('ringoImage'),
+			    ecode = document.getElementById('ecode'),
+			    name = $.trim($('#form input[name=name]').val()),
+			    times = $.trim($('#form select[name=date] option:selected').val()),
+			    canvas = convertImageToCanvas(sampleImage, ecode, name, times);
+			document.getElementById('canvasHolder').appendChild(canvas);
+			document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
+			$('.page6').fadeIn();
+			$('.spinner-box, .page4').hide();
+			$('#form input[name=name]').blur();
+			isClick = 1;
+		}, 500);
+	});
+
+    // form提交
+    $('.btn-tijiao').on('click', function() {
+        if (!isClick) { return false; }
+        if (!$.trim($('#form input[name=impression]:checked').val())) {
+            alert('请选择端午印象！');
+            return false;
+        }
+        if (!$.trim($('#form input[name=name]').val())) {
+            alert('姓名不能为空！');
+            return false;
+        }
+        if (!$.trim($('#form input[name=mobile]').val())) {
+            alert('电话号码不能为空！');
+            return false;
+        }
+        if (!(/^1\d{10}$/.test($.trim($('#form input[name=mobile]').val())))) {
+            alert('电话号码格式不正确');
+            return false;
+        }
+        if (!$.trim($('#form select[name=date] option:selected').val())) {
+            alert('日期不能为空！');
+            return false;
+        }
+        isClick = 0;
+
+		$('#form input[name=name]').focus();
+		$('.spinner-box').show();
+        $.ajax({
+                url: 'https://m.xinliling.com/trees?type=4',
+                type: 'POST',
+                dataType: 'json',
+                data: $('#form').serialize()
+            })
+            .done(function(res) {
+                alert('报名成功！');
+            })
+            .fail(function(res) {
+                if (res.status == 422) {
+                    alert(res.responseText);
+                } else {
+                    alert('网络错误，请稍后重试');
+                }
+            })
+            .always(function() {
+				isClick = 1;
+				$('.spinner-box').hide();
+            });
+        return false;
+	});
+
+	$('.page6').on('click', function() {
+		$(this).hide();
+		$('.page4').show();
+	});
+
+}
+
+// Converts image to canvas; returns new canvas element
+function convertImageToCanvas(image, ecode, name, times) {
+    var canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    var ctx = canvas.getContext('2d');
+    ctx.save(); //保存状态
+    ctx.drawImage(image, 0, 0, 750, 1334);
+
+    ctx.drawImage(ecode, 55, 1183, 110, 110);
+    ctx.fillStyle = '#000'; // 文字填充颜色
+    ctx.font = '29px Microsoft Yahei';
+    ctx.fillText(name, 320, 1085);
+    ctx.font = '22px Microsoft Yahei';
+    ctx.fillText('报名' + times + '时间， 端午假， 自驾去汨罗', 241, 1303);
+    ctx.restore(); //恢复状态
+
+    ctx.stroke();
+
+    return canvas;
+}
+
+// Converts canvas to an image
+function convertCanvasToImage(canvas) {
+    var image = new Image();
+    image.crossOrigin = 'anonymous';
+    image.src = canvas.toDataURL('image/png');
+    return image;
+}
