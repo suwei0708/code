@@ -703,10 +703,9 @@ html, body {
                 .pd(10, 0);
             }
             .note {
-                padding: 1em;
-                background: #ff9;
-                border-left: 8/@font solid #424242;
-                color: #424242;
+				padding: 1em;
+				color: #fff;
+                background: #424242;
                 dt {
                     .fz(38);
                 }
@@ -822,119 +821,141 @@ html, body {
 				&:hover {
 					background: @blue-h;
 				}
+				&.cur {
+					background: #e90080;
+				}
+			}
+		}
+	}
+	&-box {
+		.tit {
+			.lh(80);
+			.fz(46);
+			color: #000;
+			font-weight: 700;
+			border-bottom: 4/@font solid #000;
+		}
+		.ct {
+			.pds(b, 30);
+			.t {
+				.dis(ib);
+				vertical-align: top;
+				.lh(70);
+				.fz(32);
+				color: #333;
+			}
+			.radio {
+				.pos(r);
+				.dis(b);
+				.lh(70);
+				.fz(38);
+				.pds(l, 52);
+				&-box {
+					.mgs(t, 30);
+					input[type=radio] {
+						.dis(n);
+						&:checked + label {
+							color: @blue;
+							font-weight: bold;
+							&:before {
+								content: "\2022";
+								color: #f3f3f3;
+								.fz(40);
+								text-align: center;
+								.lh(26);
+							}
+						}
+					}
+					label {
+						.dis(ib);
+						vertical-align: top;
+						.mgs(l, 40);
+					}
+				}
+				&:before {
+					content: "";
+					display: inline-block;
+					.wh(32);
+					position: absolute;
+					left: 0;
+					.t(20);
+					background-color: #ccc;
+					box-shadow: inset 0px 4/@font 6/@font 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+					.bdr(100%);
+				}
+			}
+			.table {
+				.mgs(t, 20);
+				text-align: center;
+				th {
+					text-align: center;
+					background: #faca0c;
+				}
+				.icon {
+					.fz(40);
+					&-gou1 {
+						color: #2c8500;
+					}
+					&-cha1 {
+						color: #bc1214;
+					}
+				}
 			}
 		}
 	}
 }
 
 .form {
-	.tit {
-		.lh(80);
-		.fz(46);
-		color: #000;
-		font-weight: 700;
-		border-bottom: 4/@font solid #000;
+	.item {
+		.pos(r);
+		.pd(15, 0);
 	}
-	.ct {
-		.pds(b, 30);
-		.item {
-			.pos(r);
-			.pd(15, 0);
-		}
-		label {
-			.dis(b);
-			.lh(70);
-			.fz(32);
-			color: #333;
-		}
-		.text {
-			width: 100%;
-			.h(100);
-			.lh(60);
-			.pd(30);
-			border: 2/@font solid #ddd;
-			.bdr(10 / @font);
-			background: #fff;
-			color: #333;
-			.fz(30);
-		}
-		select.text {
-			.lh(96);
-			.pd(0, 30);
-			-webkit-appearance:none;
-		}
-		input:disabled {
-			background: #eee;
-		}
-		.icon {
-			.pos(a);
-			.r(30);
-			.t(126);
-			.fz(20);
-			color: #ccc;
-		}
-		.btn {
-			.dis(b);
-			width: 100%;
-			.h(100);
-			.bdr(10 / @font);
-			text-align: center;
-			line-height: 1;
-			.fz(34);
-			font-weight: 700;
-			color: #fff;
-			background: @blue;
-			border: none;
-			&:hover {
-				background: @blue-h;
-			}
-		}
-	}
-	.t {
-		.dis(ib);
-		vertical-align: top;
+	label {
+		.dis(b);
 		.lh(70);
 		.fz(32);
 		color: #333;
 	}
-	.radio {
-		.pos(r);
+	.text {
+		width: 100%;
+		.h(100);
+		.lh(60);
+		.pd(30);
+		border: 2/@font solid #ddd;
+		.bdr(10 / @font);
+		background: #fff;
+		color: #333;
+		.fz(30);
+	}
+	select.text {
+		.lh(96);
+		.pd(0, 30);
+		-webkit-appearance:none;
+	}
+	input:disabled {
+		background: #eee;
+	}
+	.icon {
+		.pos(a);
+		.r(30);
+		.t(126);
+		.fz(20);
+		color: #ccc;
+	}
+	.btn {
 		.dis(b);
-		.lh(70);
-		.fz(38);
-		.pds(l, 52);
-		&-box {
-			.mgs(t, 30);
-			input[type=radio] {
-				.dis(n);
-				&:checked + label {
-					color: @blue;
-					font-weight: bold;
-					&:before {
-						content: "\2022";
-						color: #f3f3f3;
-						.fz(40);
-						text-align: center;
-						.lh(26);
-					}
-				}
-			}
-			label {
-				.dis(ib);
-				vertical-align: top;
-				.mgs(l, 40);
-			}
-		}
-		&:before {
-			content: "";
-			display: inline-block;
-			.wh(32);
-			position: absolute;
-			left: 0;
-			.t(20);
-			background-color: #ccc;
-			box-shadow: inset 0px 4/@font 6/@font 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
-			.bdr(100%);
+		width: 100%;
+		.h(100);
+		.bdr(10 / @font);
+		text-align: center;
+		line-height: 1;
+		.fz(34);
+		font-weight: 700;
+		color: #fff;
+		background: @blue;
+		border: none;
+		&:hover {
+			background: @blue-h;
 		}
 	}
 }
