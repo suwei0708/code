@@ -216,33 +216,40 @@ function initPageEvents() {
 	$('.tips').on('click', function() {
 		$(this).fadeOut();
 	});
+	$('.tips-an').on('touchstart', function() {
+		$(this).hide();
+		return false;
+	});
+	$('.tips-an').on('click', function() {
+		$(this).hide();
+		return false;
+	});
 
 	// 预览
 	$('.btn-yulan').on('click', function() {
 		if (!isClick) { return false; }
 		if (!$.trim($('#form input[name=impression]:checked').val())) {
-			alert('请选择端午印象！');
+			alertTips('请选择端午印象！');
 			return false;
 		}
 		if (!$.trim($('#form input[name=name]').val())) {
-			alert('姓名不能为空！');
+			alertTips('姓名不能为空！');
 			return false;
 		}
 		if (!$.trim($('#form input[name=mobile]').val())) {
-			alert('电话号码不能为空！');
+			alertTips('电话号码不能为空！');
 			return false;
 		}
 		if (!(/^1\d{10}$/.test($.trim($('#form input[name=mobile]').val())))) {
-			alert('电话号码格式不正确');
+			alertTips('电话号码格式不正确');
 			return false;
 		}
 		if (!$.trim($('#form select[name=date] option:selected').val())) {
-			alert('日期不能为空！');
+			alertTips('日期不能为空！');
 			return false;
 		}
 		isClick = 0;
 
-		$('#form input[name=name]').focus();
 		$('.spinner-box').show();
 		$('#ringoImage').attr('src', './static/img/haibao' + $('#form input[name = impression]:checked').val() + '.jpg ')
 
@@ -255,9 +262,9 @@ function initPageEvents() {
 			    canvas = convertImageToCanvas(sampleImage, ecode, name, times);
 			document.getElementById('canvasHolder').appendChild(canvas);
 			document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
+			$('.tips-an').show();
 			$('.page6').fadeIn();
 			$('.spinner-box, .page4').hide();
-			$('#form input[name=name]').blur();
 			isClick = 1;
 		}, 500);
 	});
@@ -266,28 +273,26 @@ function initPageEvents() {
     $('.btn-tijiao').on('click', function() {
         if (!isClick) { return false; }
         if (!$.trim($('#form input[name=impression]:checked').val())) {
-            alert('请选择端午印象！');
+            alertTips('请选择端午印象！');
             return false;
         }
         if (!$.trim($('#form input[name=name]').val())) {
-            alert('姓名不能为空！');
+            alertTips('姓名不能为空！');
             return false;
         }
         if (!$.trim($('#form input[name=mobile]').val())) {
-            alert('电话号码不能为空！');
+            alertTips('电话号码不能为空！');
             return false;
         }
         if (!(/^1\d{10}$/.test($.trim($('#form input[name=mobile]').val())))) {
-            alert('电话号码格式不正确');
+            alertTips('电话号码格式不正确');
             return false;
         }
         if (!$.trim($('#form select[name=date] option:selected').val())) {
-            alert('日期不能为空！');
+            alertTips('日期不能为空！');
             return false;
         }
         isClick = 0;
-
-		$('#form input[name=name]').focus();
 		$('.spinner-box').show();
         $.ajax({
                 url: 'https://m.xinliling.com/trees?type=4',
@@ -296,13 +301,13 @@ function initPageEvents() {
                 data: $('#form').serialize()
             })
             .done(function(res) {
-                alert('报名成功！');
+                alertTips('报名成功！');
             })
             .fail(function(res) {
                 if (res.status == 422) {
-                    alert(res.responseText);
+                    alertTips(res.responseText);
                 } else {
-                    alert('网络错误，请稍后重试');
+                    alertTips('网络错误，请稍后重试');
                 }
             })
             .always(function() {
@@ -315,6 +320,15 @@ function initPageEvents() {
 	$('.page6').on('click', function() {
 		$(this).hide();
 		$('.page4').show();
+	});
+
+	document.body.addEventListener("focusout", () => {
+	    //软键盘收起的事件处理
+	    setTimeout(() => {
+			console.log(111)
+	        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+	        window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+	    }, 100);
 	});
 
 }
@@ -351,4 +365,19 @@ function convertCanvasToImage(canvas) {
 
 function bodyScroll(event) {
     event.preventDefault();
+}
+
+var alertTimes;
+function alertTips(txt, times) {
+    if (!$('.alerttips-box').length) {
+        $('#content').append('<div class="alerttips-box"><div class="alerttips"></div></div>');
+        $('body').append();
+    }
+    $('.alerttips').html(txt);
+    $('.alerttips-box').show();
+    times ? time = times : time = 2000;
+    clearTimeout(alertTimes);
+    alertTimes = setTimeout(function() {
+        $('.alerttips-box').hide();
+    }, time);
 }
