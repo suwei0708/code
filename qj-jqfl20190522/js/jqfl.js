@@ -70,7 +70,14 @@ $(function () {
         }
         $('.popup-withdrawals').hide().find('.text').val('');
         $('.popup-withdrawals-suc').show();
-    });
+	});
+
+	// 价格切换
+	$('.jqfl-main2').on('click', '.price li', function() {
+		$(this).addClass('cur').siblings().removeClass('cur');
+		$('.jqfl-main2 .info').find('strong').html($(this).find('.fr strong').text());
+		$('.jqfl-main2 .info').find('span').html($(this).find('.fr span').text());
+	});
 });
 
 // 保存成功失败 status为suc或者fail，cont为提示的内容

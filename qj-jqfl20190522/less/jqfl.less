@@ -7,8 +7,8 @@
 @green-h: #65e386;
 @blue: #0097f8;
 @blue-h: #26a5ff;
-@yellow: #ff8d01;
-@yellow-h: #ffa800;
+@yellow: #ffa800;
+@yellow-h: #ffab0a;
 
 .w300 {
     width: 300px;
@@ -111,28 +111,70 @@ a.yellow {
         }
 
         &2 {
-            padding-top: 90px;
-            height: 380px - 90px;
+            padding-top: 52px;
+            height: 380px - 52px;
             text-align: center;
-            background: url(../images/yqcz.png) no-repeat center 0;
+            background: url(../images/yqcz.jpg) no-repeat center 0;
             .name {
-                line-height: 30px;
-                font-size: 18px;
-                color: #666;
-            }
-            .slogan {
-                line-height: 60px;
-                font-size: 36px;
-                color: #666;
+                line-height: 45px;
+                font-size: 28px;
+                color: #333;
             }
             .info {
-                line-height: 38px;
+                line-height: 30px;
                 font-size: 16px;
-                color: #999;
-                .fz30 {
-                    font-size: 30px;
-                }
-            }
+                color: #333;
+                strong {
+					.dis(ib);
+					vertical-align: middle;
+					font-size: 26px;
+					margin: -3px 12px 0;
+				}
+				span {
+					margin: 0 5px;
+				}
+			}
+			.price {
+				padding: 28px 0 3px;
+				font-size: 0;
+				text-align: center;
+				.cl();
+				li {
+					.dis(ib);
+					width: 158px;
+					padding: 18px 23px;
+					margin: 0 7px;
+					border: 1px solid #dfdfdf;
+					cursor: pointer;
+					&.cur {
+						padding: 16px 21px;
+						border: 3px solid #ffab0a;
+					}
+					.fl {
+						line-height: 22px;
+						font-size: 16px;
+						color: #686868;
+						img {
+							.dis(b);
+							width: 60px;
+							height: 56px;
+							margin: 0 0 5px;
+						}
+					}
+					.fr {
+						padding: 8px 0 0;
+						line-height: 20px;
+						font-size: 14px;
+						color: #666;
+						div {
+							line-height: 28px;
+							strong {
+								font-size: 26px;
+							}
+						}
+					}
+				}
+			}
             .btn {
                 .dis(b);
                 margin: 20px auto 0;
