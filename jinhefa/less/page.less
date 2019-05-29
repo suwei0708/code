@@ -1046,3 +1046,89 @@ html, body {
         }
     }
 }
+
+.game-list {
+	li {
+		.w(675);
+		.pd(30, 20);
+		.mg(20, 0);
+		background: #3f3f3f;
+		.bdr(10/@font);
+		font-size: 0;
+		.box-shadow(0 0 10/@font rgba(0, 0, 0, .5));
+		.img {
+			.dis(ib);
+			vertical-align: middle;
+			.w(272);
+			.mg(0, 40, 0, 0);
+		}
+		.cont {
+			.dis(ib);
+			vertical-align: middle;
+			.w(323);
+			.name {
+				.fz(50);
+				line-height: 1;
+				.mgs(b, 10);
+				font-weight: 700;
+				color: #fff;
+				white-space: nowrap;
+				.text-e(1);
+			}
+			p {
+				.lh(42);
+				.fz(32);
+				font-weight: 700;
+				color: #ffff07;
+			}
+			.ecode {
+				.pd(10, 0);
+				img {
+					.dis(ib);
+					vertical-align: top;
+					.w(66);
+					.h(66);
+				}
+				.getcode {
+					.dis(ib);
+					vertical-align: top;
+					.w(160);
+					.h(66);
+					.lh(66);
+					.mgs(l, 10);
+					.fz(26);
+					background: #fff;
+					border: none;
+					cursor: pointer;
+				}
+			}
+			.btn {
+				.dis(ib);
+				vertical-align: top;
+				.mgs(t, 10);
+				img {
+					.dis(ib);
+					vertical-align: top;
+					.w(270);
+				}
+			}
+		}
+	}
+}
+.popup-ecode {
+	.pos(f);
+	top: 0;
+	left: 0;
+	z-index: 990;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .8);
+	img {
+		.pos(a);
+		top: 50%;
+		left: 50%;
+		.translate(-50%, -50%);
+		.w(185);
+		.h(185);
+	}
+}

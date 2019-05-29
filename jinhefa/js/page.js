@@ -180,10 +180,20 @@ $(function() {
 			$('.form-cunkuan').find('.text:last()').attr('disabled', false);
 		}
 		else {
-		    console.log(222)
 			$('.form-cunkuan').find('.text:last()').attr('disabled', true);
 		}
-	})
+	});
+
+	// 获取二维码
+	$('.game-list').on('click', '.getcode', function() {
+		$('body').append('<div class="popup-ecode"><img src="' + $(this).attr('data-ecode') + '" alt=""></div>');
+		$('.popup-ecode').on('click', function() {
+			$(this).remove();
+		});
+		$('.popup-ecode').on('click', 'img', function() {
+		    return false;
+		});
+	});
 });
 
 function pxToRem(dom) {
