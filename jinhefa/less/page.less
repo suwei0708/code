@@ -325,21 +325,6 @@ html, body {
             }
         }
     }
-    .header {
-        &-menu {
-            .pd(38, 15);
-            &-sub {
-                top: auto;
-                .b(150);
-
-                &:before {
-                    top: auto;
-                    .b(-20);
-                    .triangle(bottom, 20/@font, #49484b);
-                }
-            }
-        }
-	}
 	.cz-list {
 		.dis(n);
 		.pos(a);
@@ -379,6 +364,9 @@ html, body {
 			}
 		}
 	}
+}
+.login-header {
+	top: 0;
 }
 
 // 首页轮播
@@ -431,7 +419,7 @@ html, body {
 .login {
     .w(750);
     height: 100%;
-    .pd(150, 45, 134);
+    .pd(250, 45, 134);
     margin: 0 auto;
     background: #2c2b33;
     .logo {
