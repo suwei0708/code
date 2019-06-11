@@ -291,29 +291,30 @@ function initPageEvents() {
         if (!$.trim($('#form select[name=date] option:selected').val())) {
             alertTips('日期不能为空！');
             return false;
-        }
-        isClick = 0;
-		$('.spinner-box').show();
-        $.ajax({
-                url: 'https://m.xinliling.com/trees?type=4',
-                type: 'POST',
-                dataType: 'json',
-                data: $('#form').serialize()
-            })
-            .done(function(res) {
-                alertTips('报名成功！');
-            })
-            .fail(function(res) {
-                if (res.status == 422) {
-                    alertTips(res.responseText);
-                } else {
-                    alertTips('网络错误，请稍后重试');
-                }
-            })
-            .always(function() {
-				isClick = 1;
-				$('.spinner-box').hide();
-            });
+		}
+		alertTips('活动已经结束，感谢关注！');
+        // isClick = 0;
+		// $('.spinner-box').show();
+        // $.ajax({
+		// 	url: 'https://m.xinliling.com/trees?type=4',
+		// 	type: 'POST',
+		// 	dataType: 'json',
+		// 	data: $('#form').serialize()
+		// })
+		// .done(function(res) {
+		// 	alertTips('报名成功！');
+		// })
+		// .fail(function(res) {
+		// 	if (res.status == 422) {
+		// 		alertTips(res.responseText);
+		// 	} else {
+		// 		alertTips('网络错误，请稍后重试');
+		// 	}
+		// })
+		// .always(function() {
+		// 	isClick = 1;
+		// 	$('.spinner-box').hide();
+		// });
         return false;
 	});
 
