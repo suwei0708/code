@@ -1,0 +1,117 @@
+<!--index.wxml-->
+<view class="container">
+    <image class='nopic top-img' src='/images/top-img.jpg'></image>
+    <swiper class='scroll-box' vertical autoplay circular interval="4000" duration="800">
+        <swiper-item wx:for="{{scrollList}}" wx:key="{{index}}">
+            <view>{{item}}领取了九种体质自测券</view>
+        </swiper-item>
+    </swiper>
+
+    <view class='flex-wrp yh-box'>
+        <view class='flex1'>
+            <view class='price-box'>
+                <text class='old-price'>￥188元</text>
+                <text>限时免费领</text>
+            </view>
+            <view class='price'>0元</view>
+        </view>
+        <view class='flex1'>
+            仅剩<view class='num'>
+            <view class="scroll-data" wx:for="{{len}}" wx:key="{{index}}">
+                <view class="scroll-num" animation="{{animation[index]}}" >
+                    <text class="unit-num">0</text>
+                    <text class="unit-num">1</text>
+                    <text class="unit-num">2</text>
+                    <text class="unit-num">3</text>
+                    <text class="unit-num">4</text>
+                    <text class="unit-num">5</text>
+                    <text class="unit-num">6</text>
+                    <text class="unit-num">7</text>
+                    <text class="unit-num">8</text>
+                    <text class="unit-num">9</text>
+                </view>
+            </view>
+            </view>张
+        </view>
+    </view>
+
+    <view class='receive-box'>
+        <text class='tit'>2019 九种体质免费自测券，限量领！</text>
+        <view class='cl ct'>
+            <view class='fl'>
+                <image wx:for="{{avatarList}}" wx:key="{{index}}" class='nopic avatar' src='/images/p{{item+1}}.jpg'></image>
+            </view>
+            <text class='fr'>{{receiveNum}}人已领取</text>
+        </view>
+    </view>
+
+    <view class='coupon-box'>
+        <view class='coupon' data-popup="1" data-id="1" catchtap='popup' wx:if="{{showGif}}">
+            <image class='img' src='/images/coupon.png'></image>
+            <view class='btn'>立即激活</view>
+            <text>九种体质自测券</text>
+            <text class='num'>bc545754422eew</text>
+        </view>        
+        <button class='coupon' wx:else open-type="contact" data-id="1" bindcontact="handleContact">
+            <image class='img' src='/images/coupon.png'></image>
+            <view class='btn'>立即激活</view>
+            <text>九种体质自测券</text>
+            <text class='num'>bc545754422eew</text>
+        </button>
+    </view>
+
+    <view class='box box-jihuo'>
+        <view class='tit'><view><text>激活方式</text></view></view>
+        <view class='ct'>
+            <image src='/images/img1.png'></image>
+        </view>
+    </view>
+
+    <view class='box box-shiyong'>
+        <view class='tit'><view><text>适用于8000万退休族</text></view></view>
+        <view class='ct'>
+            <view><text>退休健康的人群</text><text>未病先防</text></view>
+            <view><text>退休亚健康人群</text><text>及时调养</text></view>
+            <view><text>退休慢性病患者</text><text>已病防变</text></view>
+        </view>
+    </view>
+
+    <view class='box box-swiper'>
+        <view class='tit'><view><text>帮助200万退休族自测体质</text></view></view>
+        <view class='ct'>
+            <swiper
+            indicator-dots="true"
+            interval="5000"
+            duration="800"
+            current="{{swiperCur}}"
+            bindchange="bindchange"
+            >
+            <swiper-item>
+                <view class='img-box'><image src="/images/sld-img1.jpg" class="slide-image" /></view>
+            </swiper-item>
+            <swiper-item>
+                <view class='img-box'><image src="/images/sld-img2.jpg" class="slide-image" /></view>
+            </swiper-item>
+            <swiper-item>
+                <view class='img-box'><image src="/images/sld-img3.jpg" class="slide-image" /></view>
+            </swiper-item>
+            </swiper>
+            <view bindtap='prev' class='prev'><image src='/images/prev.png'></image></view>
+            <view bindtap='next' class='next'><image src='/images/next.png'></image></view>
+            <view class='tips'>【注】免费券仅限在“退休族体质轻松测”的体质自测系统中使用。</view>
+        </view>
+    </view>
+    <view class='btn-fixed' data-popup="1" data-id="2" bindtap='popup' wx:if="{{showGif}}"><image src='/images/fixed-btn.png'></image></view>
+    <button class='btn-fixed' wx:else data-id="2" open-type="contact" bindcontact="handleContact"><image src='/images/fixed-btn.png'></image></button>
+
+    <view class='btn-mflq' data-popup="1" data-id="3" bindtap='popup' wx:if="{{showGif}}">免费领体质自测券</view>
+    <button class='btn-mflq' wx:else data-id="3" open-type="contact" bindcontact="handleContact">免费领体质自测券</button>
+
+    <view class='popup-box' hidden="{{popup == '0'}}" data-popup="0" catchtap='popup'>
+        <view class='popup' data-popup="1" catchtap='popup'>
+            <image src='http://xmxservice.laoren.com/h5/2019tzcs/img/index.gif'></image>
+            <button open-type="contact" class="btn" send-message-title="加入福利群。" send-message-path="/pages/index/index" send-message-img="/images/share2.png" show-message-card="true"></button>
+        </view>
+    </view>
+    <authorize content="{{showAuthorize}}"></authorize>
+</view>
