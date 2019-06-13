@@ -84,7 +84,6 @@ function Login(res) {
     wx.request({
         url: url + '/1', //仅为示例，并非真实的接口地址
         data: {
-            from: Util.xcxFrom,
             encryptedData: res.encryptedData,
             iv: res.iv,
             session_key: getApp().globalData.session_key
@@ -101,6 +100,12 @@ function Login(res) {
                     icon: 'loading',
                     duration: 3000
                 });
+                // 模拟成功
+                var suc = { data: { jwt: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyMyJ9.LNdxoyAZNYie75ZZeQBMdeW0j1BJA2T2svTT1l2gxE8", showGif: true }}
+                getApp().globalData.jwt = 'kljklfjaslkdjfkl;';
+                if (getApp().jwtReadyCallback) {
+                    getApp().jwtReadyCallback(suc)
+                }
             }
             else {
                 getApp().globalData.jwt = res.data.jwt;

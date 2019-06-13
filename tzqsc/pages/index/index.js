@@ -14,7 +14,7 @@ Page({
         popup: 0,
         showGif: false,
         receiveNum: 11268,
-        showAuthorize: true,
+        showAuthorize: false,
         scrollList: [],
         avatarList: [],
         nameList: [
@@ -91,10 +91,18 @@ Page({
         _this.login();
 
         app.jwtReadyCallback = res => {
+
             app.globalData.jwt = res.data.jwt;
             app.globalData.showGif = res.data.showGif;
             _this.setData({
                 showGif: res.data.showGif
+            });
+            var popup = 0;
+            if (_this.data.showGif) {
+                popup = 1;
+            }
+            _this.setData({
+                popup: popup
             });
         }
     },
@@ -196,11 +204,27 @@ Page({
             })
         }
 
+        var _this = this;
         if (app.globalData.jwt) {
             console.log('set')
             this.setData({
                 showAuthorize: true
             });
+            setTimeout(function() {
+                _this.setData({
+                    showAuthorize: false
+                });
+            }, 1);
+        }
+        else {
+            this.setData({
+                showAuthorize: false
+            });
+            setTimeout(function () {
+                _this.setData({
+                    showAuthorize: true
+                });
+            }, 1);
             return false;
         }
         this.setData({
@@ -269,19 +293,24 @@ Page({
                             'content-type': 'application/x-www-form-urlencoded'
                         },
                         success: function (res) {
-                            if (res.data.showGif) {
-                                app.globalData.jwt = res.data.jwt;
-                                _this.setData({
-                                    showGif: res.data.showGif,
-                                    showAuthorize: true
-                                });
-                            }
-                            else {
-                                app.globalData.session_key = res.data.session_key;
-                                _this.setData({
-                                    showAuthorize: true
-                                });
-                            }
+                            console.log(res,'res2')
+                            // if (res.data.showGif) {
+                            //     app.globalData.jwt = res.data.jwt;
+                            //     _this.setData({
+                            //         showGif: res.data.showGif,
+                            //         showAuthorize: false
+                            //     });
+                            // }
+                            // else {
+                            //     app.globalData.session_key = res.data.session_key;
+                            //     _this.setData({
+                            //         showAuthorize: true
+                            //     });
+                            // }
+                            app.globalData.session_key = 'asdkjkfljsakldf';
+                            _this.setData({
+                                showAuthorize: true
+                            });
                                                        
                         },
                         fail: function (res) {

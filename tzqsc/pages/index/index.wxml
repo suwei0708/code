@@ -51,7 +51,7 @@
             <view class='btn'>立即激活</view>
             <text>九种体质自测券</text>
             <text class='num'>bc545754422eew</text>
-        </view>        
+        </view>
         <button class='coupon' wx:else open-type="contact" data-id="1" bindcontact="handleContact">
             <image class='img' src='/images/coupon.png'></image>
             <view class='btn'>立即激活</view>

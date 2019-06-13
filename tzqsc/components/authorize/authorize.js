@@ -5,10 +5,10 @@ const globalPath = Util.BASE_URL;
 Component({
     properties: {
         content: {
-            type: String,
+            type: Boolean,
             value: '标题',
             observer: function (val) {
-                console.log(val, 'val')
+                console.log(val, 'val');
                 this.setData({
                     showAuthorize: val
                 });
@@ -48,9 +48,12 @@ Component({
 
         },
         closeauth() {
+            console.log('tap')
             this.setData({
                 showAuthorize: false
             });
+
+            console.log(this.data.showAuthorize)
         }
     },
     ready: function (options) {    
@@ -85,7 +88,6 @@ Component({
 var timer;
 function countDown(that, count, countsecond) {
     clearTimeout(timer);
-    console.log(count);
     if (count == 0 && countsecond == 0) {
         that.setData({
             counttime: count,
