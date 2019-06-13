@@ -172,7 +172,8 @@ ul, li {
         dd {
             .dis(ib);
             vertical-align: top;
-            .w(526);
+			.w(526);
+			height: 100%;
             .pds(l, 20);
             .fz(30);
             color: #333;
@@ -191,10 +192,8 @@ ul, li {
     }
     .bottom-img {
         width: 100%;
-        display: block;
-        .mgs(t, -120);
-        .pos(r);
-        .b(-120);
+		display: block;
+		width: 100%;
     }
 }
 .img1 {
@@ -264,26 +263,9 @@ ul, li {
 			.mg(38, 0);
 			.bdr(10/@font);
 		}
-    }
-    .ct3 {
-        .mg(40, 30, 0);
-        .pd(0);
-        .fz(30);
-        .lh(48);
-        text-align: center;
-		color: #333;
-		img {
-			.dis(b);
+		.green {
+			color: #2ea34f;
 		}
-		.img2-2 {
-			.mgs(t, 50);
-		}
-        .red {
-            color: @red;
-        }
-        .last {
-            .fz(36);
-        }
     }
     .ct2 {
 		.pd(0, 35, 24);
@@ -311,34 +293,64 @@ ul, li {
             }
         }
     }
-    .ct6 {
+    .ct3 {
+        .mg(40, 30, 0);
+        .pd(0);
+        .fz(30);
+        .lh(48);
+        text-align: left;
+		color: #333;
+		img {
+			.dis(b);
+			margin: 0 auto;
+		}
+		.img2-2 {
+			.mgs(t, 50);
+		}
+        .red {
+            color: @red;
+        }
+        .last {
+            .fz(36);
+        }
+    }
+    .ct4 {
         .mgs(t, 40);
         font-size: 0;
         text-align: center;
         .img {
             .dis(ib);
             vertical-align: middle;
-            .w(214);
+            .w(208);
+			.mgs(r, 20);
+			&2 {
+				.dis(ib);
+				vertical-align: middle;
+				.w(177);
+				.mgs(r, 35);
+			}
         }
         ul {
             .dis(ib);
             vertical-align: middle;
-            .w(360);
-            .mgs(l, 46);
+            .w(420);
             li {
-                .dis(ib);
-                vertical-align: top;
-                width: 50%;
-                .lh(48);
+                .lh(60);
                 .fz(32);
                 color: #333;
                 text-align: left;
             }
-        }
+		}
+		.yellow {
+			color: #f05d35;
+		}
+		.f48 {
+			.fz(48);
+		}
     }
 }
 .rank {
-    .pd(56, 0, 0);
+    .pd(52, 0, 0);
     background: #fff;
     .tit {
         h2 {

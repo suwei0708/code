@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 75px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,user-scalable=no">
+    <title>青春鉴定所：测一测你的年轻基因</title>
+
+    <link rel="prefetch" href="./imgs/bgm.mp3">
+    <link rel="prefetch" href="./imgs/bingbian.mp3">
+    <link rel="prefetch" href="./imgs/luotuo.mp3">
+    <link rel="prefetch" href="./imgs/zengxi.mp3">
+    <link rel="stylesheet" href="scripts/style.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/4.1.6/css/swiper.min.css">
+    <!--<link rel="stylesheet" href="scripts/cssShake.css">-->
+</head>
+<body style="">
+    <div class="wrap">
+        <audio src="./imgs/bgm.mp3" preload="auto" id="bgm" loop=""></audio>
+        <audio src="imgs/bingbian.mp3" preload="auto" id="audio"></audio>
+        <div class="music-icon" id="music-icon" style="right: 15px;"></div>
+
+        <div id="mainSwiper" class="swiper-container swiper-container-initialized swiper-container-horizontal" style="display: block;">
+            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                <div class="swiper-slide swiper-no-swiping page swiper-slide-active" style="width: 750px;">
+
+                    <img src="./imgs/poster/poster_title.png" class="acs shake shake-constant" id="title">
+                    <!--<img src="./imgs/poster/poster_danmu.png" class="acs move" id="danmu">-->
+
+                    <img src="./imgs/poster/poster_icons.png" class="acs pos">
+
+                    <img src="./imgs/poster/poster_btn.png" class="acs" id="start" style="display: inline;">
+                </div>
+
+ 			<div class="swiper-slide swiper-no-swiping page question swiper-slide-next" style="width: 750px;">
+                    <div class="question-box">
+                        <div class="question-index">
+                            先来做个登记：
+                        </div>
+
+                        <ul class="answer-box" style="top: 3.5rem;">
+                            <li class="answer"   style="background:url(imgs/question/boy.png) center center no-repeat;background-size:cover;width: 3rem;
+    height: 3.187rem;border-radius: 1.5rem;margin:0 auto 1.25rem auto;
+    font-size: 0.3rem;" data-score="0">
+                            		<!--<img src="imgs/question/boy.png" alt="">-->
+                            		<div class="name">小哥哥</div>
+                            </li>
+                            <li class="answer" style="background:url(imgs/question/girl.png) center center no-repeat;background-size:cover;width: 3rem;
+                            	height: 3.187rem;
+    margin:0 auto 1.25rem auto;border-radius: 1.5rem;
+    font-size: 0.3rem;" data-score="100">
+                            		<!--<img src="imgs/question/girl.png" alt="">-->
+                            		<div class="name">小姐姐</div>
+                            </li>
+
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide swiper-no-swiping page question swiper-slide-next" style="width: 750px;">
+                    <div class="question-box1">
+                        <div class="question-index1 ">
+                            问题1:鸡你太美，和以下哪个短句相关?
+                        </div>
+
+                        <!--<div class="question-content">
+                            以下哪一句会是你写的四川旅游攻略标题？
+                        </div>-->
+
+                        <div class="pic-box">
+                            <div class="pic-box-inner">
+                                <img src="imgs/question/q1.png" alt="">
+                            </div>
+                        </div>
+						<!--<ul class="answer-box">
+							<li class="aa"></li>
+							<li class="bb"></li>
+							<li class="cc"></li>
+
+						</ul>-->
+                        <ul class="answer-box">
+                            <li class="answer" data-score="5">
+                           <!-- 	<img src="imgs/question/a.png" alt="">-->
+                            	唱跳rap篮球</li>
+                            <li class="answer" data-score="0">我怀疑你在开车</li>
+                            <li class="answer" data-score="0">陈独秀请坐下</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+                <!--2-->
+                <div class="swiper-slide swiper-no-swiping page question" style="width: 750px;">
+                    <div class="question-box">
+                        <div class="question-index">
+                            问题2:图中字如何释义?
+
+                        </div>
+
+                        <!--<div class="question-content">
+                            当你到贵州，听到有人说“我想静静”，他会_____
+                        </div>-->
+
+                        <div class="pic-box">
+                            <div class="pic-box-inner">
+                                <img src="imgs/question/q2.png" alt="">
+                            </div>
+                        </div>
+
+                        <ul class="answer-box">
+                            <li class="answer" data-score="0">穷到倒地痛哭</li>
+                            <li class="answer" data-score="5">不但丑，还穷到吃土</li>
+                            <li class="answer" data-score="0">隐形贫困人口</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+                <!--3-->
+                <div class="swiper-slide swiper-no-swiping page question" style="width: 750px;">
+                    <div class="question-box">
+                        <div class="question-index">
+                            问题3:这首歌你听过吗？
+
+                        </div>
+
+                        <!--<div class="question-content">
+                            “中！”在河南，这句话表达的意思是_____
+                        </div>-->
+
+                        <div class="pic-box">
+                            <div class="pic-box-inner">
+                                <img src="imgs/question/q3.png" alt="">
+                                <div id="play" class="play">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <ul class="answer-box">
+                            <li class="answer" data-score="0">完全没听过</li>
+                            <li class="answer" data-score="0">好像听过</li>
+                            <li class="answer" data-score="5">特别熟悉</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+                <!--4-->
+                <div class="swiper-slide swiper-no-swiping page question" style="width: 750px;">
+                    <div class="question-box">
+                        <div class="question-index">
+                            问题4:请聆听10秒，什么感觉？
+
+                        </div>
+
+                        <!--<div class="question-content">
+                            湖北哪里最适合练功夫？
+                        </div>-->
+
+                        <div class="pic-box">
+                            <div class="pic-box-inner">
+                                <img src="imgs/question/q3.png" alt="">
+                                <div id="play1" class="play">
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="answer-box">
+                            <li class="answer" data-score="0">太熟悉，第一秒就想跟着唱</li>
+                            <li class="answer" data-score="5">好奇怪，为什么停不下来</li>
+                            <li class="answer" data-score="0">毫无感觉</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+                <!--5-->
+                <div class="swiper-slide swiper-no-swiping page question" style="width: 750px;">
+                    <div class="question-box">
+                        <div class="question-index">
+                            问题5:这首网红神曲，歌名是？
+
+                        </div>
+
+                        <!--<div class="question-content">
+                            旅行中你最能hold住全场的技能是？
+                        </div>-->
+
+                        <div class="pic-box">
+                            <div class="pic-box-inner">
+                                <img src="imgs/question/q3.png" alt="">
+                                <div id="play2" class="play">
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="answer-box">
+                            <li class="answer" data-score="0">沙漠传说</li>
+                            <li class="answer" data-score="0">沙漠绿洲</li>
+                            <li class="answer" data-score="5">沙漠骆驼</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+                <!--6-->
+                <div class="swiper-slide swiper-no-swiping page question" style="width: 750px;">
+                    <div class="question-box2">
+                        <div class="question-index2">
+                            问题6:有一位漂亮小姐姐，通过翻唱上题的歌一夜爆红，成为抖音一姐，请问她的名字是？
+
+                        </div>
+
+                        <!--<div class="question-content">
+                            说到“宁夏”，你会……
+                        </div>-->
+<!--
+                        <div class="pic-box">
+                            <div class="pic-box-inner">
+                                <div class="pic-scroll">
+                                    <div id="swiper06" class="swiper-container swiper-container-initialized swiper-container-horizontal">
+                                        <div class="swiper-wrapper" style="transform: translate3d(-1440px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="2" style="width: 480px;">
+                                                <img src="imgs/question/q6_03.png" alt="">
+                                            </div>
+                                            <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 480px;">
+                                                <img src="imgs/question/q6_01.png" alt="">
+                                            </div>
+                                            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 480px;">
+                                                <img src="imgs/question/q6_02.png" alt="">
+                                            </div>
+                                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 480px;">
+                                                <img src="imgs/question/q6_03.png" alt="">
+                                            </div>
+                                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 480px;">
+                                                <img src="imgs/question/q6_01.png" alt="">
+                                            </div></div>
+                                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                                </div>
+                            </div>
+                        </div>
+               -->
+						<div class="pic-box">
+                            <div class="pic-box-inner">
+                                <img src="imgs/question/q6.png" alt="">
+                            </div>
+                        </div>
+
+                        <ul class="answer-box">
+                            <li class="answer" data-score="0">张苗苗</li>
+                            <li class="answer" data-score="5">张禾禾</li>
+                            <li class="answer" data-score="0">张禾苗</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+                <!--7-->
+                <div class="swiper-slide swiper-no-swiping page question" style="width: 750px;">
+
+                		<div class="pic-box1">
+                            <div class="pic-box-inner1">
+                                <img src="imgs/question/q7.png" alt="">
+                            </div>
+                        </div>
+
+                    <div class="question-box1">
+                        <div class="question-index1">
+                           问题7:6月17日，号称迷倒网络万千少女的王北车将来到长沙，他是要？
+                        </div>
+
+                        <!--<div class="question-content">
+                            如果一天“自由行”，在江西你会？
+                        </div>-->
+
+                        <!--<div class="pic-box">
+                            <div class="pic-box-inner">
+                                <div class="pic-scroll">
+                                    <div id="swiper07" class="swiper-container swiper-container-initialized swiper-container-horizontal">
+                                        <div class="swiper-wrapper" style="transform: translate3d(-1440px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="2" style="width: 480px;">
+                                                <img src="imgs/question/q7_03.png" alt="">
+                                            </div>
+                                            <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 480px;">
+                                                <img src="imgs/question/q7_01.png" alt="">
+                                            </div>
+                                            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 480px;">
+                                                <img src="imgs/question/q7_02.png" alt="">
+                                            </div>
+                                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 480px;">
+                                                <img src="imgs/question/q7_03.png" alt="">
+                                            </div>
+                                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 480px;">
+                                                <img src="imgs/question/q7_01.png" alt="">
+                                            </div></div>
+                                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <!--<div class="pic-box1">
+                            <div class="pic-box-inner1">
+                                <img src="imgs/question/q7.png" alt="">
+                            </div>
+                        </div>-->
+
+
+                        <ul class="answer-box">
+                            <li class="answer" data-score="0">在湘江游泳</li>
+                            <li class="answer" data-score="0 ">到五一广场作行为艺术</li>
+                            <li class="answer" data-score="5">在石燕湖现场演唱</li>
+                        </ul>
+
+                        <div class="next-btn"></div>
+                    </div>
+                </div>
+
+
+                <div class="swiper-slide swiper-no-swiping page" style="width: 750px;">
+                    <img src="" id="result">
+                    <img src="imgs/result/link.png" id="link">
+                    <img src="imgs/result/restart.png" id="restart">
+                    <a href="https://mp.weixin.qq.com/s?__biz=MzA5Mjk3NDg1MA==&mid=2650410314&idx=1&sn=d326bbcdb7c2ee417c3d96b1bc3b1ed8&chksm=886a5727bf1dde3114b2013cc256d684b53ae36faeeced3b66c2c5823d8bd1189828ed68614a&mpshare=1&scene=1&srcid=#rd" id="link_a"></a>
+                    <img src="imgs/result/share.png" id="share">
+
+                    <!--<img src="imgs/result/arrow.png" id="arrow" style="top: 6.5rem" alt="">-->
+
+                </div>
+
+                <!--<div class="swiper-slide swiper-no-swiping page" id="logos" style="width: 750px;">
+                    <img src="imgs/logos/beijng.jpg" alt="">
+                    <img src="imgs/logos/changjiangyun.jpg" alt="">
+                    <img src="imgs/logos/chuanguan.jpg" alt="">
+                    <img src="imgs/logos/dazhong.jpg" alt="">
+                    <img src="imgs/logos/henan.jpg" alt="">
+                    <img src="imgs/logos/hongwang.jpg" alt="">
+                    <img src="imgs/logos/jiangxi.jpg" alt="">
+                    <img src="imgs/logos/ningxia.jpg" alt="">
+                    <img src="imgs/logos/tianyan.jpg" alt="">
+                    <img src="imgs/logos/yunbao.jpg" alt="">
+                    <img src="imgs/logos/back.png" id="back">
+                </div>-->
+
+
+            </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        <div class="modal" id="shareModal">
+            <div class="modal-inner">
+                <img src="" id="shareImg">
+                <span>长按保存图片</span>
+                <img src="imgs/closeWhite.png" id="close">
+            </div>
+        </div>
+        <div class="modal" id="loading" style="display: none;">
+            <div class="modal-inner">100%</div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.1.6/js/swiper.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- 微信分享文字自定义 -->
+    <script src="scripts/weixin.js"></script>
+    <script>
+        $(function() {
+            var path = window.location.href;
+            var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+            var wxData = {
+                imgUrl: baseUrl + 'imgs/share.jpg',
+                link: baseUrl + 'index.html',
+                title: '【青春鉴定所】测一测你的年轻基因',
+                desc: '你是最in潮人，还是out man？'
+            };
+            weixin.bindData(wxData);
+        });
+	</script>
+	<script>
+	    var _hmt = _hmt || [];
+	    (function() {
+	        var hm = document.createElement("script");
+	        hm.src = "https://hm.baidu.com/hm.js?397b676cb941823a1840dfb7d8c17253";
+	        var s = document.getElementsByTagName("script")[0];
+	        s.parentNode.insertBefore(hm, s);
+	    })();
+	</script>
+
+</body></html>
