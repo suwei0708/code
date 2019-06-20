@@ -276,6 +276,9 @@ ul, li {
             border-bottom: 2 / @font solid #ddd;
 			.pos(r);
 			.fz(30);
+			&:last-child {
+				border: none;
+			}
 			strong {
 				float: left;
 				.mgs(r, 20);
@@ -290,7 +293,21 @@ ul, li {
                 .w(39);
                 .h(50);
                 background: url(../images/icon-ke.png) no-repeat 0 0 / cover;
-            }
+			}
+			i {
+				.dis(ib);
+				vertical-align: middle;
+				.w(42);
+				.h(42);
+				.lh(42);
+				.fz(28);
+				.mg(-3, 0, 0, 20);
+				text-align: center;
+				color: #fff;
+				background: #ffb13d;
+				.bdr(50%);
+				font-style: normal;
+			}
         }
     }
     .ct3 {
