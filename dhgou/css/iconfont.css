@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'dhgou';
+    src: url('../fonts/dhgou.eot?49345754');
+    src: url('../fonts/dhgou.eot?49345754#iefix') format('embedded-opentype'),
+        url('../fonts/dhgou.woff2?49345754') format('woff2'),
+        url('../fonts/dhgou.woff?49345754') format('woff'),
+        url('../fonts/dhgou.ttf?49345754') format('truetype'),
+        url('../fonts/dhgou.svg?49345754#dhgou') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "dhgou";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-heart:before {
+    content: '\e800';
+}
+.icon-time:before {
+    content: '\e801';
+}
+.icon-triangle:before {
+    content: '\e802';
+}
+.icon-up:before {
+    content: '\e803';
+}
+.icon-guide:before {
+    content: '\e804';
+}
+.icon-assister:before {
+    content: '\e805';
+}
+.icon-ruler:before {
+    content: '\e806';
+}
+.icon-win:before {
+    content: '\e807';
+}
+.icon-slice:before {
+    content: '\e808';
+}
+.icon-pen:before {
+    content: '\e809';
+}
+.icon-tool:before {
+    content: '\e80a';
+}
+.icon-ps:before {
+    content: '\e80b';
+}
+.icon-pick:before {
+    content: '\e80c';
+}
+.icon-fire:before {
+    content: '\e80d';
+}
+.icon-sina:before {
+    content: '\e80e';
+}
+.icon-pen-01:before {
+    content: '\e80f';
+}
+.icon-wechat:before {
+    content: '\e810';
+}
+.icon-play-circled:before {
+    content: '\f144';
+}
