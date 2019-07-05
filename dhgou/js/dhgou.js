@@ -1,4 +1,37 @@
 $(function() {
+	// logo下拉
+	if ($('.logo').length) {
+		var l = $('.logo');
+		if (l.length < 1)
+		    return;
+		var a = l.find('.arrow');
+		if (a.length < 1)
+		    return;
+		var b = l.find('.subnav');
+		if (b.length < 1)
+		    return;
+
+		function arrow_toggle() {
+		    if (a.hasClass('hover')) {
+		        a.removeClass('hover');
+		        b.removeClass('show');
+		    } else {
+		        a.addClass('hover');
+		        b.addClass('show');
+		    }
+		}
+		// if ($.md()) {
+		//     l.find('.arrow').on('mouseenter', function() {
+		//         a.addClass('hover');
+		//         b.addClass('show');
+		//     });
+		// }
+		l.find('.arrow').on('click', arrow_toggle);
+		l.on('mouseleave', function() {
+		    a.removeClass('hover');
+		    b.removeClass('show');
+		});
+	}
 	// 导航搜索
 	if ($('.so-box').length) {
 		var $sobox = $('.so-box');
