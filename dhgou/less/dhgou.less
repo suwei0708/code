@@ -368,7 +368,7 @@
 .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xl-3 {
     min-height: 1px;
     padding-left: 10px;
-    padding-right: 10px
+    padding-right: 10px;
 }
 .col-xs-3 {
     float: left;
@@ -511,14 +511,14 @@ a {
     display: none !important
 }
 .header {
-    background: #3295d9;
+    background: #ED8B94;
     padding-top: 25px;
     padding-bottom: 15px
 }
 .header .logo {
-    float: left;
     width: 320px;
     position: relative;
+    margin: 0 auto;
 }
 
 .header .logo strong {
@@ -818,7 +818,7 @@ a {
     display: inline-block;
     margin-top: 10px;
     padding-right: 5px;
-    color: #dff2ff;
+    color: #F5E9E2;
     text-decoration: none;
     font-size: 13px
 }
@@ -1307,12 +1307,38 @@ a {
     padding-bottom: 40px
 }
 .ft-tool .item h2 {
-    color: #1c95dc;
+    color: #ED8B94;
     font-size: 20px;
     margin: 56px auto 38px
 }
 .ft-tool .item h2 a {
-    color: #1c95dc
+    color: #ED8B94
+}
+
+@media (max-width: 991px) {
+    .ft-tool .ft-tool-ct {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .ft-tool .ft-tool-ct .item {
+        text-align: center;
+    }
+
+    .ft-tool .ft-tool-ct .item.item-product .ct {
+        text-align: left;
+    }
+}
+
+@media (max-width: 991px) and (max-width: 767px) {
+    .ft-tool .ft-tool-ct>div {
+        width:100%;
+    }
+
+    .ft-tool .ft-tool-ct h2 {
+        font-size: 20px;
+        margin: 20px auto;
+    }
 }
 .item-sjs {
     overflow: hidden
@@ -1352,7 +1378,7 @@ a {
     padding-bottom: 100%;
     position: relative;
     background-color: #f3f8fb;
-    color: #1c95dc
+    color: #ED8B94
 }
 .item-sjs .ct a i::before {
     position: absolute;
@@ -1392,10 +1418,10 @@ a {
     text-overflow: ellipsis
 }
 .item-product ul a:hover {
-    color: #1c95dc
+    color: #ED8B94
 }
 .item-product ul a:hover i {
-    background: #1c95dc
+    background: #ED8B94
 }
 .item-product ul a i {
     display: inline-block;
@@ -1413,13 +1439,13 @@ a {
     margin-top: -2px
 }
 .item-product ul li:nth-child(1) i {
-    background: #1c95dc
+    background: #ED8B94
 }
 .item-product ul li:nth-child(2) i {
-    background: #1c95dc
+    background: #ED8B94
 }
 .item-product ul li:nth-child(3) i {
-    background: #1c95dc
+    background: #ED8B94
 }
 .item-wechat h2 {
     width: 192px
@@ -1442,7 +1468,7 @@ a {
     font-size: 13px
 }
 .item-wechat p span {
-    color: #1c95dc
+    color: #ED8B94
 }
 .item-wechat p i {
     font-style: normal;
@@ -1475,7 +1501,7 @@ a {
     }
 }
 .item-site .num {
-    color: #1c95dc;
+    color: #ED8B94;
     margin-top: 10px
 }
 .item-site .num strong {
@@ -1504,7 +1530,7 @@ a {
     margin-right: 0
 }
 .item-site h4 {
-    color: #1c95dc;
+    color: #ED8B94;
     font-size: 14px;
     font-weight: normal;
     margin-bottom: 30px
@@ -1512,7 +1538,7 @@ a {
 .item-site h4 a {
     display: inline-block;
     padding: 6px 8px 6px 4px;
-    background-color: #1c95dc;
+    background-color: #ED8B94;
     color: #fff;
     border-radius: 3px;
     box-sizing: border-box
@@ -1528,7 +1554,7 @@ a {
     color: #c7c7c7
 }
 .item-site h6 a:hover {
-    color: #1c95dc
+    color: #ED8B94
 }
 .item-site p {
     margin: 16px 0 44px
@@ -1556,12 +1582,12 @@ a {
     }
 }
 .footer {
-    background-color: #3295d9;
+    background-color: #ED8B94;
     text-align: center;
     padding: 28px 0 20px;
     font-size: 12px;
     line-height: 18px;
-    color: #dff2ff
+    color: #F5E9E2;
 }
 @media (min-width:1200px) {
     .footer {
@@ -1576,7 +1602,7 @@ a {
     white-space: nowrap
 }
 .footer p a {
-    color: #dff2ff
+    color: #F5E9E2
 }
 .footer p a:hover {
     color: #fff
