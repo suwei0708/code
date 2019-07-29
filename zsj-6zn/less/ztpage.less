@@ -40,6 +40,10 @@ body {
 		}
 	}
 	&-nav {
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 980;
 		line-height: 87px;
 		font-size: 0;
 		color: #fff;
@@ -681,8 +685,29 @@ body {
 	}
 }
 .bd_weixin_popup {
-	height: auto !important;
-	margin: 220px 0px 0px -170px;
+	width: 160px !important;
+	height: 160px !important;
+	padding: 0 !important;
+	margin: 285px 0px 0px -65px;
+	border: 0 !important;
+	&:after {
+		content: '';
+		.pos(a);
+		top: 50%;
+		right: -8px;
+		margin-top: -8px;
+		.triangle(right, 8px, #fff);
+	}
+	.bd_weixin_popup_main {
+		padding: 25px 0 0 !important;
+		table {
+			width: 37px * 3 !important;
+		}
+		td {
+			width: 3px !important;
+			height: 3px !important;
+		}
+	}
 }
 .bd_weixin_popup_foot {
 	.dis(n);
