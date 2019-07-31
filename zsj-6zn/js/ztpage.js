@@ -49,5 +49,12 @@ $(function() {
 				$('.zt-nav li').removeClass('cur').eq(i).addClass('cur');
 			}
 		});
+
+		if ($(window).scrollTop() > $(window).height()) {
+		    $('.zt-talk').show();
+		}
+		else {
+		    $('.zt-talk').hide();
+		};
 	}
 });

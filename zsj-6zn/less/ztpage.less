@@ -28,14 +28,54 @@ body {
 		.ov(h);
 		.wraps {
 			.pos(r);
-			height: 870px;
-			img {
+			height: 800px;
+			.img {
 				.pos(a);
 				top: 0;
 				left: 50%;
-				width: 1920px;
-				max-width: none;
-				margin-left: -1920px/2;
+				width: 2560px;
+				height: 800px;
+				margin-left: -2560px/2;
+			}
+			.img-anim {
+				background: url(../images/banner.jpg);
+				background-size: 2560px 16000px;
+				-ms-animation: topimganim 3s steps(20) infinite;
+				-moz-animation: topimganim 3s steps(20) infinite;
+				-webkit-animation: topimganim 3s steps(20) infinite;
+				animation: topimganim 3s steps(20) infinite;
+			}
+			@-ms-keyframes topimganim {
+				0% {
+					background-position: 0 16000px
+				}
+				100% {
+					background-position: 0 0
+				}
+			}
+			@-moz-keyframes topimganim {
+				0% {
+					background-position: 0 16000px
+				}
+				100% {
+					background-position: 0 0
+				}
+			}
+			@-webkit-keyframes topimganim {
+				0% {
+					background-position: 0 16000px
+				}
+				100% {
+					background-position: 0 0
+				}
+			}
+			@keyframes topimganim {
+				0% {
+					background-position: 0 16000px
+				}
+				100% {
+					background-position: 0 0
+				}
 			}
 		}
 	}
@@ -700,6 +740,8 @@ body {
 	}
 	.bd_weixin_popup_main {
 		padding: 25px 0 0 !important;
+		min-height: 111px !important;
+		_height: 111px !important;
 		table {
 			width: 37px * 3 !important;
 		}
