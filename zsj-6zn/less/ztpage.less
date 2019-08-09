@@ -230,6 +230,8 @@ body {
 						}
 					}
 					.btn {
+						.pos(r);
+						z-index: 9;
 						.dis(b);
 						width: 230px;
 						line-height: 80px;
@@ -237,12 +239,31 @@ body {
 						color: #fff;
 						text-align: center;
 						font-weight: 700;
+						.anim();
 						span {
 							.dis(ib);
 							vertical-align: middle;
 							font-weight: 400;
 							margin: 0 0 0 35px;
 							font-size: 17px;
+						}
+						.ecode {
+							.ov(h);
+							.pos(a);
+							top: 80px;
+							left: 0;
+							width: 100%;
+							height: 0;
+							.anim();
+							img {
+								width: 100%;
+								height: 258px;
+							}
+						}
+						&:hover {
+							.ecode {
+								height: 258px;
+							}
 						}
 						&-yellow {
 							background: @yellow;
