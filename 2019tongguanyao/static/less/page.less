@@ -82,13 +82,77 @@ a {
     height: 100%;
     .translate(-50% -50%);
     background: #6ddaed;
-    img {
-        .pos(a);
-        top: 50%;
-        left: 250px;
-		width: 24px;
-		.translateY(-50%);
-    }
+    .bg {
+		.pos(a);
+		top: 333px;
+		left: 242px;
+		width: 297px;
+	}
+    .shanye {
+		.pos(a);
+		top: 333px;
+		left: 365px;
+		width: 174px;
+	}
+    .ke {
+		.pos(a);
+		top: 333px;
+		left: 365px;
+		width: 174px;
+	}
+	.logo {
+		.pos(a);
+		left: 176px;
+		bottom: 100px;
+	}
+	.percentage {
+		.pos(a);
+		top: 644px;
+		left: 190px;
+		width: 372px;
+		height: 64px;
+		line-height: 64px - 8;
+		&:after {
+			content: '';
+			.pos(a);
+			top: 5px;
+			right: 0;
+			bottom: -5px;
+			left: 0;
+			.bdr(20px);
+			background: #007ef4;
+		}
+		span {
+			.pos(a);
+			top: 0;
+			left: 0;
+			width: 0%;
+			height: 100%;
+			background: #bae3f9;
+		}
+		> div {
+			.ov(h);
+			.pos(r);
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			background: #fabe00;
+			.bdr(20px);
+			border: 4px solid #fff;
+		}
+	}
+	#percentage {
+		.pos(a);
+		top: 644px;
+		left: 190px;
+		z-index: 3;
+		width: 372px;
+		height: 64px;
+		line-height: 64px;
+		font-size: 38px;
+		color: #18268b;
+		text-align: center;
+	}
 }
 
 /*page 部分样式*/
@@ -123,6 +187,8 @@ a {
 	.bg {
 		.dis(b);
 		.pos(s);
+		width: 100%;
+		height: 100%;
 	}
 }
 
@@ -133,27 +199,36 @@ a {
 		.pos(r);
 		width: 750px;
 		height: 1212px;
-		.box {
+		&-box {
 			.pos(a);
-			top: 187px;
-			left: 61px;
+			top: 50%;
+			left: 50%;
+			width: 635px;
+			.translate(-50%, -50%);
+			.t {
+				.dis(ib);
+				.pos(s);
+			}
+		}
+		.box {
+			.pos(r);
 			width: 635px;
 			height: 895px;
+			margin-top: 30px;
 			background: rgba(255, 255, 255, .67);
 			.bdr(10px);
-			.title {
-				max-width: none;
+			&:before {
+				content: '';
+				.pos(a);
 				top: -12px;
 				left: -19px;
 				width: 665px;
+				height: 24px;
+				background: url(../img/wj-bg.png) no-repeat center center / cover;
 			}
 		}
 	}
 	.p1 {
-		.bg {
-			width: 100%;
-			height: 100%;
-		}
 		&-kuang {
 		    top: 40px;
 		    left: 33px;
@@ -179,16 +254,15 @@ a {
 		    left: 438px;
 		    width: 227px;
 		}
-		&-arrow {
-		    bottom: 0;
+		&-btn {
+		    bottom: 60px;
 		    left: 202px;
 		    width: 347px;
 		}
 	}
 	.p2 {
-		&-t1 {
-			top: 108px;
-			left: 135px;
+		text-align: center;
+		.t {
 			width: 501px;
 		}
 		.a {
@@ -213,9 +287,8 @@ a {
 		}
 	}
 	.p3 {
-	    &-t1 {
-	        top: 108px;
-	        left: 152px;
+		text-align: center;
+	   .t {
 	        width: 457px;
 	    }
 	    .a {
@@ -240,13 +313,10 @@ a {
 	    }
 	}
 	.p4 {
-	    &-t1 {
-	        top: 63px;
-	        left: 64px;
+	    .t {
 	        width: 562px;
 		}
 		.box {
-			top: 300px;
 			height: 780px;
 		}
 		.img {
@@ -274,6 +344,446 @@ a {
 	        left: 222px;
 	        width: 244px;
 	    }
+	}
+
+	.p5 {
+	   	.t {
+	        width: 524px;
+		}
+		.box {
+			height: 600px;
+		}
+	    .a {
+	        top: 105px;
+	        left: 95px;
+	        width: 439px;
+	    }
+	    .b {
+	        top: 204px;
+	        left: 95px;
+	        width: 465px;
+	    }
+	    .c {
+	        top: 308px;
+	        left: 95px;
+	        width: 454px;
+	    }
+	    .d {
+	        top: 415px;
+	        left: 80px;
+	        width: 469px;
+	    }
+	}
+
+	.p6 {
+		text-align: center;
+	   	.t {
+	        width: 629px;
+		}
+		.box {
+			height: 686px;
+		}
+	    .a {
+	        top: 80px;
+	        left: 50px;
+	        width: 246px;
+	    }
+	    .b {
+	        top: 126px;
+	        left: 357px;
+	        width: 218px;
+	    }
+	    .c {
+	        top: 384px;
+	        left: 119px;
+	        width: 183px;
+	    }
+	    .d {
+	        top: 347px;
+	        left: 383px;
+	        width: 214px;
+	    }
+	}
+
+	.p7 {
+		text-align: center;
+	   	.t {
+	        width: 614px;
+		}
+		.box {
+			height: 757px;
+		}
+	    .a {
+	        top: 101px;
+	        left: 43px;
+	        width: 186px;
+	    }
+	    .b {
+	        top: 57px;
+	        left: 291px;
+	        width: 251px;
+	    }
+	    .c {
+	        top: 230px;
+	        left: 432px;
+	        width: 173px;
+	    }
+	    .d {
+	        top: 470px;
+	        left: 409px;
+	        width: 180px;
+	    }
+	    .e {
+	        top: 536px;
+	        left: 224px;
+	        width: 161px;
+	    }
+	    .f {
+	        top: 351px;
+	        left: 35px;
+	        width: 143px;
+	    }
+	    .g {
+	        top: 283px;
+	        left: 250px;
+	        width: 127px;
+	    }
+	}
+
+	.p8 {
+		height: 2106px !important;
+		text-align: center;
+	   	.t {
+	        width: 558px;
+		}
+		.logo {
+			bottom: 74px;
+			left: 182px;
+			width: 377px;
+		}
+		.select {
+			.pos(a);
+			bottom: 60px;
+			left: 39px;
+			width: 557px;
+			margin-right: -5px;
+			font-size: 0;
+			text-align: left;
+			> div {
+				.dis(ib);
+				vertical-align: top;
+				width: 189px;
+				height: 165px;
+				line-height: 165px;
+				margin-right: -5px;
+				text-align: center;
+				border: 5px solid #94cb1f;
+				img {
+					.pos(s);
+					.dis(ib);
+					vertical-align: middle;
+					max-height: 100%;
+				}
+			}
+			.btn {
+				.pos(s);
+				.dis(b);
+				width: 100%;
+			}
+		}
+		.box {
+			height: 1657px;
+		}
+	    .a {
+	        top: 48px;
+	        left: 272px;
+	        width: 127px;
+	    }
+	    .ta {
+	        top: 122px;
+	        left: 242px;
+	        width: 78px;
+	    }
+	    .b {
+	        top: 75px;
+	        left: 60px;
+	        width: 125px;
+	    }
+	    .tb {
+	        top: 162px;
+	        left: 119px;
+	        width: 66px;
+	    }
+	    .c {
+	        top: 218px;
+	        left: 175px;
+	        width: 213px;
+	    }
+	    .tc {
+	        top: 259px;
+	        left: 353px;
+	        width: 70px;
+	    }
+	    .d {
+	        top: 92px;
+	        left: 454px;
+	        width: 103px;
+	    }
+	    .td {
+	        top: 163px;
+	        left: 434px;
+	        width: 70px;
+	    }
+	    .e {
+	        top: 366px;
+	        left: 59px;
+	        width: 120px;
+	    }
+	    .te {
+	        top: 416px;
+	        left: 145px;
+	        width: 66px;
+	    }
+	    .f {
+	        top: 429px;
+	        left: 236px;
+	        width: 84px;
+	    }
+	    .tf {
+	        top: 517px;
+	        left: 291px;
+	        width: 87px;
+	    }
+	    .g {
+	        top: 364px;
+	        left: 375px;
+	        width: 79px;
+	    }
+	    .tg {
+	        top: 438px;
+	        left: 408px;
+	        width: 67px;
+	    }
+	    .h {
+	        top: 235px;
+	        left: 467px;
+	        width: 66px;
+	    }
+	    .th {
+	        top: 333px;
+	        left: 513px;
+	        width: 66px;
+	    }
+	    .i {
+	        top: 537px;
+	        left: 72px;
+	        width: 122px;
+	    }
+	    .ti {
+	        top: 565px;
+	        left: 28px;
+	        width: 88px;
+	    }
+	    .j {
+	        top: 650px;
+	        left: 236px;
+	        width: 103px;
+	    }
+	    .tj {
+	        top: 628px;
+	        left: 275px;
+	        width: 88px;
+	    }
+	    .k {
+	        top: 532px;
+	        left: 406px;
+	        width: 63px;
+	    }
+	    .tk {
+	        top: 647px;
+	        left: 437px;
+	        width: 88px;
+	    }
+	    .l {
+	        top: 487px;
+	        left: 542px;
+	        width: 47px;
+	    }
+	    .tl {
+	        top: 527px;
+	        left: 508px;
+	        width: 67px;
+	    }
+	    .m {
+	        top: 728px;
+	        left: 101px;
+	        width: 46px;
+	    }
+	    .tm {
+	        top: 842px;
+	        left: 112px;
+	        width: 69px;
+	    }
+	    .n {
+	        top: 756px;
+	        left: 220px;
+	        width: 164px;
+	    }
+	    .tn {
+	        top: 913px;
+	        left: 242px;
+	        width: 69px;
+	    }
+	    .o {
+	        top: 719px;
+	        left: 450px;
+	        width: 122px;
+	    }
+	    .to {
+	        top: 769px;
+	        left: 405px;
+	        width: 69px;
+	    }
+	    .pdb {
+	        top: 931px;
+	        left: 50px;
+	        width: 163px;
+	    }
+	    .tp {
+	        top: 1013px;
+	        left: 15px;
+	        width: 69px;
+	    }
+	    .q {
+	        top: 984px;
+	        left: 288px;
+	        width: 126px;
+	    }
+	    .tq {
+	        top: 1072px;
+	        left: 378px;
+	        width: 111px;
+	    }
+	    .r {
+	        top: 882px;
+	        left: 491px;
+	        width: 60px;
+	    }
+	    .tr {
+	        top: 957px;
+	        left: 527px;
+	        width: 69px;
+	    }
+	    .s {
+	        top: 1113px;
+	        left: 86px;
+	        width: 125px;
+	    }
+	    .ts {
+	        top: 1181px;
+	        left: 174px;
+	        width: 73px;
+	    }
+	    .tdb {
+	        top: 1184px;
+	        left: 272px;
+	        width: 143px;
+	    }
+	    .tt {
+	        top: 1264px;
+	        left: 370px;
+	        width: 73px;
+	    }
+	    .u {
+	        top: 1130px;
+	        left: 466px;
+	        width: 125px;
+	    }
+	    .tu {
+	        top: 1202px;
+	        left: 454px;
+	        width: 73px;
+	    }
+	}
+}
+.page3 {
+	.name {
+		top: 267px;
+		left: 129px;
+		width: 183px;
+	}
+	.input {
+		.pos(a);
+		top: 337px;
+		left: 112px;
+		width: 512px;
+		height: 78px;
+		line-height: 52px;
+		padding: 10px 20px;
+		font-size: 38px;
+		color: #333;
+		background: #fff;
+		border: 3px solid #040001;
+	}
+	.gender {
+		top: 599px;
+		left: 193px;
+		width: 210px;
+	}
+	.radio {
+		.pos(a);
+		left: 190px;
+		width: 380px;
+		height: 78px;
+		background: #fff;
+		span {
+			.pos(a);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: #fff;
+			border: 3px solid #040001;
+		}
+		img {
+			z-index: 5;
+		}
+		.img1 {
+			top: 23px;
+			left: 21px;
+			.dis(b);
+		}
+		.img2 {
+			.pos(a);
+			bottom: 0;
+		}
+		input {
+			opacity: 0;
+			&:checked {
+				+ span {
+					background: #007ef4;
+				}
+			}
+		}
+		&1 {
+			top: 680px;
+			.img2 {
+				right: 55px;
+				width: 83px;
+			}
+		}
+		&2 {
+			top: 795px;
+			.img2 {
+				right: 63px;
+				width: 68px;
+			}
+		}
+	}
+	.btn-tijiao {
+		bottom: 35px;
+		left: 225px;
+		width: 304px;
 	}
 }
 
@@ -411,47 +921,33 @@ a {
         transform: translate(0, 0);
     }
 }
-/*箭头样式*/
-.arrow {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    margin-left: -31px;
-    width: 72px;
-    opacity: .8;
-    z-index: 997;
-    -webkit-animation: arrowing 1.5s .5s infinite;
-    animation: arrowing 1.5s .5s infinite
+.scale-in-out {
+    -webkit-animation: scale-in-out 1s ease-in-out 0s infinite;
+    animation: scale-in-out 1s ease-in-out 0s infinite;
 }
 
-@-webkit-keyframes arrowing {
+@-webkit-keyframes scale-in-out {
     0% {
-        opacity: 0.3;
-        -webkit-transform: translate(0, 0);
+        -webkit-transform: scale(1);
     }
-    60% {
-        opacity: 1;
-        -webkit-transform: translate(0, -20px);
+    50% {
+        -webkit-transform: scale(1.3);
     }
     100% {
-        opacity: 0.3;
-        -webkit-transform: translate(0, 0);
+        -webkit-transform: scale(1);
     }
 }
-@keyframes arrowing {
+@keyframes scale-in-out {
     0% {
-        opacity: 0.3;
-        transform: translate(0, 0);
+        transform: scale(1);
     }
 
-    60% {
-        opacity: 1;
-        transform: translate(0, -20px);
+    50% {
+        transform: scale(1.3);
     }
 
     100% {
-        opacity: 0.3;
-        transform: translate(0, 0);
+        transform: scale(1);
     }
 }
 

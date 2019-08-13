@@ -23,21 +23,29 @@ app.init = function() {
 	}, false);
 
     // 加载完成后隐藏loading
-	var the_images = [app.baseUrl + 'a-loading.png'];
+	var the_images = [];
 
     $.each($('#content img'), function() {
         the_images.push($(this).attr('src'));
     });
     $.imgpreload(the_images, {
+		each: function(i) {
+		    var status = $(this).data('loaded') ? 'success' : 'error';
+		    if (status == 'success') {
+		        var v = (i.length / the_images.length).toFixed(2);
+		        $('.percentage span').width(Math.round(v * 100) + '%');
+		        $('#percentage').html('loading ' + Math.round(v * 100) + '%');
+		    }
+		},
         all: function() {
             setTimeout(function() {
 				$('.loading').fadeOut();
 				$('.page1').show();
+				hanldeAnimate(0);
 				// if (app.audio) { app.audio.play() }
 				// document.addEventListener('WeixinJSBridgeReady', function() {
 				// 	app.audio.play();
 				// }, false);
-				hanldeAnimate(0);
             }, 500);
         }
     });
@@ -63,32 +71,21 @@ var result = [];
 function initPageEvents() {
 	// 防止拖动出现黑块
 	// document.body.addEventListener('touchmove', bodyScroll, { passive: false });
-	$('.p1').css({
+	$('.p').css({
 		'height': $(window).height()
 	})
     // form提交
     $('.btn-tijiao').on('click', function() {
         if (!isClick) { return false; }
-        if (!$.trim($('#form input[name=impression]:checked').val())) {
-            alertTips('请选择端午印象！');
-            return false;
-        }
         if (!$.trim($('#form input[name=name]').val())) {
             alertTips('姓名不能为空！');
             return false;
         }
-        if (!$.trim($('#form input[name=mobile]').val())) {
-            alertTips('电话号码不能为空！');
-            return false;
-        }
-        if (!(/^1\d{10}$/.test($.trim($('#form input[name=mobile]').val())))) {
-            alertTips('电话号码格式不正确');
-            return false;
-        }
-        if (!$.trim($('#form select[name=date] option:selected').val())) {
-            alertTips('日期不能为空！');
+        if (!$.trim($('#form input[name=sex]:checked').val())) {
+            alertTips('请选择性别！');
             return false;
 		}
+		console.log($('#form').serialize())
 		alertTips('活动已经结束，感谢关注！');
         // isClick = 0;
 		// $('.spinner-box').show();
