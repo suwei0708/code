@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>夏日渡过手册-铜官窑古镇</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-orientation" content="portrait">
+    <script>
+    var deviceWidth =  parseInt(window.screen.width);var deviceScale = deviceWidth/750;var ua = navigator.userAgent;if (/Android (\d+\.\d+)/.test(ua)){var version = parseFloat(RegExp.$1);if(version>2.3){document.write('<meta name="viewport" content="width=750,initial-scale='+deviceScale+', minimum-scale = '+deviceScale+', maximum-scale = '+deviceScale+', target-densitydpi=device-dpi">');}else{document.write('<meta name="viewport" content="width=750,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');}} else {document.write('<meta name="viewport" content="width=750, user-scalable=no">');}
+    </script>
+    <link rel="stylesheet" href="static/css/page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="static/js/imgpreload.min.js"></script>
+</head>
+<body>
+<div style="display: none;"><img src="static/img/share.jpg"></div>
+<section class="loading">
+
+</section>
+
+<audio src="static/music/bg.mp3" preload="auto" loop autobuffer="true" id="bg"></audio>
+<div id="content">
+	<!-- 主题滑动页面 -->
+	<div class="page page1 scroll">
+		<!-- <div class="p p1">
+			<img src="./static/img/p1-bg.jpg" alt="" class="bg">
+			<img src="./static/img/p1-t1.png" alt="" class="p1-t1" data-anim="top-in delay10">
+			<img src="./static/img/p1-t2.png" alt="" class="p1-t2" data-anim="top-in delay15">
+			<img src="./static/img/p1-t3.png" alt="" class="p1-t3" data-anim="top-in delay20">
+			<img src="./static/img/p1-logo.png" alt="" class="p1-logo" data-anim="fade-in delay25">
+			<img src="./static/img/p1-arrow.png" alt="" class="p1-arrow arrow">
+		</div> -->
+		<!-- <div class="p p2">
+			<img src="./static/img/p2-t.png" alt="" class="p2-t1">
+			<div class="box">
+				<img src="./static/img/wj-bg.png" alt="" class="title">
+				<img src="./static/img/p2-a.png" alt="" class="a">
+				<img src="./static/img/p2-b.png" alt="" class="b">
+				<img src="./static/img/p2-c.png" alt="" class="c">
+				<img src="./static/img/p2-d.png" alt="" class="d">
+			</div>
+		</div> -->
+
+		<!-- <div class="p p3">
+		    <img src="./static/img/p3-t.png" alt="" class="p3-t1">
+		    <div class="box">
+		        <img src="./static/img/wj-bg.png" alt="" class="title">
+		        <img src="./static/img/p3-a.png" alt="" class="a">
+		        <img src="./static/img/p3-b.png" alt="" class="b">
+		        <img src="./static/img/p3-c.png" alt="" class="c">
+		        <img src="./static/img/p3-d.png" alt="" class="d">
+		    </div>
+		</div> -->
+
+		<div class="p p4">
+		    <img src="./static/img/p4-t.png" alt="" class="p4-t1">
+		    <div class="box">
+		        <img src="./static/img/wj-bg.png" alt="" class="title">
+		        <img src="./static/img/p4-img.png" alt="" class="img">
+		        <img src="./static/img/p4-a.png" alt="" class="a">
+		        <img src="./static/img/p4-b.png" alt="" class="b">
+		        <img src="./static/img/p4-c.png" alt="" class="c">
+		        <img src="./static/img/p4-d.png" alt="" class="d">
+		    </div>
+		</div>
+
+	</div>
+
+    <!-- 加载动画 start -->
+    <div class="spinner-box">
+        <div class="spinner-mask">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 加载动画 end -->
+</div>
+
+<!-- 基础JS脚本部分 -->
+<!-- 当前页面自定义JS -->
+<script src="static/js/page.js"></script>
+
+<!-- 微信分享文字自定义 -->
+<script src="static/js/weixin.js"></script>
+<script>
+$(function() {
+    var path = window.location.href;
+    var baseUrl = path.substr(0, path.lastIndexOf('/') + 1);
+    var wxData = {
+        imgUrl: baseUrl + 'static/img/share.jpg',
+        link: baseUrl + 'index.html',
+        title: '汨罗有两个年！这一个竟然在六月？',
+        desc: '6月6日-10日，就让我们“年”在一起！'
+    };
+	weixin.bindData(wxData);
+	var overscroll = function(el) {
+		el.addEventListener('touchstart', function() {
+			var top = el.scrollTop,
+				totalScroll = el.scrollHeight,
+				currentScroll = top + el.offsetHeight
+			if (top === 0) {
+				el.scrollTop = 1
+			}
+			else if (currentScroll === totalScroll) {
+				el.scrollTop = top - 1
+			}
+		})
+		el.addEventListener('touchmove', function(evt) {
+			if (el.offsetHeight < el.scrollHeight) evt._isScroller = true
+		})
+	}
+	overscroll(document.querySelector('.scroll'));
+	document.body.addEventListener('touchmove', function(evt) {
+		if($('.scroll').is(':visible')) {
+			if (!evt._isScroller) {
+				evt.preventDefault();
+			}
+		}
+	})
+});
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?397b676cb941823a1840dfb7d8c17253";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>
