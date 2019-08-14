@@ -208,16 +208,15 @@ function convertImageToCanvas(image, ecode, name, data) {
 	var img31 = $('.select').children('div:eq(2)').find('img:eq(0)')[0];
 	var cw = 170,
 	    ch = 165,
-		dw = (cw - img11.width) / 2,
-		dh = (ch - img11.height) / 2;
-		console.log(cw / ch, img11.width / img11.height)
-		console.log(cw / ch, img21.width / img21.height)
-		console.log(cw / ch, img31.width / img31.height)
-	if (cw / ch > img11.width / img11.height) {
-	}
-	ctx.drawImage(img11, -dw, -dh, cw, img11.height * ch / img11.width, 122, 414, cw, ch);
-	ctx.drawImage(img21, -dw, -dh, cw, ch, 297, 414, img21.width, img21.height);
-	ctx.drawImage(img31, dw, dh, cw, ch, 471, 414, img31.width, img31.height);
+		dw1 = (cw - img11.width) / 2,
+		dh1 = (ch - img11.height) / 2,
+		dw2 = (cw - img21.width) / 2,
+		dh2 = (ch - img21.height) / 2,
+		dw3 = (cw - img31.width) / 2,
+		dh3 = (ch - img31.height) / 2;
+	ctx.drawImage(img11, -dw1, -dh1, cw, ch, 122, 414, cw, ch);
+	ctx.drawImage(img21, -dw2, -dh2, cw, ch, 297, 414, cw, ch);
+	ctx.drawImage(img31, -dw3, -dh3, cw, ch, 471, 414, cw, ch);
 	console.log(img11.width, img11.height);
 
     ctx.fillStyle = '#333'; // 文字填充颜色
