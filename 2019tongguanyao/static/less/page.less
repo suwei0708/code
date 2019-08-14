@@ -193,6 +193,41 @@ a {
 }
 
 .page1 {
+	.p1 {
+	    &-kuang {
+	        top: 40px;
+	        left: 33px;
+	        width: 683px;
+	    }
+	    &-t1 {
+	        top: 0;
+	        right: 77px;
+	        width: 240px;
+	    }
+	    &-t2 {
+	        top: 324px;
+	        left: 289px;
+	        width: 130px;
+	    }
+	    &-t3 {
+	        top: 606px;
+	        left: 225px;
+	        width: 116px;
+	    }
+	    &-logo {
+	        top: 844px;
+	        left: 438px;
+	        width: 227px;
+	    }
+	    &-btn {
+	        bottom: 60px;
+	        left: 202px;
+			width: 347px;
+			cursor: pointer;
+	    }
+	}
+}
+.page2 {
 	.pos(r);
 	.ov(a);
 	.p {
@@ -226,38 +261,13 @@ a {
 				height: 24px;
 				background: url(../img/wj-bg.png) no-repeat center center / cover;
 			}
-		}
-	}
-	.p1 {
-		&-kuang {
-		    top: 40px;
-		    left: 33px;
-		    width: 683px;
-		}
-		&-t1 {
-		    top: 0;
-		    right: 77px;
-		    width: 240px;
-		}
-		&-t2 {
-		    top: 324px;
-		    left: 289px;
-		    width: 130px;
-		}
-		&-t3 {
-		    top: 606px;
-		    left: 225px;
-		    width: 116px;
-		}
-		&-logo {
-		    top: 844px;
-		    left: 438px;
-		    width: 227px;
-		}
-		&-btn {
-		    bottom: 60px;
-		    left: 202px;
-		    width: 347px;
+			img {
+				cursor: pointer;
+				z-index: 5;
+			}
+			.cur {
+				opacity: .5;
+			}
 		}
 	}
 	.p2 {
@@ -318,11 +328,16 @@ a {
 		}
 		.box {
 			height: 780px;
-		}
-		.img {
-			top: 133px;
-			left: 105px;
-			width: 458px;
+			&:after {
+			    content: '';
+			    .pos(a);
+			    top: 133px;
+				left: 105px;
+				z-index: 1;
+			    width: 458px;
+			    height: 538px;
+			    background: url(../img/p4-img.png) no-repeat center center / cover;
+			}
 		}
 	    .a {
 	        top: 49px;
@@ -470,6 +485,7 @@ a {
 			font-size: 0;
 			text-align: left;
 			> div {
+				.pos(r);
 				.dis(ib);
 				vertical-align: top;
 				width: 189px;
@@ -483,6 +499,24 @@ a {
 					.dis(ib);
 					vertical-align: middle;
 					max-height: 100%;
+				}
+				.text {
+				    .pos(a);
+				    top: 0;
+				    left: 0;
+				}
+				.close {
+				    .pos(a);
+				    top: 0;
+					right: 0;
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+					background: #fcdb5e;
+					font-size: 22px;
+					color: #864a3b;
+
 				}
 			}
 			.btn {
@@ -507,7 +541,7 @@ a {
 	    .b {
 	        top: 75px;
 	        left: 60px;
-	        width: 125px;
+	        width: 88px;
 	    }
 	    .tb {
 	        top: 162px;
@@ -711,6 +745,10 @@ a {
 		top: 267px;
 		left: 129px;
 		width: 183px;
+	}
+	#form {
+		width: 100%;
+		height: 100%;
 	}
 	.input {
 		.pos(a);
