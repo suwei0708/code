@@ -12,17 +12,14 @@ app.DEFAULT_WIDTH = 750;
 app.DEFAULT_HEIGHT = 1334;
 app.baseUrl = 'static/img/';
 app.music = $('#bg')[0];
-app.audio = $('#audio')[0];
 
 app.init = function() {
-    //微信下兼容音乐处理
-	if (app.audio) { app.audio.play() }
+	if (app.music) { app.music.play() }
 	document.addEventListener('WeixinJSBridgeReady', function() {
-	    app.audio.play();
+		app.music.play();
 	}, false);
-
     // 加载完成后隐藏loading
-	var the_images = [];
+	var the_images = ['./static/img/result1.jpg', './static/img/result2.jpg', './static/img/result3.jpg'];
 
     $.each($('#content img'), function() {
         the_images.push($(this).attr('src'));
@@ -39,12 +36,8 @@ app.init = function() {
         all: function() {
             setTimeout(function() {
 				$('.loading').fadeOut();
-				$('.page2').show();
+				$('.page1').fadeIn();
 				hanldeAnimate(0);
-				// if (app.audio) { app.audio.play() }
-				// document.addEventListener('WeixinJSBridgeReady', function() {
-				// 	app.audio.play();
-				// }, false);
             }, 500);
         }
     });
@@ -66,15 +59,23 @@ $(function() {
  * 页面交互事件的初始化写这里
  */
 var arr = [];
+var pos = [];
+var total = 0;
 
 function initPageEvents() {
 	// 防止拖动出现黑块
-	// document.body.addEventListener('touchmove', bodyScroll, { passive: false });
+	document.body.addEventListener('touchmove', bodyScroll, { passive: false });
+	$('body').one('touchstart', function() {
+		if (app.music) { app.music.play() }
+	});
 	$('.p1-btn').on('click', function() {
 		$('.page').hide();
-		$('.page2').show();
+		$('.page2').fadeIn();
+		document.body.removeEventListener('touchmove', bodyScroll, { passive: false });
+		pos = [$('.p2').offset().top, $('.p3').offset().top, $('.p4').offset().top, $('.p5').offset().top, $('.p6').offset().top, $('.p7').offset().top];
+		total = parseInt($('.p8').offset().top + $('.p8').height()) - 200;
 	});
-	$('.p').css({
+	$('.p1, .p9').css({
 		'height': $(window).height()
 	})
 	// form提交
@@ -91,29 +92,29 @@ function initPageEvents() {
 
 		isClick = 0;
 		var name = $.trim($('#form input[name=name]').val());
+		var sex = $.trim($('#form input[name=sex]:checked').val());
 		var data = {
 			'p2': ['#6ad0e6', '#febb74', '#86a3dd', '#b36ec1'],
 		    'p3': [name + '对一切冰凉的食物都充满占有欲', name + '对世界的认知只有“命是空调给的”', name + '对碳水饮料报以热枕', '天气一热，' + name + '的耐心会渐渐消失'],
 		    'p4': ['发呆会让' + name + '感到心情愉悦', name + '是个天真无邪的物种，对人类没有防备心', name + '有点呆萌，但是偶尔为之', name + '的笑容会把空气变甜，小心被齁到'],
-		    'p5': ['不要让' + name + '做选择，再难，TA也会挺过去', name + '为易胖体质，不自觉会频繁喂食', name + '是一种拥有强大自愈能力的稀有品种', name + '脑子里可能有矿，每天都能开放出不同宝藏'],
-		    'p6': [name + '依靠吃来恢复精力，要给TA足够的空间哦', name + '除了睡觉时间不睡觉，其余时间都想睡觉', name + '有时会背对人类，静静思考', name + '宅在家里会长蘑菇，记得常常带TA出去溜达'],
-		    'p7': [name + '是一个看起来高冷，被关怀后温暖呆萌的物种', name + '这种神奇生物总能找到一件事，令TA喜悦的部分，并将之放大', name + '喜欢安静，请给TA安置一个清净小窝', '宅在家里会长蘑菇，记得常常带TA出去溜达', name + '本物种天下仅此一只，要正确温柔的对待TA哦', name + '心情不好的时候，就给TA讲个冷笑话吧', name + '可爱极易令人上瘾，可能引发“一天不吸，浑身难受”症状', name + '的孩子气让TA拥有与年龄不符的长相，请不要感到惊讶']
+		    'p5': ['不要让' + name + '做选择，再难，' + sex + '也会挺过去', name + '为易胖体质，不自觉会频繁喂食', name + '是一种拥有强大自愈能力的稀有品种', name + '脑子里可能有矿，每天都能开放出不同宝藏'],
+		    'p6': [name + '依靠吃来恢复精力，要给' + sex + '足够的空间哦', name + '除了睡觉时间不睡觉，其余时间都想睡觉', name + '有时会背对人类，静静思考', name + '宅在家里会长蘑菇，记得常常带' + sex + '出去溜达'],
+		    'p7': [name + '是一个看起来高冷，被关怀后温暖呆萌的物种', name + '这种神奇生物总能找到一件事，令' + sex + '喜悦的部分，并将之放大', name + '喜欢安静，请给' + sex + '安置一个清净小窝', '宅在家里会长蘑菇，记得常常带' + sex + '出去溜达', name + '本物种天下仅此一只，要正确温柔的对待' + sex + '哦', name + '心情不好的时候，就给' + sex + '讲个冷笑话吧', name + '可爱极易令人上瘾，可能引发“一天不吸，浑身难受”症状', name + '的孩子气让' + sex + '拥有与年龄不符的长相，请不要感到惊讶']
 		};
-		console.log(data);
 		$('.spinner-box').show();
-		// $('#ringoImage').attr('src', './static/img/result' + arr[0] + '.jpg ');
-
-		setTimeout(function() {
-		    // canvas画图
-		    var sampleImage = document.getElementById('ringoImage'),
-		        ecode = document.getElementById('ecode'),
-		        canvas = convertImageToCanvas(sampleImage, ecode, name, data);
-		    document.getElementById('canvasHolder').appendChild(canvas);
-		    document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
-		    $('.spinner-box, .page').hide();
-		    $('.page4').fadeIn();
-		    isClick = 1;
-		}, 500);
+		$('#ringoImage').attr('src', './static/img/result' + arr[0] + '.jpg ');
+		$('#ringoImage').on('load', function() {
+			// canvas画图
+			var sampleImage = document.getElementById('ringoImage'),
+			    ecode = document.getElementById('ecode'),
+			    canvas = convertImageToCanvas(sampleImage, ecode, name, data);
+			document.getElementById('canvasHolder').appendChild(canvas);
+			document.getElementById('pngHolder').appendChild(convertCanvasToImage(canvas));
+			$('.spinner-box, .page').hide();
+			$('.page4').fadeIn();
+			document.body.addEventListener('touchmove', bodyScroll, { passive: false });
+			isClick = 1;
+		})
         return false;
 	});
 
@@ -122,12 +123,20 @@ function initPageEvents() {
 	// 选中
 	$('.box').on('click', 'img', function() {
 	    var _this = $(this);
-		if(_this.parents('.p').hasClass('p8')) {
+		if (_this.parents('.p').hasClass('p8')) {
+		    if (_this.hasClass('cur')) {
+				$.each($('.select').find('div'), function() {
+					if ($(this).attr('data-select') == _this.attr('data-option')) {
+						$(this).attr('data-select', '').html('');
+					}
+				});
+				_this.parents('.box').find('[data-option=' + _this.attr('data-option') + ']').removeClass('cur');
+				return false;
+			}
 			if(_this.parents('.box').find('.cur').length < 6) {
-				if(_this.hasClass('cur')) { return false}
 				$.each($('.select').find('div'), function() {
 					if (!$(this).html()) {
-						$(this).html('<img src="./static/img/p8-' + _this.attr('data-option') + '.png">' + '<img class="text" src="./static/img/p8-t' + _this.attr('data-option') + '.png">' + '<div class="close" data-option="' + _this.attr('data-option') + '">X</div>');
+						$(this).attr('data-select', _this.attr('data-option')).html('<img src="./static/img/p8-' + _this.attr('data-option') + '.png">' + '<img class="text" src="./static/img/p8-t' + _this.attr('data-option') + '.png">' + '<div class="close" data-option="' + _this.attr('data-option') + '">X</div>');
 						return false;
 					}
 				});
@@ -159,43 +168,54 @@ function initPageEvents() {
 		});
 		var option = 0;
 		if(i == 3) {
-			// $.each(arr, function (i) {
-			// 	if(typeof(arr[i]) == 'undefined') {
-			// 		$('.scroll').animate({
-			// 			scrollTop: i * $(window).height()
-			// 		}, 200);
-			// 		alertTips('这道题还没答哦~')
-			// 		return false;
-			// 	}
-			// 	else {
-			// 		option++
-			// 	}
-			// });
-			// if (option == arr.length) {
-			// 	$('.page').hide();
-			// 	$('.page3').show();
-			// }
-			$('.page').hide();
-			$('.page3').show();
+			$.each(arr, function (i) {
+				if(typeof(arr[i]) == 'undefined') {
+					$('.scroll').animate({
+						scrollTop: pos[i]
+					}, 200);
+					alertTips('这道题还没答哦~')
+					return false;
+				}
+				else {
+					option++
+				}
+			});
+			if (option == arr.length) {
+				$('.page').hide();
+				$('.page3').fadeIn();
+				document.body.addEventListener('touchmove', bodyScroll, { passive: false });
+			}
 		}
 		else {
 			alertTips('请选择3种消夏食物');
 		}
-	})
+	});
+
+	$('#form').on('focus', '.input', function() {
+		document.body.removeEventListener('touchmove', bodyScroll, { passive: false });
+	});
 
 	document.body.addEventListener("focusout", function() {
 	    //软键盘收起的事件处理
 	    setTimeout(function() {
 	        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
-	        window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+			window.scrollTo(0, Math.max(scrollHeight - 1, 0));
+			document.body.addEventListener('touchmove', bodyScroll, { passive: false });
 	    }, 100);
 	});
 
+	$('.scroll').on('scroll', function() {
+		if($(this).scrollTop() + $(window).height() >= total) {
+			$('.arrow').hide()
+		}
+		else {
+			$('.arrow').show()
+		}
+	})
 }
 
 // Converts image to canvas; returns new canvas element
 function convertImageToCanvas(image, ecode, name, data) {
-	console.log(arr);
     var canvas = document.createElement('canvas');
     canvas.width = image.width;
     canvas.height = image.height;
@@ -206,6 +226,9 @@ function convertImageToCanvas(image, ecode, name, data) {
 	var img11 = $('.select').children('div:eq(0)').find('img:eq(0)')[0];
 	var img21 = $('.select').children('div:eq(1)').find('img:eq(0)')[0];
 	var img31 = $('.select').children('div:eq(2)').find('img:eq(0)')[0];
+	var img12 = $('.select').children('div:eq(0)').find('img:eq(1)')[0];
+	var img22 = $('.select').children('div:eq(1)').find('img:eq(1)')[0];
+	var img32 = $('.select').children('div:eq(2)').find('img:eq(1)')[0];
 	var cw = 170,
 	    ch = 165,
 		dw1 = (cw - img11.width) / 2,
@@ -214,30 +237,78 @@ function convertImageToCanvas(image, ecode, name, data) {
 		dh2 = (ch - img21.height) / 2,
 		dw3 = (cw - img31.width) / 2,
 		dh3 = (ch - img31.height) / 2;
-	ctx.drawImage(img11, -dw1, -dh1, cw, ch, 122, 414, cw, ch);
-	ctx.drawImage(img21, -dw2, -dh2, cw, ch, 297, 414, cw, ch);
-	ctx.drawImage(img31, -dw3, -dh3, cw, ch, 471, 414, cw, ch);
-	console.log(img11.width, img11.height);
+	ctx.drawImage(img11, 122 + dw1, 414 + dh1, img11.width, img11.height);
+	ctx.drawImage(img21, 297 + dw2, 414 + dh2, img21.width, img21.height);
+	ctx.drawImage(img31, 471 + dw3, 414 + dh3, img31.width, img31.height);
+
+	ctx.drawImage(img12, 122, 414, img12.width, img12.height);
+	ctx.drawImage(img22, 297, 414, img22.width, img22.height);
+	ctx.drawImage(img32, 471, 414, img32.width, img32.height);
 
     ctx.fillStyle = '#333'; // 文字填充颜色
-    ctx.font = '34px Microsoft Yahei';
-	ctx.fillText(name, 548, 198);
+	ctx.font = '34px Microsoft Yahei';
+	ctx.textAlign = 'center';
+	ctx.fillText(name, 608, 198);
 
     ctx.font = '38px Microsoft Yahei';
-	ctx.fillText(name, 120, 313);
+	ctx.fillText(name, 195, 315);
 
-    ctx.font = '16px Microsoft Yahei';
-    ctx.fillText(data.p3[1], 149, 698);
-    ctx.fillText(data.p4[1], 149, 730);
-	ctx.fillText(data.p5[1], 149, 764);
+    ctx.font = '20px Microsoft Yahei';
+    ctx.textAlign = 'left';
+    ctx.fillText(data.p3[arr[1]], 169, 698);
+    ctx.fillText(data.p4[arr[2]], 169, 730);
+	ctx.fillText(data.p5[arr[3]], 169, 764);
 
-	ctx.fillText(data.p6[1], 149, 898);
-	ctx.fillText(data.p7[6], 149, 930);
+	ctx.fillText(data.p6[arr[4]], 169, 898);
+	writeTextOnCanvas(ctx, 32, 46, data.p7[arr[5]], 169, 930);
 
     ctx.restore(); //恢复状态
     ctx.stroke();
 
     return canvas;
+}
+function writeTextOnCanvas(ctx_2d, lineheight, bytelength, text, startleft, starttop) {
+    function getTrueLength(str) { //获取字符串的真实长度（字节长度）
+        var len = str.length,
+            truelen = 0;
+        for (var x = 0; x < len; x++) {
+            if (str.charCodeAt(x) > 128) {
+                truelen += 2;
+            } else {
+                truelen += 1;
+            }
+        }
+        return truelen;
+    }
+
+    function cutString(str, leng) { //按字节长度截取字符串，返回substr截取位置
+        var len = str.length,
+            tlen = len,
+            nlen = 0;
+        for (var x = 0; x < len; x++) {
+            if (str.charCodeAt(x) > 128) {
+                if (nlen + 2 < leng) {
+                    nlen += 2;
+                } else {
+                    tlen = x;
+                    break;
+                }
+            } else {
+                if (nlen + 1 < leng) {
+                    nlen += 1;
+                } else {
+                    tlen = x;
+                    break;
+                }
+            }
+        }
+        return tlen;
+    }
+    for (var i = 1; getTrueLength(text) > 0; i++) {
+        var tl = cutString(text, bytelength);
+        ctx_2d.fillText(text.substr(0, tl).replace(/^\s+|\s+$/, ""), startleft, (i - 1) * lineheight + starttop);
+        text = text.substr(tl);
+    }
 }
 
 // Converts canvas to an image

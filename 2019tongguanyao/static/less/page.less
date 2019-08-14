@@ -21,7 +21,7 @@ body {
     overflow: hidden;
     font: 16px Microsoft YaHei, "\5B8B\4F53", Arial, HELVETICA;
     color: #333;
-    background: #63a5ac;
+    background: #9bdef6;
 }
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, blockquote, p {
     padding: 0;
@@ -170,7 +170,53 @@ a {
 	transform-origin: 0 0;
 	background: url(../img/bg.jpg) no-repeat fixed 0 0 / cover;
 }
+.main {
+	.pos(r);
+}
 
+/*箭头样式*/
+.arrow {
+    position: fixed !important;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -27px;
+    width: 54px;
+    opacity: .8;
+    z-index: 997;
+    -webkit-animation: arrowing 1.5s 0s infinite;
+    animation: arrowing 1.5s 0s infinite
+}
+
+@-webkit-keyframes arrowing {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate(0, 10px);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: translate(0, -10px);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, 0);
+    }
+}
+@keyframes arrowing {
+    0% {
+        opacity: 0;
+        transform: translate(0, 10px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(0, -10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+}
 
 /* 页面样式 */
 .page {
@@ -233,19 +279,18 @@ a {
 	.p {
 		.pos(r);
 		width: 750px;
-		height: 1212px;
 		&-box {
-			.pos(a);
-			top: 50%;
-			left: 50%;
+			position: relative;
 			width: 635px;
-			.translate(-50%, -50%);
+			padding: 116px 0;
+			margin: 0 auto;
 			.t {
 				.dis(ib);
 				.pos(s);
 			}
 		}
 		.box {
+			.ov(h);
 			.pos(r);
 			width: 635px;
 			height: 895px;
@@ -264,9 +309,6 @@ a {
 			img {
 				cursor: pointer;
 				z-index: 5;
-			}
-			.cur {
-				opacity: .5;
 			}
 		}
 	}
@@ -295,12 +337,20 @@ a {
 		    left: 222px;
 		    width: 359px;
 		}
+		.cur {
+			.move()
+		}
 	}
 	.p3 {
 		text-align: center;
 	   .t {
 	        width: 457px;
-	    }
+		}
+		.box {
+			.cur {
+				.scale-in-out();
+			}
+		}
 	    .a {
 	        top: 177px;
 	        left: 60px;
@@ -328,6 +378,9 @@ a {
 		}
 		.box {
 			height: 780px;
+			.cur {
+				.rotate()
+			}
 			&:after {
 			    content: '';
 			    .pos(a);
@@ -367,6 +420,9 @@ a {
 		}
 		.box {
 			height: 600px;
+			.cur {
+				.move2();
+			}
 		}
 	    .a {
 	        top: 105px;
@@ -397,6 +453,9 @@ a {
 		}
 		.box {
 			height: 686px;
+			.cur {
+				.scale-in-out();
+			}
 		}
 	    .a {
 	        top: 80px;
@@ -427,6 +486,9 @@ a {
 		}
 		.box {
 			height: 757px;
+			.cur {
+				.scale-in-out();
+			}
 		}
 	    .a {
 	        top: 101px;
@@ -478,7 +540,7 @@ a {
 		}
 		.select {
 			.pos(a);
-			bottom: 60px;
+			bottom: 60px + 116;
 			left: 39px;
 			width: 557px;
 			margin-right: -5px;
@@ -498,7 +560,7 @@ a {
 					.pos(s);
 					.dis(ib);
 					vertical-align: middle;
-					max-height: 100%;
+					max-height: 90%;
 				}
 				.text {
 				    .pos(a);
@@ -527,6 +589,9 @@ a {
 		}
 		.box {
 			height: 1657px;
+			.cur {
+				opacity: .5;
+			}
 		}
 	    .a {
 	        top: 48px;
@@ -797,17 +862,19 @@ a {
 		}
 		input {
 			opacity: 0;
-			&:checked {
-				+ span {
-					background: #007ef4;
-				}
-			}
 		}
 		&1 {
 			top: 680px;
 			.img2 {
 				right: 55px;
 				width: 83px;
+			}
+			input {
+				&:checked {
+					+ span {
+						background: #bfe5e5;
+					}
+				}
 			}
 		}
 		&2 {
@@ -816,12 +883,27 @@ a {
 				right: 63px;
 				width: 68px;
 			}
+			input {
+				&:checked {
+					+ span {
+						background: #fec9cb;
+					}
+				}
+			}
 		}
 	}
 	.btn-tijiao {
 		bottom: 35px;
 		left: 225px;
 		width: 304px;
+	}
+}
+#pngHolder {
+	width: 100%;
+	height: 100%;
+	img {
+		width: 100%;
+		height: 100%;
 	}
 }
 
@@ -986,6 +1068,46 @@ a {
 
     100% {
         transform: scale(1);
+    }
+}
+.move {
+    -webkit-animation: move 4s linear 0s infinite both;
+    animation: move 4s linear 0s infinite both;
+}
+@-webkit-keyframes move {
+    0% {
+        -webkit-transform: translate(500px, 0)
+    }
+    100% {
+        -webkit-transform: translate(-500px, 0)
+    }
+}
+@keyframes move {
+    0% {
+        transform: translate(500px, 0)
+    }
+    100% {
+        transform: translate(-500px, 0)
+    }
+}
+.move2 {
+    -webkit-animation: move2 .2s ease-in-out 0s 1 both;
+    animation: move2 .2s ease-in-out 0s 1 both;
+}
+@-webkit-keyframes move2 {
+    0% {
+        -webkit-transform: translate(0, 0)
+    }
+    100% {
+        -webkit-transform: translate(-80px, 0)
+    }
+}
+@keyframes move2 {
+    0% {
+        transform: translate(0, 0)
+    }
+    100% {
+        transform: translate(-80px, 0)
     }
 }
 
