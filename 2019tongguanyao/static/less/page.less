@@ -174,50 +174,6 @@ a {
 	.pos(r);
 }
 
-/*箭头样式*/
-.arrow {
-    position: fixed !important;
-    bottom: 10px;
-    left: 50%;
-    margin-left: -27px;
-    width: 54px;
-    opacity: .8;
-    z-index: 997;
-    -webkit-animation: arrowing 1.5s 0s infinite;
-    animation: arrowing 1.5s 0s infinite
-}
-
-@-webkit-keyframes arrowing {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate(0, 10px);
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: translate(0, -10px);
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translate(0, 0);
-    }
-}
-@keyframes arrowing {
-    0% {
-        opacity: 0;
-        transform: translate(0, 10px);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translate(0, -10px);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(0, 0);
-    }
-}
-
 /* 页面样式 */
 .page {
 	.dis(n);
@@ -413,7 +369,6 @@ a {
 	        width: 244px;
 	    }
 	}
-
 	.p5 {
 	   	.t {
 	        width: 524px;
@@ -445,7 +400,6 @@ a {
 	        width: 469px;
 	    }
 	}
-
 	.p6 {
 		text-align: center;
 	   	.t {
@@ -478,7 +432,6 @@ a {
 	        width: 214px;
 	    }
 	}
-
 	.p7 {
 		text-align: center;
 	   	.t {
@@ -526,7 +479,6 @@ a {
 	        width: 127px;
 	    }
 	}
-
 	.p8 {
 		height: 2106px !important;
 		text-align: center;
@@ -802,6 +754,51 @@ a {
 	        top: 1202px;
 	        left: 454px;
 	        width: 73px;
+	    }
+	}
+	/*箭头样式*/
+	.arrow {
+	    position: fixed;
+	    bottom: 10px;
+	    left: 0;
+	    width: 100%;
+	    text-align: center;
+	    z-index: 997;
+	    -webkit-animation: arrowing 1.5s 0s infinite;
+	    animation: arrowing 1.5s 0s infinite;
+	    img {
+	        .pos(s);
+	    }
+	}
+
+	@-webkit-keyframes arrowing {
+	    0% {
+	        opacity: 0;
+	        -webkit-transform: translate(0, 10px);
+	    }
+	    60% {
+	        opacity: 1;
+	        -webkit-transform: translate(0, -10px);
+	    }
+	    100% {
+	        opacity: 0;
+	        -webkit-transform: translate(0, 0);
+	    }
+	}
+	@keyframes arrowing {
+	    0% {
+	        opacity: 0;
+	        transform: translate(0, 10px);
+	    }
+
+	    60% {
+	        opacity: 1;
+	        transform: translate(0, -10px);
+	    }
+
+	    100% {
+	        opacity: 0;
+	        transform: translate(0, 0);
 	    }
 	}
 }
@@ -1474,4 +1471,38 @@ a {
     color: #fff;
     white-space: nowrap;
     background: rgba(0, 0, 0, .6);
+}
+
+// 音乐
+.player-btn {
+    position: absolute;
+    z-index: 998;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: url(../img/music.gif) 0 0 no-repeat;
+    background-size: 100px 100px;
+    cursor: pointer
+}
+.player-btn div {
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    background: url(../img/music-off.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: rotate 1.2s linear infinite;
+    animation: rotate 1.2s linear infinite
+}
+.player-btn-stop {
+    background: 0
+}
+.player-btn-stop div {
+    -webkit-animation: indexend 0s;
+    -moz-animation: indexend 0s;
+    -o-animation: indexend 0s;
+    animation: indexend 0s
 }

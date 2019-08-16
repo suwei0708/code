@@ -38,11 +38,11 @@ app.init = function() {
 				$('.loading').fadeOut();
 				$('.page1').fadeIn();
 				hanldeAnimate(0);
+				// 初始化音乐按钮
+				initMusic();
             }, 500);
         }
     });
-    // 初始化音乐按钮
-    // initMusic();
 };
 
 /**
@@ -103,7 +103,7 @@ function initPageEvents() {
 		};
 		$('.spinner-box').show();
 		$('#ringoImage').attr('src', './static/img/result' + arr[0] + '.jpg ');
-		$('#ringoImage').on('load', function() {
+		setTimeout(function() {
 			// canvas画图
 			var sampleImage = document.getElementById('ringoImage'),
 			    ecode = document.getElementById('ecode'),
@@ -114,7 +114,7 @@ function initPageEvents() {
 			$('.page4').fadeIn();
 			document.body.addEventListener('touchmove', bodyScroll, { passive: false });
 			isClick = 1;
-		})
+		}, 500);
         return false;
 	});
 
@@ -251,7 +251,7 @@ function convertImageToCanvas(image, ecode, name, data) {
 	ctx.fillText(name, 608, 198);
 
     ctx.font = '38px Microsoft Yahei';
-	ctx.fillText(name, 195, 315);
+	ctx.fillText(name + '是如何度过这个夏天的呢？', 385, 325);
 
     ctx.font = '20px Microsoft Yahei';
     ctx.textAlign = 'left';
@@ -345,5 +345,19 @@ function hanldeAnimate(curIndex) {
     });
     $('.page').eq(curIndex).find('[data-anim]').each(function() {
         $(this).addClass($(this).data('anim'));
+    });
+}
+
+function initMusic() {
+    var music = $('#bg')[0];
+    $('.player-btn').on('click', function() {
+        var _me = $(this);
+        if (_me.hasClass('player-btn-stop')) {
+            music.play();
+        } else {
+            music.pause();
+        }
+
+        _me.toggleClass('player-btn-stop');
     });
 }

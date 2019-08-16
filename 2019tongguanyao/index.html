@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>夏日渡过手册-铜官窑古镇</title>
+    <title>夏天已过，伏天没过，你怎么过？</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,7 +27,12 @@
 	</div>
 	<div id="percentage"></div>
 </section>
-<audio src="static/music/bg.mp3" preload="auto" loop autobuffer="true" id="bg"></audio>
+<!-- 音乐播放控制 -->
+<div class="player-btn">
+	<div>
+		<audio src="static/music/bg.mp3" preload="auto" loop autobuffer="true" id="bg"></audio>
+	</div>
+</div>
 <div id="content">
 	<!-- 主题滑动页面 -->
 	<div class="page page1">
@@ -174,7 +179,9 @@
 			</div>
 		</div>
 
-		<img src="./static/img/arrow.png" alt="" class="arrow">
+		<div class="arrow">
+			<img src="./static/img/hand.png" alt="">
+		</div>
 	</div>
 	<div class="page page3">
 		<div class="p p9">
@@ -247,8 +254,8 @@ $(function() {
     var wxData = {
         imgUrl: baseUrl + 'static/img/share.jpg',
         link: baseUrl + 'index.html',
-        title: '夏日渡过手册-铜官窑古镇',
-        desc: '夏日渡过手册-描述'
+        title: '夏天已过，伏天没过，你怎么过？',
+        desc: '测一测，你的夏日习性与注意事项'
     };
 	weixin.bindData(wxData);
 	var overscroll = function(el) {
