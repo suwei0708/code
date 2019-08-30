@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>南孚</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script>
+    var deviceWidth =  parseInt(window.screen.width);var deviceScale = deviceWidth/750;var ua = navigator.userAgent;if (/Android (\d+\.\d+)/.test(ua)){var version = parseFloat(RegExp.$1);if(version>2.3){document.write('<meta name="viewport" content="width=750,initial-scale='+deviceScale+', minimum-scale = '+deviceScale+', maximum-scale = '+deviceScale+', target-densitydpi=device-dpi">');}else{document.write('<meta name="viewport" content="width=750,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');}} else {document.write('<meta name="viewport" content="width=750, user-scalable=no">');}
+    </script>
+    <link rel="stylesheet" href="css/page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="content">
+    <div class="page page1">
+        <img class="bg" src="img/bg.jpg" alt="">
+        <div class="cont">
+            <div class="tit">已众筹 <strong>800，000</strong> 个</div>
+            <a href="form.html" class="btn">我要众筹</a>
+            <div class="box">
+                <div class="title">众筹实况：</div>
+                <div class="list">
+                    <ul>
+                        <li><span>客户Hun123</span> 在 2019年8月30日 15：30 众筹了 <span>5000</span> 个</li>
+                        <li><span>客户Hun123</span> 在 2019年8月30日 15：30 众筹了 <span>5000</span> 个</li>
+                        <li><span>客户Hun123</span> 在 2019年8月30日 15：30 众筹了 <span>5000</span> 个</li>
+                        <li><span>客户Hun123</span> 在 2019年8月30日 15：30 众筹了 <span>5000</span> 个</li>
+                        <li><span>客户Hun123</span> 在 2019年8月30日 15：30 众筹了 <span>5001</span> 个</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <img src="img/footer.jpg" alt="" class="footer">
+    </div>
+</div>
+<script>
+    (function($){$.fn.myScroll=function(options){var defaults={speed:40,rowHeight:24};var opts=$.extend({},defaults,options),intId=[];function marquee(obj,step){obj.find("ul").animate({marginTop:'-=1'},0,function(){var s=Math.abs(parseInt($(this).css("margin-top")));if(s>=step){$(this).find("li").slice(0,1).appendTo($(this));$(this).css("margin-top",0);}});}
+    this.each(function(i){var sh=opts["rowHeight"],speed=opts["speed"],_this=$(this);intId[i]=setInterval(function(){if(_this.find("ul").height()<=_this.height()){clearInterval(intId[i]);}else{marquee(_this,sh);}},speed);_this.hover(function(){clearInterval(intId[i]);},function(){intId[i]=setInterval(function(){if(_this.find("ul").height()<=_this.height()){clearInterval(intId[i]);}else{marquee(_this,sh);}},speed);});});}})(jQuery);
+
+
+    $(function(){
+        $('.list').myScroll({
+            speed: 40, //数值越大，速度越慢
+            rowHeight: 65 //li的高度
+        });
+    });
+</script>
+</body>
+</html>
