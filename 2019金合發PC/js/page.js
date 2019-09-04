@@ -1,5 +1,5 @@
 $(function() {
-	$('.bell').on('click', function() {
+	$('.bell').on('mouseover', function() {
 		$('.notify-pop').show();
 	});
 	$('.notify-pop').on('mouseover', function() {
@@ -87,4 +87,48 @@ $(function() {
 	        }
 	    });
 	}
+
+	if ($(window).scrollTop() > 200) {
+	    $('#totop2').fadeIn();
+	} else {
+	    $('#totop2').stop().fadeOut();
+	}
+	$(window).on('scroll', function() {
+	    if ($(window).scrollTop() > 200) {
+	        $('#totop2').fadeIn();
+	    } else {
+	        $('#totop2').stop().fadeOut();
+	    }
+	});
+	$('#totop2').on('click', function() {
+	    $('html, body').animate({ scrollTop: 0 }, "slow");
+	});
+	$(".phonetab").mouseenter(function() {
+	    $(".sidebarcontact").css('z-index', 9999999);
+	    $(".sidebarcontact").css('width', '250px');
+	    if ($(".sidebarcontact").hasClass("sclose")) {
+
+	        $(".sidebarcontact").animate({
+	            right: 0,
+	        }, 300, function() {
+	            $(this).removeClass("sclose");
+
+	        });
+	    }
+	});
+
+	$(".sidebarcontact").mouseleave(function() {
+	    $(".sidebarcontact").css('width', '250px');
+	    $(".sidebarcontact").css('z-index', 99999)
+	    $(this).css("left", "inherit");
+
+	    $(".sidebarcontact").animate({
+	        right: "-170px",
+	    }, 300, function() {
+	        $(this).addClass("sclose");
+
+	    });
+
+	});
+
 });
