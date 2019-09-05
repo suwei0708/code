@@ -333,6 +333,9 @@ i {
     float: right;
     _display: inline;
 }
+.pt10 {
+	padding-top: 10px;
+}
 /**********header*********/
 .header {
     width: 100%;
@@ -616,7 +619,7 @@ i {
     left: -324px;
     right: 0;
     margin: 0 auto;
-    z-index: 99999999;
+    z-index: 999;
     padding: 10px 0 0;
     box-sizing: border-box;
     border: 1px solid #BB8754;
@@ -751,7 +754,7 @@ i {
 			    left: 0;
 			    bottom: 0;
 			    width: 100%;
-			    color: #eccf74;
+			    color: #ffeb00;
 			    font-size: 20px;
 			    font-weight: 700;
 				text-align: center;
@@ -843,22 +846,25 @@ body {
     }
 }
 
+.mt-65 {
+	margin-top: -65px !important;
+}
 .wrap {
 	width: 1200px;
 	margin: 0 auto;
-	min-height: 500px;
 	position: relative;
 	z-index: 105;
 }
 .main {
 	width: 100%;
-	min-height: 955px;
-	background: #2e0909 url(../images/bg.png) no-repeat center !important;
+	background: #2e0909;
 	padding-bottom: 40px;
 	color: #2e0909;
-	.wrap {
-		margin-top: -65px;
-	}
+	.cl();
+}
+.bg {
+	min-height: 955px;
+	background: #2e0909 url(../images/bg.png) no-repeat center !important;
 }
 .rowcontent {
     width: 100%;
@@ -877,21 +883,21 @@ body {
     position: relative;
 }
 
-.rowcontent .rc-box.bx4 {
-    height: 180px;
-    background: url("../images/bti.png") no-repeat center;
-}
 
 .rowcontent .rc-box.bx1 {
-    background: url("../images/Sport_OW.png") no-repeat center;
+    background: url("../images/bx1.png") no-repeat center;
 }
 .rowcontent .rc-box.bx2 {
-    background: url("../images/im.png") no-repeat center;
+    background: url("../images/bx2.png") no-repeat center;
 }
 .rowcontent .rc-box.bx3 {
     width: 394px;
     height: 240px;
     padding: 0;
+}
+.rowcontent .rc-box.bx4 {
+    height: 180px;
+    background: url("../images/bx4.png") no-repeat center;
 }
 .rowcontent .rc-box.bx3 .game-c {
     width: 364px;
@@ -899,14 +905,8 @@ body {
     padding: 20px 0 0 30px;
     position: relative;
 }
-.rowcontent .rc-box.bx3 .game-c.agasia {
-    background: url("../images/agasia.png") no-repeat center;
-}
-.rowcontent .rc-box.bx3 .game-c.agintl {
-    background: url("../images/ag.png") no-repeat center;
-}
 .rowcontent .rc-box.bx5 {
-    background: url(../images/ebet.png) no-repeat center;
+    background: url(../images/bx5.png) no-repeat center;
     height: 180px;
 }
 .rowcontent .rc-box .txt1 {
@@ -997,7 +997,8 @@ body {
 }
 
 .rowcontent .match .evtitle .etxt {
-    margin: 5px 0 0 5px;
+	margin: 5px 0 0 5px;
+	font-size: 15px;
 }
 
 .rowcontent .match span {
@@ -1040,6 +1041,8 @@ body {
 }
 .rowcontent .match .teams .scores{
 	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .rowcontent .match .iconteam{
@@ -1383,61 +1386,64 @@ body {
 	line-height: 24px;
 }
 .daily-section .info p a{color:#B3B3B3;}
-.footer0618 {
+.footer {
     width: 100%;
     height: 390px;
     background: #2f0909;
     position: relative;
 }
-.footer0618 .affiliates {
+.footer .affiliates {
     height: 118px;
     width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
+	a {
+		margin-top:39px;
+	}
 }
 
-.footer0618 .affiliates img {
+.footer .affiliates img {
     align-self: center;
 }
 
-.footer0618 .affiliates .icon:hover {
+.footer .affiliates .icon:hover {
     color: #FFCC66 !important;
 }
 .brown {
     color: #8F663E !important;
 }
 
-.footer0618 .affiliates .ic1 {
+.footer .affiliates .ic1 {
     font-size: 65px;
 }
-.footer0618 .affiliates .ic2 {
+.footer .affiliates .ic2 {
     font-size: 110px;
     margin-top: -20px;
 }
-.footer0618 .affiliates .ic3 {
+.footer .affiliates .ic3 {
     font-size: 110px;
     margin-top: -20px;
 }
-.footer0618 .affiliates .ic4 {
+.footer .affiliates .ic4 {
     font-size: 110px;
     margin-top: -18px;
 }
-.footer0618 .affiliates .ic5 {
+.footer .affiliates .ic5 {
     font-size: 110px;
     margin-top: -20px;
 }
-.footer0618 .affiliates .ic6 {
+.footer .affiliates .ic6 {
     font-size: 150px;
     margin-top: -35px;
 }
-.footer0618 .affiliates .ic7 {
+.footer .affiliates .ic7 {
     font-size: 130px;
     margin-top: -27px;
 }
 
-.footer0618 .hr-line {
+.footer .hr-line {
     width: 100%;
     height: 1px;
     display: block;
@@ -1446,7 +1452,7 @@ body {
 }
 
 
-.footer0618 .sponsors {
+.footer .sponsors {
     width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -1454,51 +1460,51 @@ body {
     position: relative;
     height: 85px;
 }
-.footer0618 .sponsors .hr-line {
+.footer .sponsors .hr-line {
     position: absolute;
     bottom: 0;
     left: 0;
 }
-.footer0618 .sponsors .ic1 {
+.footer .sponsors .ic1 {
     font-size: 85px;
 }
-.footer0618 .sponsors .ic2 {
+.footer .sponsors .ic2 {
     font-size: 110px;
     margin-top: -12px;
 }
-.footer0618 .sponsors .ic3 {
+.footer .sponsors .ic3 {
     font-size: 112px;
     margin-top: -14px;
 }
-.footer0618 .sponsors .ic4 {
+.footer .sponsors .ic4 {
     font-size: 90px;
     margin-top: -5px;
 }
-.footer0618 .sponsors .ic5 {
+.footer .sponsors .ic5 {
     font-size: 110px;
     margin-top: -16px;
 }
-.footer0618 .sponsors .ic6 {
+.footer .sponsors .ic6 {
     font-size: 85px;
     margin-top: -3px;
 }
-.footer0618 .sponsors .ic7 {
+.footer .sponsors .ic7 {
     font-size: 100px;
     margin-top: -10px;
 }
-.footer0618 .sponsors .ic8 {
+.footer .sponsors .ic8 {
     font-size: 90px;
     margin-top: -10px;
 }
-.footer0618 .sponsors .ic9 {
+.footer .sponsors .ic9 {
     font-size: 96px;
     margin-top: -7px;
 }
-.footer0618 .sponsors .ic10 {
+.footer .sponsors .ic10 {
     font-size: 100px;
     margin-top: -8px;
 }
-.footer0618 .sponsors .ic11 {
+.footer .sponsors .ic11 {
     font-size: 105px;
     margin-top: -11px;
 }
@@ -1538,7 +1544,7 @@ body {
 .footlinks .link-set2 .boxlnk:hover .icon,
 .footlinks .link-set2 .boxlnk:hover .txt1,
 .footlinks .link-set3 .icon:hover,
-.footer0618 .sponsors .icon:hover {
+.footer .sponsors .icon:hover {
     color: #B3B3B3 !important;
 }
 
@@ -1701,7 +1707,7 @@ body {
     min-height: 360px;
     right: 0;
     top: 225px;
-    z-index: 99999;
+    z-index: 99;
     overflow: hidden;
 }
 
@@ -2711,7 +2717,6 @@ body {
 @media only screen and (max-height: 1366px) {
     .sidebarcontact {
         top: 35%;
-        z-index: 9999991;
     }
 }
 
@@ -2719,7 +2724,6 @@ body {
 @media only screen and (max-height: 1600px) {
     .sidebarcontact {
         top: 225px;
-        z-index: 9999991;
     }
 }
 
@@ -2728,6 +2732,115 @@ body {
     width: 179px;
     height: 179px;
     background: url(../images/vipcrown.png) no-repeat;
-    position: absolute;
-    top: 135px;
+	top: 135px;
+	position: fixed;
+	left: 4px;
+	z-index: 99;
+}
+
+.slots {
+	margin-left: -12px;
+	.game {
+		width: 392px;
+		height: 260px;
+		float: left;
+		margin-left: 12px;
+		position: relative;
+		&1 {
+			background: url("../images/slots1.jpg") no-repeat;
+		}
+		&2 {
+			background: url("../images/slots2.jpg") no-repeat;
+		}
+		&3 {
+			background: url("../images/slots3.jpg") no-repeat;
+		}
+		&:hover {
+			box-shadow: 3px 9px 21px #171616;
+			.game-info {
+				display: none;
+			}
+			.menu_h {
+				display: block;
+			}
+		}
+		.menu_h {
+			.dis(n);
+			a {
+				width: 140px;
+				height: 35px;
+				line-height: 35px;
+				display: block;
+				text-align: center;
+				color: #fff;
+				background: #a37441;
+				margin: 120px auto 0;
+				border-radius: 5px;
+			}
+		}
+	}
+	.hdrban {
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		width: 220px;
+		.txthdr {
+			color: #fff;
+			font-size: 34px;
+		}
+		span {
+			display: block;
+			width: 100%;
+		}
+	}
+	.game-info {
+		padding: 125px 0 0 20px;
+		ul {
+			padding-left: 0;
+			width:290px;
+		}
+		ul.w300{
+			width:300px;
+		}
+		ul.w200{
+			width:200px;
+		}
+		li {
+			font-size: 14px;
+			color: #fff;
+			font-style: italic;
+			line-height: 24px;
+			list-style: none;
+		}
+		.link {
+			font-size: 18px;
+			color: #f7cc65;
+			font-style: italic;
+			display: block;
+			margin: 10px 0 0 0;
+			cursor:pointer;
+		}
+		.link.btm{
+			margin:0;
+			position:absolute;
+			bottom:15px;
+		}
+	}
+}
+
+.sidebar {width: 272px; min-height: 370px; background: #323232; box-shadow: 4px -4px 10px #212121; position: absolute; top: 0;}
+
+.sidebar .t {font-size: 16px; color: #5cc8ab; line-height: 50px; height: 50px; text-align: center;}
+.sidebar ul {width: 100%; list-style: none; margin: 0; padding-left: 0;}
+.sidebar ul li {width: 100%; height: 60px; position: relative;}
+.sidebar ul li .hr { display: none; width: 4px; background: #323232; position: absolute; height: 100%; top: 0; left: 4px; }
+.sidebar ul li a { text-transform:uppercase;width: 243px; height: 59px; margin-left: 12px; border-bottom: 1px solid #232323; display: block; font-size: 14px; color: #d1d1d1; line-height: 59px; }
+.section {
+	.cl();
+	.promo {
+		float: right;
+		width: 896px;
+		position: relative;
+		margin-bottom: 35px;
+	}
 }

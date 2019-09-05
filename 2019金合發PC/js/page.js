@@ -104,7 +104,7 @@ $(function() {
 	    $('html, body').animate({ scrollTop: 0 }, "slow");
 	});
 	$(".phonetab").mouseenter(function() {
-	    $(".sidebarcontact").css('z-index', 9999999);
+	    $(".sidebarcontact").css('z-index', 9999);
 	    $(".sidebarcontact").css('width', '250px');
 	    if ($(".sidebarcontact").hasClass("sclose")) {
 
@@ -119,7 +119,7 @@ $(function() {
 
 	$(".sidebarcontact").mouseleave(function() {
 	    $(".sidebarcontact").css('width', '250px');
-	    $(".sidebarcontact").css('z-index', 99999)
+	    $(".sidebarcontact").css('z-index', 99)
 	    $(this).css("left", "inherit");
 
 	    $(".sidebarcontact").animate({
