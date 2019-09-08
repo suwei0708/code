@@ -1,4 +1,5 @@
 $(function() {
+	// 头部提醒
 	$('.bell').on('mouseover', function() {
 		$('.notify-pop').show();
 	});
@@ -8,6 +9,7 @@ $(function() {
 	    $(this).hide();
 	});
 
+	// 头部密码展示与隐藏
 	$('.eyes').on('click', function() {
 		if($(this).hasClass('open')) {
 			$(this).removeClass('open');
@@ -17,7 +19,8 @@ $(function() {
 			$(this).addClass('open');
 			$(this).prevAll('.pword')[0].type = "text";
 		}
-	})
+	});
+
     // 首页banner
     if($('#sld').length) {
         $('#sld').slides({
@@ -27,8 +30,9 @@ $(function() {
             pause: 2500,
             hoverPause: true,
 		});
-    };
-    // 首页banner
+	};
+
+    // 首页轮播2
     if ($('#sld2').length) {
         $('#sld2').slides({
             generatePagination: true,
@@ -39,6 +43,7 @@ $(function() {
         });
     };
 
+	// 首页轮播3
 	if ($('.slider-box1').length) {
 	    //回调函数计数
 	    var callbackIndex = 0;
@@ -63,6 +68,7 @@ $(function() {
 	        }
 	    });
 	}
+	// 首页轮播4
 	if ($('.slider-box2').length) {
 	    //回调函数计数
 	    var callbackIndex2 = 0;
@@ -88,6 +94,7 @@ $(function() {
 	    });
 	}
 
+	// 返回顶部
 	if ($(window).scrollTop() > 200) {
 	    $('#totop2').fadeIn();
 	} else {
@@ -103,6 +110,8 @@ $(function() {
 	$('#totop2').on('click', function() {
 	    $('html, body').animate({ scrollTop: 0 }, "slow");
 	});
+
+	// 右侧交互
 	$(".phonetab").mouseenter(function() {
 	    $(".sidebarcontact").css('z-index', 9999);
 	    $(".sidebarcontact").css('width', '250px');
@@ -116,7 +125,6 @@ $(function() {
 	        });
 	    }
 	});
-
 	$(".sidebarcontact").mouseleave(function() {
 	    $(".sidebarcontact").css('width', '250px');
 	    $(".sidebarcontact").css('z-index', 99)
@@ -128,7 +136,40 @@ $(function() {
 	        $(this).addClass("sclose");
 
 	    });
-
 	});
 
+	// 优惠活动切换
+	$('.hd-sidebar').on('click', 'li', function() {
+		$(this).addClass('cur').siblings().removeClass('cur');
+		$('.hd-section').find('.promo').hide();
+		$('.hd-section').find('.' + $(this).find('a').attr('data-page')).show();
+	});
+
+	// 注册密码展示与隐藏
+	$('.eye').on('click', function() {
+	    if ($(this).hasClass('open')) {
+	        $(this).removeClass('open');
+	        $(this).prevAll('input')[0].type = "password";
+	    } else {
+	        $(this).addClass('open');
+	        $(this).prevAll('input')[0].type = "text";
+	    }
+	});
+
+	// 银行切换
+	$('#bank').on('click', 'a', function() {
+		$(this).addClass('active').siblings().removeClass('active');
+	});
+
+	// 复制
+	$('.cz-main').on('click', '.copy-btn', function() {
+		copyToClipboard($(this).attr('id'));
+	});
 });
+
+/*复制代码到剪切板*/
+function copyToClipboard(obj) {
+    var e = document.getElementById(obj + '-cont'); //对象是contents
+    e.select(); //选择对象
+    document.execCommand("Copy"); //执行浏览器复制命令
+};
