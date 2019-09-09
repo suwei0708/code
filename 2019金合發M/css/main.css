@@ -1258,7 +1258,7 @@ ul.bankcard-list li.item.bankACB {
 }
 
 ul.bankcard-list li.item.bankDongABank {
-  background: url(../__static/__images/bank/bank-icon/bankDongABank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgDongABank.png) no-repeat;
+  background: url(../bank/bank-icon/bankDongABank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgDongABank.png) no-repeat;
   background-size: 85px 85px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1268,7 +1268,7 @@ ul.bankcard-list li.item.bankDongABank {
 }
 
 ul.bankcard-list li.item.bankTechcombank {
-  background: url(../__static/__images/bank/bank-icon/bankTechcombank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgTechcombank.png) no-repeat;
+  background: url(../bank/bank-icon/bankTechcombank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgTechcombank.png) no-repeat;
   background-size: 109px 70px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1278,7 +1278,7 @@ ul.bankcard-list li.item.bankTechcombank {
 }
 
 ul.bankcard-list li.item.bankVietinbank {
-  background: url(../__static/__images/bank/bank-icon/bankVietinbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVietinbank.png) no-repeat;
+  background: url(../bank/bank-icon/bankVietinbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVietinbank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1288,7 +1288,7 @@ ul.bankcard-list li.item.bankVietinbank {
 }
 
 ul.bankcard-list li.item.bankSacombank {
-  background: url(../__static/__images/bank/bank-icon/bankSacombank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgSacombank.png) no-repeat;
+  background: url(../bank/bank-icon/bankSacombank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgSacombank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1298,7 +1298,7 @@ ul.bankcard-list li.item.bankSacombank {
 }
 
 ul.bankcard-list li.item.bankBIDV {
-  background: url(../__static/__images/bank/bank-icon/bankBIDV_bg.png) no-repeat, url(../__static/__images/bank/bg/bgBIDV.png) no-repeat;
+  background: url(../bank/bank-icon/bankBIDV_bg.png) no-repeat, url(../__static/__images/bank/bg/bgBIDV.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1308,7 +1308,7 @@ ul.bankcard-list li.item.bankBIDV {
 }
 
 ul.bankcard-list li.item.bankAgribank {
-  background: url(../__static/__images/bank/bank-icon/bankAgribank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgAgribank.png) no-repeat;
+  background: url(../bank/bank-icon/bankAgribank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgAgribank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1318,7 +1318,7 @@ ul.bankcard-list li.item.bankAgribank {
 }
 
 ul.bankcard-list li.item.bankEximbank {
-  background: url(../__static/__images/bank/bank-icon/bankEximbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgEximbank.png) no-repeat;
+  background: url(../bank/bank-icon/bankEximbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgEximbank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1328,7 +1328,7 @@ ul.bankcard-list li.item.bankEximbank {
 }
 
 ul.bankcard-list li.item.bankSCB {
-  background: url(../__static/__images/bank/bank-icon/bankSCB_bg.png) no-repeat, url(../__static/__images/bank/bg/bgSCB.png) no-repeat;
+  background: url(../bank/bank-icon/bankSCB_bg.png) no-repeat, url(../__static/__images/bank/bg/bgSCB.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1338,7 +1338,7 @@ ul.bankcard-list li.item.bankSCB {
 }
 
 ul.bankcard-list li.item.bankVietABank {
-  background: url(../__static/__images/bank/bank-icon/bankVietABank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVietABank.png) no-repeat;
+  background: url(../bank/bank-icon/bankVietABank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVietABank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1348,7 +1348,7 @@ ul.bankcard-list li.item.bankVietABank {
 }
 
 ul.bankcard-list li.item.bankABBank {
-  background: url(../__static/__images/bank/bank-icon/bankABBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgABBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankABBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgABBank.png) no-repeat;
   background-size: 155px 37px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1358,7 +1358,7 @@ ul.bankcard-list li.item.bankABBank {
 }
 
 ul.bankcard-list li.item.bankSaigonbank {
-  background: url(../__static/__images/bank/bank-icon/bankSaigonbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgSaigonbank.png) no-repeat;
+  background: url(../bank/bank-icon/bankSaigonbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgSaigonbank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1368,7 +1368,7 @@ ul.bankcard-list li.item.bankSaigonbank {
 }
 
 ul.bankcard-list li.item.bankPG_Bank {
-  background: url(../__static/__images/bank/bank-icon/bankPG_Bank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgPG_Bank.png) no-repeat;
+  background: url(../bank/bank-icon/bankPG_Bank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgPG_Bank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1378,7 +1378,7 @@ ul.bankcard-list li.item.bankPG_Bank {
 }
 
 ul.bankcard-list li.item.bankOceanbank {
-  background: url(../__static/__images/bank/bank-icon/bankOceanbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgOceanbank.png) no-repeat;
+  background: url(../bank/bank-icon/bankOceanbank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgOceanbank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1388,7 +1388,7 @@ ul.bankcard-list li.item.bankOceanbank {
 }
 
 ul.bankcard-list li.item.bankNamABank {
-  background: url(../__static/__images/bank/bank-icon/bankNamABank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgNamABank.png) no-repeat;
+  background: url(../bank/bank-icon/bankNamABank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgNamABank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1398,7 +1398,7 @@ ul.bankcard-list li.item.bankNamABank {
 }
 
 ul.bankcard-list li.item.bankNASBank {
-  background: url(../__static/__images/bank/bank-icon/bankNASBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgNASBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankNASBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgNASBank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1408,7 +1408,7 @@ ul.bankcard-list li.item.bankNASBank {
 }
 
 ul.bankcard-list li.item.bankVIB {
-  background: url(../__static/__images/bank/bank-icon/bankVIB_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVIB.png) no-repeat;
+  background: url(../bank/bank-icon/bankVIB_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVIB.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1418,7 +1418,7 @@ ul.bankcard-list li.item.bankVIB {
 }
 
 ul.bankcard-list li.item.bankNaViBank {
-  background: url(../__static/__images/bank/bank-icon/bankNaViBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgNaViBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankNaViBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgNaViBank.png) no-repeat;
   background-size: 148px 26px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1428,7 +1428,7 @@ ul.bankcard-list li.item.bankNaViBank {
 }
 
 ul.bankcard-list li.item.bankVPBank {
-  background: url(../__static/__images/bank/bank-icon/bankVPBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVPBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankVPBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgVPBank.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1438,7 +1438,7 @@ ul.bankcard-list li.item.bankVPBank {
 }
 
 ul.bankcard-list li.item.bankGPBank {
-  background: url(../__static/__images/bank/bank-icon/bankGPBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgGPBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankGPBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgGPBank.png) no-repeat;
   background-size: 127px 77px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1448,7 +1448,7 @@ ul.bankcard-list li.item.bankGPBank {
 }
 
 ul.bankcard-list li.item.bankMariTimeBank {
-  background: url(../__static/__images/bank/bank-icon/bankMariTimeBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgMariTimeBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankMariTimeBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgMariTimeBank.png) no-repeat;
   background-size: 90px 84px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1458,7 +1458,7 @@ ul.bankcard-list li.item.bankMariTimeBank {
 }
 
 ul.bankcard-list li.item.bankHDBank {
-  background: url(../__static/__images/bank/bank-icon/bankHDBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgHDBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankHDBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgHDBank.png) no-repeat;
   background-size: 88px 87px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1468,7 +1468,7 @@ ul.bankcard-list li.item.bankHDBank {
 }
 
 ul.bankcard-list li.item.bankOCB {
-  background: url(../__static/__images/bank/bank-icon/bankOCB_bg.png) no-repeat, url(../__static/__images/bank/bg/bgOCB.png) no-repeat;
+  background: url(../bank/bank-icon/bankOCB_bg.png) no-repeat, url(../__static/__images/bank/bg/bgOCB.png) no-repeat;
   background-size: 96px 94px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1478,7 +1478,7 @@ ul.bankcard-list li.item.bankOCB {
 }
 
 ul.bankcard-list li.item.bankTienPhongBank {
-  background: url(../__static/__images/bank/bank-icon/bankTienPhongBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgTienPhongBank.png) no-repeat;
+  background: url(../bank/bank-icon/bankTienPhongBank_bg.png) no-repeat, url(../__static/__images/bank/bg/bgTienPhongBank.png) no-repeat;
   background-size: 129px 81px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1488,7 +1488,7 @@ ul.bankcard-list li.item.bankTienPhongBank {
 }
 
 ul.bankcard-list li.item.bank25 {
-  background: url(../__static/__images/bank/bank-icon/bank25_bg.png) no-repeat, url(../__static/__images/bank/bg/bg25.png) no-repeat;
+  background: url(../bank/bank-icon/bank25_bg.png) no-repeat, url(../__static/__images/bank/bg/bg25.png) no-repeat;
   background-size: 115px 63px, cover;
   background-position: 100% 100%, 50% 50%;
 }
@@ -1758,14 +1758,14 @@ ul.bankcard-list li.item.bank25.deactive {
 .icon-call {
   width: 33px;
   height: 33px;
-  background: url(../__static/__images/icons/icon_line.png) no-repeat;
+  background: url(../images/icons/icon_line.png) no-repeat;
   background-size: 100%;
 }
 
 .icon-back {
   width: 11px;
   height: 20px;
-  background: url(../__static/__images/icons/icon4.png) no-repeat;
+  background: url(../images/icons/icon4.png) no-repeat;
   background-size: 100%;
   position: relative;
   top: 2px;
@@ -1830,7 +1830,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 8px;
   height: 13px;
   margin-bottom: -1px;
-  background: url(../__static/__images/promotion/icon1.png) no-repeat;
+  background: url(../images/promotion/icon1.png) no-repeat;
   background-size: contain;
 }
 
@@ -2365,7 +2365,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/login/icon1.png) no-repeat;
+  background: url(../images/login/icon1.png) no-repeat;
   background-size: contain;
 }
 
@@ -2373,7 +2373,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/login/icon8.png) no-repeat;
+  background: url(../images/login/icon8.png) no-repeat;
   background-size: contain;
 }
 
@@ -2381,7 +2381,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/login/icon2.png) no-repeat;
+  background: url(../images/login/icon2.png) no-repeat;
   background-size: contain;
 }
 
@@ -2389,7 +2389,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/login/icon10.png) no-repeat;
+  background: url(../images/login/icon10.png) no-repeat;
   background-size: contain;
 }
 
@@ -2397,7 +2397,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/login/captcha.png) no-repeat;
+  background: url(../images/login/captcha.png) no-repeat;
   background-size: contain;
 
 }
@@ -2406,7 +2406,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 64px;
   height: 10px;
   margin-right: 0;
-  background: url(../__static/__images/login/icon3.png) no-repeat;
+  background: url(../images/login/icon3.png) no-repeat;
   background-size: 27px 10px;
 }
 
@@ -2414,7 +2414,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 64px;
   height: 15px;
   margin-right: 0;
-  background: url(../__static/__images/login/icon4.png) no-repeat;
+  background: url(../images/login/icon4.png) no-repeat;
   background-size: 26px 15px;
 }
 
@@ -2423,7 +2423,7 @@ ul.bankcard-list li.item.bank25.deactive {
   height: 17px;
   margin-right: 7px;
   margin-bottom: -2px;
-  background: url(../__static/__images/login/icon5.png) no-repeat;
+  background: url(../images/login/icon5.png) no-repeat;
   background-size: contain;
 }
 
@@ -2432,7 +2432,7 @@ ul.bankcard-list li.item.bank25.deactive {
   height: 13px;
   margin-right: 3px;
   margin-bottom: -1px;
-  background: url(../__static/__images/login/icon6.png) no-repeat;
+  background: url(../images/login/icon6.png) no-repeat;
   background-size: contain;
 }
 
@@ -2441,7 +2441,7 @@ ul.bankcard-list li.item.bank25.deactive {
   height: 29px;
   margin-right: 3px;
   margin-bottom: -1px;
-  background: url(../__static/__images/login/icon6.png) no-repeat;
+  background: url(../images/login/icon6.png) no-repeat;
   background-size: contain;
 }
 
@@ -2450,14 +2450,14 @@ ul.bankcard-list li.item.bank25.deactive {
   height: 11px;
   margin-right: 3px;
   margin-bottom: -1px;
-  background: url(../__static/__images/login/icon7.png) no-repeat;
+  background: url(../images/login/icon7.png) no-repeat;
   background-size: contain;
 }
 
 .icon-x2 {
   width: 16px;
   height: 16px;
-  background: url(../__static/__images/login/icon9.png) no-repeat;
+  background: url(../images/login/icon9.png) no-repeat;
   background-size: contain;
   position: absolute;
   right: 15px;
@@ -2466,7 +2466,7 @@ ul.bankcard-list li.item.bank25.deactive {
 .icon-x3 {
   width: 11px;
   height: 11px;
-  background: url(../__static/__images/withdrawal/icon4.png) no-repeat;
+  background: url(../images/withdrawal/icon4.png) no-repeat;
   background-size: contain;
   position: absolute;
   right: 15px;
@@ -2476,7 +2476,7 @@ ul.bankcard-list li.item.bank25.deactive {
 .icon-x4 {
   width: 14px;
   height: 14px;
-  background: url(../__static/__images/game/icon5.png) no-repeat;
+  background: url(../images/game/icon5.png) no-repeat;
   background-size: contain;
   position: absolute;
 }
@@ -2485,7 +2485,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/modifyphone/icon1.png) no-repeat;
+  background: url(../images/modifyphone/icon1.png) no-repeat;
   background-size: contain;
 }
 
@@ -2493,7 +2493,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 29px;
   height: 29px;
   margin-right: 0;
-  background: url(../__static/__images/modifyphone/icon2.png) no-repeat;
+  background: url(../images/modifyphone/icon2.png) no-repeat;
   background-size: contain;
 }
 
@@ -2501,7 +2501,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 73px;
   height: 73px;
   margin-right: 0;
-  background: url(../__static/__images/message/icon1.png) no-repeat;
+  background: url(../images/message/icon1.png) no-repeat;
   background-size: contain;
 }
 
@@ -2509,7 +2509,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 73px;
   height: 73px;
   margin-right: 0;
-  background: url(../__static/__images/message/icon2.png) no-repeat;
+  background: url(../images/message/icon2.png) no-repeat;
   background-size: contain;
 }
 
@@ -2517,7 +2517,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 32px;
   height: 32px;
   margin-right: 0;
-  background: url(../__static/__images/withdrawal/icon1.png) no-repeat;
+  background: url(../images/withdrawal/icon1.png) no-repeat;
   background-size: contain;
 }
 
@@ -2525,7 +2525,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 50px;
   height: 50px;
   margin-right: 0;
-  background: url(../__static/__images/withdrawal/icon2.png) no-repeat;
+  background: url(../images/withdrawal/icon2.png) no-repeat;
   background-size: contain;
 }
 
@@ -2533,7 +2533,7 @@ ul.bankcard-list li.item.bank25.deactive {
   width: 50px;
   height: 50px;
   margin-right: 0;
-  background: url(../__static/__images/withdrawal/icon3.png) no-repeat;
+  background: url(../images/withdrawal/icon3.png) no-repeat;
   background-size: contain;
 }
 
@@ -2542,7 +2542,7 @@ ul.bankcard-list li.item.bank25.deactive {
   height: 85px;
   margin-right: 0;
   margin-top: 5px;
-  background: url(../__static/__images/icons/logo-holder.png) no-repeat;
+  background: url(../images/icons/logo-holder.png) no-repeat;
   background-size: 100%;
 }
 
@@ -3451,7 +3451,7 @@ ul.nav-tab li.item span.label {
 /* end login page css style */
 
 .login2 {
-  background-image: url(__static/__images/login/girl.png), url(../__static/__images/login/login2.jpg);
+  background-image:  url(../images/login/login2.jpg);
   background-size: 100%, 100% 100%;
 }
 
@@ -5677,7 +5677,7 @@ ul.menu li.item div.inner span.text {
 }
 
 .slotgame select {
-  background: url(../__static/__images/info/select2.png) 100% no-repeat;
+  background: url(../images/info/select2.png) 100% no-repeat;
   background-size: 11px 9px;
   background-position: right 10px top 50%;
   font-size: 1.2rem;
@@ -5689,7 +5689,7 @@ ul.menu li.item div.inner span.text {
 }
 
 .promotion-select {
-  background: url(../__static/__images/info/select2.png) 100% no-repeat;
+  background: url(../images/info/select2.png) 100% no-repeat;
   background-size: 11px 9px;
   background-position: right 10px top 50%;
   font-size: 1.2rem;
