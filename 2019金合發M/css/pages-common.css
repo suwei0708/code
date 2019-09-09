@@ -1,0 +1,447 @@
+/* header2 */
+
+.mheader2 .menu {
+  width: 40px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mheader2 h2.title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.8rem;
+  font-weight: lighter;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.mheader2 .my-call {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+}
+
+
+/* header */
+
+.mheader {
+  justify-content: space-between;
+}
+
+.mheader .menu {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mheader .notlogin-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mheader .login-button {
+  border: 1px solid #634722;
+  box-sizing: border-box;
+  padding: 8px 0px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 90px;
+  text-align: center;
+}
+
+.mheader .register-button {
+  background: -webkit-linear-gradient(#e8bc64, #ac743b);
+}
+
+.mheader .login-content {
+  background: #391717;
+  width: 190px;
+  margin: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.mheader .info-person {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  border-right: 2px solid #6d3030;
+}
+
+.mheader .info-userlog {
+  margin-right: 4px;
+  margin-left: 10px;
+}
+
+.mheader .info-name {
+  color: #999;
+  text-decoration: underline;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+.mheader .info-letter {
+  margin-left: 15px;
+}
+
+
+/* mfooter */
+
+.mfooter {
+  margin-bottom: 49px;
+}
+
+.mfooter img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-height: 730px) {
+  .mfooter img {
+    display: block;
+    width: 100%;
+    height: 225px;
+  }
+}
+
+@media screen and (min-height: 810px) {
+  .mfooter img {
+    display: block;
+    width: 100%;
+    height: 325px;
+  }
+}
+
+
+/* index */
+
+.mindex {
+  background: #282828;
+}
+
+.mindex .banner-operate {
+  position: absolute;
+  height: 18px;
+  left: 48%;
+  width: 35px;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mindex .banner-hide {
+  bottom: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.mindex .banner-show {
+  top: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.mindex .game-nav {
+  display: flex;
+  height: 70px;
+  width: 100%;
+  align-items: center;
+  background: #2e0909;
+  color: #cccccc;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.mindex .game-nav .item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mindex .game-nav .inactive {
+  color: #3d2020;
+}
+
+.mindex .game-nav .active {
+  color: #dda752;
+}
+
+.mindex .game-nav .item-tip {
+  position: absolute;
+  height: -4px;
+  background: #876227;
+  right: -23px;
+  top: -7px;
+  color: #fff;
+  font-weight: normal;
+  padding: 1px 4px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.mindex .live-casino {
+  background-image: url(../images/bgs_new/livecasino-bg.png);
+  background-size: 100% 100%;
+  display: flex;
+  padding: 30px 15px;
+}
+
+.mindex .live-item {
+  width: 50%;
+  background: rgba(78, 26, 21, 0.3);
+  border-radius: 8px;
+  position: relative;
+}
+
+.mindex .live-portrait {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.mindex .live-desc {
+  margin-top: 130px;
+  color: #dddddd;
+  font-size: 1rem;
+  padding: 5px;
+  text-align: center;
+  height: 80px;
+}
+
+.mindex .live-icons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.mindex .live-icons .item {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mindex .live-casino .button-content {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  display: flex;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+}
+
+.mindex .live-casino .button1 {
+  text-align: center;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
+.mindex .live-casino .button2 {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px 3px;
+  background: #662827;
+  border-radius: 6px;
+}
+
+.mindex .sports-casino {
+  background-image: url(../images/bgs_new/sportscasino-bg.jpg);
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  padding-top: 60px;
+}
+
+.mindex .sport-item {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  margin-bottom: 50px;
+  display: flex;
+  box-sizing: border-box;
+  padding-bottom: 25px;
+}
+
+
+/* 添加bti单独样式 */
+
+.mindex .bti {
+  position: relative;
+}
+
+.mindex .bti .hoticon {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+}
+
+.mindex .sport-item .sport-info {
+  width: 40%;
+}
+
+.mindex .sport-item .sport-logo {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.mindex .sport-item .sport-desc {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  /*text-align: center;*/
+}
+
+.mindex .sport-operate {
+  width: 60%;
+}
+
+.mindex .sport-icons {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.mindex .sport-icons .item {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mindex .button-content {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.mindex .button-content>div:nth-child(1) {
+  margin-right: 15px;
+}
+
+.mindex .button-content .button-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  box-sizing: border-box;
+  background: rgba(64, 70, 70, 0.6);
+  border-radius: 6px;
+}
+
+.mindex .button-item>div:nth-child(1) {
+  margin-right: 5px;
+}
+
+.mindex .slot-navwapper {
+  width: 100%;
+  overflow: scroll;
+}
+
+.mindex .slot-nav {
+  height: 50px;
+  background: #512828;
+  display: flex;
+  width: 140%;
+  align-items: center;
+}
+
+.mindex .slot-nav .item {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.mindex .slot-nav .active.item>div::after {
+  content: '';
+  border-bottom: 2px solid #a14e4e;
+  display: block;
+  margin-top: 22px;
+}
+
+.mindex .slotgame .active.item span {
+  box-sizing: border-box;
+  padding: 2px;
+  border-bottom: 2px solid #a14e4e;
+}
+
+.mindex .slotgame ul.nav-tab li.item.active {
+  background: #422121;
+}
+
+.mindex .slotgame .game-list .empty-tip {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.mindex .slotgame .gametype-content {
+  width: 100%;
+}
+
+.mindex .slotgame .line-select {
+  width: 20%!important;
+}
+
+.mindex ul.nav-tab li.item.active:before {
+  width: 0px;
+}
+
+.mindex .slotgame .hot {
+  position: relative;
+}
+
+.mindex .slotgame .hot>div {
+  position: absolute;
+  right: 8px;
+  top: 7px;
+}
+
+.mindex .lottery-casino {
+  background-image: url(../images/bgs_new/lottery-bg.png);
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  padding-top: 30px;
+  height: 100%;
+}
+
+.mindex .lottery-casino .line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.mindex .lottery-casino .line.z-mt10 {
+  margin-bottom: 30px;
+}
+
+.mindex .lottery-casino .line img {
+  display: block;
+  width: 48%;
+  height: auto;
+}

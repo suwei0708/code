@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>金合發</title>
+    <meta name="keywords" content="" />
+    <meta name="description" id="seoDescription" content="" />
+	<meta http-equiv="x-dns-prefetch-control" content="on" />
+
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/introjs.css" rel="stylesheet" />
+    <link href="css/layer.css" rel="stylesheet" />
+    <link href="css/ui-base.css" rel="stylesheet" />
+    <link href="css/pages-common.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+    <div class="ui-content">
+        <!-- 针对于1级,有用户logo，还有登录未登录判断 -->
+        <div class="ui-header mheader">
+            <a class="menu" href="index.htm"><span class="ui-logo__k8logo ui-logo__k8logo--headerk8logo"></span></a> <!-- 未登录 -->
+            <div class="notlogin-content">
+                <a href="login.htm" class="login-button ui-mr__5">ĐĂNG NHẬP</a>
+                <a href="register.htm" class="login-button register-button ui-mr__15">ĐĂNG KÝ</a>
+            </div>
+        </div>
+        <div class="ui-nav" id="navflag">
+            <a class="ui-nav__item  active " href="index.htm"><i class="ui-icon__nav ui-icon__nav--Home ui-mb__5"></i>Trang Chủ</a>
+            <!-- 未登录 -->
+            <a class="ui-nav__item " href="aboutk8.htm"><i class="ui-icon__nav ui-icon__nav--K8Higlights ui-mb__5"></i>Điểm Nhấn</a>
+            <a class="ui-nav__item " href=" login.htm "><i class="ui-icon__nav ui-icon__nav--MemberCenter ui-mb__5"></i>Tài Khoản</a>
+            <a class="ui-nav__item " href="promotion.htm"><i class="ui-icon__nav ui-icon__nav--Promotions ui-mb__5"></i>Khuyến Mãi</a>
+            <a class="ui-nav__item my-service" href="javascript:;"><i class="ui-icon__nav ui-icon__nav--LiveChat ui-mb__5"></i>Hỗ Trợ</a>
+        </div>
+        <div class="customer-service">
+            <ul>
+                <li class="txt_blue2"><a class="serviceonlih" href="javascript:chatButton.onClick();">Hỗ trợ trực tuyến</a></li>
+                <li class="txt_blue2"><span class="label">Hot line </span> <a href="tel:+84-2444581788" class="tel">+84-2444581788</a></li>
+                <li class="txt_blue2"><a href="/cdn-cgi/l/email-protection#a7d1c9c4d4e7cc9f89c4c8ca">Hộp thư: <span class="__cf_email__" data-cfemail="c1b7afa2b281aaf9efa2aeac">[email&#160;protected]</span></a></li>
+            </ul>
+            <a class="txt_blue2 closeCS" href="#">Hủy bỏ</a>
+		</div>
+
+        <div class="ui-body">
+            <div class="mindex">
+                <h1 style="font-size: 0;">K8 - Nhà Cái K8: Cá Độ Bóng Đá| Casino Online| Slot Game| Xổ Số</h1>
+                <section class="banner swiper-container" id="indexbanner">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="javascript:void(0);" target="_self"><img class="img-responsive" src="images/banner/sld1.jpg"></a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="k8-birthday-with-BMW-118i.htm" target="_blank"><img class="img-responsive" src="images/banner/sld2.jpg"></a>
+                        </li>
+                    </ul>
+                    <div class="swiper-pagination"></div>
+                    <div class="banner-operate banner-hide" id="hiddenbanner">
+                        <i class="ui-icon__index ui-icon__index--hidebanner"></i>
+                    </div>
+                </section>
+                <div class="game-nav">
+                    <div class="item active" id="sport">
+                        <div class="item-icon ui-icon__index ui-icon__index--Sports ui-mb__5"></div>
+                        <div class="item-desc">Thể Thao</div>
+                    </div>
+                    <div class="item" id="live">
+                        <div class="item-icon ui-icon__index ui-icon__index--Casino ui-mb__5"></div>
+                        <div class="item-desc">Live Casino</div>
+                    </div>
+                    <div class="item" id="slot">
+                        <div class="item-icon ui-icon__index ui-icon__index--Slot ui-mb__5"></div>
+                        <div class="item-desc">Slot</div>
+                    </div>
+                    <div class="item" id="lottery">
+                        <div class="item-icon ui-icon__index ui-icon__index--Lottery ui-mb__5 ui-pos__relative">
+                            <div class="item-tip">Mới</div>
+                        </div>
+                        <div class="item-desc">Xổ Số</div>
+                    </div>
+                    <div class="banner-operate banner-show" id="showbanner" style="display: none;">
+                        <i class="ui-icon__index ui-icon__index--showbanner"></i>
+                    </div>
+                </div>
+
+                <!-- start: sport casino -->
+                <div class="sports-casino casino-cont">
+                    <div class="sport-item">
+                        <div class="sport-info">
+                            <div class="ui-tempplaceholder"></div>
+                            <div class="sport-logo ui-icon__sportscasino sabalogo"></div>
+                            <div class="sport-desc">Cược Châu Á Tích Hợp <br /> Number Game và <br />Thể Thao Ảo</div>
+                        </div>
+                        <div class="sport-operate">
+                            <div class="sport-icons">
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino football"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino bb"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino vat"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino waterfootbal"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino form"></div>
+                                </div>
+                            </div>
+                            <div class="button-content" id="C07031">
+                                <div class="button-item" logintype="mobile">
+                                    <div class="ui-icon__sportscasino mobileicon"></div>
+                                    <div class="button-name">Di Động</div>
+                                </div>
+                                <div class="button-item" logintype="pc">
+                                    <div class="ui-icon__sportscasino pcicon"></div>
+                                    <div class="button-name">Máy Tính</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sport-item">
+                        <div class="sport-info">
+                            <div class="ui-tempplaceholder"></div>
+                            <div class="sport-logo ui-icon__sportscasino imlogo"></div>
+                            <div class="sport-desc">Cược Châu Á Hấp Dẫn<br /> Đa Dạng Sản Phẩm</div>
+                        </div>
+                        <div class="sport-operate">
+                            <div class="sport-icons">
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino football"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino bb"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino vat"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino esport"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino badminton"></div>
+                                </div>
+                            </div>
+                            <div class="button-content" id="C07086">
+                                <div class="button-item" logintype="mobile">
+                                    <div class="ui-icon__sportscasino mobileicon"></div>
+                                    <div class="button-name">Di Động</div>
+                                </div>
+                                <div class="button-item" logintype="pc">
+                                    <div class="ui-icon__sportscasino pcicon"></div>
+                                    <div class="button-name">Máy Tính</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sport-item bti">
+                        <div class="sport-info">
+                            <div class="ui-tempplaceholder"></div>
+                            <div class="sport-logo ui-icon__sportscasino btilogo"></div>
+
+                            <div class="sport-desc">Cược Châu Âu Phổ Biến</div>
+                        </div>
+                        <div class="sport-operate">
+                            <div class="sport-icons">
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino football"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino bb"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino vat"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino esport"></div>
+                                </div>
+                                <div class="item">
+                                    <div class="ui-icon__sportscasino badminton"></div>
+                                </div>
+                            </div>
+                            <div class="button-content" id="C07062">
+                                <div class="button-item" logintype="mobile">
+                                    <div class="ui-icon__sportscasino mobileicon"></div>
+                                    <div class="button-name">Di Động</div>
+                                </div>
+                                <div class="button-item" logintype="pc">
+                                    <div class="ui-icon__sportscasino pcicon"></div>
+                                    <div class="button-name">Máy Tính</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-tempplaceholder"></div>
+                </div>
+                <!-- end: sport casino -->
+
+                <!-- start: live casino -->
+                <div class="live-casino casino-cont" style="display: none;">
+                    <!-- AG旗舰 -->
+                    <div class="live-item ui-mr__15">
+                        <div class="live-portrait ui-icon__livecasino ui-icon__livecasino--agportrait"></div>
+                        <div class="live-desc ui-mb__10">Sòng bài trực tuyến với đường gợi ý đoán bài chính xác tuyệt đối, sảnh cược hấp
+                            dẫn lên đến 1 TỶ VND/ván</div>
+                        <div class="live-icons">
+                            <div class="item ui-pb__2">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--baccarat"></div>
+                            </div>
+                            <div class="item">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--Blackjack"></div>
+                            </div>
+                            <div class="item">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--dragontiger"></div>
+                            </div>
+                            <div class="item ui-pb__3">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--sicbo"></div>
+                            </div>
+                        </div>
+                        <div class="button-content">
+                            <!-- 未登录 -->
+                            <div class="button1" id="agtrygame">Chơi Thử</div>
+                            <a class="button2" href="login.htm">Chơi Thật</a>
+                        </div>
+                    </div>
+
+                    <div class="live-item">
+                        <div class="live-portrait ui-icon__livecasino ui-icon__livecasino--ebetportrait"></div>
+                        <div class="live-desc ui-mb__10">Sòng bài trực tuyến tương tác hotgirl chia bài mọi lúc mọi nơi, chức năng nặn bài
+                            360°！</div>
+                        <div class="live-icons">
+                            <div class="item ui-pb__2">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--baccarat"></div>
+                            </div>
+                            <div class="item">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--dragontiger"></div>
+                            </div>
+                            <div class="item ui-pb__3">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--sicbo"></div>
+                            </div>
+                            <div class="item">
+                                <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--roulette"></div>
+                            </div>
+                        </div>
+                        <div class="button-content">
+                            <!-- 未登录 -->
+                            <div class="button1" id="ebettrygame">Chơi Thử</div>
+                            <a class="button2" href="login.htm">Chơi Thật</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: live casino -->
+
+                <!-- start: slot games -->
+                <div class="slot-games casino-cont" style="display: none;">
+                    <!-- 搜索区域&&列表展示区 start -->
+                    <div class="slotgame-cover">
+                    </div>
+                    <div class="slotgame-search__keyword" id="keyword-wrap" style="display: none;">
+                        <input id="keywordVal" class="slotgame-search__text" type="" placeholder="Search" value="">
+                        <div class="cleartxt">
+                            <span class="icon icon-search2" id="keywordSearch"></span>
+                        </div>
+                    </div>
+                    <!-- 选择游戏 -->
+                    <div class="slot-navwapper">
+                        <div class="slot-nav" id="slot-nav">
+                            <div class="item" id="AG">
+                                <div class="ui-icon__slotgames ui-icon__slotgames--aglogo"></div>
+                            </div>
+                            <div class="item" id="PP">
+                                <div class="ui-icon__slotgames ui-icon__slotgames--pplogo"></div>
+                            </div>
+                            <div class="item" id="PT">
+                                <div class="ui-icon__slotgames ui-icon__slotgames--ptlogo"></div>
+                            </div>
+                            <div class="item" id="PNG">
+                                <div class="ui-icon__slotgames ui-icon__slotgames--pnglogo"></div>
+                            </div>
+                            <div class="item" id="TTG">
+                                <div class="ui-icon__slotgames ui-icon__slotgames--ttglogo"></div>
+                            </div>
+                            <div class="item" id="MG">
+                                <div class="ui-icon__slotgames ui-icon__slotgames--mglogo"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slotgame searchgames">
+                        <ul class="nav-tab m-btm-0">
+                            <div class="gametype-content">
+                                <li class="item hot" id="isHot">
+                                    <span>Hot</span>
+                                    <div class="ui-icon__slotgames ui-icon__slotgames--hoticon"></div>
+                                </li>
+                                <li class="item" id="isPool">
+                                    <span>Jackpot</span>
+                                </li>
+                                <li class="item" id="isNew">
+                                    <span>Mới</span>
+                                </li>
+                            </div>
+                            <li class="item line-select">
+                                <select id="lineSelect" name="line">
+                                    <option value="">Đường</option>
+                                    <option value="1-4">1-4</option>
+                                    <option value="5-9">5-9</option>
+                                    <option value="15-25">15-25</option>
+                                    <option value="30-50">30-50</option>
+                                    <option value="51-146">51-146</option>
+                                    <option value="243-243">243</option>
+                                    <option value="1024-1024">1024</option>
+                                </select>
+                            </li>
+                            <li class="item small-item">
+                                <label>
+                                    <input id="favoriteBox" name="isFavorite" type="checkbox">
+                                    <i class="icon ui-icon__slotgames ui-icon__slotgames--headerfavorite" id="favoriteBox-icon"></i>
+                                </label>
+                            </li>
+                            <li class="item small-item">
+                                <label>
+                                    <i class="icon ui-icon__slotgames ui-icon__slotgames--headersearch" id="keyword-trigger"></i>
+                                </label>
+                            </li>
+                        </ul>
+                        <ul class="game-list mainlist" id="gamesTable">
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Vampires vs Wolves" attr-gametype="1" attr-gameplat="PP" attr-gameid="1560406594" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1560406594.png">
+                                    <div class="desc"><span class="sp1">PP</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Vampires vs Wolves</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1560406594" attr-provider="PP" attr-gameimg="pp/1560406594.png" attr-gamenameen="Vampires vs Wolves" attr-stars="1" attr-point="0.0" attr-popular="111501" attr-gamech="吸血鬼vs狼" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="The Great Chicken Escape" attr-gametype="1" attr-gameplat="PP" attr-gameid="1550648841" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1550648841.png">
+                                    <div class="desc"><span class="sp1">PP</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">The Great Chicken Escape</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1550648841" attr-provider="PP" attr-gameimg="pp/1550648841.png" attr-gamenameen="The Great Chicken Escape" attr-stars="1" attr-point="0.0" attr-popular="111500" attr-gamech="小鸡大逃亡" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Tree of Riches" attr-gametype="1" attr-gameplat="PP" attr-gameid="1559907578" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1559907578.png">
+                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Tree of Riches</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1559907578" attr-provider="PP" attr-gameimg="pp/1559907578.png" attr-gamenameen="Tree of Riches" attr-stars="1" attr-point="0.0" attr-popular="111499" attr-gamech="发财树" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="5 Lions Gold" attr-gametype="1" attr-gameplat="PP" attr-gameid="1551174315" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1551174315.png">
+                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">243 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">5 Lions Gold</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1551174315" attr-provider="PP" attr-gameimg="pp/1551174315.png" attr-gamenameen="5 Lions Gold" attr-stars="1" attr-point="0.0" attr-popular="111498" attr-gamech="5金狮" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="Chú khỉ Điên cuồng" attr-gametype="1" attr-gameplat="PP" attr-gameid="1511957943" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1511957943.png">
+                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">9 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Chú khỉ Điên cuồng</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1511957943" attr-provider="PP" attr-gameimg="pp/1511957943.png" attr-gamenameen="Chú khỉ Điên cuồng" attr-stars="1" attr-point="0.0" attr-popular="111491" attr-gamech="猴子疯狂" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="Đá quý của Người Aztec™" attr-gametype="1" attr-gameplat="PP" attr-gameid="1516626484" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1516626484.png">
+                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Đá quý của Người Aztec™</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1516626484" attr-provider="PP" attr-gameimg="pp/1516626484.png" attr-gamenameen="Đá quý của Người Aztec™" attr-stars="1" attr-point="0.0" attr-popular="111449" attr-gamech="古时代宝石" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="888 Con rồng" attr-gametype="1" attr-gameplat="PP" attr-gameid="1493812996" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1493812996.png">
+                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">1 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">888 Con rồng</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1493812996" attr-provider="PP" attr-gameimg="pp/1493812996.png" attr-gamenameen="888 Con rồng" attr-stars="1" attr-point="0.0" attr-popular="111383" attr-gamech="发发发龙" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="Tiền của Caishen" attr-gametype="1" attr-gameplat="PP" attr-gameid="1549294581" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1549294581.png">
+                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">20 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Tiền của Caishen</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1549294581" attr-provider="PP" attr-gameimg="pp/1549294581.png" attr-gamenameen="Tiền của Caishen" attr-stars="1" attr-point="0.0" attr-popular="111359" attr-gamech="财神运财" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Fengshen Yanyi " attr-gametype="1" attr-gameplat="AG" attr-gameid="WHGWH23" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH23.png">
+                                    <div class="desc"><span class="sp1">AG</span><span class="sp2">20 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Fengshen Yanyi </p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="WHGWH23" attr-provider="AG" attr-gameimg="ag/WHGWH23.png" attr-gamenameen="Fengshen Yanyi " attr-stars="1" attr-point="0.0" attr-popular="111139" attr-gamech="封神演义" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Kabuki Gold" attr-gametype="1" attr-gameplat="AG" attr-gameid="WHGWH27" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH27.png">
+                                    <div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Kabuki Gold</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="WHGWH27" attr-provider="AG" attr-gameimg="ag/WHGWH27.png" attr-gamenameen="Kabuki Gold" attr-stars="1" attr-point="0.0" attr-popular="111133" attr-gamech="和风剧院" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Fortune Alchemy" attr-gametype="1" attr-gameplat="AG" attr-gameid="WHGWH30" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH30.png">
+                                    <div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Fortune Alchemy</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="WHGWH30" attr-provider="AG" attr-gameimg="ag/WHGWH30.png" attr-gamenameen="Fortune Alchemy" attr-stars="1" attr-point="0.0" attr-popular="111127" attr-gamech="点石成金" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="imgdescdiv" id="game-info" attr-servergameid="LostTempleH5" attr-gamedemo="1" attr-gamename="Lost Temple H5" attr-gametype="1" attr-gameplat="TTG" attr-gameid="1058" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ttg/1058.png">
+                                    <div class="desc"><span class="sp1">TTG</span><span class="sp2">1024 Đường</span></div>
+                                </div>
+                                <div class="game-content">
+                                    <p class="gamename">Lost Temple H5</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1058" attr-provider="TTG" attr-gameimg="ttg/1058.png" attr-gamenameen="Lost Temple H5" attr-stars="1" attr-point="0.0" attr-popular="14651" attr-gamech="失落的神庙 H5" attr-flash="false "></span>
+                                    <div></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a id="loadmore" style="display: none;"></a>
+                        <span class="icon top-btn  ui-icon__slotgames ui-icon__slotgames--arrowup"></span>
+                    </div>
+                    <!-- 搜索区域&&列表展示区 end -->
+                </div>
+                <!-- end: slot games -->
+                <!-- start: lottery-->
+                <div class="lottery-casino casino-cont" style="display:none;">
+                    <div class="line">
+                        <img src="images/bgs_new/lottery-st.png" alt="Casino K8" id="lotterySt" />
+                        <img src="images/bgs_new/lottery-mb.png" alt="Casino K8" id="lotteryMb" />
+                    </div>
+                    <div class="line z-mt10">
+                        <img src="images/bgs_new/lottery-mt.png" alt="Casino K8" id="lotteryMt" />
+                        <img src="images/bgs_new/lottery-mn.png" alt="Casino K8" id="lotteryMn" />
+                    </div>
+                    <div class="ui-tempplaceholder"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mfooter">
+        <img src="images/sprite-logos/full-foot.png" />
+	</div>
+
+	<script src="js/swiper.min.js"></script>
+	<script src="js/page.js"></script>
+</body>
+
+</html>
