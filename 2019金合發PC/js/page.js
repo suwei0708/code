@@ -162,7 +162,7 @@ $(function() {
 	});
 
 	// 复制
-	$('.cz-main').on('click', '.copy-btn', function() {
+	$('.membercenter').on('click', '.copy-btn', function() {
 		copyToClipboard($(this).attr('id'));
 	});
 });
