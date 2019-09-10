@@ -175,6 +175,17 @@ $(function() {
 			$('#picSample').addClass('hidden');
 		}
 	});
+
+	// 优惠页展开收缩
+	$('#promote_wrap').on('click', '.promotBtn', function() {
+		var $cont = $(this).parents('.promoteCard').find('.textContent');
+		if ($cont.is(':visible')) {
+			$cont.hide();
+		}
+		else {
+			$cont.show();
+		}
+	});
 });
 
 /*复制代码到剪切板*/
