@@ -165,6 +165,16 @@ $(function() {
 	$('.membercenter').on('click', '.copy-btn', function() {
 		copyToClipboard($(this).attr('id'));
 	});
+
+	// 查看正面照片范本
+	$('.viewSample').on('click', 'a', function() {
+		if ($('#picSample').hasClass('hidden')) {
+			$('#picSample').removeClass('hidden');
+		}
+		else {
+			$('#picSample').addClass('hidden');
+		}
+	});
 });
 
 /*复制代码到剪切板*/

@@ -2,13 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>充值頁面6-金合發</title>
-	<link rel="stylesheet" href="css/common.css">
-
+    <title>個人資料-金合發</title>
 	<link rel="stylesheet" href="css/page.css">
-
-	<link rel="stylesheet" href="css/membercenter.css">
-	<link rel="stylesheet" href="css/newbankpage.css">
 </head>
 <body>
 	<div class="header">
@@ -289,12 +284,13 @@
 	    </div>
 	</div>
 
-	<div id="viewcreditlogs" class="membercenter">
-	    <div class="wrapper">
+	<div class="main">
+	    <div class="wrap w1010 pt30">
 	        <div class="side">
 	            <div class="user">
 	                <span class="icon-home"></span>
 	                <span class="loginname">syh12345678</span>
+
 	                <div class="stars">
 	                    <ul class="star0">
 	                        <li class="first"></li>
@@ -308,80 +304,211 @@
 	                </div>
 	            </div>
 	            <div class="sidenav">
-	                <ul>
-	                    <li id="menu1"><a href="充值頁面.html">Gửi tiền</a></li>
-	                    <li id="menu2"><a href="充值頁面2.html">Rút tiền</a></li>
-	                    <li id="menu7"><a href="充值頁面3.html">Quản lý khuyến mãi</a></li>
-	                    <li id="menu3"><a href="充值頁面4.html">Tổng hoàn trả</a></li>
-	                    <li id="menu4"><a href="充值頁面5.html">Kiểm tra số dư</a></li>
-	                    <li id="menu6" class="active">
-	                        <a href="充值頁面6.html">Lịch sử giao dịch</a>
-	                        <span class="arrow"></span>
-
-	                        <div class="m-sub" style="display: block;">
-	                            <a href="/viewdeposithistory.htm" class="ms1 active"><span style="margin-left: -18px;">Lịch sử gửi tiền</span></a>
-	                            <a href="/viewwithdrawhistory.htm" class="ms2"><span style="margin-left: -18px;">Lịch sử rút tiền</span></a>
-	                            <a href="/viewrebatehistory.htm" class="ms3"><span style="margin-left: -18px;">Lịch sử hoàn trả</span></a>
-	                            <a href="/viewpromohistory.htm" class="ms4">Lịch sử khuyến mãi</a>
-	                        </div>
-	                    </li>
-	                </ul>
-
+					<ul>
+					    <li class="active"><a href="個人資料.html">個人資料</a></li>
+					    <li><a href="託售綁定.html">託售綁定</a></li>
+					    <li><a href="重設密碼.html">重設密碼</a></li>
+					    <li><a href="站內訊息.html">站內訊息</a></li>
+					    <li><a href="帳務報表.html">帳務報表</a></li>
+					    <li><a href="電子錢包.html">電子錢包</a></li>
+					</ul>
 	            </div>
 	        </div>
-	        <div class="main logs">
-	            <div class="tabs">
-	                <ul>
-	                    <li id="mmflag1"><a href="memberinfo.htm" id="serverhome">Thông Tin Cá Nhân</a></li>
-	                    <li id="mmflag2" class="active"><a href="localbank.htm" id="choosedeposit">Trung Tâm Tài Chính</a></li>
-	                </ul>
-	            </div>
-	            <div class="content">
-	                <div class="row full">
-	                    <form id="viewcreditlogsform" name="query" action="viewdeposithistory.htm" method="post" autocomplete="off">
-	                        <div class="box filter">
-	                            <ul class="info-list">
-	                                <li>
-	                                    <label>Thời gian bắt đầu：</label>
-	                                    <div class="f-input">
-	                                        <input class="nongroup-input" type="text" name="startDate" maxlength="20" value="2019-08-25" readonly="readonly" id="startDate" onfocus="javascript:WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-#{%M-1}-%d',maxDate:'%y-%M-%d',autoPickDate:'true'})">
-											<span class="calendar"></span>
-										</div>
-									</li>
-									<li class="last">
-										<label>Thời gian kết thúc：</label>
-										<div class="f-input">
-											<input type="text" class="nongroup-input" name="endDate" maxlength="20" value="2019-09-09" readonly="readonly" id="endDate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-#{%d-15}',maxDate:'%y-%M-%d',autoPickDate:'true'})">
-											<span class="calendar"></span>
-										</div>
-									</li>
-								</ul>
-							<a href="javascript:;" class="form-btn logsubmit" onclick="javascript:logToSubmit()" style="margin-left:10px">Tìm kiếm</a>
-						</div>
-					</form>
-					<div class="clear"></div>
-					<br>
-					<div class="history-tbl" id="history-tbl">
-						<div class="tbl-hdr">
-							<div class="tbl-col tc1">Hình thức gửi tiền</div>
-							<div class="tbl-col tc2">Số tiền</div>
-							<div class="tbl-col tc3">Số lệnh gửi tiền</div>
-							<div class="tbl-col tc4">Trạng thái</div>
-							<div class="tbl-col tc5"><input type="checkbox"></div>
-						</div>
+	        <div class="cz-main">
+				<div class="right_center">
+				    <ul>
+				        <li class="rc_top">
+				            <h2>个人资料</h2>
+				        </li>
+				        <li>
+				            <span>性别</span>
+				            <select name="sex" class="select filterForm inline" style="height: 40px;" tabindex="0" disabled="">
+				                <option value="">请选择性别</option>
+				                <option value="1">
+				                    男性</option>
+				                <option value="2">
+				                    女性</option>
+				            </select>
+				        </li>
+				        <li>
+				            <span>生日</span>
+				            <input id="birthdayText" class="birthdayText w3-input co-m-10" disabled="" style="display:none">
 
-						<div class="tbl-row">
-							<div class="tbl-col tc-none">Không có lịch sử</div>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="clear"></div>
-					<br><br><br>
+				            <div id="birthdayPicker" class="picker hidden w3-input co-m-10">
+				                <fieldset class="birthday-picker"><select class="birth-year" name="birth[year]">
+				                        <option value="0" disabled="" selected="">---</option>
+				                        <option value="2002">2002</option>
+				                        <option value="2001">2001</option>
+				                        <option value="2000">2000</option>
+				                        <option value="1999">1999</option>
+				                        <option value="1998">1998</option>
+				                        <option value="1997">1997</option>
+				                        <option value="1996">1996</option>
+				                        <option value="1995">1995</option>
+				                        <option value="1994">1994</option>
+				                        <option value="1993">1993</option>
+				                        <option value="1992">1992</option>
+				                        <option value="1991">1991</option>
+				                        <option value="1990">1990</option>
+				                        <option value="1989">1989</option>
+				                        <option value="1988">1988</option>
+				                        <option value="1987">1987</option>
+				                        <option value="1986">1986</option>
+				                        <option value="1985">1985</option>
+				                        <option value="1984">1984</option>
+				                        <option value="1983">1983</option>
+				                        <option value="1982">1982</option>
+				                        <option value="1981">1981</option>
+				                        <option value="1980">1980</option>
+				                        <option value="1979">1979</option>
+				                        <option value="1978">1978</option>
+				                        <option value="1977">1977</option>
+				                        <option value="1976">1976</option>
+				                        <option value="1975">1975</option>
+				                        <option value="1974">1974</option>
+				                        <option value="1973">1973</option>
+				                        <option value="1972">1972</option>
+				                        <option value="1971">1971</option>
+				                        <option value="1970">1970</option>
+				                        <option value="1969">1969</option>
+				                        <option value="1968">1968</option>
+				                        <option value="1967">1967</option>
+				                        <option value="1966">1966</option>
+				                        <option value="1965">1965</option>
+				                        <option value="1964">1964</option>
+				                        <option value="1963">1963</option>
+				                        <option value="1962">1962</option>
+				                        <option value="1961">1961</option>
+				                        <option value="1960">1960</option>
+				                        <option value="1959">1959</option>
+				                        <option value="1958">1958</option>
+				                        <option value="1957">1957</option>
+				                        <option value="1956">1956</option>
+				                        <option value="1955">1955</option>
+				                        <option value="1954">1954</option>
+				                        <option value="1953">1953</option>
+				                        <option value="1952">1952</option>
+				                        <option value="1951">1951</option>
+				                        <option value="1950">1950</option>
+				                        <option value="1949">1949</option>
+				                        <option value="1948">1948</option>
+				                        <option value="1947">1947</option>
+				                        <option value="1946">1946</option>
+				                        <option value="1945">1945</option>
+				                        <option value="1944">1944</option>
+				                        <option value="1943">1943</option>
+				                        <option value="1942">1942</option>
+				                        <option value="1941">1941</option>
+				                        <option value="1940">1940</option>
+				                        <option value="1939">1939</option>
+				                        <option value="1938">1938</option>
+				                        <option value="1937">1937</option>
+				                        <option value="1936">1936</option>
+				                        <option value="1935">1935</option>
+				                        <option value="1934">1934</option>
+				                        <option value="1933">1933</option>
+				                        <option value="1932">1932</option>
+				                        <option value="1931">1931</option>
+				                        <option value="1930">1930</option>
+				                        <option value="1929">1929</option>
+				                        <option value="1928">1928</option>
+				                        <option value="1927">1927</option>
+				                        <option value="1926">1926</option>
+				                        <option value="1925">1925</option>
+				                        <option value="1924">1924</option>
+				                        <option value="1923">1923</option>
+				                        <option value="1922">1922</option>
+				                        <option value="1921">1921</option>
+				                        <option value="1920">1920</option>
+				                        <option value="1919">1919</option>
+				                    </select><span> / </span><select class="birth-month" name="birth[month]">
+				                        <option value="0" disabled="" selected="">--</option>
+				                        <option value="1">1</option>
+				                        <option value="2">2</option>
+				                        <option value="3">3</option>
+				                        <option value="4">4</option>
+				                        <option value="5">5</option>
+				                        <option value="6">6</option>
+				                        <option value="7">7</option>
+				                        <option value="8">8</option>
+				                        <option value="9">9</option>
+				                        <option value="10">10</option>
+				                        <option value="11">11</option>
+				                        <option value="12">12</option>
+				                    </select><span> / </span><select class="birth-day" name="birth[day]">
+				                        <option value="0" disabled="" selected="">--</option>
+				                        <option value="1">1</option>
+				                        <option value="2">2</option>
+				                        <option value="3">3</option>
+				                        <option value="4">4</option>
+				                        <option value="5">5</option>
+				                        <option value="6">6</option>
+				                        <option value="7">7</option>
+				                        <option value="8">8</option>
+				                        <option value="9">9</option>
+				                        <option value="10">10</option>
+				                        <option value="11">11</option>
+				                        <option value="12">12</option>
+				                        <option value="13">13</option>
+				                        <option value="14">14</option>
+				                        <option value="15">15</option>
+				                        <option value="16">16</option>
+				                        <option value="17">17</option>
+				                        <option value="18">18</option>
+				                        <option value="19">19</option>
+				                        <option value="20">20</option>
+				                        <option value="21">21</option>
+				                        <option value="22">22</option>
+				                        <option value="23">23</option>
+				                        <option value="24">24</option>
+				                        <option value="25">25</option>
+				                        <option value="26">26</option>
+				                        <option value="27">27</option>
+				                        <option value="28">28</option>
+				                        <option value="29">29</option>
+				                        <option value="30">30</option>
+				                        <option value="31">31</option>
+				                    </select><input type="hidden" name="birthdate" id="birthdate" value=""></fieldset>
+				            </div>
+				        </li>
+				        <li>
+				            <span>手机</span>
+				            <select name="nationNumber" class="filterForm select inline" disabled="">
+				                <option value="886">台湾 (886)</option>
+				                <option value="86">大陆 (86)</option>
+				            </select>
+				            <input type="text" name="phone" id="phone" disabled="" placeholder="手机号码" class="filterForm w3-input co-m-6">
+				        </li>
+				        <li>
+				            <span>Email</span>
+				            <input class="w3-input co-m-10 filterForm" type="text" placeholder="" name="email">
+				        </li>
+				        <li>
+				            <span>Line</span>
+				            <input class="w3-input co-m-10 filterForm" type="text" placeholder="" name="line" disabled="">
+				        </li>
+				        <li>
+				            <span>Wechat</span>
+				            <input class="w3-input co-m-10 filterForm" type="text" placeholder="" name="wechat">
+				        </li>
+				        <li>
+				            <span>Skype</span>
+				            <input class="w3-input co-m-10 filterForm" type="text" placeholder="" name="skype">
+				        </li>
+				        <li>
+				            <div class="text-inpo">
+				                <img class="icon" src="images/icon_notice.svg">已提供过的个人资料将无法自行异动。
+				                若需异动个人资料，请洽 <a class="contactCS-js" style="cursor:pointer;">线上客服</a>。
+				            </div>
+				        </li>
+				        <li>
+				            <button class="btn w3-button w3-green w3-center btn-updateInfo updateInfo-js">储存个人资料</button>
+				        </li>
+				        <li class="path_b"></li>
+				    </ul>
 				</div>
-			</div>
-		</div>
+	        </div>
 	    </div>
-	    <div class="clear"></div>
 	</div>
 
 	<div class="footer">

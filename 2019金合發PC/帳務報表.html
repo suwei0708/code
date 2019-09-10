@@ -2,13 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>充值頁面6-金合發</title>
-	<link rel="stylesheet" href="css/common.css">
-
+    <title>帳務報表-金合發</title>
 	<link rel="stylesheet" href="css/page.css">
-
-	<link rel="stylesheet" href="css/membercenter.css">
-	<link rel="stylesheet" href="css/newbankpage.css">
 </head>
 <body>
 	<div class="header">
@@ -289,12 +284,13 @@
 	    </div>
 	</div>
 
-	<div id="viewcreditlogs" class="membercenter">
-	    <div class="wrapper">
+	<div class="main">
+	    <div class="wrap w1010 pt30">
 	        <div class="side">
 	            <div class="user">
 	                <span class="icon-home"></span>
 	                <span class="loginname">syh12345678</span>
+
 	                <div class="stars">
 	                    <ul class="star0">
 	                        <li class="first"></li>
@@ -308,80 +304,59 @@
 	                </div>
 	            </div>
 	            <div class="sidenav">
-	                <ul>
-	                    <li id="menu1"><a href="充值頁面.html">Gửi tiền</a></li>
-	                    <li id="menu2"><a href="充值頁面2.html">Rút tiền</a></li>
-	                    <li id="menu7"><a href="充值頁面3.html">Quản lý khuyến mãi</a></li>
-	                    <li id="menu3"><a href="充值頁面4.html">Tổng hoàn trả</a></li>
-	                    <li id="menu4"><a href="充值頁面5.html">Kiểm tra số dư</a></li>
-	                    <li id="menu6" class="active">
-	                        <a href="充值頁面6.html">Lịch sử giao dịch</a>
-	                        <span class="arrow"></span>
-
-	                        <div class="m-sub" style="display: block;">
-	                            <a href="/viewdeposithistory.htm" class="ms1 active"><span style="margin-left: -18px;">Lịch sử gửi tiền</span></a>
-	                            <a href="/viewwithdrawhistory.htm" class="ms2"><span style="margin-left: -18px;">Lịch sử rút tiền</span></a>
-	                            <a href="/viewrebatehistory.htm" class="ms3"><span style="margin-left: -18px;">Lịch sử hoàn trả</span></a>
-	                            <a href="/viewpromohistory.htm" class="ms4">Lịch sử khuyến mãi</a>
-	                        </div>
-	                    </li>
-	                </ul>
-
+					<ul>
+					    <li><a href="個人資料.html">個人資料</a></li>
+					    <li><a href="託售綁定.html">託售綁定</a></li>
+					    <li><a href="重設密碼.html">重設密碼</a></li>
+					    <li><a href="站內訊息.html">站內訊息</a></li>
+					    <li class="active"><a href="帳務報表.html">帳務報表</a></li>
+					    <li><a href="電子錢包.html">電子錢包</a></li>
+					</ul>
 	            </div>
 	        </div>
-	        <div class="main logs">
-	            <div class="tabs">
-	                <ul>
-	                    <li id="mmflag1"><a href="memberinfo.htm" id="serverhome">Thông Tin Cá Nhân</a></li>
-	                    <li id="mmflag2" class="active"><a href="localbank.htm" id="choosedeposit">Trung Tâm Tài Chính</a></li>
-	                </ul>
-	            </div>
-	            <div class="content">
-	                <div class="row full">
-	                    <form id="viewcreditlogsform" name="query" action="viewdeposithistory.htm" method="post" autocomplete="off">
-	                        <div class="box filter">
-	                            <ul class="info-list">
-	                                <li>
-	                                    <label>Thời gian bắt đầu：</label>
-	                                    <div class="f-input">
-	                                        <input class="nongroup-input" type="text" name="startDate" maxlength="20" value="2019-08-25" readonly="readonly" id="startDate" onfocus="javascript:WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-#{%M-1}-%d',maxDate:'%y-%M-%d',autoPickDate:'true'})">
-											<span class="calendar"></span>
-										</div>
-									</li>
-									<li class="last">
-										<label>Thời gian kết thúc：</label>
-										<div class="f-input">
-											<input type="text" class="nongroup-input" name="endDate" maxlength="20" value="2019-09-09" readonly="readonly" id="endDate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-#{%d-15}',maxDate:'%y-%M-%d',autoPickDate:'true'})">
-											<span class="calendar"></span>
-										</div>
-									</li>
-								</ul>
-							<a href="javascript:;" class="form-btn logsubmit" onclick="javascript:logToSubmit()" style="margin-left:10px">Tìm kiếm</a>
-						</div>
-					</form>
-					<div class="clear"></div>
-					<br>
-					<div class="history-tbl" id="history-tbl">
-						<div class="tbl-hdr">
-							<div class="tbl-col tc1">Hình thức gửi tiền</div>
-							<div class="tbl-col tc2">Số tiền</div>
-							<div class="tbl-col tc3">Số lệnh gửi tiền</div>
-							<div class="tbl-col tc4">Trạng thái</div>
-							<div class="tbl-col tc5"><input type="checkbox"></div>
-						</div>
+	        <div class="cz-main">
+				<div class="Storedlist">
+				    <div style="width:70%;margin-left:auto;margin-right:auto;">
+				        <form id="_form-js">
+				            <input type="hidden" name="action" value="list_m">
 
-						<div class="tbl-row">
-							<div class="tbl-col tc-none">Không có lịch sử</div>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="clear"></div>
-					<br><br><br>
+				            <input type="hidden" name="sortColumn" value="amount">
+				            <input type="hidden" name="sortDirection" value="desc">
+				            <input type="hidden" name="isExportToExcel" value="false">
+				            <div style="width:80%;display: inline-block;">
+				                <div id="dateTime-js">
+				                    <div class="form-group">
+				                        <div style="width:30%;float:left;"><label for="exampleInputEmail1" class="mr-2">開始時間</label><input type="text" id="beginDateTime" name="beginDateTime" placeholder="从" class="form-control filterForm dateTime dateFrom hasDatepicker" maxlength="10" data-dom="dateTime-js"></div>
+				                        <div style="width:30%;float:left;"><label for="exampleInputEmail1" class="mr-2">結束時間</label><input type="text" id="endDateTime" name="endDateTime" placeholder="到" class="form-control filterForm dateTime dateTo hasDatepicker" maxlength="10" data-dom="dateTime-js"></div>
+				                    </div>
+				                    <div class="clearfix"></div>
+				                    <div class="my-3 setDateTime"><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickDayItem tomorrow" data-bname="beginDateTime" data-ename="endDateTime" data-day="0">明日</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickDayItem today" data-bname="beginDateTime" data-ename="endDateTime" data-day="1">今日</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickDayItem" data-bname="beginDateTime" data-ename="endDateTime" data-day="2">昨日</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickWeekItem" data-bname="beginDateTime" data-ename="endDateTime" data-week="1">本週</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickWeekItem" data-bname="beginDateTime" data-ename="endDateTime" data-week="2">上週</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickMonthItem" data-bname="beginDateTime" data-ename="endDateTime" data-month="0">本月</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickMonthItem" data-bname="beginDateTime" data-ename="endDateTime" data-month="1">上月</button><button type="button" class="btn btn_style3 pointer d-inline-block mr-2 quickDateItem quickOneMonthItem" data-bname="beginDateTime" data-ename="endDateTime">近一个月</button><button type="button" class="btn btn_style2 pointer d-inline-block clearDate clearDate-js" data-dom="dateTime-js">清除</button></div>
+				                </div>
+				            </div>
+				            <div style="width:10%;display: inline-block;">
+				                <button type="submit" class="btn btn_style3 pointer d-inline-block submit-js">
+				                    查詢
+				                </button>
+				            </div>
+				        </form>
+				    </div>
+				    <div class="opencontent">
+				        <div id="Stored_Value" class="city">
+				            <div class="trasListBox trasListBox-js">
+				                <div class="emptyData valignWrapper" style="width:100%;height:300px;">
+				                    <div class="gird-12 text-center"><i class="icon-comment-1"></i>目前無任何投注紀錄</div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+
+				    <div class="w3-center pagination w3-margin-bottom15">
+				        <div class="pageGroup w3-bar w3-border">
+				        </div>
+				    </div>
 				</div>
-			</div>
-		</div>
+	        </div>
 	    </div>
-	    <div class="clear"></div>
 	</div>
 
 	<div class="footer">

@@ -2,13 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>充值頁面6-金合發</title>
-	<link rel="stylesheet" href="css/common.css">
-
+    <title>託售綁定-金合發</title>
 	<link rel="stylesheet" href="css/page.css">
-
-	<link rel="stylesheet" href="css/membercenter.css">
-	<link rel="stylesheet" href="css/newbankpage.css">
 </head>
 <body>
 	<div class="header">
@@ -289,12 +284,13 @@
 	    </div>
 	</div>
 
-	<div id="viewcreditlogs" class="membercenter">
-	    <div class="wrapper">
+	<div class="main">
+	    <div class="wrap w1010 pt30">
 	        <div class="side">
 	            <div class="user">
 	                <span class="icon-home"></span>
 	                <span class="loginname">syh12345678</span>
+
 	                <div class="stars">
 	                    <ul class="star0">
 	                        <li class="first"></li>
@@ -308,80 +304,55 @@
 	                </div>
 	            </div>
 	            <div class="sidenav">
-	                <ul>
-	                    <li id="menu1"><a href="充值頁面.html">Gửi tiền</a></li>
-	                    <li id="menu2"><a href="充值頁面2.html">Rút tiền</a></li>
-	                    <li id="menu7"><a href="充值頁面3.html">Quản lý khuyến mãi</a></li>
-	                    <li id="menu3"><a href="充值頁面4.html">Tổng hoàn trả</a></li>
-	                    <li id="menu4"><a href="充值頁面5.html">Kiểm tra số dư</a></li>
-	                    <li id="menu6" class="active">
-	                        <a href="充值頁面6.html">Lịch sử giao dịch</a>
-	                        <span class="arrow"></span>
-
-	                        <div class="m-sub" style="display: block;">
-	                            <a href="/viewdeposithistory.htm" class="ms1 active"><span style="margin-left: -18px;">Lịch sử gửi tiền</span></a>
-	                            <a href="/viewwithdrawhistory.htm" class="ms2"><span style="margin-left: -18px;">Lịch sử rút tiền</span></a>
-	                            <a href="/viewrebatehistory.htm" class="ms3"><span style="margin-left: -18px;">Lịch sử hoàn trả</span></a>
-	                            <a href="/viewpromohistory.htm" class="ms4">Lịch sử khuyến mãi</a>
-	                        </div>
-	                    </li>
-	                </ul>
-
+					<ul>
+					    <li><a href="個人資料.html">個人資料</a></li>
+					    <li class="active"><a href="託售綁定.html">託售綁定</a></li>
+					    <li><a href="重設密碼.html">重設密碼</a></li>
+					    <li><a href="站內訊息.html">站內訊息</a></li>
+					    <li><a href="帳務報表.html">帳務報表</a></li>
+					    <li><a href="電子錢包.html">電子錢包</a></li>
+					</ul>
 	            </div>
 	        </div>
-	        <div class="main logs">
-	            <div class="tabs">
-	                <ul>
-	                    <li id="mmflag1"><a href="memberinfo.htm" id="serverhome">Thông Tin Cá Nhân</a></li>
-	                    <li id="mmflag2" class="active"><a href="localbank.htm" id="choosedeposit">Trung Tâm Tài Chính</a></li>
-	                </ul>
-	            </div>
-	            <div class="content">
-	                <div class="row full">
-	                    <form id="viewcreditlogsform" name="query" action="viewdeposithistory.htm" method="post" autocomplete="off">
-	                        <div class="box filter">
-	                            <ul class="info-list">
-	                                <li>
-	                                    <label>Thời gian bắt đầu：</label>
-	                                    <div class="f-input">
-	                                        <input class="nongroup-input" type="text" name="startDate" maxlength="20" value="2019-08-25" readonly="readonly" id="startDate" onfocus="javascript:WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-#{%M-1}-%d',maxDate:'%y-%M-%d',autoPickDate:'true'})">
-											<span class="calendar"></span>
-										</div>
-									</li>
-									<li class="last">
-										<label>Thời gian kết thúc：</label>
-										<div class="f-input">
-											<input type="text" class="nongroup-input" name="endDate" maxlength="20" value="2019-09-09" readonly="readonly" id="endDate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-#{%d-15}',maxDate:'%y-%M-%d',autoPickDate:'true'})">
-											<span class="calendar"></span>
-										</div>
-									</li>
-								</ul>
-							<a href="javascript:;" class="form-btn logsubmit" onclick="javascript:logToSubmit()" style="margin-left:10px">Tìm kiếm</a>
-						</div>
-					</form>
-					<div class="clear"></div>
-					<br>
-					<div class="history-tbl" id="history-tbl">
-						<div class="tbl-hdr">
-							<div class="tbl-col tc1">Hình thức gửi tiền</div>
-							<div class="tbl-col tc2">Số tiền</div>
-							<div class="tbl-col tc3">Số lệnh gửi tiền</div>
-							<div class="tbl-col tc4">Trạng thái</div>
-							<div class="tbl-col tc5"><input type="checkbox"></div>
-						</div>
+	        <div class="cz-main">
+				<div class="right_center">
+				    <ul id="widthdraw_info_wrap">
+				        <li class="rc_top">
+				            <h2>取款绑定</h2>
+				        </li>
+				        <li>
+				            <div class="text-inpo infoTip" id="tip_bindTWD">
+				                <img class="icon" src="images/icon_notice.svg">以下资讯，成功储存后不可修改，欲修改请洽询
+				                <a class="contactCS-js">线上客服</a>。
+				                <div class="viewSample viewSample-js">
+				                    <a style="cursor:pointer;">查看正面照片范本</a>
+				                    <div id="picSample" class="hidden">
+				                        <div class="mui-textfield">
+				                            <img src="images/id_card.jpg">
+				                        </div>
+				                        <div class="mui-textfield">
+				                            <img src="images/account_book.jpg">
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </li>
 
-						<div class="tbl-row">
-							<div class="tbl-col tc-none">Không có lịch sử</div>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="clear"></div>
-					<br><br><br>
+				        <li class="mui-textfield"><span>身分證字號</span><input class="w3-input co-m-7  mui--is-not-empty" type="text" placeholder="" value="A1*****045" disabled=""></li>
+				        <li class="mui-textfield"><span>存摺户名</span><input class="w3-input co-m-7  mui--is-not-empty" type="text" placeholder="" value="張*健" disabled=""></li>
+				        <li class="mui-textfield"><span>帐号银行</span><input class="w3-input co-m-7  mui--is-not-empty" type="text" placeholder="" value="822&nbsp;中国信託 - 東*分行" disabled=""></li>
+						<li class="mui-textfield"><span>存摺帐号</span><input class="w3-input co-m-7  mui--is-not-empty" type="text" placeholder="" value="12*******585" disabled=""></li>
+
+						<li class="path_b"></li>
+				    </ul>
+
+				    <div id="tip_isBindWithdrawPW" class="mui--text-accent infoTip">
+				        您已设定过提款密码，若需变更提款密码，请<a class="contactCS-js"></a>联繫客服人员。
+				        <div class="path_b"></div>
+				    </div>
 				</div>
-			</div>
-		</div>
+	        </div>
 	    </div>
-	    <div class="clear"></div>
 	</div>
 
 	<div class="footer">
