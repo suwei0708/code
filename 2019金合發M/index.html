@@ -22,28 +22,28 @@
     <div class="ui-content">
         <!-- 针对于1级,有用户logo，还有登录未登录判断 -->
         <div class="ui-header mheader">
-            <a class="menu" href="index.htm"><span class="ui-logo__k8logo ui-logo__k8logo--headerk8logo"></span></a> <!-- 未登录 -->
+            <a class="menu" href="index.html"><span class="ui-logo__k8logo ui-logo__k8logo--headerk8logo"></span></a>
             <div class="notlogin-content">
-                <a href="#" class="login-button ui-mr__5">ĐĂNG NHẬP</a>
-                <a href="註冊頁.html" class="login-button register-button ui-mr__15">ĐĂNG KÝ</a>
+                <a href="登入頁.html" class="login-button ui-mr__5">登入</a>
+                <a href="註冊頁.html" class="login-button register-button ui-mr__15">註冊</a>
             </div>
         </div>
-        <div class="ui-nav" id="navflag">
-            <a class="ui-nav__item  active " href="#"><i class="ui-icon__nav ui-icon__nav--Home ui-mb__5"></i>Trang Chủ</a>
-            <!-- 未登录 -->
-            <a class="ui-nav__item " href="#"><i class="ui-icon__nav ui-icon__nav--K8Higlights ui-mb__5"></i>Điểm Nhấn</a>
-            <a class="ui-nav__item " href="#"><i class="ui-icon__nav ui-icon__nav--MemberCenter ui-mb__5"></i>Tài Khoản</a>
-            <a class="ui-nav__item " href="#"><i class="ui-icon__nav ui-icon__nav--Promotions ui-mb__5"></i>Khuyến Mãi</a>
-            <a class="ui-nav__item my-service" href="javascript:;"><i class="ui-icon__nav ui-icon__nav--LiveChat ui-mb__5"></i>Hỗ Trợ</a>
+        <div class="ui-nav">
+            <a class="ui-nav__item active " href="index.html"><i class="ui-icon__nav ui-icon__nav--Home ui-mb__5"></i>首頁</a>
+            <a class="ui-nav__item" href="#"><i class="ui-icon__nav ui-icon__nav--Deposit ui-mb__5"></i>存款</a>
+            <a class="ui-nav__item" href="賬戶.html"><i class="ui-icon__nav ui-icon__nav--MemberCenter ui-mb__5"></i>賬戶</a>
+            <a class="ui-nav__item" href="優惠活動頁.html"><i class="ui-icon__nav ui-icon__nav--Promotions ui-mb__5"></i>活動</a>
+            <a class="ui-nav__item my-service" href="javascript:;"><i class="ui-icon__nav ui-icon__nav--LiveChat ui-mb__5"></i>客服</a>
         </div>
         <div class="customer-service">
             <ul>
                 <li class="txt_blue2"><a class="serviceonlih" href="javascript:chatButton.onClick();">Hỗ trợ trực tuyến</a></li>
                 <li class="txt_blue2"><span class="label">Hot line </span> <a href="tel:+84-2444581788" class="tel">+84-2444581788</a></li>
-                <li class="txt_blue2"><a href="/cdn-cgi/l/email-protection#a7d1c9c4d4e7cc9f89c4c8ca">Hộp thư: <span class="__cf_email__" data-cfemail="c1b7afa2b281aaf9efa2aeac">[email&#160;protected]</span></a></li>
+                <li class="txt_blue2"><a href="mailto:vncs@k8.com">Hộp thư: vncs@k8.com</a></li>
             </ul>
             <a class="txt_blue2 closeCS" href="#">Hủy bỏ</a>
 		</div>
+		<div class="dd-blur"></div>
 
         <div class="ui-body">
             <div class="mindex">
@@ -65,21 +65,19 @@
                 <div class="game-nav">
                     <div class="item active" id="sport">
                         <div class="item-icon ui-icon__index ui-icon__index--Sports ui-mb__5"></div>
-                        <div class="item-desc">Thể Thao</div>
+                        <div class="item-desc">運動</div>
                     </div>
                     <div class="item" id="live">
                         <div class="item-icon ui-icon__index ui-icon__index--Casino ui-mb__5"></div>
-                        <div class="item-desc">Live Casino</div>
+                        <div class="item-desc">真人視訊</div>
                     </div>
                     <div class="item" id="slot">
                         <div class="item-icon ui-icon__index ui-icon__index--Slot ui-mb__5"></div>
-                        <div class="item-desc">Slot</div>
+                        <div class="item-desc">電子遊戲</div>
                     </div>
                     <div class="item" id="lottery">
-                        <div class="item-icon ui-icon__index ui-icon__index--Lottery ui-mb__5 ui-pos__relative">
-                            <div class="item-tip">Mới</div>
-                        </div>
-                        <div class="item-desc">Xổ Số</div>
+                        <div class="item-icon ui-icon__index ui-icon__index--Lottery ui-mb__5"></div>
+                        <div class="item-desc">彩票</div>
                     </div>
                     <div class="banner-operate banner-show" id="showbanner" style="display: none;">
                         <i class="ui-icon__index ui-icon__index--showbanner"></i>
@@ -92,7 +90,7 @@
                         <div class="sport-info">
                             <div class="ui-tempplaceholder"></div>
                             <div class="sport-logo ui-icon__sportscasino sabalogo"></div>
-                            <div class="sport-desc">Cược Châu Á Tích Hợp <br /> Number Game và <br />Thể Thao Ảo</div>
+                            <div class="sport-desc">亞洲投注集成<br />數字遊戲和<br />虛擬體育</div>
                         </div>
                         <div class="sport-operate">
                             <div class="sport-icons">
@@ -113,13 +111,9 @@
                                 </div>
                             </div>
                             <div class="button-content" id="C07031">
-                                <div class="button-item" logintype="mobile">
-                                    <div class="ui-icon__sportscasino mobileicon"></div>
-                                    <div class="button-name">Di Động</div>
-                                </div>
                                 <div class="button-item" logintype="pc">
                                     <div class="ui-icon__sportscasino pcicon"></div>
-                                    <div class="button-name">Máy Tính</div>
+                                    <div class="button-name">馬上玩</div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +122,7 @@
                         <div class="sport-info">
                             <div class="ui-tempplaceholder"></div>
                             <div class="sport-logo ui-icon__sportscasino imlogo"></div>
-                            <div class="sport-desc">Cược Châu Á Hấp Dẫn<br /> Đa Dạng Sản Phẩm</div>
+                            <div class="sport-desc">亞洲博彩有吸引力<br />的產品品種</div>
                         </div>
                         <div class="sport-operate">
                             <div class="sport-icons">
@@ -149,13 +143,9 @@
                                 </div>
                             </div>
                             <div class="button-content" id="C07086">
-                                <div class="button-item" logintype="mobile">
-                                    <div class="ui-icon__sportscasino mobileicon"></div>
-                                    <div class="button-name">Di Động</div>
-                                </div>
                                 <div class="button-item" logintype="pc">
                                     <div class="ui-icon__sportscasino pcicon"></div>
-                                    <div class="button-name">Máy Tính</div>
+                                    <div class="button-name">馬上玩</div>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +155,7 @@
                             <div class="ui-tempplaceholder"></div>
                             <div class="sport-logo ui-icon__sportscasino btilogo"></div>
 
-                            <div class="sport-desc">Cược Châu Âu Phổ Biến</div>
+                            <div class="sport-desc">人呢亞洲投注</div>
                         </div>
                         <div class="sport-operate">
                             <div class="sport-icons">
@@ -186,13 +176,9 @@
                                 </div>
                             </div>
                             <div class="button-content" id="C07062">
-                                <div class="button-item" logintype="mobile">
-                                    <div class="ui-icon__sportscasino mobileicon"></div>
-                                    <div class="button-name">Di Động</div>
-                                </div>
                                 <div class="button-item" logintype="pc">
                                     <div class="ui-icon__sportscasino pcicon"></div>
-                                    <div class="button-name">Máy Tính</div>
+                                    <div class="button-name">馬上玩</div>
                                 </div>
                             </div>
                         </div>
@@ -206,8 +192,7 @@
                     <!-- AG旗舰 -->
                     <div class="live-item ui-mr__15">
                         <div class="live-portrait ui-icon__livecasino ui-icon__livecasino--agportrait"></div>
-                        <div class="live-desc ui-mb__10">Sòng bài trực tuyến với đường gợi ý đoán bài chính xác tuyệt đối, sảnh cược hấp
-                            dẫn lên đến 1 TỶ VND/ván</div>
+                        <div class="live-desc ui-mb__10">在線賭場擁有完美準確的猜測線，有吸引力的投注大廳高達十億越野遊戲</div>
                         <div class="live-icons">
                             <div class="item ui-pb__2">
                                 <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--baccarat"></div>
@@ -231,8 +216,7 @@
 
                     <div class="live-item">
                         <div class="live-portrait ui-icon__livecasino ui-icon__livecasino--ebetportrait"></div>
-                        <div class="live-desc ui-mb__10">Sòng bài trực tuyến tương tác hotgirl chia bài mọi lúc mọi nơi, chức năng nặn bài
-                            360°！</div>
+                        <div class="live-desc ui-mb__10">互動hotgirl在線賭場隨時隨地交易，功能360°！</div>
                         <div class="live-icons">
                             <div class="item ui-pb__2">
                                 <div class="ui-icon__livecasinoicons ui-icon__livecasinoicons--baccarat"></div>

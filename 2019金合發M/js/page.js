@@ -22,13 +22,12 @@ $(function() {
 
     // 首页切换
     $('.game-nav').on('click', '.item', function() {
-        console.log(11)
         $(this).addClass('active').siblings('.item').removeClass('active');
         $('.casino-cont').hide().eq($(this).index()).show();
     });
 
     // 顶部微信
-    $('.my-call').on('click', function() {
+    $('.my-call, #forgotPass, .my-service').on('click', function() {
         $('.customer-service').animate({
             'bottom': 0
         }, 300);
@@ -46,19 +45,27 @@ $(function() {
 
     // 注册
     $("#registerbtn").click(function() {
-        loginname = $("#loginname").val();
-        password = $("#password").val();
-        passwordConfirm = $("#passwordConfirm").val();
-        captcha = $("#captcha").val();
-        webtoken = $("#webtoken").val();
-        phone_value = $("#phone_re").val();
-        var realName = $("#realName").val();
-        var verifyCode = 'n' + $("#loginname").val();
-        var emailValue = $("#email").val();
         if (checkLoginname() && check_passwd() && check_passwdconfirm() && checkRealName() && checkPhone() && check_email() && checkCaptcha()) {
-            console.log(111)
+            console.log('註冊');
         }
-    });
+	});
+
+	// 登入
+	$("#btnLogin").click(function() {
+	    if (checkLoginname() && check_passwd()) {
+	        console.log('登入');
+	    }
+	});
+
+	// 登入是否顯示密碼
+	$(".icon-eye").click(function() {
+	    $(this).toggleClass("active");
+	    if ($(".password").attr("type") == "password") {
+	        $(".password").attr("type", "text");
+	    } else {
+	        $(".password").attr("type", "password");
+	    }
+	});
 
 });
 //帐号
@@ -80,7 +87,8 @@ function check_passwd() {
     if (password == '') {
         G.toast("请输入8-16位密码");
         return false;
-    } else if (password.length < 8 || password.length > 16 || !(/[a-zA-Z]+/.test(password)) || !(/\d+/.test(password))) {
+	}
+	else if (password.length < 8 || password.length > 16) {
         G.toast("请输入8-16位密码");
         return false;
     }

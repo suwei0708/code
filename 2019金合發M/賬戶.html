@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>賬戶-金合發</title>
+    <meta name="keywords" content="" />
+    <meta name="description" id="seoDescription" content="" />
+	<meta http-equiv="x-dns-prefetch-control" content="on" />
+
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/introjs.css" rel="stylesheet" />
+    <link href="css/layer.css" rel="stylesheet" />
+    <link href="css/ui-base.css" rel="stylesheet" />
+	<link href="css/pages-common.css" rel="stylesheet" />
+
+    <link href="css/pages-customer.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+    <div class="ui-content">
+        <div class="ui-header mheader">
+            <a class="menu" href="index.html"><span class="ui-logo__k8logo ui-logo__k8logo--headerk8logo"></span></a>
+            <!-- 已登录 -->
+            <div class="login-content">
+                <a class="info-person" href="賬戶.html">
+                    <div class="ui-icon__header ui-icon__header--User-ProfileBig info-userlog"></div>
+                    <div class="info-desc">
+                        <div class="info-name">syh12345678</div>
+                        <div class="info-level ui-icon__header ui-icon__header--level0"></div>
+                    </div>
+                </a>
+                <a class="info-letter ui-icon__header ui-icon__header--Message" href="站內信件.html"></a>
+            </div>
+        </div>
+        <div class="ui-nav">
+            <a class="ui-nav__item" href="index.html"><i class="ui-icon__nav ui-icon__nav--Home ui-mb__5"></i>首頁</a>
+            <a class="ui-nav__item" href="#"><i class="ui-icon__nav ui-icon__nav--Deposit ui-mb__5"></i>存款</a>
+            <a class="ui-nav__item active" href="賬戶.html"><i class="ui-icon__nav ui-icon__nav--MemberCenter ui-mb__5"></i>賬戶</a>
+            <a class="ui-nav__item" href="優惠活動頁.html"><i class="ui-icon__nav ui-icon__nav--Promotions ui-mb__5"></i>活動</a>
+            <a class="ui-nav__item my-service" href="javascript:;"><i class="ui-icon__nav ui-icon__nav--LiveChat ui-mb__5"></i>客服</a>
+        </div>
+        <div class="customer-service">
+            <ul>
+                <li class="txt_blue2"><a class="serviceonlih" href="javascript:chatButton.onClick();">Hỗ trợ trực tuyến</a></li>
+                <li class="txt_blue2"><span class="label">Hot line </span> <a href="tel:+84-2444581788" class="tel">+84-2444581788</a></li>
+                <li class="txt_blue2"><a href="mailto:vncs@k8.com">Hộp thư: vncs@k8.com</a></li>
+            </ul>
+            <a class="txt_blue2 closeCS" href="#">Hủy bỏ</a>
+        </div>
+        <div class="dd-blur"></div>
+        <div class="ui-body">
+            <div class="maccountinfo">
+                <div class="userinfo-content">
+                    <div class="ui-tempplaceholder"></div>
+                    <div class="userlogo ui-icon__accountinfo ui-icon__accountinfo--userlogo"></div>
+                    <div class="user-name">syh12345678</div>
+                    <div class="user-level ui-icon__accountinfo ui-icon__accountinfo--userlevel0"></div>
+                    <a class="userinfo-direct" href="#"><span>更多信息</span></a>
+                    <a class="balance-content" href="#">
+                        <div class="desc">餘額:</div>
+                        <div class="moneyicon ui-icon__accountinfo ui-icon__accountinfo--moneyicon"></div>
+                        <span class="money" id="showbalance">0</span>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <div class="ui-tempplaceholder"></div>
+                </div>
+                <div class="userinfo-operate">
+                    <a class="operate-item border-sprite" href="oneclickpay.htm">
+                        <div class="icon ui-icon__accountinfo ui-icon__accountinfo--deposit"></div>
+                        <div class="">存款</div>
+                    </a>
+                    <a class="operate-item border-sprite" href="withdraw.htm">
+                        <div class="icon ui-icon__accountinfo ui-icon__accountinfo--withdraw"></div>
+                        <div class="">重整</div>
+                    </a>
+                    <a class="operate-item" href="rebat.htm">
+                        <div class="icon ui-icon__accountinfo ui-icon__accountinfo--washcode"></div>
+                        <div class="">提款</div>
+                    </a>
+                </div>
+                <div class="page-content">
+                    <a class="page-item" href="電子錢包.html">
+                        <div class="ui-icon__accountinfo ui-icon__accountinfo--promomanager"></div>
+                        <div class="title">電子錢包</div>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <a class="page-item" href="交易歷史.html">
+                        <div class="ui-icon__accountinfo ui-icon__accountinfo--history"></div>
+                        <div class="title">交易歷史</div>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <a class="page-item" href="個人資料.html">
+                        <div class="ui-icon__accountinfo ui-icon__accountinfo--personalsetting"></div>
+                        <div class="title">個人資料</div>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <a class="page-item" href="託售綁定.html">
+                        <div class="ui-icon__accountinfo ui-icon__accountinfo--download"></div>
+                        <div class="title">託售綁定</div>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <a class="page-item" href="重設密碼.html">
+                        <div class="ui-icon__accountinfo ui-icon__accountinfo--freecall"></div>
+                        <div class="title">重設密碼</div>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <a class="page-item page-bottom" href="javascript:;">
+                        <div class="ui-icon__accountinfo ui-icon__accountinfo--logout"></div>
+                        <div class="title">登出</div>
+                        <div class="backicon ui-icon__accountinfo ui-icon__accountinfo--backwhite"></div>
+                    </a>
+                    <div class="ui-tempplaceholder"></div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    var localBalance = parseInt("0");
+                    $('#showbalance').html((localBalance).toLocaleString('en-US'));
+                    $('#washcode').click(function() {
+                        G.toast('Hệ thống hoàn trả hiện đang bảo trì.');
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <div class="mfooter">
+        <img src="images/sprite-logos/full-foot.png" />
+	</div>
+
+	<script src="js/swiper.min.js"></script>
+	<script src="js/page.js"></script>
+</body>
+
+</html>
