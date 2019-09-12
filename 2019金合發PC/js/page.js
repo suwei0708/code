@@ -186,6 +186,36 @@ $(function() {
 			$cont.show();
 		}
 	});
+
+	// 转入转出弹窗
+	$('.clients_list').on('click', '.btn', function() {
+		if ($(this).attr('data-type')) {
+			if ($(this).attr('data-type') == 'in') {
+				// 转入
+				$('#switchWrap').find('select[name=sFrom]').val(1);
+				$('#switchWrap').find('select[name=sTo]').val($(this).attr('data-id'));
+			}
+			else {
+				// 转出
+				$('#switchWrap').find('select[name=sFrom]').val($(this).attr('data-id'));
+				$('#switchWrap').find('select[name=sTo]').val('');
+			}
+			$('#switchWrap').show();
+		}
+	});
+
+	// 弹窗关闭
+	$('body').on('click', '.w3-modal .modalClose', function() {
+		$('#switchWrap').hide();
+	});
+
+	// 一键转回
+	$('.onechang').on('click', '.btn', function() {
+		var r = confirm('確定後將會幫您把其他錢包的點數轉至主錢包， 您確定執行嗎 ?');
+		if(r) {
+			console.log('轉回成功');
+		}
+	})
 });
 
 /*复制代码到剪切板*/
