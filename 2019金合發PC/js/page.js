@@ -189,6 +189,9 @@ $(function() {
 
 	// 转入转出弹窗
 	$('.clients_list').on('click', '.btn', function() {
+		$('.goGame').hide();
+		$('.zd-step1').show();
+		$('.zd-step2').hide();
 		if ($(this).attr('data-type')) {
 			if ($(this).attr('data-type') == 'in') {
 				// 转入
@@ -205,8 +208,8 @@ $(function() {
 	});
 
 	// 弹窗关闭
-	$('body').on('click', '.w3-modal .modalClose', function() {
-		$('#switchWrap').hide();
+	$('body').on('click', '.w3-modal .modalClose-js', function() {
+		$('.w3-modal').hide();
 	});
 
 	// 一键转回
@@ -215,7 +218,50 @@ $(function() {
 		if(r) {
 			console.log('轉回成功');
 		}
+	});
+
+	// 立即储值
+	$('.depositBtn-js').on('click', function() {
+		$('#depositWrap').show();
+		$('.w3-step').hide();
+		$('.w3-step1').show();
+	});
+	$('.withdrawBtn-js').on('click', function() {
+	    $('#withdrawWrap').show();
+	});
+	$('body').on('click', '#depositWrap .nextStep-js', function() {
+		if ($('#depositWrap').find('.w3-step1').find('.w3-input').val() >= 1000) {
+			$('#depositWrap').find('.w3-step').hide();
+			$('#depositWrap').find('.w3-step2').show();
+		}
+		else {
+			alert('單筆儲值最低1000點');
+		}
 	})
+	.on('change', '#depositWrap .w3-step2 input[type=radio]', function() {
+		$('#depositWrap .goStep3-js').removeAttr('disabled');
+	})
+	.on('click', '#depositWrap .prevStep-js', function() {
+	    $('#depositWrap').find('.w3-step').hide();
+	    $('#depositWrap').find('.w3-step1').show();
+	})
+	.on('click', '#depositWrap .goStep3-js', function() {
+	    $('#depositWrap').find('.w3-step').hide();
+	    $('#depositWrap').find('.w3-step3').show();
+	});
+
+	// 下拉菜单弹窗
+	$('.smenu').on('click', '.aGameIn-js', function() {
+		$('.zd-step1').show();
+		$('.zd-step2').hide();
+		$('.goGame').show();
+		$('#switchWrap').show();
+	});
+
+	$('#switchWrap').on('click', '.goStep2-js', function() {
+		$('.zd-step1').hide();
+		$('.zd-step2').show();
+	});
 });
 
 /*复制代码到剪切板*/

@@ -271,7 +271,8 @@ i {
     width: 100%;
     min-height: 130px;
     background: #2e0909;
-    position: relative
+	position: relative;
+	z-index: 987;
 }
 .header #navigation.sticky {
     position: fixed;
@@ -1021,7 +1022,6 @@ i {
     line-height: 44px;
     margin: 0 auto;
     justify-content: space-between;
-    position: relative
 }
 .header .nav ul {
     display: -webkit-box;
@@ -1030,10 +1030,6 @@ i {
     display: -webkit-flex;
     display: flex;
     justify-content: space-between
-}
-.header .nav li {
-    position: relative;
-    z-index: 798
 }
 .header .nav li>a {
     height: 44px;
@@ -1054,18 +1050,19 @@ i {
 .header .nav li .smenu {
     display: none;
     position: absolute;
-    top: 44px;
-    left: 0;
-    height: 160px;
-    margin-left: -30px;
+    top: 139px;
+	left: 0;
+	padding: 20px 0;
     white-space: nowrap;
-    width: 1000px;
-    font-size: 0
+    width: 100%;
+	font-size: 0;
+	background: rgba(0, 0, 0, .6);
+	text-align: center;
 }
 .header .nav li .smenu p {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 50px;
     width: 100%;
     color: #ffeb00;
     font-size: 20px;
@@ -1073,67 +1070,45 @@ i {
     text-align: center;
     text-shadow: 0 0 5px rgba(0, 0, 0, .6)
 }
-.header .nav li .smenu a {
+.header .nav li .smenu .item {
     position: relative;
     display: inline-block;
-    vertical-align: top
+	vertical-align: top;
+	border: 2px solid #2e0909;
+	margin: 0 5px;
 }
-.header .nav li .smenu a:hover:before {
+.header .nav li .smenu .item img {
+	width: 241px;
+	height: 160px;
+}
+.header .nav li .smenu .item:hover:before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 160px;
     top: 0;
     left: 0;
     background: rgba(255, 255, 255, .2)
 }
-.header .nav li .smenu a:hover p {
+.header .nav li .smenu .item:hover p {
     color: #fff
 }
 .header .nav li:hover .smenu {
     display: block
 }
-.header .nav li .smenu2 {
-    display: none;
-    position: absolute;
-    top: 44px;
-    left: 0;
-    height: 160px;
-    margin-left: -721px;
-    white-space: nowrap;
-    width: 1000px;
-    font-size: 0
+.header .nav .smenu .btn {
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	font-weight: normal;
+	background: rgba(0, 0, 0, 0.6);
+	border-top: none;
+	display: block;
+	font-size: 16px;
 }
-.header .nav li .smenu2 p {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: #ffeb00;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    text-shadow: 0 0 5px rgba(0, 0, 0, .6)
-}
-.header .nav li .smenu2 a {
-    position: relative;
-    display: inline-block;
-    vertical-align: top
-}
-.header .nav li .smenu2 a:hover:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, .2)
-}
-.header .nav li .smenu2 a:hover p {
-    color: #fff
-}
-.header .nav li:hover .smenu2 {
-    display: block
+.header .nav .smenu .btn:hover {
+	color: #000;
+	background: #f9b52c;
 }
 body {
     overflow-x: hidden
@@ -3324,6 +3299,17 @@ body {
 .register .form-group .group.valid .check, .register .form-group.valid .check {
     display: block
 }
+.register .box2 .form-group .select {
+    float: left;
+	width: 100px;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #d6d6d6;
+	margin-right: 10px;
+}
+.register .box2 .form-group .form-input2 {
+    width: 162px;
+}
 .side {
     width: 175px;
     float: left;
@@ -4372,6 +4358,18 @@ span.loginname {
     line-height: 40px;
     font-size: 16px;
 }
+.w3-input::-webkit-input-placeholder {
+    color: #ccc;
+}
+.w3-input::-moz-placeholder {
+    color: #ccc;
+}
+.w3-input:-ms-input-placeholder {
+    color: #ccc;
+}
+.w3-input:-moz-placeholder {
+    color: #ccc;
+}
 .w3-select {
     padding: 9px 0;
     width: 100%;
@@ -4530,19 +4528,19 @@ span.loginname {
 #id01 select {
     width: 170px;
 }
-.cz-main .co-m-6 {
+.co-m-6 {
     width: 270px !important;
     display: inline-block !important;
 }
-.cz-main .co-m-10 {
+.co-m-10 {
     width: 630px !important;
     display: inline-block !important;
 }
-.cz-main .co-m-7 {
+.co-m-7 {
     width: 370px !important;
     display: inline-block !important;
 }
-.cz-main textarea.co-m-6, .banklist {
+textarea.co-m-6, .banklist {
     color: #FFF;
     background: #666666;
     width: 500px !important;
@@ -5095,10 +5093,14 @@ img.icon {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+	height: 100%;
+	color: #fff;
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.8)
+}
+.w3-modal #walletTypesSelect-js {
+	margin: 0 !important;
 }
 .w3-modal-content {
     margin: auto;
@@ -5114,9 +5116,15 @@ img.icon {
     text-align: center;
     background: #39932f !important;
 }
-.w3-container div {
-    padding: 0 30px 20px 30px;
-    margin: 10px 30px;
+.error-message {
+    color: #e73d4a;
+}
+.w3-container .text_ci {
+    text-align: center;
+}
+.w3-container .text-inpo {
+    font-size: 15px;
+    color: #e23f3f;
 }
 .w3-container div.txtend {
     padding: 10px 110px 20px 110px;
@@ -5193,4 +5201,84 @@ img.icon {
 }
 .modal-footer {
     border-top: solid 1px #666;
+}
+.modal-footer .goGame {
+    margin: 15px 20px 15px 0;
+    width: 120px;
+}
+.w3-container button {
+    margin: 15px 20px 15px 0;
+	width: 120px;
+}
+.w3-container label {
+	color: #fff;
+}
+.w3-table, .w3-table-all {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    line-height: 35px;
+    display: table;
+}
+.w3-table, .w3-table-all {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    line-height: 35px;
+    display: table;
+}
+.w3-table-all {
+	border: 1px solid #000;
+	color: #fff;
+}
+.w3-table-all th, .w3-table-all td {
+    border: solid 1px #000 !important;
+    border-spacing: 1px;
+}
+.w3-table-all .psd2 {
+    width: 22%;
+}
+.w3-table-all tr:nth-child(odd) {
+    background-color: #272727;
+}
+.w3-table-all tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+.w3-bordered tr td, .w3-table-all tr td {
+    border-bottom: 1px solid #6b6b6b !important;
+    border-top: 1px solid #000 !important;
+}
+.w3-table th:first-child, .w3-table td:first-child, .w3-table-all th:first-child, .w3-table-all td:first-child {
+    padding-left: 16px;
+}
+.w3-table td, .w3-table th, .w3-table-all td, .w3-table-all th {
+    padding: 8px 8px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+}
+.w3-modal select {
+    background: #666666;
+    color: #FFF;
+    padding: 8px 10px !important;
+    height: 40px !important;
+	margin: 0 10px !important;
+	border-radius: 3px;
+	border: solid 1px #666;
+	font-size: 16px;
+}
+.pt-2, .py-2 {
+    padding-top: 0.5rem !important;
+}
+.pb-2, .py-2 {
+    padding-bottom: 0.5rem !important;
+}
+.pl-5, .px-5 {
+    padding-left: 3rem !important;
+}
+.pr-5, .px-5 {
+    padding-right: 3rem !important;
+}
+.w3-margin-bottom {
+    margin-bottom: 8px !important;
 }
