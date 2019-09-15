@@ -23,9 +23,16 @@
         <!-- 针对于1级,有用户logo，还有登录未登录判断 -->
         <div class="ui-header mheader">
             <a class="menu" href="index.html"><span class="ui-logo__k8logo ui-logo__k8logo--headerk8logo"></span></a>
-            <div class="notlogin-content">
-                <a href="登入頁.html" class="login-button ui-mr__5">登入</a>
-                <a href="註冊頁.html" class="login-button register-button ui-mr__15">註冊</a>
+            <!-- 已登录 -->
+            <div class="login-content">
+                <a class="info-person" href="賬戶.html">
+                    <div class="ui-icon__header ui-icon__header--User-ProfileBig info-userlog"></div>
+                    <div class="info-desc">
+                        <div class="info-name">syh12345678</div>
+                        <div class="info-level ui-icon__header ui-icon__header--level0"></div>
+                    </div>
+                </a>
+                <a class="info-letter ui-icon__header ui-icon__header--Message" href="站內信件.html"></a>
             </div>
         </div>
         <div class="ui-nav" id="navflag">
@@ -52,346 +59,223 @@
 				<ul class="nav-tab">
 					<li class="item active">
 					<a href="javascript:;">
-						<span class="label">Tất cả</span>
+						<span class="label">最新優惠活動</span>
 					</a>
-					</li>
-					<li class="item ">
-					<!-- <a href="/expired.htm">
-								<span class="label">KHUYẾN MÃI HẾT HẠN</span>
-							</a> -->
-					<select id="promtSelect" class="promotion-select">
-							<option value="all">Tất Cả Khuyến Mãi</option>
-							<option value="new">Thành Viên Mới</option>
-							<option value="ag">Live Casino</option>
-							<option value="sport">Thể Thao</option>
-							<option value="slot">Slot Game</option>
-							<option value="lottery">Xổ Số</option>
-							<option value="special">Khuyến Mãi Đặc Biệt</option>
-						</select>
 					</li>
 				</ul>
 				<section class="sec">
 					<ul class="promotion-list">
-					<li class="item special">
-						<a href="k8vip.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-08c75933a6f40c7bb3fc30a4d33118e35.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Hệ Thống Thăng Cấp Sao Mới, Thưởng Mỗi Tháng Lên Đến 10 Triệu!
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item special">
-						<a href="monthlyfreebetfork8customer.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-1160ac0e1685be0e80c8cd82acbc5ad6e.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Thưởng Miễn Phí Mỗi Tháng Dành Riêng Cho Thành Viên K8
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item new">
-						<a href="k8-birthday-with-BMW-118i.htm" target="_blank">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-224bb76d05d9da891bb70edea7c578ee1.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Tặng xe hơi BMW 118i nhân dịp Sinh Nhật K8 và Lễ Quốc Khách 2/9!
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item sport">
-						<a href="fiveleagues2019.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-3b9513e94ebce6429b6f5d009cab2f4dc.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Khuyến Mãi Không Ngừng, Nhận Quà Không Ngớt Cùng 5 Giải Đấu Hàng Đầu Châu Âu
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item new">
-						<a href="casinosu100.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-588d77ac65f03963d07f009b0931c199c.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Casino Trực Tuyến, 100% siêu thưởng đăng ký, lên đến 1 triệu đồng!
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item new">
-						<a href="sportsu58.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-6a8cd3f426054ddecb3a11ffae2504b80.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Chào mừng Thành Viên Mới tham gia thể thao tặng ngay 58% lên đến 3,8 triệu
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item sport">
-						<a href="imrebate.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-7ee564da5280cedf69f1300ae3a272845.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Sảnh Thể Thao Mới, Tỷ Lệ Hoàn Trả Mới Lên Đến 1.5%
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item sport">
-						<a href="imweeklycashback.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-8cd647cddce84318eb50a1f6a64845a55.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							THƯỞNG 10 TRIỆU MỖI TUẦN NGAY TẠI SẢNH THỂ THAO IM
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item new">
-						<a href="slotsu128.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-93806269b9b1ca9de796376b0e4d4e5bc.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Tặng ngay 128% chào mừng Thành Viên Mới tham gia Slot Game lên đến 2,8 triệu
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item slot">
-						<a href="midautumn2019.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-1038130719af0a705dd4b947e4a9cdda21.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Chào Mừng Tết Trung Thu Nhận Thưởng Lên Đến 300,000,000 VND Tại PNG Slot Game
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item new">
-						<a href="sportsu108.htm" target="_blank">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-124ae2be56a2258dae4ca59fd24271af27.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Siêu thưởng đăng ký 108% đến 1.2 triệu đồng tại Thể Thao
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item ag">
-						<a href="casinoday2000k.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-1383df2d221fab2c774096330f78433283.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Thưởng 2,000,000 VND mỗi ngày khi đặt cược tại Casino Trực Tuyến
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item sport">
-						<a href="sportday2000k.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-14a83513827562b397e376d30a6e19765f.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Thưởng 2,000,000 VND mỗi ngày khi đặt cược tại Thể Thao
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item slot">
-						<a href="slotday2000k.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-158840b7cc899e649125118cbd390ff33d.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Thưởng 2,000,000 VND mỗi ngày khi đặt cược tại Slot Game
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item slot">
-						<a href="slotweek3000k.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-188ddc2a6f0458213831315d8e23c3a2f6.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							Thưởng 3,000,000 VND mỗi tuần khi đặt cược tại Slot Game
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item ag">
-						<a href="promo_xima_ag.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-1952e459042f956317d42dc9e7ef36208a.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							HOÀN TRẢ 1% CASINO TRỰC TUYẾN
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item sport">
-						<a href="promo_sport_rebate.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							HOÀN TRẢ KHỦNG 1% THỂ THAO
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item slot">
-						<a href="promo_xima_slot.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-212002c432f0a18058f2c772bc333625e7.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							HOÀN TRẢ KHỦNG LÊN ĐẾN 1.2% SLOT GAME
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item lottery">
-						<a href="promo_xima_lotterry.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-221ded443726dda177756db67aed3c1c81.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							HOÀN TRẢ LÊN ĐẾN 1% TẠI XỔ SỐ
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item sport">
-						<a href="promo_sport_cashback.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-24670758f43aafd01c22fd7e2bed5b0738.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							88% Hoàn Cược Thua Tại Thể Thao!
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item special">
-						<a href="bdaygift.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-2634e928e06ac174ddda05768b6b66e9c7.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							THƯỞNG SINH NHẬT LÊN ĐẾN 608,000 VND
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item special">
-						<a href="promo_intro.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-27f43cabc1a242c9024cee6d64c2721509.png">
-						</div>
-						<div class="info desc">
-							<p>
-							GIỚI THIỆU THÀNH VIÊN MỚI – NHẬN THƯỞNG 20,000,000 VND
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item special">
-						<a href="promo_21.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-282b3d7b365272ac304bdb0eef3a3d6b50.jpg">
-						</div>
-						<div class="info desc">
-							<p>
-							THƯỞNG THĂNG CẤP SAO Tiền thưởng lên tới 5,888,000 VND
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
-					<li class="item special">
-						<a href="vip_travel.htm" target="_self">
-						<div class="info promo-img">
-							<img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-2918ba761da27e6e54c7d63b561df57176.png">
-						</div>
-						<div class="info desc">
-							<p>
-							CÂU LẠC BỘ VIP, THỤ HƯỞNG LỢI ÍCH CÓ 1 KHÔNG 2
-							</p>
-						</div>
-						<span class="icon icon-arrow2"></span>
-						</a>
-					</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+							</div>
+							<div class="ct">
+								<img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+								<p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+								<p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+								<table>
+								    <tbody>
+								        <tr>
+								            <th>XẾP HẠNG</th>
+								            <th>TIỀN THƯỞNG</th>
+								        </tr>
+								        <tr>
+								            <td>1</td>
+								            <td>56,900,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>2</td>
+								            <td>36,500,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>3</td>
+								            <td>29,950,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>4</td>
+								            <td>19,800,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>5</td>
+								            <td>13,100,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>6 - 10</td>
+								            <td>6,350,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>11 - 25</td>
+								            <td>3,000,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>26 - 50</td>
+								            <td>2,000,000 VNĐ</td>
+								        </tr>
+								        <tr>
+								            <td>51 - 100</td>
+								            <td>300,000 VNĐ</td>
+								        </tr>
+								    </tbody>
+								</table>
+							</div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
+						<li class="item">
+						    <div class="tt">
+						        <div class="info promo-img">
+						            <img src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/_promo/promo_current-20ad399e94234d9524ce7d9a7f31f6957f.jpg">
+						        </div>
+						        <div class="info desc">
+						            <p>
+						                HOÀN TRẢ KHỦNG 1% THỂ THAO
+						            </p>
+						        </div>
+						        <span class="icon icon-arrow2"></span>
+						    </div>
+						    <div class="ct">
+						        <img src="https://mobileimg.k8luck.com/static/C07M2/_default/__static/__images/showcase/promo2019/midautumn2019.jpg">
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						        <p>註冊玩家超過百萬人見證，實拿久穩，最具實力的線上娛樂城，高達百萬超級彩金等您來拿！</p>
+						    </div>
+						</li>
 					</ul>
 				</section>
-				</div>
+			</div>
         </div>
     </div>
-    <div class="mfooter">
-        <img src="images/sprite-logos/full-foot.png" />
-	</div>
 	<script src="js/page.js"></script>
 </body>
 

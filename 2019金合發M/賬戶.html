@@ -116,19 +116,110 @@
                     <div class="ui-tempplaceholder"></div>
                 </div>
             </div>
-            <script>
-                $(document).ready(function() {
-                    var localBalance = parseInt("0");
-                    $('#showbalance').html((localBalance).toLocaleString('en-US'));
-                    $('#washcode').click(function() {
-                        G.toast('Hệ thống hoàn trả hiện đang bảo trì.');
-                    });
-                });
-            </script>
         </div>
     </div>
     <div class="mfooter">
         <img src="images/sprite-logos/full-foot.png" />
+	</div>
+
+	<div class="chuzhi-box">
+		<div class="chuzhi">
+		    <div class="flex-wrp steps">
+		        <div class="flex1 cur">
+		            <span>1</span>
+		        </div>
+		        <div class="flex1">
+		            <span>2</span>
+		        </div>
+		        <div class="flex1">
+		            <span>3</span>
+		        </div>
+		    </div>
+		    <div class="steps-ct show">
+		        <div class="tit">充值点数</div>
+		        <input type="number" name="amount" placeholder="请输入充值点数" autocomplete="off" class="text">
+		        <div class="condition">单笔充值最低<span>1,000</span>点</div>
+		        <div class="btn-box">
+		            <button type="button" class="btn btn-sure dis">确定</button>
+		        </div>
+		        <dl class="tips">
+		            <dt>充值注意事项：</dt>
+		            <dd>
+		                <p><span style="color: #ff0000;">領取首存、週週存紅利需在存款完成後24小時內，未投注前點擊優惠頁面「立即申請」</span></p>
+		                <p><strong><span style="color: #ff0000;">* 儲值點數20,000以上請與線上客服連繫，客服立即為您處理</span></strong></p>
+		                <p><span style="color: #ff9900;"><strong>#因點數詐騙事件頻繁，為保障會員權益，新會員首次託售需在首次儲值後滿24小時候申請</strong></span></p>
+		            </dd>
+		        </dl>
+		    </div>
+
+		    <div class="steps-ct">
+		        <div class="tit">选择充值方式</div>
+		        <div class="radio-box">
+		            <input id="radio1" type="radio" name="chongzhi" value="">
+		            <label for="radio1" class="radio">
+		                台北富邦實體ATM
+		            </label>
+		            <input id="radio2" type="radio" name="chongzhi" value="">
+		            <label for="radio2" class="radio">
+		                4大超商繳費
+		            </label>
+		        </div>
+
+		        <div class="btn-box">
+		            <button type="button" class="btn btn-prev">上一步</button>
+		            <button type="button" class="btn btn-chongzhi dis">申请充值</button>
+		        </div>
+		        <dl class="tips">
+		            <dt>充值注意事项：</dt>
+		            <dd>
+		                <p><span style="color: #ff0000;">領取首存、週週存紅利需在存款完成後24小時內，未投注前點擊優惠頁面「立即申請」</span></p>
+		                <p><strong><span style="color: #ff0000;">* 儲值點數20,000以上請與線上客服連繫，客服立即為您處理</span></strong></p>
+		                <p><span style="color: #ff9900;"><strong>#因點數詐騙事件頻繁，為保障會員權益，新會員首次託售需在首次儲值後滿24小時候申請</strong></span></p>
+		            </dd>
+		        </dl>
+		    </div>
+
+		    <div class="steps-ct">
+		        <div class="tit">充值申请完毕，请进行缴费</div>
+		        <div class="tips">
+		            <dl class="note">
+		                <dt><strong>繳費須知：</strong></dt>
+		                <dd>
+		                    <p><span style="color: rgba(255, 59, 128, 0.87);">請依據【金流系統】所提供的【繳費代碼及資訊】至指定超商繳費。</span></p>
+		                    <p><strong><span style="color: rgba(255, 59, 128, 0.87);">請盡速至超商操作繳費，若遇代碼過期請重新申請。</span></strong></p>
+		                    <p>若關閉【金流系統】視窗以致無法獲得繳費資訊，請您於本娛樂城重新申請儲值。</p>
+		                    <p>至指定超商【完成繳費後】，該筆儲值紀錄可於 <a href="#" class="blue">儲值紀錄</a> 查詢（注意：尚未繳費將查無紀錄）。</p>
+		                    <br>
+		                    <table class="table">
+		                        <tbody>
+		                            <tr>
+		                                <th>充值方式</th>
+		                                <td>台北富邦實體ATM</td>
+		                            </tr>
+		                            <tr>
+		                                <th>充值点数</th>
+		                                <td><span class="blue">1000 点</span></td>
+		                            </tr>
+		                            <tr>
+		                                <th>充值至</th>
+		                                <td>主钱包</td>
+		                            </tr>
+		                        </tbody>
+		                    </table>
+		                </dd>
+		            </dl>
+
+		            <dl class="note">
+		                <dt>
+		                    <hr><strong>充值注意事项：</strong></dt>
+		                <dd>
+		                    <p>错误或重複转帐款项将会在７个工作天后才会退还款项给您，在此严厉声明，请操作时务必确认！</p>
+		                    <p>提醒您，在充值作业尚未完成前，请暂时妥善保管单据。</p>
+		                </dd>
+		            </dl>
+		        </div>
+		    </div>
+		</div>
 	</div>
 
 	<script src="js/swiper.min.js"></script>

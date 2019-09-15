@@ -67,6 +67,25 @@ $(function() {
 	    }
 	});
 
+	// 公告展开收缩
+	$('.promotion-list').on('click', '.tt', function() {
+	    var _this = $(this);
+	    var $dom = _this.parents('li').find('.ct');
+		$('.promotion-list').find('.tt').show();
+		_this.hide();
+		$('.promotion-list').find('.ct').hide();
+		$dom.slideDown(100, function() {
+			$('html, body').animate({
+				scrollTop: _this.parents('li').offset().top - $('.header').outerHeight() - $('.nav-tab').outerHeight()
+			}, 500);
+		});
+	});
+
+	// 托售绑定身份示例
+	$('.viewSample-js').on('click', 'a', function() {
+		$('#picSample').toggleClass('hidden');
+	});
+
 });
 //帐号
 function checkLoginname() {
