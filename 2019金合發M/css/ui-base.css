@@ -582,7 +582,7 @@ body {
   background-position: 50% 50%;
   display: flex;
   position: fixed;
-  z-index: 9999;
+  z-index: 998;
 }
 
 
