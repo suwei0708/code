@@ -262,6 +262,12 @@ $(function() {
 		$('.zd-step1').hide();
 		$('.zd-step2').show();
 	});
+
+	// 电子钱包记录切换
+	$('.Storedlist').on('click', 'button.w3-bar-item', function() {
+		$(this).addClass('w3-red').siblings().removeClass('w3-red');
+		$('.opencontent').find('.trasListBox').hide().eq($(this).index()).show();
+	});
 });
 
 /*复制代码到剪切板*/

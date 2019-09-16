@@ -519,62 +519,160 @@
 					            <span class="changlist"><a class="btn btn_style3 w3-black refreshHistory-js pointer">更新紀錄</a></span>
 					        </div>
 					        <div class="opencontent">
-					            <div id="Stored_Value" class="city">
-					                <div id="historyList">
-					                    <style>
-					                        .wechatQRcode {
-					                            display: block;
-					                            margin: 1em 0;
-					                            width: 100%;
-					                            max-width: 200px;
-					                        }
-					                        .popupQrcod {
-					                            display: none;
-					                            position: fixed;
-					                            top: 0;
-					                            bottom: 0;
-					                            left: 0;
-					                            right: 0;
-					                            z-index: 2000000001 !important;
-					                            background-color: rgba(255, 255, 255, 1);
-					                        }
-					                        .popupQrcod .qrcode {
-					                            position: absolute;
-					                            top: 50%;
-					                            left: 50%;
-					                            text-align: center;
-					                            -moz-transform: translate(-50%, -50%);
-					                            -ms-transform: translate(-50%, -50%);
-					                            -o-transform: translate(-50%, -50%);
-					                            -webkit-transform: translate(-50%, -50%);
-					                            transform: translate(-50%, -50%);
-					                        }
-					                        .qrcode .title {
-					                            font-size: 2em;
-					                        }
-					                    </style>
-					                    <div id="depositListWrap" style="display: block;">
-					                        <div id="depositListBox" class="trasListBox">
-					                            <div class="emptyData valignWrapper" style="width:100%;height:300px;">
-					                                <div class="gird-12 text-center">目前無任何充值紀錄</div>
-					                            </div>
-					                        </div>
-					                        <div class="mui-container">
-					                            <div id="depositPage" class="pageGroup mui--text-center"></div>
-					                        </div>
-					                    </div>
-
-					                    <div id="showQrcod" class="popupQrcod">
-					                        <div class="qrcode">
-					                            <strong class="title">微信支付</strong><br><br>
-					                            請使用手機微信掃描二維條碼，即可完成支付<br>
-					                            <img id="qrcode"><br>
-					                            <a class="mui-btn mui-btn--small mui-btn--default mui-btn--raised closeQrcode-js">關閉</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-
+								<div class="trasListBox">
+									<div class="emptyData valignWrapper" style="width:100%;height:300px;">
+										<div class="gird-12 text-center">目前無任何充值紀錄</div>
+									</div>
+								</div>
+								<div class="trasListBox" style="display: none">
+								    <div class="emptyData valignWrapper" style="width:100%;height:300px;">
+								        <div class="gird-12 text-center">目前無任何取款纪录</div>
+								    </div>
+								</div>
+								<div class="trasListBox" style="display: none">
+								    <table class="w3-table-all w3-hoverable listHistory">
+								        <thead>
+								            <tr class="w3-light-grey">
+								                <th class="colStatus"></th>
+								                <th class="colPoint">点数</th>
+								                <th class="">从</th>
+								                <th class=""></th>
+								                <th class="">转点至</th>
+								                <th class="colTime">转点时间</th>
+								            </tr>
+								        </thead>
+								        <tbody>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">1</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">冠军彩票</td>
+								                <td class="colTime"><small>2019/09/15 00:57:09<br> ( NO.5679981 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">5,000</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">null</td>
+								                <td class="colTime"><small>2019/07/24 12:11:37<br> ( NO.4982749 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">1,000</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">null</td>
+								                <td class="colTime"><small>2019/07/24 12:06:31<br> ( NO.4982709 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">69</td>
+								                <td class="colFrom">LJ彩票</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">主钱包</td>
+								                <td class="colTime"><small>2019/07/24 12:06:19<br> ( NO.4982706 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">10</td>
+								                <td class="colFrom">云谷彩票</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">主钱包</td>
+								                <td class="colTime"><small>2019/07/24 12:06:16<br> ( NO.4982705 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">98</td>
+								                <td class="colFrom">冠军彩票</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">主钱包</td>
+								                <td class="colTime"><small>2019/07/24 12:06:10<br> ( NO.4982704 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">40</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">利信彩票</td>
+								                <td class="colTime"><small>2019/07/15 19:59:41<br> ( NO.4877114 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">60</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">冠军彩票</td>
+								                <td class="colTime"><small>2019/07/15 19:27:49<br> ( NO.4876727 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">30</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">冠军彩票</td>
+								                <td class="colTime"><small>2019/07/15 19:27:20<br> ( NO.4876716 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="colStatus"><img class="icon toolTip-js" src="images/icon_ok.svg" title="确认缴费且已入帐-成功 !"></td>
+								                <td class="colPoint   ">30</td>
+								                <td class="colFrom">主钱包</td>
+								                <td class=""><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td class="">GTR</td>
+								                <td class="colTime"><small>2019/07/15 18:50:55<br> ( NO.4876212 )</small></td>
+								            </tr>
+								        </tbody>
+									</table>
+									<div class="pageGroup mui--text-center">
+									    <div class="pagePrev mui-btn pagePrev-js"><img src="images/icon-angle-left.svg" alt=""></div>
+									    <div class="targetSelect"><select class="pageSelect">
+									            <option value="0">1</option>
+									            <option value="1">2</option>
+									        </select></div><span>/</span><span class="pageTotalNum">2</span>
+									    <div class="pageNext mui-btn pageNext-js"><img src="images/icon-angle-right.svg" alt=""></div>
+									</div>
+								</div>
+								<div class="trasListBox" style="display: none">
+								    <table class="w3-table-all w3-hoverable listHistory">
+								        <thead>
+								            <tr class="w3-light-grey">
+								                <th class="colPoint">点数</th>
+								                <th class="">从</th>
+								                <th class=""></th>
+								                <th class="">转换至</th>
+								                <th class="colTime">备注</th>
+								                <th class="colTime">调整时间</th>
+								            </tr>
+								        </thead>
+								        <tbody>
+								            <tr>
+								                <td class="amount">5,000</td>
+								                <td class="colFrom">系统</td>
+								                <td><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td>主钱包</td>
+								                <td class="memo">測試帳號</td>
+								                <td class="colTime"><small>2019/07/24 12:11:12<br> ( NO.4982746 )</small></td>
+								            </tr>
+								            <tr>
+								                <td class="amount">1,000</td>
+								                <td class="colFrom">系统</td>
+								                <td><img src="images/icon-right.svg" class="icon-right" alt=""></td>
+								                <td>主钱包</td>
+								                <td class="memo">系統測試</td>
+								                <td class="colTime"><small>2019/07/03 23:30:42<br> ( NO.4725155 )</small></td>
+								            </tr>
+								        </tbody>
+								    </table>
+								    <div class="pageGroup mui--text-center">
+								        <div class="pagePrev mui-btn pagePrev-js"><img src="images/icon-angle-left.svg" alt=""></div>
+								        <div class="targetSelect"><select class="pageSelect">
+								                <option value="0">1</option>
+								                <option value="1">2</option>
+								            </select></div><span>/</span><span class="pageTotalNum">2</span>
+								        <div class="pageNext mui-btn pageNext-js"><img src="images/icon-angle-right.svg" alt=""></div>
+								    </div>
+								</div>
 					        </div>
 					    </div>
 					</div>

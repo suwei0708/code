@@ -4580,8 +4580,11 @@ textarea.co-m-6, .banklist {
     width: 120px;
     height: 50px;
     line-height: 50px;
-    margin-left: 20px;
     text-align: center;
+}
+.right_center .w3-red:hover {
+	color: #fff !important;
+	background-color: #932f2f !important
 }
 .right_center ul li h2 {
     margin-left: -10px;
@@ -4747,7 +4750,7 @@ a.btn_style5:hover {
     background: #f9b52c;
 }
 .cz-main .opencontent {
-    margin: 10px 30px 30px;
+    margin: 10px 30px 30px 0;
     border: solid 1px #3f4156;
     border-bottom: solid 2px #3f4156;
 }
@@ -5227,6 +5230,10 @@ img.icon {
     line-height: 35px;
     display: table;
 }
+.w3-table-all .icon-right {
+	width: 16px;
+	color: #fff;
+}
 .w3-table-all {
 	border: 1px solid #000;
 	color: #fff;
@@ -5281,4 +5288,22 @@ img.icon {
 }
 .w3-margin-bottom {
     margin-bottom: 8px !important;
+}
+.pageGroup {
+    display: flex !important;
+    width: 100px;
+    align-items: center !important;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pagePrev img {
+	width: 16px;
+	max-width: none;
+	cursor: pointer;
+}
+.pageNext img {
+    width: 16px;
+    max-width: none;
+    cursor: pointer;
 }

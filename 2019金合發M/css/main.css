@@ -3566,18 +3566,6 @@ img.girl {
     position: relative;
 }
 
-.index .block {}
-
-
-/*.index .block .bgblock{
-    display: inline-block;
-    width: 62%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}*/
-
-
 /*new*/
 
 .index .block .bgblock {
@@ -6884,7 +6872,8 @@ ul.menu li.item div.inner span.text {
 }
 
 /* 储值 */
-.chuzhi-box {
+.popup-box {
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -6893,7 +6882,7 @@ ul.menu li.item div.inner span.text {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.6);
 }
-.chuzhi {
+.popup {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -6909,11 +6898,11 @@ ul.menu li.item div.inner span.text {
     border-radius: 5px
 }
 
-.chuzhi .steps>div {
+.popup .steps>div {
     text-align: center
 }
 
-.chuzhi .steps>div span {
+.popup .steps>div span {
     position: relative;
     display: inline-block;
     vertical-align: top;
@@ -6927,36 +6916,36 @@ ul.menu li.item div.inner span.text {
     border-radius: 100%
 }
 
-.chuzhi .steps>div span:after {
+.popup .steps>div span:after {
     content: '';
     position: absolute;
-    right: -150%;
+    right: -180%;
     top: 50%;
     margin-top: -3px;
-    width: 150%;
+    width: 180%;
     height: 5px;
     background: #ccc
 }
 
-.chuzhi .steps>div:last-child span:after {
+.popup .steps>div:last-child span:after {
     content: '';
     display: none
 }
 
-.chuzhi .steps>div.cur span {
+.popup .steps>div.cur span {
     background: #31aab5
 }
 
-.chuzhi .steps>div.cur span:after {
+.popup .steps>div.cur span:after {
     background: #31aab5
 }
 
-.chuzhi .steps-ct {
+.popup .steps-ct {
     display: none;
     padding: 20px 0 0
 }
 
-.chuzhi .steps-ct .tit {
+.popup .steps-ct .tit {
     line-height: 20px;
     font-size: 14px;
     border-left: 3px solid #31aab5;
@@ -6964,7 +6953,7 @@ ul.menu li.item div.inner span.text {
     color: #333
 }
 
-.chuzhi .steps-ct .text {
+.popup .steps-ct .text {
     margin-top: 12px;
     width: 100%;
     height: 40px;
@@ -6977,17 +6966,17 @@ ul.menu li.item div.inner span.text {
     border-bottom: 2px solid #B0BEC5
 }
 
-.chuzhi .steps-ct .text:focus {
+.popup .steps-ct .text:focus {
     border-bottom: 2px solid #31aab5
 }
 
-.chuzhi .steps-ct .condition {
+.popup .steps-ct .condition {
     line-height: 20px;
     padding: 18px 0 0;
     font-size: 12px;
 }
 
-.chuzhi .steps-ct .tips {
+.popup .steps-ct .tips {
     margin-top: 20px;
     padding: 20px 0;
     line-height: 1.8;
@@ -6995,25 +6984,25 @@ ul.menu li.item div.inner span.text {
     font-size: 14px;
 }
 
-.chuzhi .steps-ct .tips p {
+.popup .steps-ct .tips p {
     padding: 3px 0
 }
 
-.chuzhi .steps-ct .tips .note {
+.popup .steps-ct .tips .note {
     padding: 1em;
     color: #fff;
     background: #424242
 }
 
-.chuzhi .steps-ct .tips .note dt {
+.popup .steps-ct .tips .note dt {
     font-size: 16px
 }
 
-.chuzhi .steps-ct .tips .note dd {
+.popup .steps-ct .tips .note dd {
     font-size: 14px
 }
 
-.chuzhi .steps-ct .tips .note hr {
+.popup .steps-ct .tips .note hr {
     margin-top: 20px;
     margin-bottom: 20px;
     border: 0;
@@ -7021,7 +7010,7 @@ ul.menu li.item div.inner span.text {
     background-color: rgba(0, 0, 0, 0.12)
 }
 
-.chuzhi .steps-ct .btn {
+.popup .steps-ct .btn {
     display: inline-block;
 	vertical-align: top;
 	width: auto;
@@ -7037,21 +7026,21 @@ ul.menu li.item div.inner span.text {
     cursor: pointer
 }
 
-.chuzhi .steps-ct .btn:active {
+.popup .steps-ct .btn:active {
     background: #38c2cf
 }
 
-.chuzhi .steps-ct .btn-box {
+.popup .steps-ct .btn-box {
     padding: 12px 0 0;
     font-size: 0
 }
 
-.chuzhi .steps-ct .btn.dis {
+.popup .steps-ct .btn.dis {
     color: #fff;
     background: #eee
 }
 
-.chuzhi .steps-ct .radio {
+.popup .steps-ct .radio {
     position: relative;
     display: block;
     line-height: 30px;
@@ -7059,20 +7048,20 @@ ul.menu li.item div.inner span.text {
     padding-left: 22px;
 }
 
-.chuzhi .steps-ct .radio-box {
+.popup .steps-ct .radio-box {
     margin-top: 12px
 }
 
-.chuzhi .steps-ct .radio-box input[type=radio] {
+.popup .steps-ct .radio-box input[type=radio] {
     display: none
 }
 
-.chuzhi .steps-ct .radio-box input[type=radio]:checked+label {
+.popup .steps-ct .radio-box input[type=radio]:checked+label {
     color: #31aab5;
     font-weight: bold
 }
 
-.chuzhi .steps-ct .radio-box input[type=radio]:checked+label:before {
+.popup .steps-ct .radio-box input[type=radio]:checked+label:before {
     content: "\2022";
     color: #f3f3f3;
     font-size: 18px;
@@ -7080,7 +7069,7 @@ ul.menu li.item div.inner span.text {
     line-height: 12px;
 }
 
-.chuzhi .steps-ct .radio:before {
+.popup .steps-ct .radio:before {
     content: "";
     display: inline-block;
     width: 14px;
@@ -7108,4 +7097,28 @@ ul.menu li.item div.inner span.text {
 }
 .show {
     display: block !important;
+}
+.popup-box .popup-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 999;
+    width: 20px;
+    cursor: pointer;
+}
+.tuoshou .steps {
+	width: 70%;
+	margin: 0 auto;
+}
+.tuoshou .select {
+	margin-top: 12px;
+	width: 100%;
+	height: 40px;
+	padding: 8px 0;
+	line-height: 20px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #31aab5;
+	border: none;
+	border-bottom: 2px solid #B0BEC5;
 }

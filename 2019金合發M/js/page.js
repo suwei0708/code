@@ -86,6 +86,60 @@ $(function() {
 		$('#picSample').toggleClass('hidden');
 	});
 
+	// 弹窗关闭
+	$('body').on('click', '.popup-close, .popup-box', function() {
+	    $('.popup-box').hide();
+		$(this).parents('.popup-box').find('.steps-ct').removeClass('show').eq(0).addClass('show');
+	});
+	$('body').on('click', '.popup', function(e) {
+	    e.stopPropagation();
+	});
+
+	/** 储值流程 start */
+	$('.btn-chuzhi').on('click', function() {
+	    $('.popup-chuzhi').show();
+	})
+	// 判断点数储值是否输入
+	$('.chuzhi .text').bind('input propertychange', function() {
+	    var _this = $(this);
+	    var minNum = +_this.parents('.chuzhi').find('.condition span').html().replace(',', '');
+	    if (_this.val().length > 0 && +$.trim(_this.val()) >= minNum) {
+	        _this.parents('.chuzhi').find('.btn-sure').removeClass('dis');
+	    } else {
+	        _this.parents('.chuzhi').find('.btn-sure').addClass('dis');
+	    }
+	});
+
+	// 第二步
+	$('.chuzhi').on('click', '.btn-sure', function() {
+	    if (!$(this).hasClass('dis')) {
+	        $('.chuzhi').find('.steps > div:eq(1)').addClass('cur');
+	        $('.chuzhi').find('.steps-ct').removeClass('show').eq(1).addClass('show');
+	    }
+	});
+	// 返回上一步
+	$('.chuzhi').on('click', '.btn-prev', function() {
+	    $('.chuzhi').find('.steps > div:eq(1)').removeClass('cur');
+	    $('.chuzhi').find('.steps-ct').removeClass('show').eq(0).addClass('show');
+	});
+	// 申请充值
+	$('.chuzhi').on('click', '.btn-chongzhi', function() {
+	    if (!$(this).hasClass('dis')) {
+	        $('.chuzhi').find('.steps > div:eq(2)').addClass('cur');
+	        $('.chuzhi').find('.steps-ct').removeClass('show').eq(2).addClass('show');
+	    }
+	});
+	// 判断是否选中充值方式
+	$('.chuzhi').on('click', '.radio', function() {
+	    $('.chuzhi').find('.btn-chongzhi').removeClass('dis');
+	});
+	/** 储值流程 end */
+
+	/** 託售流程 start */
+	$('.btn-tuoshou').on('click', function() {
+	    $('.popup-tuoshou').show();
+	});
+	/** 託售流程 end */
 });
 //帐号
 function checkLoginname() {

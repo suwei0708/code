@@ -98,7 +98,7 @@ $(function() {
         pxToRem($('.gg-list'));
     };
 
-    /** 储值流程 start */
+	/** 储值流程 start */
     // 判断点数储值是否输入
     $('.chuzhi .text').bind('input propertychange', function() {
         var _this = $(this);
