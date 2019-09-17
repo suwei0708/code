@@ -153,7 +153,10 @@ body {
 
 /* icons */
 
-
+.ui-content {
+	overflow: hidden;
+	width: 100%;
+}
 /* nav*/
 
 .ui-icon__nav {
@@ -278,8 +281,6 @@ body {
 
 /* 增加彩票图标 */
 
-
-
 .active .ui-icon__index--Lottery {
   background: url("../images/sprite-icons/Lottery-cik.png") no-repeat;
   background-size: 100%;
@@ -292,6 +293,21 @@ body {
   background-size: 100%;
   width: 26px;
   height: 26px;
+}
+
+/* 增加棋牌图标 */
+.active .ui-icon__index--qipai {
+    background: url("../images/sprite-icons/qipai-cik.png") no-repeat;
+    background-size: 100%;
+    width: 26px;
+    height: 26px;
+}
+
+.ui-icon__index--qipai {
+    background: url("../images/sprite-icons/qipai.png") no-repeat;
+    background-size: 100%;
+    width: 26px;
+    height: 26px;
 }
 
 
@@ -592,7 +608,7 @@ body {
   background: #1e0404;
   border-top: 1px solid #5f5f5f;
   box-sizing: border-box;
-  height: 50px;
+  height: 60px;
   padding: 3px 2px;
   position: fixed;
   width: 100%;
@@ -600,7 +616,7 @@ body {
   display: flex;
   z-index: 999;
   color: #999;
-  font-size: 0.8rem;
+  font-size: 13px;
 }
 
 .ui-nav li {

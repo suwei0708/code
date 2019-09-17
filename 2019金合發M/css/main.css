@@ -6662,20 +6662,22 @@ ul.menu li.item div.inner span.text {
 .user-list {
 	font-size: 0;
 	padding: 10px 0 0;
-	margin: 0 20px;
+	margin: 0 10px;
 }
 .user-list ul {
-    margin-right: -20px
+    margin-right: -10px
 }
 .user-list li {
     display: inline-block;
-    vertical-align: top;
-    margin: 5px 10px 5px 0
+	vertical-align: top;
+	width: 33.3%;
+	margin: 5px 0 5px 0;
+	padding-right: 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .user-list li a {
-    display: inline-block;
-    vertical-align: top;
-    width: 86px;
+    display: block;
     overflow: hidden;
     height: 40px;
     line-height: 40px;
@@ -6693,7 +6695,7 @@ ul.menu li.item div.inner span.text {
     background: #e90080
 }
 .user-box {
-	margin: 0 20px;
+	margin: 0 10px;
 }
 .user-box .tit {
     line-height: 40px;

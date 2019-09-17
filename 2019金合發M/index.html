@@ -79,6 +79,10 @@
                         <div class="item-icon ui-icon__index ui-icon__index--Lottery ui-mb__5"></div>
                         <div class="item-desc">彩票</div>
                     </div>
+                    <div class="item" id="qipai">
+                        <div class="item-icon ui-icon__index ui-icon__index--qipai ui-mb__5"></div>
+                        <div class="item-desc">棋牌</div>
+                    </div>
                     <div class="banner-operate banner-show" id="showbanner" style="display: none;">
                         <i class="ui-icon__index ui-icon__index--showbanner"></i>
                     </div>
@@ -242,204 +246,295 @@
 
                 <!-- start: slot games -->
                 <div class="slot-games casino-cont" style="display: none;">
-                    <!-- 搜索区域&&列表展示区 start -->
-                    <div class="slotgame-cover">
-                    </div>
-                    <div class="slotgame-search__keyword" id="keyword-wrap" style="display: none;">
-                        <input id="keywordVal" class="slotgame-search__text" type="" placeholder="Search" value="">
-                        <div class="cleartxt">
-                            <span class="icon icon-search2" id="keywordSearch"></span>
-                        </div>
-                    </div>
-                    <!-- 选择游戏 -->
-                    <div class="slot-navwapper">
-                        <div class="slot-nav" id="slot-nav">
-                            <div class="item" id="AG">
-                                <div class="ui-icon__slotgames ui-icon__slotgames--aglogo"></div>
-                            </div>
-                            <div class="item" id="PP">
-                                <div class="ui-icon__slotgames ui-icon__slotgames--pplogo"></div>
-                            </div>
-                            <div class="item" id="PT">
-                                <div class="ui-icon__slotgames ui-icon__slotgames--ptlogo"></div>
-                            </div>
-                            <div class="item" id="PNG">
-                                <div class="ui-icon__slotgames ui-icon__slotgames--pnglogo"></div>
-                            </div>
-                            <div class="item" id="TTG">
-                                <div class="ui-icon__slotgames ui-icon__slotgames--ttglogo"></div>
-                            </div>
-                            <div class="item" id="MG">
-                                <div class="ui-icon__slotgames ui-icon__slotgames--mglogo"></div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="slotgame searchgames">
-                        <ul class="nav-tab m-btm-0">
-                            <div class="gametype-content">
-                                <li class="item hot" id="isHot">
-                                    <span>Hot</span>
-                                    <div class="ui-icon__slotgames ui-icon__slotgames--hoticon"></div>
-                                </li>
-                                <li class="item" id="isPool">
-                                    <span>Jackpot</span>
-                                </li>
-                                <li class="item" id="isNew">
-                                    <span>Mới</span>
-                                </li>
-                            </div>
-                            <li class="item line-select">
-                                <select id="lineSelect" name="line">
-                                    <option value="">Đường</option>
-                                    <option value="1-4">1-4</option>
-                                    <option value="5-9">5-9</option>
-                                    <option value="15-25">15-25</option>
-                                    <option value="30-50">30-50</option>
-                                    <option value="51-146">51-146</option>
-                                    <option value="243-243">243</option>
-                                    <option value="1024-1024">1024</option>
-                                </select>
+                        <ul class="game-list mainlist">
+                            <li class="item">
+								<a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1560406594.png">
+										<div class="desc"><span class="sp1">PP</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Vampires vs Wolves</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
                             </li>
-                            <li class="item small-item">
-                                <label>
-                                    <input id="favoriteBox" name="isFavorite" type="checkbox">
-                                    <i class="icon ui-icon__slotgames ui-icon__slotgames--headerfavorite" id="favoriteBox-icon"></i>
-                                </label>
+                            <li class="item">
+								<a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1550648841.png">
+										<div class="desc"><span class="sp1">PP</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">The Great Chicken Escape</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
                             </li>
-                            <li class="item small-item">
-                                <label>
-                                    <i class="icon ui-icon__slotgames ui-icon__slotgames--headersearch" id="keyword-trigger"></i>
-                                </label>
+                            <li class="item">
+								<a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1559907578.png">
+										<div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Tree of Riches</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1551174315.png">
+										<div class="desc"><span class="sp1">PP</span><span class="sp2">243 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">5 Lions Gold</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1511957943.png">
+										<div class="desc"><span class="sp1">PP</span><span class="sp2">9 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Chú khỉ Điên cuồng</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1516626484.png">
+										<div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Đá quý của Người Aztec™</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1493812996.png">
+										<div class="desc"><span class="sp1">PP</span><span class="sp2">1 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">888 Con rồng</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1549294581.png">
+										<div class="desc"><span class="sp1">PP</span><span class="sp2">20 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Tiền của Caishen</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH23.png">
+										<div class="desc"><span class="sp1">AG</span><span class="sp2">20 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Fengshen Yanyi </p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH27.png">
+										<div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Kabuki Gold</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH30.png">
+										<div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Fortune Alchemy</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
+                            </li>
+                            <li class="item">
+                                <a href="#">
+									<div class="imgdescdiv">
+										<img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ttg/1058.png">
+										<div class="desc"><span class="sp1">TTG</span><span class="sp2">1024 Đường</span></div>
+									</div>
+									<div class="game-content">
+										<p class="gamename">Lost Temple H5</p><span class="icon ui-icon__slotgames icon-heart "></span>
+									</div>
+								</a>
                             </li>
                         </ul>
-                        <ul class="game-list mainlist" id="gamesTable">
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Vampires vs Wolves" attr-gametype="1" attr-gameplat="PP" attr-gameid="1560406594" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1560406594.png">
-                                    <div class="desc"><span class="sp1">PP</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Vampires vs Wolves</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1560406594" attr-provider="PP" attr-gameimg="pp/1560406594.png" attr-gamenameen="Vampires vs Wolves" attr-stars="1" attr-point="0.0" attr-popular="111501" attr-gamech="吸血鬼vs狼" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="The Great Chicken Escape" attr-gametype="1" attr-gameplat="PP" attr-gameid="1550648841" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1550648841.png">
-                                    <div class="desc"><span class="sp1">PP</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">The Great Chicken Escape</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1550648841" attr-provider="PP" attr-gameimg="pp/1550648841.png" attr-gamenameen="The Great Chicken Escape" attr-stars="1" attr-point="0.0" attr-popular="111500" attr-gamech="小鸡大逃亡" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Tree of Riches" attr-gametype="1" attr-gameplat="PP" attr-gameid="1559907578" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1559907578.png">
-                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Tree of Riches</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1559907578" attr-provider="PP" attr-gameimg="pp/1559907578.png" attr-gamenameen="Tree of Riches" attr-stars="1" attr-point="0.0" attr-popular="111499" attr-gamech="发财树" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="5 Lions Gold" attr-gametype="1" attr-gameplat="PP" attr-gameid="1551174315" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1551174315.png">
-                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">243 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">5 Lions Gold</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1551174315" attr-provider="PP" attr-gameimg="pp/1551174315.png" attr-gamenameen="5 Lions Gold" attr-stars="1" attr-point="0.0" attr-popular="111498" attr-gamech="5金狮" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="Chú khỉ Điên cuồng" attr-gametype="1" attr-gameplat="PP" attr-gameid="1511957943" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1511957943.png">
-                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">9 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Chú khỉ Điên cuồng</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1511957943" attr-provider="PP" attr-gameimg="pp/1511957943.png" attr-gamenameen="Chú khỉ Điên cuồng" attr-stars="1" attr-point="0.0" attr-popular="111491" attr-gamech="猴子疯狂" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="Đá quý của Người Aztec™" attr-gametype="1" attr-gameplat="PP" attr-gameid="1516626484" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1516626484.png">
-                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Đá quý của Người Aztec™</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1516626484" attr-provider="PP" attr-gameimg="pp/1516626484.png" attr-gamenameen="Đá quý của Người Aztec™" attr-stars="1" attr-point="0.0" attr-popular="111449" attr-gamech="古时代宝石" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="888 Con rồng" attr-gametype="1" attr-gameplat="PP" attr-gameid="1493812996" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1493812996.png">
-                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">1 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">888 Con rồng</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1493812996" attr-provider="PP" attr-gameimg="pp/1493812996.png" attr-gamenameen="888 Con rồng" attr-stars="1" attr-point="0.0" attr-popular="111383" attr-gamech="发发发龙" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="1" attr-gamename="Tiền của Caishen" attr-gametype="1" attr-gameplat="PP" attr-gameid="1549294581" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1549294581.png">
-                                    <div class="desc"><span class="sp1">PP</span><span class="sp2">20 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Tiền của Caishen</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1549294581" attr-provider="PP" attr-gameimg="pp/1549294581.png" attr-gamenameen="Tiền của Caishen" attr-stars="1" attr-point="0.0" attr-popular="111359" attr-gamech="财神运财" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Fengshen Yanyi " attr-gametype="1" attr-gameplat="AG" attr-gameid="WHGWH23" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH23.png">
-                                    <div class="desc"><span class="sp1">AG</span><span class="sp2">20 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Fengshen Yanyi </p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="WHGWH23" attr-provider="AG" attr-gameimg="ag/WHGWH23.png" attr-gamenameen="Fengshen Yanyi " attr-stars="1" attr-point="0.0" attr-popular="111139" attr-gamech="封神演义" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Kabuki Gold" attr-gametype="1" attr-gameplat="AG" attr-gameid="WHGWH27" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH27.png">
-                                    <div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Kabuki Gold</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="WHGWH27" attr-provider="AG" attr-gameimg="ag/WHGWH27.png" attr-gamenameen="Kabuki Gold" attr-stars="1" attr-point="0.0" attr-popular="111133" attr-gamech="和风剧院" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="" attr-gamedemo="0" attr-gamename="Fortune Alchemy" attr-gametype="1" attr-gameplat="AG" attr-gameid="WHGWH30" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH30.png">
-                                    <div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Fortune Alchemy</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="WHGWH30" attr-provider="AG" attr-gameimg="ag/WHGWH30.png" attr-gamenameen="Fortune Alchemy" attr-stars="1" attr-point="0.0" attr-popular="111127" attr-gamech="点石成金" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="imgdescdiv" id="game-info" attr-servergameid="LostTempleH5" attr-gamedemo="1" attr-gamename="Lost Temple H5" attr-gametype="1" attr-gameplat="TTG" attr-gameid="1058" attr-gamelang="en"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ttg/1058.png">
-                                    <div class="desc"><span class="sp1">TTG</span><span class="sp2">1024 Đường</span></div>
-                                </div>
-                                <div class="game-content">
-                                    <p class="gamename">Lost Temple H5</p><span id="favGame" class="icon ui-icon__slotgames icon-heart " attr-gameid="1058" attr-provider="TTG" attr-gameimg="ttg/1058.png" attr-gamenameen="Lost Temple H5" attr-stars="1" attr-point="0.0" attr-popular="14651" attr-gamech="失落的神庙 H5" attr-flash="false "></span>
-                                    <div></div>
-                                </div>
-                            </li>
-                        </ul>
-                        <a id="loadmore" style="display: none;"></a>
-                        <span class="icon top-btn  ui-icon__slotgames ui-icon__slotgames--arrowup"></span>
                     </div>
-                    <!-- 搜索区域&&列表展示区 end -->
                 </div>
                 <!-- end: slot games -->
                 <!-- start: lottery-->
                 <div class="lottery-casino casino-cont" style="display:none;">
                     <div class="line">
-                        <img src="images/bgs_new/lottery-st.png" alt="Casino K8" id="lotterySt" />
-                        <img src="images/bgs_new/lottery-mb.png" alt="Casino K8" id="lotteryMb" />
+                        <img src="images/bgs_new/lottery-st.png" alt="Casino K8" />
+                        <img src="images/bgs_new/lottery-mb.png" alt="Casino K8" />
                     </div>
                     <div class="line z-mt10">
-                        <img src="images/bgs_new/lottery-mt.png" alt="Casino K8" id="lotteryMt" />
-                        <img src="images/bgs_new/lottery-mn.png" alt="Casino K8" id="lotteryMn" />
+                        <img src="images/bgs_new/lottery-mt.png" alt="Casino K8" />
+                        <img src="images/bgs_new/lottery-mn.png" alt="Casino K8" />
                     </div>
                     <div class="ui-tempplaceholder"></div>
-                </div>
+				</div>
+
+				<!-- start: qipai games -->
+				<div class="slot-games casino-cont" style="display: none;">
+				    <div class="slotgame searchgames">
+				        <ul class="game-list mainlist">
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1560406594.png">
+				                        <div class="desc"><span class="sp1">PP</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Vampires vs Wolves</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1550648841.png">
+				                        <div class="desc"><span class="sp1">PP</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">The Great Chicken Escape</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1559907578.png">
+				                        <div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Tree of Riches</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1551174315.png">
+				                        <div class="desc"><span class="sp1">PP</span><span class="sp2">243 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">5 Lions Gold</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv"><img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1511957943.png">
+				                        <div class="desc"><span class="sp1">PP</span><span class="sp2">9 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Chú khỉ Điên cuồng</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1516626484.png">
+				                        <div class="desc"><span class="sp1">PP</span><span class="sp2">5 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Đá quý của Người Aztec™</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1493812996.png">
+				                        <div class="desc"><span class="sp1">PP</span><span class="sp2">1 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">888 Con rồng</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/pp/1549294581.png">
+				                        <div class="desc"><span class="sp1">PP</span><span class="sp2">20 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Tiền của Caishen</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH23.png">
+				                        <div class="desc"><span class="sp1">AG</span><span class="sp2">20 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Fengshen Yanyi </p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH27.png">
+				                        <div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Kabuki Gold</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ag/WHGWH30.png">
+				                        <div class="desc"><span class="sp1">AG</span><span class="sp2">10 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Fortune Alchemy</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				            <li class="item">
+				                <a href="#">
+				                    <div class="imgdescdiv">
+				                        <img class="gamerimg" src="https://m.k8us.com/static/C07M2/_default/__static/_wms/_l/electronicgames/ttg/1058.png">
+				                        <div class="desc"><span class="sp1">TTG</span><span class="sp2">1024 Đường</span></div>
+				                    </div>
+				                    <div class="game-content">
+				                        <p class="gamename">Lost Temple H5</p><span class="icon ui-icon__slotgames icon-heart "></span>
+				                    </div>
+				                </a>
+				            </li>
+				        </ul>
+				    </div>
+				</div>
+				<!-- end: qipai games -->
             </div>
         </div>
     </div>
