@@ -642,6 +642,7 @@ body {
 /* ui主体，包括header和main-content */
 
 .ui-body {
+	position: relative;
   margin-top: 50px;
 }
 

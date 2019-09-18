@@ -140,6 +140,37 @@ $(function() {
 	    $('.popup-tuoshou').show();
 	});
 	/** 託售流程 end */
+
+	// 一键转回
+	$('.onechang').on('click', '.btn', function() {
+	    var r = confirm('確定後將會幫您把其他錢包的點數轉至主錢包， 您確定執行嗎 ?');
+	    if (r) {
+	        console.log('轉回成功');
+	    }
+	});
+
+	// 转入转出弹窗
+	$('.clients_list').on('click', '.btn', function() {
+	    $('.popup-zhuandian').find('.steps-ct').removeClass('show').eq(0).addClass('show');
+	    if ($(this).attr('data-type')) {
+	        if ($(this).attr('data-type') == 'in') {
+	            // 转入
+	            $('.popup-zhuandian').find('select[name=sFrom]').val(1);
+	            $('.popup-zhuandian').find('select[name=sTo]').val($(this).attr('data-id'));
+	        } else {
+	            // 转出
+	            $('.popup-zhuandian').find('select[name=sFrom]').val($(this).attr('data-id'));
+	            $('.popup-zhuandian').find('select[name=sTo]').val('');
+	        }
+	        $('.popup-zhuandian').show();
+	    }
+	});
+
+	// 电子钱包记录切换
+	$('.jilu').on('click', '.user-list li', function() {
+	    $(this).find('a').addClass('cur').parent().siblings().find('a').removeClass('cur');
+	    $(this).parents('.jilu').find('.user-box').hide().eq($(this).index()).show();
+	});
 });
 //帐号
 function checkLoginname() {
