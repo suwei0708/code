@@ -6924,10 +6924,10 @@ ul.menu li.item div.inner span.text {
 .popup .steps>div span:after {
     content: '';
     position: absolute;
-    right: -180%;
+    right: -200%;
     top: 50%;
     margin-top: -3px;
-    width: 180%;
+    width: 200%;
     height: 5px;
     background: #ccc
 }
