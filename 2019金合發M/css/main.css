@@ -3494,6 +3494,13 @@ ul.nav-tab li.item span.label {
 .login2 .form-group .form-field input:ms-input-placeholder {
     color: #666;
 }
+.login2 .form-group .form-field .select {
+	width: 20%;
+	margin-right: 5%;
+}
+.login2 .form-group .form-field .select~.input {
+	width: 75%;
+}
 
 .login2 .btn.btn4 {
     margin-top: 4%;
