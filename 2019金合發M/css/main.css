@@ -6689,7 +6689,7 @@ ul.menu li.item div.inner span.text {
     height: 40px;
     line-height: 40px;
     font-size: 16px;
-    background: #31aab5;
+    background: #5a6364;
     color: #fff;
     text-align: center;
     -webkit-border-radius: 5px;
@@ -6699,7 +6699,7 @@ ul.menu li.item div.inner span.text {
     background: #38c2cf
 }
 .user-list li a.cur {
-    background: #e90080
+    background: #ecab07
 }
 .user-box {
 	margin: 0 10px;
