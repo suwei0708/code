@@ -3498,6 +3498,9 @@ ul.nav-tab li.item span.label {
 	width: 20%;
 	margin-right: 5%;
 }
+.login2 .form-group .form-field {
+	font-size: 0;
+}
 .login2 .form-group .form-field .select~.input {
 	width: 75%;
 }
