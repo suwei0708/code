@@ -188,10 +188,13 @@
 }
 
 .mindex .live-item {
-  width: 50%;
+  width: 33.3%;
   background: rgba(78, 26, 21, 0.3);
   border-radius: 8px;
   position: relative;
+}
+.mindex .live-item .img {
+	width: 100%;
 }
 
 .mindex .live-portrait {
@@ -204,11 +207,11 @@
 }
 
 .mindex .live-desc {
-  margin-top: 130px;
+  margin-top: 10px;
   color: #dddddd;
   font-size: 1rem;
   padding: 5px;
-  text-align: center;
+  text-align: justify;
   height: 80px;
 }
 

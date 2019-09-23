@@ -432,24 +432,24 @@ body {
 .ui-icon__sportscasino.badminton { width: 26px; height: 26px; background-position: 0px -132px; }
 .ui-icon__sportscasino.bb { width: 23px; height: 26px; background-position: -116px -132px; }
 .ui-icon__sportscasino.btilogo {
-    width: 101px;
-    height: 41px;
+    width: 116px;
+    height: 30px;
     background: url(../images/sprite-icons/icon3.png) no-repeat 0 0;
-    background-size: auto 40px;
+    background-size: auto 25px;
 }
 .ui-icon__sportscasino.esport { width: 23px; height: 26px; background-position: -79px -132px; }
 .ui-icon__sportscasino.football { width: 23px; height: 26px; background-position: -152px -132px; }
 .ui-icon__sportscasino.form { width: 39px; height: 26px; background-position: -128px -54px; }
 .ui-icon__sportscasino.imlogo {
-    width: 119px;
-    height: 21px;
+    width: 116px;
+    height: 30px;
     background: url(../images/sprite-icons/icon2.png) no-repeat 0 0;
-    background-size: auto 19px;
+    background-size: auto 25px;
 }
 .ui-icon__sportscasino.mobileicon { width: 8px; height: 12px; background-position: -159px -97px; }
 .ui-icon__sportscasino.opuslogo { width: 114px; height: 29px; background-position: 0px -54px; }
 .ui-icon__sportscasino.pcicon { width: 13px; height: 12px; background-position: -133px -97px; }
-.ui-icon__sportscasino.sabalogo { width: 116px; height: 30px; background: url(../images/sprite-icons/icon1.png) no-repeat 0 0; background-size: auto 30px;}
+.ui-icon__sportscasino.sabalogo { width: 116px; height: 30px; background: url(../images/sprite-icons/icon1.png) no-repeat 0 0; background-size: auto 25px;}
 .ui-icon__sportscasino.vat { width: 25px; height: 26px; background-position: -40px -132px; }
 .ui-icon__sportscasino.waterfootbal { width: 33px; height: 26px; background-position: -180px -54px; }
 

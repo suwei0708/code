@@ -5437,9 +5437,8 @@ ul.menu li.item div.inner span.text {
 
 .slotgame ul.game-list li.item {
     display: inline-block;
-    width: 47%;
+    width: 48%;
     position: relative;
-    margin-left: 2%;
     vertical-align: top;
 }
 
