@@ -1,0 +1,213 @@
+body{ background:transparent; }
+.clear{ clear:both; }
+
+/* banner */
+.banner{ width:100%; height:590px; background:url(../images/banner.jpg) center top no-repeat; overflow:hidden; }
+.banner .timer{ padding-top:380px; text-align:center; }
+.banner .timer p{ display:inline-block; line-height:22px; font-size:14px; color:#666; position:relative; padding-left:22px; }
+.banner .timer p:before{ content:''; position:absolute; width:22px; height:22px; background:url(../images/kanjia.png); left:0; top:0; }
+.banner .btn{ padding-top:20px; }
+.banner .btn a{ display:block; width:264px; height:68px; margin:0 auto; }
+.banner .btn.kskj a{ background:url(../images/4.png) 0 0; }
+.banner .btn.kskj a:hover{ background-position:0 -70px; }
+.banner .btn.ckwd a{ background:url(../images/7.png) 0 0; }
+.banner .btn.ckwd a:hover{ background-position:0 -70px; }
+
+/* explain */
+.explain{ width:100%; height:644px; background:#fff url(../images/1.png) center top no-repeat; margin-top:-48px; overflow:hidden; }
+.explain h2{ width:235px; height:86px; background:url(../images/2.png); margin:40px auto 0; font-size:36px; line-height:86px; text-align:center; font-weight:bold; }
+.explain .list{ width:1090px; margin:0 auto; padding-top:40px; }
+.explain .item{ margin-left:240px; overflow:hidden; }
+.explain .item span{ float:left; margin-top:13px; width:34px; line-height:34px; background:url(../images/kanjia.png) -320px 0; color:#fff; text-align:center; font-size:20px; }
+.explain .item p{ float:left; margin-left:15px; font-size:18px; color:#777; line-height:60px; }
+.explain .item b{ font-size:18px; color:#777; }
+.explain .item i{ font-size:12px; color:#777; font-style:normal; }
+.explain .item p.long{ width:358px; height:46px; line-height:46px; color:#fff; margin:7px 0 0 6px; background:url(../images/kanjia.png) 0 -80px; text-indent:9px; }
+.explain .item p.short{ width:190px; line-height:34px; height:34px; margin:13px 0 0 0; background:url(../images/kanjia.png) -370px 0; color:#fff; text-indent:14px; }
+
+/* scroller */
+.scroller{ margin-top:-32px; padding-bottom:100px; }
+.scroller .scroll{ width:1090px; margin:0 auto; overflow:hidden; }
+.scroller .item{ float:left; background:url(../images/4.jpg) left bottom no-repeat; width:535px; height:687px; }
+.scroller .item.rightItem{ float:right; }
+.scroller .item h2{ width:313px; height:86px; line-height:86px; background:url(../images/3.png); font-size:36px; color:#555; font-weight:bold; text-indent:114px; margin:0 0 77px 100px; }
+.scroller .item .swiper{ height:480px; overflow:hidden; }
+.scroller .item .i{ overflow:hidden; padding:9px 50px 9px 60px; }
+.scroller .item .tx{ float:left; overflow:hidden; border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%; }
+.scroller .item .tx img{ width:42px; height:42px; }
+.scroller .item .name{ float:left; line-height:42px; font-size:16px; color:#808080; margin-left:20px; }
+.scroller .item .price{ float:left; line-height:42px; height:42px; color:#808080; font-size:16px; margin-left:15px; }
+.scroller .item .price span{ font-size:16px; color:#1a6dff; }
+.scroller .item .time{ float:right; line-height:42px; color:#808080; }
+.scroller .item.rightItem .i{ padding:9px 40px 9px 45px; }
+.scroller .item .num{ float:left; line-height:42px; font-size:16px; color:#d0cddf; width:30px; }
+
+/* banner2 */
+.banner2{ width:100%; height:590px; background:url(../images/banner2.jpg) center top no-repeat; overflow:hidden; }
+.banner2 .bz{ text-align:center; }
+.banner2 .bz > div{ display:inline-block; overflow:hidden; padding-top:215px; padding-right:10px; }
+.banner2 .bz span{ float:left; line-height:116px; color:#ff316a; font-size:32px; }
+.banner2 .bz p{ width:180px; height:116px; background:url(../images/kanjia.png) 0 -140px; float:left; font-size:30px; color:#f9ff5d; font-weight:bold; line-height:116px; }
+.banner2 .price{ width:277px; height:51px; background:url(../images/8.png); overflow:hidden; margin:-12px auto 0; }
+.banner2 .price span{ float:left; line-height:20px; color:#4e4e4e; font-size:18px; margin-left:30px; text-decoration:line-through; margin-top:20px; }
+.banner2 .price p{ float:left; line-height:24px; color:#2f7aff; font-size:21px; font-weight:bold; margin-top:15px; }
+.banner2 .timerbox{ text-align:center; padding:10px 0; }
+.banner2 .timer{ overflow:hidden; display:inline-block; }
+.banner2 .timer span{ float:left; line-height:22px; font-size:14px; color:#666; margin-right:10px; }
+.banner2 .timer p{ float:left; line-height:22px; font-size:14px; color:#666; position:relative; padding-left:22px; }
+.banner2 .timer p:before{ content:''; position:absolute; width:22px; height:22px; background:url(../images/kanjia.png); left:0; top:0; }
+.banner2 .btn{ text-align:center; }
+.banner2 .btn p{ display:inline-block; overflow:hidden; }
+.banner2 .btn a{ float:left; width:264px; height:67px; }
+.banner2 .btn a.ljgm{ background:url(../images/9.png); }
+.banner2 .btn a.ljgm:hover{ background-position:0 -70px; }
+.banner2 .btn a.zpy{ background:url(../images/10.png); margin-left:30px; }
+.banner2 .btn a.zpy:hover{ background-position:0 -70px; }
+.banner2 .btn a.ljbt{ background:url(../images/18.png); margin-left:30px; }
+.banner2 .btn a.ljbt:hover{ background-position:0 -70px; }
+.banner2 .btn a.wycj{ background:url(../images/19.png); margin-left:30px; }
+.banner2 .btn a.wycj:hover{ background-position:0 -70px; }
+.banner2 .btn a.qksp{ background:url(../images/24.png); margin-left:30px; }
+.banner2 .btn a.qksp:hover{ background-position:0 -70px; }
+.banner2 .btn a.xyxy{ background:url(../images/25.png); margin-left:30px; }
+.banner2 .btn a.xyxy:hover{ background-position:0 -70px; }
+
+/* friends */
+.friends{ width:100%; height:644px; background:#fff url(../images/11.png) center top no-repeat; overflow:hidden; }
+.friends h2{ width:235px; height:86px; background:url(../images/2.png); margin:40px auto 0; font-size:36px; line-height:86px; text-align:center; font-weight:bold; }
+.friends .desc{ font-size:14px; color:#999; text-align:center; line-height:56px; }
+.friends .copy{ margin:0 auto; width:700px; overflow:hidden; }
+.friends .copy p{ float:left; color:#999; line-height:48px; border:#f0f0f0 1px solid; border-right:none; font-size:14px; padding-left:20px; }
+.friends .copy input{position: absolute; opacity: 0; height: 0;border:#f0f0f0 1px solid; border-left:none; border-right:none; float:left; line-height:48px\9; width:80px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; }
+.friends .copy a{ float:left; width:152px; height:50px; font-size:18px; color:#fff; border-radius:4px; -webkit-border-radius:4px; background:#ff4c7e; text-align:center; line-height:50px; }
+.friends .copy a:hover{ background:#ff316a; }
+.friends .list{ width:700px; margin:12px auto 0; }
+.friends .list .item{ overflow:hidden; padding:9px 80px 9px 15px; }
+.friends .list .tx{ float:left; overflow:hidden; border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%; }
+.friends .list .tx img{ width:42px; height:42px; }
+.friends .list .name{ float:left; line-height:42px; font-size:16px; color:#808080; margin-left:20px; }
+.friends .list .price{ float:left; line-height:42px; height:42px; color:#808080; font-size:16px; margin-left:15px; }
+.friends .list .price span{ font-size:16px; color:#1a6dff; }
+.friends .list .time{ float:right; line-height:42px; color:#808080; }
+
+/* explain2 */
+.explain2{ width:1170px; margin:0 auto; }
+
+
+/* 自己砍价后的弹窗 */
+.selfPrice{ position:fixed; width:100%; height:100%; left:0; top:0; z-index:999; }
+.selfPrice .bg{ position:absolute; width:100%; height:100%; background:#000; background:rgba(0, 0, 0, 0.85); filter:alpha(opacity=85); left:0; top:0; }
+.selfPrice .panel{ position:absolute; width:606px; height:476px; background:url(../images/5.png); margin:auto; left:0; top:0; right:0; bottom:0; z-index:2; }
+.selfPrice .desc{ font-size:18px; color:#666; line-height:20px; text-align:center; padding-top:310px; }
+.selfPrice .text{ font-size:22px; color:#ff4176; font-weight:bold; line-height:24px; text-align:center; margin-top:10px; }
+.selfPrice .close{ width:20px; height:20px; position:absolute; top:195px; right:28px; z-index:2; cursor:pointer; }
+.selfPrice .btn{ padding-top:24px; }
+.selfPrice .btn a{ display:block; width:194px; height:49px; background:url(../images/6.png) 0 0; margin:0 auto; }
+.selfPrice .btn a:hover{ background-position:0 -50px; }
+
+/* 自己砍价邀请朋友弹出窗口 */
+.invitation{ position:fixed; width:100%; height:100%; left:0; top:0; z-index:999; }
+.invitation .bg{ position:absolute; width:100%; height:100%; background:#000; background:rgba(0, 0, 0, 0.85); filter:alpha(opacity=85); left:0; top:0; }
+.invitation .panel{ position:absolute; width:607px; height:378px; background:url(../images/12.png); margin:auto; left:0; top:0; right:0; bottom:0; z-index:2; }
+.invitation .close{ width:20px; height:20px; position:absolute; top:20px; right:20px; z-index:2; cursor:pointer; }
+.invitation .title{ font-size:18px; color:#666; line-height:20px; text-align:center; padding-top:65px; }
+.invitation .p{ width:434px; height:94px; margin:25px auto 0; border:#ebebeb 1px solid; border-radius:4px; -webkit-border-radius:4px; }
+.invitation .p p{ font-size:16px; color:#aaa; text-align:center; line-height:20px; margin-top:20px; }
+.invitation .p input{ height:36px; font-size:16px; text-align:center; color:#aaa; width:100%; }
+.invitation .btn a{ display:block; width:194px; height:49px; background:url(../images/13.png); margin:30px auto 0; }
+.invitation .btn a:hover{ background-position:0 -50px; }
+.invitation .share{ overflow:hidden; padding:25px 0 0 208px; }
+.invitation .share .txt{ float:left; line-height:21px; font-size:14px; color:#aaa; }
+.invitation .share .bdsharebuttonbox{ float:left; }
+.invitation .share .bdsharebuttonbox a{ margin:0 10px 0 0; padding:0; float:left; width:21px; height:21px; }
+.invitation .share .bdsharebuttonbox a.bds_qzone{ background:url(../images/17.png); }
+.invitation .share .bdsharebuttonbox a.bds_tsina{ background:url(../images/14.png); }
+.invitation .share .bdsharebuttonbox a.bds_weixin{ background:url(../images/15.png); }
+.invitation .share .bdsharebuttonbox a.bds_tqq{ background:url(../images/16.png); }
+
+/* 自己砍价后的弹窗 */
+.friendPrice{ position:fixed; width:100%; height:100%; left:0; top:0; z-index:999; }
+.friendPrice .bg{ position:absolute; width:100%; height:100%; background:#000; background:rgba(0, 0, 0, 0.85); filter:alpha(opacity=85); left:0; top:0; }
+.friendPrice .panel{ position:absolute; width:606px; height:476px; background:url(../images/5.png); margin:auto; left:0; top:0; right:0; bottom:0; z-index:2; }
+.friendPrice.fail .panel{ background:url(../images/20.png); }
+.friendPrice.success .panel{ background:url(../images/21.png); }
+.friendPrice .desc{ font-size:18px; color:#666; line-height:20px; text-align:center; padding-top:310px; }
+.friendPrice .text{ font-size:22px; color:#ff4176; font-weight:bold; line-height:24px; text-align:center; margin-top:10px; }
+.friendPrice .close{ width:20px; height:20px; position:absolute; top:195px; right:28px; z-index:2; cursor:pointer; }
+.friendPrice .btn{ padding-top:24px; overflow:hidden; }
+.friendPrice .btn a.yq{ float:left; width:194px; height:49px; background:url(../images/22.png) 0 0; margin-left:100px; }
+.friendPrice .btn a.yq:hover{ background-position:0 -50px; }
+.friendPrice .btn a.fq{ float:left; width:194px; height:49px; background:url(../images/23.png) 0 0; margin-left:30px; }
+.friendPrice .btn a.fq:hover{ background-position:0 -50px; }
+
+/* 活动结束时弹窗 */
+.activityEnd{ position:fixed; width:100%; height:100%; left:0; top:0; z-index:999; }
+.activityEnd .bg{ position:absolute; width:100%; height:100%; background:#000; background:rgba(0, 0, 0, 0.85); filter:alpha(opacity=85); left:0; top:0; }
+.activityEnd .panel{ position:absolute; width:606px; height:303px; background:url(../images/26.png); margin:auto; left:0; top:0; right:0; bottom:0; z-index:2; }
+.activityEnd .close{ width:20px; height:20px; position:absolute; top:20px; right:20px; z-index:2; cursor:pointer; }
+.activityEnd .end{ width:49px; height:49px; background:url(../images/29.png); margin:60px auto 0; }
+.activityEnd .desc{ color:#666; font-size:18px; line-height:20px; text-align:center; padding-top:30px; }
+.activityEnd .btn{ overflow:hidden; padding-top:48px; }
+.activityEnd .btn a{ float:left; width:194px; height:49px; }
+.activityEnd .btn a.sy{  background:url(../images/28.png); margin-left:100px; }
+.activityEnd .btn a.sy:hover{ background-position:0 -50px; }
+.activityEnd .btn a.fq{  background:url(../images/27.png); margin-left:30px; }
+.activityEnd .btn a.fq:hover{ background-position:0 -50px; }
+.activityEnd .btn a.ljgm{  background:url(../images/31.png); margin-left:100px; }
+.activityEnd .btn a.ljgm:hover{ background-position:0 -50px; }
+.activityEnd .btn a.bmy{  background:url(../images/32.png); margin-left:30px; }
+.activityEnd .btn a.bmy:hover{ background-position:0 -50px; }
+.activityEnd .title{ text-align:center; padding-top:80px; }
+.activityEnd .title span{ display:block; width:27px; height:27px; background:url(../images/30.png); position:absolute; left:0; top:0; }
+.activityEnd .title p{ line-height:28px; font-size:18px; color:#999; display:inline-block; position:relative; padding-left:30px; }
+.activityEnd .price{ font-size:18px; color:#666; text-align:center; padding-top:20px; }
+.activityEnd .price span{ font-size:24px; color:#ff4176; }
+
+/* 新增二维码20190927 */
+.kj-ecode {
+    height: 190px;
+    padding: 20px 0 0;
+    margin-top: -20px;
+    background: url(../images/kj-ecode-bg.jpg) no-repeat center 0;
+}
+.ecode-wrap {
+    width: 1074px;
+    margin: 0 auto;
+}
+.kj-ecode .ecode {
+    margin: 0 0 0 163px;
+    width: 158px;
+    height: 158px;
+}
+.kj-ecode .tit {
+    margin-left: 50px;
+    line-height: 160px;
+    font-size: 42px;
+    color: #333;
+    font-weight: 700;
+}
+.kj-ecode .btn {
+    display: block;
+    width: 222px;
+    height: 66px;
+    margin: 46px 80px 0 0;
+    background: #ff4c7e;
+    border-radius: 66px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff4c7e;
+}
+.kj-ecode .btn strong {
+    display: block;
+    width: 212px;
+    height: 56px;
+    line-height: 56px;
+    background: #fff;
+    border-radius: 56px;
+    margin: 2px auto 0;
+}
+.kj-ecode .btn:hover {
+    color: #ff316a;
+    background: #ff316a;
+}
