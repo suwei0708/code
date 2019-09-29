@@ -782,7 +782,7 @@ a.yellow {
 
 .jm {
 	&-banner {
-		height: 378px;
+		height: 380px;
 		background: url(../images/jm.jpg) no-repeat center 0;
 	}
 	&-hzlc {
@@ -937,27 +937,41 @@ a.yellow {
 	&-jmdj {
 		padding: 0 0 110px;
 		.ct {
+			.ov(h);
 			margin-top: 40px;
-			padding: 0 40px;
 			font-size: 0;
 			background: #fff;
 			.bdr(8px);
 		}
 		li {
-			padding: 28px 0;
-			border-top: 1px solid #f2f2f2;
+			&.last {
+				.item-last {
+					height: 24px * 3;
+				}
+			}
 		}
 		.item {
 			.dis(ib);
 			vertical-align: top;
-			width: 20%;
+			width: 16.6%;
 			line-height: 24px;
-			font-size: 16px;
+			font-size: 14px;
 			color: #666;
 			text-align: center;
+			padding: 28px 0;
+			border-top: 1px solid #f2f2f2;
 			strong {
 				font-size: 18px;
 				color: #333;
+			}
+			&-last {
+				width: 17%;
+				color: #fff;
+				background: #ff9d29;
+				border-color: #ffc360;
+				strong {
+					color: #fff;
+				}
 			}
 		}
 	}
@@ -971,14 +985,28 @@ a.yellow {
 		.item {
 			.dis(ib);
 			vertical-align: top;
-			width: 290px;
+			width: 300px;
 			line-height: 24px;
 			font-size: 16px;
 			color: #fff;
 			text-align: center;
 			&2 {
+				.pos(r);
 				width: 470px;
-				margin: 0 85px;
+				margin: 0 75px;
+				&:before, &:after {
+					content: '';
+					.pos(a);
+					top: 90px;
+					left: 0;
+					width: 1px;
+					height: 80px;
+					background: #8fb2f7;
+				}
+				&:after {
+					left: auto;
+					right: 0;
+				}
 			}
 			.tit {
 				padding: 24px 0 0;
@@ -1004,6 +1032,29 @@ a.yellow {
 			font-size: 16px;
 			font-weight: 700;
 			color: #fff;
+		}
+	}
+	&-wtjd {
+		padding: 0 0 70px;
+		.ct {
+			margin-right: -130px;
+			font-size: 0;
+		}
+		.item {
+			.dis(ib);
+			vertical-align: top;
+			line-height: 28px;
+			color: #fff;
+			font-size: 16px;
+			width: 550px;
+			margin: 46px 125px 0 0;
+			text-align: justify;
+			dt {
+				font-weight: 700;
+			}
+			dd {
+				padding: 14px 0 0;
+			}
 		}
 	}
 }
