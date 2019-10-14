@@ -48,9 +48,17 @@ body{ background:transparent; }
 .banner2 .bz > div{ display:inline-block; overflow:hidden; padding-top:215px; padding-right:10px; }
 .banner2 .bz span{ float:left; line-height:116px; color:#ff316a; font-size:32px; }
 .banner2 .bz p{ width:180px; height:116px; background:url(../images/kanjia.png) 0 -140px; float:left; font-size:30px; color:#f9ff5d; font-weight:bold; line-height:116px; }
-.banner2 .price{ width:277px; height:51px; background:url(../images/8.png); overflow:hidden; margin:-12px auto 0; }
-.banner2 .price span{ float:left; line-height:20px; color:#4e4e4e; font-size:18px; margin-left:30px; text-decoration:line-through; margin-top:20px; }
-.banner2 .price p{ float:left; line-height:24px; color:#2f7aff; font-size:21px; font-weight:bold; margin-top:15px; }
+.banner2 .price {
+    padding-left: 30px;
+    width: 560px;
+    height: 51px;
+    background: url(../images/8.png) no-repeat center 0;
+    overflow: hidden;
+    margin: -12px auto 0;
+    text-align: center;
+}
+.banner2 .price span{display: inline-block; vertical-align: top; line-height:20px; color:#4e4e4e; font-size:18px; margin-left:30px; text-decoration:line-through; margin-top:20px; }
+.banner2 .price p{display: inline-block; vertical-align: top; line-height:24px; color:#2f7aff; font-size:21px; font-weight:bold; margin-top:15px; }
 .banner2 .timerbox{ text-align:center; padding:10px 0; }
 .banner2 .timer{ overflow:hidden; display:inline-block; }
 .banner2 .timer span{ float:left; line-height:22px; font-size:14px; color:#666; margin-right:10px; }
@@ -81,7 +89,7 @@ body{ background:transparent; }
 .friends .copy input{position: absolute; opacity: 0; height: 0;border:#f0f0f0 1px solid; border-left:none; border-right:none; float:left; line-height:48px\9; width:80px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; }
 .friends .copy a{ float:left; width:152px; height:50px; font-size:18px; color:#fff; border-radius:4px; -webkit-border-radius:4px; background:#ff4c7e; text-align:center; line-height:50px; }
 .friends .copy a:hover{ background:#ff316a; }
-.friends .list{ width:700px; margin:12px auto 0; }
+.friends .list{ overflow: hidden; width:700px; height: 300px; margin:12px auto 0; }
 .friends .list .item{ overflow:hidden; padding:9px 80px 9px 15px; }
 .friends .list .tx{ float:left; overflow:hidden; border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%; }
 .friends .list .tx img{ width:42px; height:42px; }
@@ -110,6 +118,12 @@ body{ background:transparent; }
 	width: 33.3%;
 	font-size: 14px;
 	color: #808080;
+}
+.qun-list li span {
+    display: inline-block;
+    vertical-align: top;
+	width: 115px;
+	white-space: nowrap;
 }
 .qun-list li a {
 	display: inline-block;
