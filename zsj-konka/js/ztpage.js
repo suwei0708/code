@@ -57,4 +57,15 @@ $(function() {
 		    $('.zt-talk').hide();
 		};
 	}
+
+	// 无缝滚动
+	if ($('.zt-dspw').length) {
+	    $('.zt-dspw').rollSlide({
+	        orientation: 'left',
+	        num: 1,
+	        v: 500,
+	        space: 3000,
+	        isRoll: true
+	    });
+	};
 });
