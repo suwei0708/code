@@ -113,6 +113,7 @@ body {
 		padding-bottom: 120px;
 		.tit {
 			.pos(r);
+			z-index: 5;
 			height: 79px;
 			img {
 				.pos(a);
@@ -335,75 +336,90 @@ body {
 		.pos(f);
     	_position: absolute;
     	bottom: 122px;
-    	right: 30px;
+		right: 30px;
+		z-index: 992;
     	display: block;
-		width: 80px;
+		width: 92px;
+		height: 362px - 4;
+		padding: 4px 0 0 4px;
 		z-index: 980;
-		.bdsharebuttonbox {
-			a {
-				.dis(b);
-				float: none;
-				width: 80px;
-				height: 74px;
-				margin: 0;
-				background: url(../images/talk.png) no-repeat;
-				&:hover {
-					.opacity(1);
-				}
-				&.bds_tsina {
-					height: 89px;
-					background-position: 0 0;
-					&:hover {
-						background-position: -90px 0;
-					}
-				}
-				&.bds_weixin {
-					background-position: 0 -89px;
-					&:hover {
-						background-position: -90px -89px;
-					}
-				}
-				&.bds_sqq {
-					background-position: 0 -163px;
-					&:hover {
-						background-position: -90px -163px;
-					}
-				}
+		background: url(../images/talk.png) no-repeat;
+		a {
+		    .dis(b);
+		    float: none;
+		    width: 92px;
+			height: 90px;
+			line-height: 90px;
+			text-align: center;
+		    margin: 0;
+			background: none;
+			font-size: 30px;
+			color: #f2d8bd !important;
+		    &:hover {
+		        background: url(../images/talk-cur.png) no-repeat 0 0;
+		        color: #da251e !important;
 			}
 		}
-		.back {
-			.dis(b);
-			float: none;
-			width: 80px;
-			height: 88px;
-			margin: 0;
-			background: url(../images/talk.png) no-repeat 0 -163px-74;
-			&:hover {
-				background-position: -90px -163px-74;
+		.bdsharebuttonbox {
+			a {
+			    .dis(b);
+			    float: none;
+			    width: 92px;
+			    height: 90px;
+			    line-height: 90px;
+			    margin: 0;
+			    font-size: 60px;
+				background: none;
+				text-indent: 0;
+				margin-bottom: -1px;
+			    &:hover {
+			        background: url(../images/talk-cur.png) no-repeat 0 0;
+			    }
 			}
 		}
 	}
 }
+
+.all-works {
+    .zsj-box {
+        .tit {
+            padding: 163px 0 34px;
+            h2 {
+                font-size: 24px;
+                color: #fff;
+            }
+            .fr {
+                a {
+                    margin-left: 46px;
+                    font-size: 18px;
+                    color: #fff;
+                    &:hover, &.cur {
+                        color: @red;
+					}
+					&.cur {
+						font-weight: 700;
+					}
+                }
+            }
+        }
+    }
+}
+
 .bd_weixin_popup {
-	width: 160px !important;
-	height: 160px !important;
+	width: 167px !important;
+	height: 163px !important;
 	padding: 0 !important;
 	margin: 285px 0px 0px -65px;
 	border: 0 !important;
-	&:after {
-		content: '';
-		.pos(a);
-		top: 50%;
-		right: -8px;
-		margin-top: -8px;
-		.triangle(right, 8px, #fff);
-	}
+	background: url(../images/ecode-bg.png) no-repeat center 0 !important;
 	.bd_weixin_popup_main {
-		padding: 25px 0 0 !important;
 		min-height: 111px !important;
 		_height: 111px !important;
 		table {
-			width: 37px * 3 !important;
+			width: 130px !important;
+			border: 10px solid #fff !important;
+			background: #fff;
+			margin: 0 0 0 6px !important;
 		}
 		td {
 			width: 3px !important;
