@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>全部作品-致设计</title>
+    <meta name="keywords" content="致设计,90设计师,淘宝美工,电商设计,店铺设计,创意设计,美工设计" />
+    <meta name="description" content="致设计6周年描述" />
     <!-- 官网通用css start-->
     <link rel="stylesheet" href="http://www.zhisheji.com/home/css/common.css">
-    <link rel="stylesheet" href="http://www.zhisheji.com/home/css/page.css">
     <!-- 官网通用css end-->
     <link rel="stylesheet" href="css/ztpage.css">
 </head>
@@ -96,14 +97,14 @@
     <div class="zt-nav">
         <div class="wraps">
             <div class="fll">
-                <a href="index.html#navlink" class="cur">首页</a>
-                <a href="#navlink">大赛要求</a>
-                <a href=".html#navlink">奖项设置</a>
+                <a href="index.html" class="cur">首页</a>
+                <a href="index.html#dsyq">大赛要求</a>
+                <a href="index.html#jxsz">奖项设置</a>
             </div>
             <div class="fr">
-                <a href="竞猜.html#navlink">全部作品</a>
-                <a href="抽奖.html#navlink">大赛评委</a>
-                <a href="往期十强.html#navlink">活动说明</a>
+                <a href="全部作品.html">全部作品</a>
+                <a href="index.html#dspw">大赛评委</a>
+                <a href="index.html#hdsm">活动说明</a>
             </div>
             <div class="ztbtn-box">
                 <a href="javascript:;" class="ztbtn">上传作品</a>
@@ -355,11 +356,429 @@
                     </li>
                 </ul>
                 <div class="page-allworks">
-                    <div class="page">
-                        <span>上一页</span><span class="cur">1</span><a href="/yuanchuang/2_dateline_0/2">2</a><a href="/yuanchuang/2_dateline_0/3">3</a><a href="/yuanchuang/2_dateline_0/4">4</a><a href="/yuanchuang/2_dateline_0/5">5</a><span>...</span><a href="/yuanchuang/2_dateline_0/708">708</a><a href="/yuanchuang/2_dateline_0/2">下一页</a>
+					<div class="page">
+						<a href="javascript:;" class="prev"><span class="icon-jiantouz"></span></a>
+						<a href="javascript:;">1</a>
+						<span class="cur">2</span>
+						<a href="javascript:;">3</a>
+						<a href="javascript:;">4</a>
+						<span>···</span>
+						<a href="javascript:;">269</a>
+						<a href="javascript:;" class="next"><span class="icon-jiantouy"></span></a>
+					</div>
+                </div>
+			</div>
+
+			<div class="wrap ct-comment ct-comment-new">
+                <div class="ct-comment-box">
+                    <div class="input">
+                        <textarea class="textarea" placeholder="据说认真交流的都成为大神了~"></textarea>
+                        <!-- <div class="tips">
+                            你还没有登录，请先<a href="javascript:;" onclick="jq('.popup-login').show();centerObj('.popup-login .popup')">登录</a>或<a href="javascript:;" onclick="jq('.popup-login').show().find('.popup-tab li:eq(1)').click();centerObj('.popup-login .popup');">注册</a>！
+                        </div> -->
+                        <span class="num-box"><span class="num">500</span></span>
+                    </div>
+                    <div class="cl btn-box">
+                        <a href="javascript:;" class="fr btn-comment dis"><span>评论</span></a>
+                        <a href="javascript:;" class="btn-smile" onclick="jQuery('.sllt').css({top:+jQuery(this).offset().top + 30, left:jQuery(this).offset().left}).show()" onmouseout="jQuery('.sllt').hide();//调试关闭"><span class="icon-smile"></span>添加表情</a>
+                        <!-- <a class="btn-add" href="javascript:;"><span class="icon-pic"></span>添加图片<input type="file"></a>
+                        <div class="progress" id="progress"><span class="bg"><span class="progress-bar" style="width: 50%"></span></span> <span id="progress-data">0%</span></div>
+                        <a href="javascript:;" class="btn-del">删除</a> -->
                     </div>
                 </div>
-            </div>
+                <h3>全部评论(49)</h3>
+                <ul id="all-comment">
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <img src="http://www.zhisheji.com/home/images/tuijian.png" title="">
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reply-box">
+                            <div class="com-box">
+                                <a href="#" class="fll avatar">
+                                    <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="30" width="30">
+                                </a>
+                                <div class="info">
+                                    <strong><a href="#">木白的白目</a><img src="http://www.zhisheji.com/home/images/tuijian.png" title="推荐设计师"></strong>
+                                    <span class="time">8小时前</span>
+                                </div>
+                                <div class="info">
+                                    梵高展的时候有看过油画动画的部分展示，很遗憾没认真仔细的去研究。梵高展的时候有看过油画动画的部分展示，很遗憾没认真仔细的去研究。梵高展的时候有看过油画动画的部分展示，很遗憾没认真仔细的去研究。
+                                    <div class="btn-box">
+                                        <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                        <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                        <a href="javascript:;" class="btn-report report">举报</a>
+                                        <a href="javascript:;" class="btn-del">删除</a>
+                                    </div>
+                                </div>
+                                <div class="reply-form">
+                                    <textarea class="text" placeholder="回复 木白的白目 :"></textarea>
+                                    <span class="num-box"><span class="num">0</span>/500</span>
+                                    <div class="btn-box">
+                                        <div class="fr">
+                                            <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="more-comment-box" style="display: none">
+                                <div class="com-box">
+                                    <a href="#" class="fll avatar">
+                                        <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="30" width="30">
+                                    </a>
+                                    <div class="info"><strong><a href="#">痞先森</a></strong> <span>回复</span> <strong><a href="#">木白的白目</a></strong><span class="time">8小时前</span></div>
+                                    <div class="info">
+                                        梵高展的时候有看过油画动画的部分展示，很遗憾没认真仔细的去研究。
+                                        <div class="btn-box">
+                                            <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                            <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                            <a href="javascript:;" class="btn-report report">举报</a>
+                                            <a href="javascript:;" class="btn-del">删除</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="reply-form">
+                                        <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                        <span class="num-box"><span class="num">0</span>/500</span>
+                                        <div class="btn-box">
+                                            <div class="fr">
+                                                <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="more-comment" href="javascript:;"><span class="more-comment-text">查看更多评论</span><span class="triangle triangle-bottom"></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="com-box">
+                            <a href="#" class="fll avatar">
+                                <img src="http://www.zhisheji.com/uc_server/data/avatar/000/17/61/72_avatar_small.jpg" height="54" width="54">
+                            </a>
+                            <div class="tt">
+                                <a href="#"><strong>痞先森</strong></a>
+                                <span class="times">3天前</span>
+                            </div>
+                            <div class="info">
+                                冰肌玉骨锁魂萦，秀眉欲笑还如颦。红妆淡抹花容映，云鬓三千如瀑淋。纤指如兰柔盈盈，媚首娇唱暮江吟。孤芳自赏花黄镜，凝眸似水浅笑盈。诗歌三：美人吟飞鸟在枝头喑哑落花似春雨纷纷下残香满华发。
+                                <div class="btn-box">
+                                    <a href="javascript:;" class="btn-replay"><span class="icon-comment"></span><span class="btn-replay-txt"> 回复</span></a>
+                                    <a href="javascript:;" class="btn-praise"><span class="icon-praise2"></span> 赞</a>
+                                    <a href="javascript:;" class="btn-selected">精选</a>
+                                    <a href="javascript:;" class="btn-report report"><span class="icon-jubao"></span> 举报</a>
+                                    <a href="javascript:;" class="btn-del">删除</a>
+                                </div>
+                            </div>
+
+                            <div class="reply-form">
+                                <textarea class="text" placeholder="回复 痞先森 :"></textarea>
+                                <span class="num-box"><span class="num">0</span>/500</span>
+                                <div class="btn-box">
+                                    <div class="fr">
+                                        <a href="javascript:;" class="btn btn-sure dis">回复</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 翻页 start -->
+                <div class="page-comment page-gray">
+                    <div class="page">
+                        <strong class="cur">1</strong>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#" class="next"><span class="icon-jiantouy"></span></a>
+                    </div>
+                </div>
+                <!-- 翻页 end -->
+			</div>
+
+			<div class="zt-ecode">
+			    <div class="ct">
+			        <img src="./images/ecode.png" alt="">
+			    </div>
+			</div>
         </div>
 	</div>
 
