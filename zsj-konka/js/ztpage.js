@@ -13,17 +13,19 @@ $(function() {
 		    }
 		});
 	}
-
-	// 无缝滚动
-	if ($('.zt-dspw').length) {
-	    $('.zt-dspw').rollSlide({
-	        orientation: 'left',
-	        num: 1,
-	        v: 500,
-	        space: 3000,
-	        isRoll: true
-	    });
-	};
+	showCur();
+	var timer;
+	$(window).on('scroll', function() {
+	    clearInterval(timer);
+	    timer = setTimeout(showCur, 100);
+	});
+	function showCur() {
+	    if ($(window).scrollTop() > $(window).height()) {
+	        $('.zt-talk').show();
+	    } else {
+	        $('.zt-talk').hide();
+	    };
+	}
 
 	// 点击回复
 	$('.ct-comment').on('click', '.btn-replay', function() {

@@ -57,9 +57,10 @@ body {
 		    vertical-align: top;
 		    line-height: 80px;
 		    color: #fff;
-		    // &:hover, &.cur {
-		    //     color: @red;
-		    // }
+		    &:hover, &.cur {
+				color: @red;
+				font-weight: 700;
+		    }
 		}
 		.fll {
 		    a {
@@ -171,7 +172,8 @@ body {
 	        }
 	    }
 	    .ct {
-	        .pos(r);
+			.pos(r);
+			padding-top: 50px;
 			img {
 				max-width: none;
 				width: 1282px;
@@ -194,7 +196,7 @@ body {
 	    }
 	    .ct {
 			.pos(r);
-			padding: 47px 0 0;
+			padding: 70px 0 0;
 			img {
 				max-width: none;
 				width: 1220px;
@@ -217,45 +219,14 @@ body {
 	    .ct {
 			.pos(r);
 			margin: 82px 0 0;
-			.roll-wrap {
-				.ov(h);
-				.pos(r);
-				width: 100%;
-				height: 430px;
-				overflow: hidden;
-			}
 			ul {
-				width: 9999px;
-				position: absolute;
-				left: 0;
-				top: 0;
+				.cl();
+				margin-right: -24px;
 			}
 			li {
 				float: left;
-				width: 257px;
-				margin-right: 62px;
-			}
-			.zticon {
-				.pos(a);
-				top: 50%;
-				margin-top: -20px;
-				.dis(b);
-				width: 20px;
-				height: 40px;
-			}
-			.pre {
-				left: -65px;
-				background-position: 0 -230px;
-				&:hover {
-					background-position: -300px -230px;
-				}
-			}
-			.next {
-				right: -65px;
-				background-position: 0 -290px;
-				&:hover {
-					background-position: -300px -290px;
-				}
+				width: 227px;
+				margin-right: 20px;
 			}
 	    }
 	}
@@ -338,7 +309,7 @@ body {
     	bottom: 122px;
 		right: 30px;
 		z-index: 995;
-    	display: block;
+    	display: none;
 		width: 92px;
 		height: 362px - 4;
 		padding: 4px 0 0 4px;
@@ -594,12 +565,13 @@ body {
 	padding: 70px 0 116px;
 }
 .pos-fixed {
+	.ov(h);
     .pos(f);
     top: 0;
     left: 0;
     z-index: 999;
     width: 100%;
-    margin: 20px 0 0;
+    // margin: 20px 0 0;
     -webkit-animation: searchTop .5s ease-in-out;
     -moz-animation: searchTop .5s ease-in-out;
     animation: searchTop .5s ease-in-out
