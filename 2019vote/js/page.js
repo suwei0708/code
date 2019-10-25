@@ -22,6 +22,20 @@ $(function() {
 	        });
 	    });
 	}
+	var music = $('audio')[0];
+	//微信下兼容音乐处理
+	if (music) {
+	    music.play()
+	}
+	document.addEventListener('WeixinJSBridgeReady', function() {
+	    music.play();
+	}, false);
+
+	$('body').one('touchstart', function() {
+		if (music) {
+		    music.play()
+		}
+	})
 
 	// 导航二维码
 	$('.lxwm').on('click', function() {
