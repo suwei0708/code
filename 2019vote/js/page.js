@@ -94,6 +94,9 @@ $(function() {
 	.on('click', '.popup .btn', function() {
 	    $(this).parents('.popup-box').remove();
 	});
+
+	// 初始化音乐按钮
+	initMusic();
 });
 
 function popup(txt1, txt2) {
@@ -107,4 +110,21 @@ function popup(txt1, txt2) {
 					+'</div>'
 				+'</div>'
 	$('body').append($dom);
+}
+
+/**
+ * 初始化音乐播放和暂停事件
+ */
+function initMusic() {
+    var music = $('audio')[0];
+    $('.player-btn').on('click', function() {
+        var _me = $(this);
+        if (_me.hasClass('player-btn-stop')) {
+            music.play();
+        } else {
+            music.pause();
+        }
+
+        _me.toggleClass('player-btn-stop');
+    });
 }

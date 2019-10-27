@@ -187,29 +187,28 @@ body {
 	li {
 		.dis(ib);
 		vertical-align: bottom;
-		.fz(20);
+		.fz(30);
 		color: #0d0800;
-		.pd(0, 5);
-		.lh(28);
+		.pd(0, 30);
+		.lh(50);
 		background: #b58d1b;
 		.bdr(10/75rem, 10/75rem, 0, 0);
 		cursor: pointer;
 		&.cur {
-			.lh(35);
-			.pd(0, 15);
-			.fz(26);
 			background: #efbb24;
 		}
 	}
 	&2 {
-		li {
-			background: #35427e;
-			color: #fff;
-			&.cur {
-				background: #3873fa;
-				color: #fff;
-			}
-		}
+		.pos(r);
+		.mgs(b, -3);
+		// li {
+		// 	background: #35427e;
+		// 	color: #fff;
+		// 	&.cur {
+		// 		background: #3873fa;
+		// 		color: #fff;
+		// 	}
+		// }
 	}
 }
 .vote-list {
@@ -237,18 +236,18 @@ body {
 		}
 		.num {
 			.lh(35);
-			.fz(16);
+			.fz(22);
 			color: #140d00;
 		}
 		.name {
 			.pds(t, 10);
-			.lh(20);
-			.fz(18);
+			.lh(30);
+			.fz(22);
 			color: #140d00;
 		}
 		.vote {
 			.lh(30);
-			.fz(16);
+			.fz(20);
 			color: #140d00;
 		}
 		.btn-vote {
@@ -270,7 +269,7 @@ body {
 	}
 }
 .ph-img {
-	.mgs(b, -35);
+	.mgs(b, -50);
 	img {
 		.dis(b);
 		width: 100%;
@@ -541,4 +540,58 @@ body {
 @-webkit-keyframes loading {
     from {opacity: 1;}
     to {opacity: 0;}
+}
+
+// 音乐
+.player-btn {
+    position: absolute;
+    z-index: 998;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: url(../images/music.gif) 0 0 no-repeat;
+    background-size: 100px 100px;
+    cursor: pointer
+}
+.player-btn div {
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    background: url(../images/music-off.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: rotate 1.2s linear infinite;
+    animation: rotate 1.2s linear infinite
+}
+.player-btn-stop {
+    background: 0
+}
+.player-btn-stop div {
+    -webkit-animation: indexend 0s;
+    -moz-animation: indexend 0s;
+    -o-animation: indexend 0s;
+    animation: indexend 0s
+}
+@-webkit-keyframes rotate {
+    0% {
+        opacity: 1;
+        -webkit-transform: rotate(0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(360deg)
+    }
+}
+@keyframes rotate {
+    0% {
+        opacity: 1;
+        transform: rotate(0)
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg)
+    }
 }
