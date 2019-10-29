@@ -1,0 +1,271 @@
+/**
+ *  MAIN -----------------
+ *  页面样式代码
+ */
+@import url(../../../common/common-pc.less);
+
+body {
+    margin: 0;
+    padding: 0;
+    font: 16px Microsoft YaHei, "\5B8B\4F53", Arial, HELVETICA;
+    color: #333;
+    background: #fff;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, blockquote, p {
+    padding: 0;
+    margin: 0;
+}
+ol, ul, li {
+    list-style: none;
+}
+input, button {
+    font-family: "Microsoft YaHei";
+}
+img {
+    vertical-align: top;
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+a, label {
+    blr: ~'expression(this.onFocus=this.blur())';
+}
+a {
+    text-decoration: none;
+}
+:focus {
+    outline-style: none;
+}
+.fl {
+    float: left;
+    _display: inline;
+}
+.fr {
+    float: right;
+    _display: inline;
+}
+@page-w: 1200px;
+.wraps {
+	.pos(r);
+	width: @page-w;
+	height: 100%;
+    margin: 0 auto;
+}
+.zt-btn {
+    .pos(a);
+    z-index: 9;
+    .dis(b);
+    width: 230px;
+    height: 90px;
+    font-size: 0;
+    // background: rgba(0, 0, 0, .5);
+}
+body {
+	background: url(../images/bg.jpg) repeat-y center 37px;
+}
+.bg-img {
+	.pos(r);
+	top: 0;
+	left: 50%;
+	width: 1920px;
+	max-width: none;
+	margin-left: -1920px/2;
+}
+.banner {
+	.ov(h);
+	margin: 0 auto -212px;
+	.wraps {
+        .pos(r);
+		height: 468px;
+	}
+}
+
+.btn-zixun {
+	.pos(a);
+	bottom: -60px;
+	left: 50%;
+	width: 289px;
+	height: 195px;
+	margin-left: -289px/2;
+	background: url(../images/zixun.png) no-repeat 0 0;
+	&:hover {
+		background-position: -340px 0;
+	}
+}
+.img {
+	.pos(r);
+	width: 1220px;
+	margin: 18px auto 0;
+	img {
+		.dis(ib);
+		vertical-align: top;
+	}
+	&1 {
+		.pos(r);
+		z-index: 3;
+		margin-top: 0;
+		text-align: center;
+	}
+	&2 {
+		.pos(r);
+		margin-top: 52px;
+		.tit {
+			.pos(a);
+			top: 84px;
+			right: 250px;
+			width: 215px;
+			line-height: 64px;
+			font-size: 34px;
+			color: #1e096b;
+			text-align: center;
+			font-weight: 700;
+		}
+		.list {
+			.ov(h);
+			.pos(a);
+			top: 224px;
+			right: 88px;
+			width: 470px;
+			height: 235px;
+			li {
+				margin-bottom: 25px;
+				font-size: 0;
+			}
+			.avatar {
+				.dis(ib);
+				vertical-align: top;
+				width: 40px;
+				height: 40px;
+				margin: 0 20px 0 0;
+				.bdr(50%);
+			}
+			div {
+				.ov(h);
+				.dis(ib);
+				vertical-align: top;
+				height: 40px;
+				line-height: 40px;
+				font-size: 16px;
+				color: #d7d7fe;
+			}
+			.name {
+				min-width: 62px;
+				margin-right: 10px;
+			}
+		}
+	}
+	&3 {
+		margin-top: 110px;
+	}
+	&4, &6, &8 {
+		img {
+			max-width: none;
+		}
+	}
+	&3, &5, &7 {
+		img {
+			max-width: none;
+			margin-left: -25px;
+		}
+	}
+	&9 {
+		margin-top: 162px;
+		.list {
+			.pos(a);
+			top: 318px;
+			left: 0;
+			margin-right: -80px;
+			font-size: 0;
+			li {
+				.dis(ib);
+				vertical-align: top;
+				width: 340px;
+				margin-right: 80px;
+				text-align: center;
+			}
+			.tit {
+				line-height: 44px;
+				font-size: 32px;
+				color: #fff;
+				font-weight: 700;
+			}
+			.avatar {
+				.dis(ib);
+				vertical-align: top;
+				width: 50px;
+				height: 50px;
+				margin-top: 34px;
+				.bdr(50%);
+			}
+			.info {
+				line-height: 30px;
+				margin-top: 15px;
+				font-size: 18px;
+				color: #fff;
+			}
+		}
+	}
+	&10 {
+		margin-top: 110px;
+		.list {
+			.pos(a);
+			top: 162px;
+			left: 135px;
+			li {
+				.pos(r);
+				padding: 11px 0;
+				line-height: 30px;
+				color: #fff;
+				font-size: 20px;
+				&:before {
+					content: '';
+					.pos(a);
+					top: 23px;
+					left: -30px;
+					width: 6px;
+					height: 6px;
+					background: #fee23a;
+					.bdr(50%);
+				}
+			}
+		}
+	}
+	&11 {
+		.ov(h);
+		margin-top: 20px;
+		dl {
+			.pos(a);
+			top: 114px;
+			right: 245px;
+			width: 340px;
+			text-align: center;
+		}
+		dt {
+			line-height: 40px;
+			font-weight: 700;
+			color: #fff;
+			font-size: 36px;
+		}
+		dd {
+			line-height: 22px;
+			color: #fff;
+			font-size: 16px;
+		}
+	}
+}
+
+
+.btn-talk {
+    @w: 243px;
+    @h: 402px;
+    .pos(f);
+    _position: absolute;
+    z-index: 999;
+    top: 50%;
+    right: 20px;
+    width: @w;
+    height: @h;
+    margin-top: -(@h) / 2px;
+    background: url(../images/talk.png) no-repeat 0 0;
+}
