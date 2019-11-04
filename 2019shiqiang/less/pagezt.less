@@ -440,42 +440,109 @@ body {
 				    .pos(r);
 				    .dis(ib);
 				    vertical-align: top;
-				    width: 250px;
+					width: 250px;
+					padding: 56px 0 35px;
 				    margin: 24px 24px 0 0;
-				    line-height: 138px;
 				    font-size: 16px;
 				    text-align: center;
 				    background: #fff;
 					.bdr(10px);
-				    a {
-				        .dis(b);
-				        color: #999;
-				        font-family: 'Noto Sans CJK SC DemiLight', 'Source Han Sans CN DemiLight', 'Microsoft Yahei';
-				        span {
-				            font-size: 12px;
-				            .dis(ib);
-				            vertical-align: middle;
-				            margin: 0 0 0 10px;
-				        }
-				        &:hover {
-				            color: @yellow;
-				        }
-				    }
-				    .img {
-				        width: 139px;
-				        height: 138px;
-				    }
-				    &.cur {
-				        &:before {
-				            content: '';
-				            .pos(a);
-				            top: 0;
-				            right: 0;
-				            bottom: 0;
-				            left: 0;
-				            border: 3px solid @yellow;
-				        }
-				    }
+				    img {
+						.dis(b);
+						height: 137px;
+						margin: 0 auto;
+					}
+					span {
+						.dis(ib);
+						vertical-align: top;
+						width: 160px;
+						line-height: 50px;
+						.bdr(50px);
+						margin: 48px 0 0;
+						background: @yellow;
+						color: #fff;
+						font-size: 16px;
+					}
+				}
+			}
+			&2 {
+				li {
+					span {
+						background: #292929;
+					}
+				}
+			}
+			&3 {
+				.dis(ib);
+				vertical-align: top;
+				width: 523px;
+				.list {
+					height: 445px-34;
+					padding: 34px 0 0;
+					margin: 35px 0 0;
+				    background: #fff;
+					.bdr(10px);
+					font-size: 0;
+				}
+				ul {
+					.ov(h);
+				}
+				li {
+					.pos(r);
+					margin-top: -1px;
+					padding: 0 80px 0 70px;
+					background: #fff;
+				}
+				img {
+					.dis(ib);
+					vertical-align: top;
+					width: 132px;
+					height: 73px;
+					margin: 15px 40px 0 0;
+				}
+				p {
+					.dis(ib);
+					vertical-align: top;
+					width: 200px;
+					line-height: 30px;
+					padding: 34px 0;
+					border-top: 1px solid #e5e5e5;
+					font-size: 18px;
+					color: #333;
+				}
+			}
+			&4 {
+				.dis(ib);
+				vertical-align: top;
+				width: 523px;
+				margin-left: 26px;
+				.list {
+					height: 445px;
+					margin: 35px 0 0;
+				    background: #fff;
+					.bdr(10px);
+					font-size: 0;
+				}
+				ul {
+					.ov(h);
+				}
+				li {
+					.dis(ib);
+					vertical-align: top;
+					width: 220px;
+					padding: 40px 0 0;
+					text-align: center;
+				}
+				img {
+					.dis(b);
+					height: 120px;
+					margin: 0 auto;
+				}
+				p {
+					line-height: 22px;
+					padding: 5px 0 0;
+					font-size: 18px;
+					color: #333;
 				}
 			}
 		}
@@ -483,31 +550,24 @@ body {
 
     // 大赛评委
     &-judges {
-        padding: 60px 0 90px;
+        padding: 65px 0;
         .list {
-            margin-top: 70px;
-            font-size: 0;
+            margin-top: 28px;
+			font-size: 0;
+			ul {
+				margin-right: -2px;
+			}
             li {
                 .ov(h);
                 .pos(r);
                 .dis(ib);
                 vertical-align: top;
-                width: 400px;
-                height: 402px;
-                border-left: 1px solid @bg;
-                border-bottom: 1px solid @bg;
-                &:after {
-                    content: '';
-                    .pos(a);
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 132px;
-                    background: url(../images/person-bg.png) no-repeat 0 0;
-                }
+                width: 406px;
+                height: 492px;
+                margin: 20px 1px 0 0;
                 .img {
-                    width: 400px;
-                    height: 402px;
+                    width: 406px;
+                    height: 492px;
                 }
                 .bg {
                     .pos(a);
@@ -538,18 +598,24 @@ body {
                         line-height: 40px;
                         margin: 34px 0 0 32px;
                         color: @yellow;
-                        font-size: 30px;
+                        font-size: 36px;
                         font-weight: normal;
                         font-family: 'Noto Sans CJK SC Medium', 'Source Han Sans CN Medium','Microsoft Yahei';
                     }
                     p {
                         margin: 0 0 0 32px;
                         line-height: 35px;
-                        color: #999;
+                        color: #fff;
                         font-size: 18px;
                         font-family: 'Noto Sans CJK SC Light', 'Source Han Sans CN Light','Microsoft Yahei';
                     }
-                }
+				}
+				.info {
+					background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+					background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+					background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 );
+				}
                 .slogan {
                     .pos(a);
                     top: 35px;
@@ -559,13 +625,13 @@ body {
                     color: #222;
                 }
                 &.li1 {
-                    .slogan {
-                        font-size: 36px;
-                    }
                     .bg {
-                        img {
-                            top: 148px - 38;
-                        }
+                        .bdr(10px, 0, 0, 10px);
+                    }
+                }
+                &.li3 {
+                    .bg {
+                        .bdr(0, 10px, 10px, 0);
                     }
                 }
                 &:hover {
@@ -575,22 +641,38 @@ body {
                         img {
                             .dis(b);
                         }
-                    }
+					}
+					.slogan {
+						color: #fff;
+					}
                     .info {
                         left: 100%;
                     }
                     .info2 {
                         background: none;
                         strong, p {
-                            color: @bg
+                            color: #fff
                         }
                         strong {
-                            font-size: 28px;
+                            font-size: 30px;
                         }
                     }
                 }
             }
-        }
+		}
+		&2 {
+			.list {
+				li {
+					width: 609px;
+					height: 492px;
+					margin: 20px 1px 0 0;
+					.img {
+						width: 609px;
+						height: 492px;
+					}
+				}
+			}
+		}
 	}
 
 	// 大赛规则
