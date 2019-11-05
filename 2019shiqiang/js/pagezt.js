@@ -17,48 +17,6 @@ $(function() {
         }
     });
 
-    // 大赛奖品
-    var prizeIndex = 0;
-    var prizeLen = $('.zt-prize').find('.list li').length - 2;
-    $('.zt-prize').on('mouseenter', '.list li', function() {
-        if($(this).index() >= 7) { return false;}
-        prizeIndex = $(this).index();
-        $(this).addClass('cur').siblings().removeClass('cur');
-        $('.zt-prize').find('.prize-box').addClass('hide').eq(prizeIndex).removeClass('hide');
-    })
-    .on('click', '.prev', function() {
-        prizeIndex == 0 ? prizeIndex = prizeLen : prizeIndex--;
-        $('.zt-prize').find('.list li').removeClass('cur').eq(prizeIndex).addClass('cur');
-        $('.zt-prize').find('.prize-box').addClass('hide').eq(prizeIndex).removeClass('hide');
-    })
-    .on('click', '.next', function() {
-        prizeIndex == prizeLen ? prizeIndex = 0 : prizeIndex++;
-        $('.zt-prize').find('.list li').removeClass('cur').eq(prizeIndex).addClass('cur');
-        $('.zt-prize').find('.prize-box').addClass('hide').eq(prizeIndex).removeClass('hide');
-    });
-
-    // 悬浮跳转
-    if($('.fixed-nav').length) {
-        showFixNav();
-        $(window).on('scroll', function() {
-            showFixNav();
-        });
-    }
-    $('.fixed-nav').on('click', 'a', function() {
-        var index = +$(this).parent('li').index();
-        if(index == 6) {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 300);
-        }
-        else {
-            $('html, body').animate({
-                scrollTop: $('#scroll' + index).offset().top
-            }, 300);
-        }
-    });
-
-
     // 参选
     $('.ztbtn-canxuan').on('click', function() {
         var cxStatus = rnd(0, 1); //随机生成0，1
@@ -79,7 +37,7 @@ $(function() {
     /*
      * 参选设计师
     */
-    var voteNum = 0; //投票次数
+    var voteNum =1; //投票次数
     $('.list-election').on('click', '.ztbtn', function() {
         if(!$(this).hasClass('ztbtn-dis')) {
             if(voteNum == 0) {
@@ -220,14 +178,6 @@ $(function() {
         $('.fixed-guess').hide();
     });
 
-    // 十强公布倒计时
-    if($('#times').length) {
-        var downcount = $('#times').data('downcount');
-        $('#times').downCount({
-            date: downcount
-        });
-    };
-
     /*
      * 个人拉票页
     */
@@ -240,56 +190,15 @@ $(function() {
     });
 
     // 个人拉票页通知滚动
-    notices();
-    function notices() {
-        if($('.notices li').length <= 1) {
-            return false;
-        }
-        //1文字轮播(2-5页中间)开始
-        $('.notices li:eq(0)').clone(true).appendTo($('.notices ul'));//克隆第一个放到最后(实现无缝滚动)
-        var liHeight = $('.notices').height();//一个li的高度
-        //获取li的总高度再减去一个li的高度(再减一个Li是因为克隆了多出了一个Li的高度)
-        var totalHeight = ($('.notices li').length *  $('.notices li').eq(0).height()) -liHeight;
-        $('.notices ul').height(totalHeight);//给ul赋值高度
-        var index = 0;
-        var autoTimer = 0;//全局变量目的实现左右点击同步
-        var clickEndFlag = true; //设置每张走完才能再点击
-        function tab() {
-            $('.notices ul').stop().animate({
-                top: -index * liHeight
-            }, 400, function() {
-                clickEndFlag = true; //图片走完才会true
-                if (index == $('.notices li').length - 1) {
-                    $('.notices ul').css({
-                        top: 0
-                    });
-                    index = 0;
-                }
-            })
-        }
-        function next() {
-            index++;
-            if(index > $('.notices li').length - 1) {//判断index为最后一个Li时index为0
-                index = 0;
-            }
-            tab();
-        }
-
-        //自动轮播
-        autoTimer = setInterval(next,3000);
-        $('.notices a').hover(function(){
-            clearInterval(autoTimer);
-        },function() {
-            autoTimer = setInterval(next,3000);
-        })
-
-        //鼠标放到左右方向时关闭定时器
-        $('.notices').hover(function(){
-            clearInterval(autoTimer);
-        },function(){
-            autoTimer = setInterval(next,3000);
-        });
-    }
+	// 无缝滚动
+	if ($('.notices').length) {
+	    $('.notices').rollNoInterval().left();
+	};
+	if ($('.notices2').length) {
+		setTimeout(function() {
+			$('.notices2').rollNoInterval().left();
+		}, 3000);
+	};
 
     // 个人拉票页投票
     $('.vote-box').on('click', '.ztbtn', function() {
