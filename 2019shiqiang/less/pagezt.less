@@ -30,6 +30,21 @@ body {
     width: 1200px;
     margin: 0 auto;
 }
+.arrow-r {
+    cursor: pointer;
+    span {
+        .dis(ib);
+        vertical-align: middle;
+        margin: -3px 0 0 14px;
+        font-size: 12px;
+        .anim;
+    }
+    &:hover {
+        span {
+            .translate(10px, 0);
+        }
+    }
+}
 .zt {
     &btn {
         .dis(ib);
@@ -473,7 +488,22 @@ body {
 		                background: @yellow;
 		                color: #fff;
 		                font-size: 16px;
-		            }
+					}
+					&.sqjb {
+						img {
+							.pos(a);
+							top: -31px;
+							left: -15px;
+							max-width: none;
+							width: 297px;
+							height: auto;
+						}
+						span {
+							.pos(r);
+							z-index: 9;
+							margin-top: 48px+137;
+						}
+					}
 		        }
 		    }
 		    &2 {
@@ -555,7 +585,29 @@ body {
 		            font-size: 18px;
 		            color: #333;
 		        }
-		    }
+			}
+			&5 {
+				width: 1071px;
+				.list {
+					padding: 58px 84px 50px;
+					margin-top: 40px;
+					line-height: 30px;
+					background: #fff;
+					.bdr(10px);
+					img {
+						margin-right: 70px;
+					}
+					p {
+						margin: 8px 0 0;
+						font-size: 18px;
+						color: #333;
+					}
+					span {
+						font-size: 14px;
+						color: #999;
+					}
+				}
+			}
 		}
 	}
 
@@ -822,44 +874,25 @@ body {
 	// 礼品赞助
 	&-sponsor {
 	    padding: 65px 0;
-		.item {
-		    padding: 70px 0 0;
-		    p {
-		        .height(45px);
+		.list {
+			padding: 70px 0 0;
+			font-size: 0;
+		    > div {
 		        .pos(r);
 		        .dis(ib);
 		        vertical-align: top;
-		        width: 350px;
+		        width: 20%;
 		        text-align: center;
-		        &:before {
-		            content: '';
-		            .pos(a);
-		            left: 0;
-		            top: 8px;
-		            width: 1px;
-		            height: 34px;
-		            background: #262626;
-		        }
-		        &.first {
-		            width: 260px;
-		            text-align: left;
-		            &:before {
-		                .dis(n);
-		            }
-		        }
-		        &.last {
-		            width: 240px;
-		            text-align: right;
-		        }
-		        a {
+		        .img {
 		            .pos(r);
-		            .dis(ib);
+					.dis(ib);
+					vertical-align: top;
 		            img {
 		                .pos(a);
 		                top: 0;
 		                left: 0;
 		                .dis(b);
-		                height: 45px;
+		                height: 54px;
 		                .opacity(0);
 		                .anim();
 		            }
@@ -867,19 +900,32 @@ body {
 		                .pos(s);
 		                .opacity(1);
 		            }
-		            &:hover {
-		                img {
-		                    .opacity(1);
-		                }
-		                .gray {
-		                    .opacity(0);
-		                }
-		            }
-		        }
+		            // &:hover {
+		            //     img {
+		            //         .opacity(1);
+		            //     }
+		            //     .gray {
+		            //         .opacity(0);
+		            //     }
+		            // }
+				}
+				p {
+					margin-top: 33px;
+					line-height: 26px;
+					font-size: 15px;
+					white-space: nowrap;
+					a {
+						color: #666;
+						&:hover {
+							color: @yellow;
+						}
+					}
+				}
 
 		    }
 		}
 	    .more {
+			padding: 100px 0 0;
 	        text-align: center;
 	        h4 {
 				line-height: 50px;
@@ -1537,6 +1583,132 @@ body {
 	        }
 	    }
 	}
+
+	// 投票送豪礼
+	&-vote {
+		padding: 35px 0 65px;
+		font-size: 0;
+		.zt-rule {
+			.dis(ib);
+			vertical-align: top;
+			width: 500px;
+			padding: 0;
+			.list {
+				li {
+					height: 449px - 58 * 2;
+					padding: 58px 30px 58px 55px;
+					.bdr(10px, 0, 0, 0);
+					.title {
+						padding: 0 0 6px;
+						font-size: 20px;
+						color: #fff;
+						img {
+							margin-right: 10px;
+						}
+					}
+					p {
+						line-height: 27px;
+						padding: 10px 0 0 115px;
+					}
+				}
+			}
+		}
+		.vote-date {
+		    .dis(ib);
+		    vertical-align: top;
+		    width: 700px;
+			margin: 50px 0 0 20px;
+			.date {
+				padding: 70px 0 0 40px;
+				background: #101010;
+				.bdr(0, 10px, 0, 0);
+				dl {
+					.dis(ib);
+					vertical-align: top;
+					width: 48px;
+					margin-right: 46px;
+					text-align: center;
+				}
+				dt {
+					line-height: 48px;
+					font-size: 20px;
+					color: #999;
+				}
+				dd {
+					padding: 25px 0 83px;
+					span {
+						.dis(b);
+						width: 46px;
+						height: 46px;
+						line-height: 46px;
+						.bdr(50%);
+						font-size: 18px;
+						background: #101010;
+						color: #999;
+						border: 1px solid #1d1d1d;
+						&.today {
+							background: @yellow;
+							border-color: @yellow;
+							color: #fff;
+						}
+						&.icon-gou {
+							font-size: 0;
+							background: #1d1d1d;
+							&:before {
+								color: #101010;
+								border-color: #101010;
+								font-size: 24px;
+							}
+						}
+					}
+				}
+			}
+			.info {
+				margin: 1px 0 0;
+				padding: 42px 63px 54px 46px;
+				background: #101010;
+				.bdr(0, 0, 10px, 0);
+				.cl;
+				.btn {
+					cursor: default;
+					width: 136px;
+					height: 46px;
+					line-height: 46px;
+					margin: 20px 0 0;
+					font-size: 16px;
+					color: #fff;
+					background: #292929;
+					.bdr(46px);
+					text-align: center;
+
+					&-vote {
+						cursor: pointer;
+						&:hover {
+						    color: @yellow;
+						    background: #fff;
+						}
+					}
+				}
+				img {
+					width: 78px;
+					height: 78px;
+					margin-right: 28px;
+					.bdr(50%);
+				}
+				.tt {
+					padding: 10px 0 0;
+					line-height: 34px;
+					font-size: 20px;
+					color: #fff;
+				}
+				.ct {
+					line-height: 30px;
+					font-size: 16px;
+					color: @yellow;
+				}
+			}
+		}
+	}
 }
 
 // 评论
@@ -1732,7 +1904,7 @@ body {
                             color: #ccc;
                         }
                     }
-                }
+				}
             }
         }
     }
@@ -1740,8 +1912,8 @@ body {
         width: 1105px;
         background: @gray;
         .info {
-            .btn-replay {
-                color: #666;
+            .btn-replay, .btn-report {
+                color: #333;
                 &:hover {
                     color: @yellow;
                 }
@@ -1772,73 +1944,6 @@ body {
     }
     &-election {
         padding-top: 40px;
-    }
-}
-
-.fixed-nav {
-    .pos(f);
-    top: 50%;
-    left: 50%;
-    margin-left: 650px;
-    width: 134px;
-    height: 440px;
-    margin-top: -220px;
-    background: @bg;
-    border: 2px solid @gray;
-    .ztbtn {
-        .pos(r);
-        top: -14px;
-        left: -10px;
-        .dis(b);
-        width: 158px;
-        .height(67px);
-        background: @yellow;
-        color: @bg;
-        text-align: center;
-        .zticon {
-            width: 18px;
-            height: 18px;
-            margin: -3px 0 0 12px;
-            background-position: -10px -111px;
-        }
-    }
-    li {
-        line-height: 52px;
-        font-size: 16px;
-        font-family: 'Noto Sans CJK SC Light', 'Source Han Sans CN Light','Microsoft Yahei';
-        text-align: center;
-        .arrow-top {
-            .dis(ib);
-            vertical-align: middle;
-            width: 13px;
-            height: 9px;
-            margin: -3px 0 0 19px;
-            background: url(../images/arrow-top.png) no-repeat 0 0;
-        }
-        a {
-            .dis(b);
-            color: #666;
-            .anim();
-            &:hover {
-                color: @yellow;
-                font-family: 'Noto Sans CJK SC DemiLight', 'Source Han Sans CN DemiLight','Microsoft Yahei';
-            }
-            &.backtop {
-                font-family: 'Noto Sans CJK SC DemiLight', 'Source Han Sans CN DemiLight','Microsoft Yahei';
-                &:hover {
-                    color: @yellow;
-                    .arrow-top {
-                        background-position: 0 -20px;
-                    }
-                }
-            }
-        }
-        &.cur {
-            a {
-                color: @yellow;
-                font-family: 'Noto Sans CJK SC DemiLight', 'Source Han Sans CN DemiLight','Microsoft Yahei';
-            }
-        }
     }
 }
 
