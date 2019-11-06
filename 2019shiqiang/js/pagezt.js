@@ -227,55 +227,6 @@ $(function() {
         }
     });
 
-    /*
-     * 抽奖
-    */
-    // 我的奖品
-    $('.ztbtn-myluckdraw').on('click', function() {
-        var prize = rnd(0, 1);
-        if(prize) {
-            $('.ztpopup-lucydraw').show();
-            var _widht = document.documentElement.clientWidth; //屏幕宽
-            var _height = document.documentElement.clientHeight; //屏幕高
-            var boxWidth = jQuery('.ztpopup-lucydraw .ztpopup-box').outerWidth();
-            var boxHeight = jQuery('.ztpopup-lucydraw .ztpopup-box').outerHeight();
-            //让提示框居中
-            jQuery('.ztpopup-lucydraw .ztpopup-box').css({
-                top: (_height - boxHeight) / 2 + 'px',
-                left: (_widht - boxWidth) / 2 + 'px'
-            });
-        }
-        else {
-            $.ztMsg.Alert('liwu', '暂无抽中奖品，继续加油吧！');
-        }
-    });
-    // 获奖名单滚动
-    if($('.zt-luckdraw-win').length) {
-        $('.zt-luckdraw-win .list').myScroll({
-            speed: 40, //数值越大，速度越慢
-            rowHeight: 100, //li的高度
-            number: 4 //每排滚动个数
-        });
-    };
-
-    luck.init('luck');
-    $('#luck-num').html(luck.num);
-    $("#luck-btn").on('click', function(){
-        // 每次抽取获得中奖位置
-        // luck.prize = parseInt(Math.random() * 8);
-        if(luck.num > 0) {
-            // 抽奖次数大于0
-            luck.num--;
-            $('#luck-num').html(luck.num);
-            luck.speed = 100;
-            roll();
-            return false;
-        }
-        else {
-            // 抽奖次数用完
-            $.ztMsg.Alert('tan', '抽奖次数用完啦，去竞猜十强赢奖品吧~', '竞猜十强', '竞猜.html#navlink');
-        }
-    });
 
     // 公布结果保存地址
     $('.zt-publish').on('click', '.address .btn', function() {
@@ -369,175 +320,36 @@ $(function() {
         jQuery('#zt-no, #zt-close').on('click', function() {
             jQuery('#ztpopup').remove();
         });
-    }
+	}
+
+	// 招聘通用下拉
+	$('body').on('mouseover', '.item-select dd', function() {
+		if ($(this).find('.select-list').is(':hidden')) {
+			$('.select-list').hide();
+			$('.item-select').css('z-index', 'auto');
+			$(this).parents('.item-select').css('z-index', '980');
+			$(this).find('.select-list').show();
+		}
+		return false;
+	})
+	.on('click', '.select-list li', function() {
+		var txtDom = $(this).parents('.item-select').find('.input');
+		if (txtDom.is('input')) {
+			txtDom.val($(this).text());
+		} else {
+			txtDom.html($(this).text());
+		}
+		txtDom.focus().blur();
+		$(this).parents('.select-list').hide();
+		$('.item-select').css('z-index', 'auto');
+		return false;
+	})
+	.on('mouseout', '.item-select dd', function() {
+		if ($('.select-list').is(':visible')) {
+			$('.select-list').hide();
+		}
+	});
 })();
-
-// 抽奖js
-var luck = {
-    index: -1,   // 当前转动到哪个位置，起点位置
-    count: 8,    // 总共有多少个位置
-    timer: 0,    // setTimeout的ID，用clearTimeout清除
-    speed: 20,   // 初始转动速度
-    times: 10,    // 转动次数
-    cycle: 50,   // 转动基本次数：即至少需要转动多少次再进入抽奖环节
-    num: 3,      // 抽奖次数
-    prize: 1,   //中奖位置
-    prizeData: [
-        {
-            name: '美工云VIP 3个月',
-            icon: 'liwu',
-            msg: '恭喜！抽中美工云享 3个月VIP体验卡！<br />兑换码：****************',
-            btntxt: '立即使用',
-            btnlink: '',
-            func: null
-        },
-        {
-            name: '巧匠课堂VIP 7天',
-            icon: 'liwu',
-            msg: '恭喜！抽中巧匠课堂VIP 7天体验卡！<br />兑换码：****************',
-            btntxt: '立即使用',
-            btnlink: 'https://www.qiaojiang.tv/rh',
-            func: null
-        },
-        {
-            name: '巧匠课堂VIP1年',
-            icon: 'liwu',
-            msg: '恭喜！抽中巧匠课堂VIP 1年体验卡！<br />兑换码：****************',
-            btntxt: '立即使用',
-            btnlink: 'https://www.qiaojiang.tv/rh',
-            func: null
-        },
-        {
-            name: '致设计笔记本+鼠标垫',
-            icon: 'zan',
-            msg: '恭喜！抽中致设计笔记本+鼠标垫，可到我的奖品查看。',
-            btntxt: '查看我的奖品',
-            func: function() {
-                $('.ztbtn-myluckdraw').trigger('click');
-            }
-        },
-        {
-            icon: 'tan',
-            msg: '很遗憾，没有抽中，再试一次吧！',
-            btntxt: '再试一次',
-            func: null
-        },
-        {
-            name: '万素网VIP1年',
-            icon: 'liwu',
-            msg: '恭喜！抽中万素网VIP 1年体验卡！<br />兑换码：****************',
-            btntxt: '立即使用',
-            btnlink: '',
-            func: null
-        },
-        {
-            name: '模库网VIP1年',
-            icon: 'liwu',
-            msg: '恭喜！抽中模库网VIP 1年体验卡！<br />兑换码：****************',
-            btntxt: '立即使用',
-            btnlink: 'http://51mockup.com/plugin.php?id=dc_vip&action=key',
-            func: null
-        },
-        {
-            name: '致设计公仔U盘',
-            icon: 'zan',
-            msg: '恭喜！抽中致设计公仔U盘！可到我的奖品查看。',
-            btntxt: '查看我的奖品',
-            func: function() {
-                $('.ztbtn-myluckdraw').trigger('click');
-            }
-        },
-
-    ],
-    init:function(id){
-        if ($('#'+id).find('.luck-unit').length > 0) {
-            $luck = $('#'+id);
-            $units = $luck.find('.luck-unit');
-            this.obj = $luck;
-            this.count = $units.length;
-            $luck.find('.luck-unit-'+this.index).addClass('active');
-        };
-    },
-
-    roll:function(){
-        var index = this.index;
-        var count = this.count;
-        var luck = this.obj;
-        $(luck).find('.luck-unit-'+index).removeClass('active');
-        index += 1;
-        if (index > count) {
-            index = 0;
-        };
-        $(luck).find('.luck-unit-' + index).addClass('active');
-        this.index = index;
-        return false;
-    },
-    stop:function(index){
-        // this.prize = index;
-        return false;
-    }
-};
-
-function roll(){
-    luck.times += 1;
-    luck.roll();
-    if (luck.times > luck.cycle + 10 && luck.prize == luck.index) {
-        clearTimeout(luck.timer);
-        luck.times = 0;
-        // 中奖弹出窗
-        $.ztMsg.Alert(luck.prizeData[luck.prize].icon, luck.prizeData[luck.prize].msg, luck.prizeData[luck.prize].btntxt, luck.prizeData[luck.prize].btnlink, luck.prizeData[luck.prize].func);
-        // 实时中奖信息更新
-        if(luck.prizeData[luck.prize].name) {
-            var html = '<li><a href="#" target="_blank" class="fll">'
-                            + '<img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt="">'
-                        + '</a>'
-                        + '<p class="name"><a href="#" target="_blank">刚出炉小笼包</a></p>'
-                        + '<p>获得了<span>' + luck.prizeData[luck.prize].name + '</span></p></li>'
-            $.each($('.zt-luckdraw-win .list').find('ul'), function(i) {
-                $(this).prepend(html).find('li').last().remove();
-            });
-        }
-    }
-    else {
-        if (luck.times < luck.cycle) {
-            luck.speed -= 10;
-        }else if(luck.times == luck.cycle) {
-            var index = Math.random()*(luck.count)|0;
-            // luck.prize = index;
-        }else{
-            if(luck.times > luck.cycle + 10 && ((luck.prize == 0 && luck.index == 7) || luck.prize == luck.index + 1)) {
-                luck.speed += 110;
-            }else {
-                luck.speed += 20;
-            }
-        }
-        if (luck.speed < 40) {
-            luck.speed = 40;
-        };
-
-        luck.timer = setTimeout(roll,luck.speed);
-    }
-    return false;
-}
-
-// 悬浮滚动
-function showFixNav() {
-    if($(window).scrollTop() > $('#scroll0').offset().top - 82) {
-        $('.fixed-nav').show();
-    }
-    else {
-        $('.fixed-nav').hide();
-    };
-
-    $.each($('.fixed-nav').find('li'), function(i) {
-        if(i >= $('.fixed-nav').find('li').length - 1) {
-            return false;
-        }
-        if($(window).scrollTop() >= $('#scroll' + i).offset().top) {
-            $(this).addClass('cur').siblings().removeClass('cur');
-        }
-    });
-}
 
 function rnd(n, m) {
     return Math.floor(Math.random() * (m - n + 1) + n)
@@ -548,117 +360,6 @@ function copyToClipboard(){
     e.select(); //选择对象
     document.execCommand('Copy'); //执行浏览器复制命令
 }
-
-// 倒计时插件
-(function ($) {
-    $.fn.downCount = function (options, callback) {
-        var settings = $.extend({
-                date: '11/11/2090 00:00:00',
-                offset: +8
-            }, options);
-        if (!settings.date) {
-            $.error('Date is not defined.');
-        }
-        if (!Date.parse(settings.date)) {
-            $.error('Incorrect date format, it should look like this, 12/24/2012 12:00:00.');
-        }
-        var container = this;
-        var currentDate = function () {
-            var date = new Date();
-            var utc = date.getTime() + (date.getTimezoneOffset() * 60000);
-            var new_date = new Date(utc + (3600000*settings.offset))
-            return new_date;
-        };
-        function countdown () {
-            var target_date = new Date(settings.date), // set target date
-                current_date = currentDate(); // get fixed current date
-            var difference = target_date - current_date;
-            if (difference < 0) {
-                clearInterval(interval);
-                if (callback && typeof callback === 'function') callback();
-                return;
-            }
-            // basic math variables
-            var _second = 1000,
-                _minute = _second * 60,
-                _hour = _minute * 60,
-                _day = _hour * 24;
-            // calculate dates
-            var days = Math.floor(difference / _day).toString(),
-                hours = Math.floor((difference % _day) / _hour).toString(),
-                minutes = Math.floor((difference % _hour) / _minute).toString(),
-                seconds = Math.floor((difference % _minute) / _second).toString();
-                // fix dates so that it will show two digets
-                days = (days.length >= 2) ? days : '0' + days;
-                hours = (hours.length >= 2) ? hours : '0' + hours;
-                minutes = (minutes.length >= 2) ? minutes : '0' + minutes;
-                seconds = (seconds.length >= 2) ? seconds : '0' + seconds;
-
-            container.find('.num-bg:eq(0)').html(days.slice(days.length-2,days.length-1));
-            container.find('.num-bg:eq(1)').html(days.slice(days.length-1,days.length));
-            container.find('.num-bg:eq(2)').html(hours.slice(hours.length-2,hours.length-1));
-            container.find('.num-bg:eq(3)').html(hours.slice(hours.length-1,hours.length));
-            container.find('.num-bg:eq(4)').html(minutes.slice(minutes.length-2,minutes.length-1));
-            container.find('.num-bg:eq(5)').html(minutes.slice(minutes.length-1,minutes.length));
-            container.find('.num-bg:eq(6)').html(seconds.slice(seconds.length-2,seconds.length-1));
-            container.find('.num-bg:eq(7)').html(seconds.slice(seconds.length-1,seconds.length));
-        };
-        // start
-        var interval = setInterval(countdown, 1000);
-    };
-})(jQuery);
-
-// 无缝滚动插件
-(function($) {
-   $.fn.myScroll = function(options) {
-        //默认配置
-        var defaults = {
-            speed: 40, //滚动速度,值越大速度越慢
-            rowHeight: 24, //每行的高度,
-            number: 1 //滚动每排个数
-        };
-        var opts = $.extend({}, defaults, options),
-            intId = [];
-        if($(this).find('ul').height() <= $(this).height()) {return false;}
-        $(this).append($(this).find('ul').clone()).wrapInner('<div class="sw-scroll"></div>');
-        function marquee(obj, step, num) {
-            obj.find('.sw-scroll').animate({
-                marginTop: '-=1'
-            }, 0, function() {
-                var s = Math.abs(parseInt($(this).css("margin-top")));
-                var end = Math.ceil(obj.find('ul:eq(0) li').length / num) * step;
-                if (s >= end) {
-                    $(this).find('ul').eq(0).appendTo(obj.find('.sw-scroll'));
-                    $(this).css('margin-top', 0);
-                }
-            });
-        }
-        this.each(function(i) {
-            var sh = opts["rowHeight"],
-                speed = opts["speed"],
-                _this = $(this),
-                num = opts["number"];
-            intId[i] = setInterval(function() {
-                if (_this.find("ul").height() <= _this.height()) {
-                    clearInterval(intId[i]);
-                } else {
-                    marquee(_this, sh, num);
-                }
-            }, speed);
-            _this.hover(function() {
-                clearInterval(intId[i]);
-            }, function() {
-                intId[i] = setInterval(function() {
-                    if (_this.find("ul").height() <= _this.height()) {
-                        clearInterval(intId[i]);
-                    } else {
-                        marquee(_this, sh, num);
-                    }
-                }, speed);
-            });
-        });
-    }
-})(jQuery);
 
 // 保存成功失败 status为suc或者fail，cont为提示的内容
 var tipTimeout;
