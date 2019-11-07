@@ -1744,10 +1744,16 @@ body {
 					height: 97px;
 				}
 				p {
+					height: 24px*3;
 					padding: 38px 0 0;
 					line-height: 24px;
 					font-size: 18px;
 					color: #ccc;
+				}
+				&-dis {
+					p {
+						color: #666;
+					}
 				}
 			}
 		}
@@ -2040,6 +2046,20 @@ body {
     }
 }
 
+.tipicon {
+    .dis(ib);
+    vertical-align: middle;
+    width: 76px;
+    height: 76px;
+    background: url(../images/tipicon.png) no-repeat;
+}
+.tipicon-gou {
+    background-position: -20px -238px;
+}
+.tipicon-tan {
+    background-position: -20px -353px;
+}
+
 // 弹窗
 .ztpopup {
     .pos(f);
@@ -2052,9 +2072,9 @@ body {
     background: rgba(0, 0, 0, .9);
     &-box {
         .pos(a);
-        width: 500px;
-        padding-bottom: 60px;
-        background: #0d0d0d;
+        width: 450px;
+        padding-bottom: 40px;
+        background: #292929;
         .bdr(4px);
         text-align: center;
     }
@@ -2066,51 +2086,54 @@ body {
         .anim();
         span {
             font-size: 14px;
-            color: #333;
+            color: #fff;
         }
         &:hover {
             .transform(rotate(180deg));
         }
     }
     &-ct {
-        padding: 50px 0 0;
+		padding: 50px 0 0;
+		font-size: 16px;
         p {
-            padding-top: 20px;
-            line-height: 35px;
-            font-size: 18px;
+            padding-top: 13px;
+            line-height: 30px;
             color: #999;
             text-align: center;
             font-family: 'Noto Sans CJK SC Light', 'Source Han Sans CN Light','Microsoft Yahei';
-        }
+		}
+		.f18 {
+			font-size: 18px;
+		}
     }
     &-btn {
-        padding-top: 45px;
+        padding-top: 30px;
         .ztbtn {
             .dis(ib);
-            width: 170px;
-            .height(44px);
-            font-size: 14px;
-            color: @bg;
+            width: 150px;
+            .height(46px);
+            font-size: 16px;
+            color: #fff;
             background: @yellow;
-            .bdr(4px);
+            .bdr(46px);
             &-sure {
                 .dis(ib);
-                width: 130px;
-                .height(36px);
-                font-size: 14px;
-                color: @bg;
+                width: 150px;
+                .height(46px);
+                font-size: 16px;
+                color: #fff;
                 background: @yellow;
-                .bdr(4px);
+                .bdr(46px);
             }
             &-cancel {
                 .dis(ib);
-                width: 128px;
-                .height(34px);
+                width: 150px;
+                .height(46px);
                 margin-left: 15px;
-                font-size: 14px;
+                font-size: 16px;
                 color: #666;
                 border: 1px solid #333;
-                .bdr(4px);
+                .bdr(46px);
                 &:hover {
                     color: @yellow;
                     border: 1px solid @yellow;
@@ -2118,17 +2141,14 @@ body {
             }
         }
     }
-    &-tan {
-        .ztpopup-box {
-            width: 440px;
-        }
-    }
     &-zan {
         .ztpopup-box {
             width: 600px;
         }
-    }
+	}
+
     &-lucydraw {
+		.dis(n);
         .pos(f);
         top: 0;
         left: 0;
@@ -2138,28 +2158,66 @@ body {
         font-size: 0;
         background: rgba(0, 0, 0, .9);
         .ztpopup-box {
-            width: 690px;
-            padding: 60px 0 65px;
-            .tipicon {
-                margin-bottom: 42px;
-            }
-            li {
-                font-size: 18px;
-                color: #999;
-                font-family: 'Noto Sans CJK SC Light', 'Source Han Sans CN Light','Microsoft Yahei';
-                line-height: 56px;
-                border-bottom: 1px solid #1b1b1b;
-                text-align: left;
-                a {
-                    font-size: 16px;
-                    color: @brown;
-                    &:hover{
-                        color: @yellow;
-                    }
-                }
-            }
+			top: 50%;
+			left: 50%;
+			width: 624px;
+			height: 272px;
+			margin: -272px/2 0 0 -624px/2;
+			padding: 0;
+			dl {
+				font-size: 0;
+				color: #999;
+				text-align: left;
+				dt, .item {
+					> div {
+						.dis(ib);
+						vertical-align: top;
+						line-height: 36px;
+						font-size: 14px;
+						text-align: center;
+						font-family: 'Noto Sans CJK SC Light', 'Source Han Sans CN Light', 'Microsoft Yahei';
+					}
+				}
+				dt {
+					border-bottom: 1px solid #363636;
+				}
+				a {
+					color: #666;
+					&:hover {
+						color: @yellow;
+					}
+				}
+				.item1 {
+				    width: 224px;
+				}
+				.item2 {
+				    width: 160px;
+				}
+				.item3 {
+					width: 210px;
+					margin-left: 16px;
+					a {
+						.dis(ib);
+						vertical-align: top;
+						.text-e1;
+					}
+				}
+				dt {
+					padding: 18px 0 14px;
+					font-size: 18px;
+					color: @yellow;
+				}
+				.item {
+					padding: 12px 0;
+				}
+				dd {
+					margin: 8px 10px 0 0;
+					height: 60px * 3;
+					.ovy(a);
+				}
+			}
             .ztpopup-ct {
-                padding: 0 80px;
+                padding: 0;
             }
         }
     }
@@ -2197,6 +2255,21 @@ body {
             }
         }
     }
+}
+.no-luckdraw {
+	text-align: center;
+	padding: 100px 0 115px-80;
+	img {
+		.dis(ib);
+		vertical-align: top;
+		width: 100px;
+	}
+	p {
+		padding: 20px 0 0;
+		line-height: 40px;
+		font-size: 20px;
+		color: #666;
+	}
 }
 
 .user-tip {
@@ -2298,47 +2371,45 @@ body .bd_weixin_popup .bd_weixin_popup_foot {
 }
 
 /* 保存成功提示 */
+.vote-tips-mask {
+	.pos(f);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 988;
+	background: rgba(0, 0, 0, .9);
+}
 .vote-tips {
     .dis(n);
     .pos(f);
-    bottom: 80px;
+    top: 50%;
     left: 50%;
     z-index: 999;
-    height: 65px;
-    line-height: 65px;
-    padding: 0 50px;
-    margin: 0 0 0 -25px;
-    background: @yellow;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    margin: -25px 0 0 -30px;
+    background: #292929;
     font-size: 16px;
     text-align: center;
-    color: #2f2e2e;
+    color: #666;
     white-space: nowrap;
     .bdr(3px);
-    .icon-gou {
+    .icon-gou, .icon-fail {
         .ov(h);
         .dis(ib);
         vertical-align: middle;
         padding: 5px;
         margin: -3px 10px 0 0;
-        background: #2f2e2e;
-        color: @yellow;
+        background: @yellow;
+        color: #292929;
         font-size: 12px;
         .bdr(50%);
     }
-    .icon-fail {
-        .ov(h);
-        .dis(ib);
-        vertical-align: middle;
-        padding: 5px;
-        margin: -3px 10px 0 0;
-        background: red;
-        color: @yellow;
-        font-size: 12px;
-        .bdr(50%);
-    }
-    .num {
-        font-size: 22px;
-    }
+	.f18 {
+		font-size: 18px;
+	}
 }
 
 // 通用下拉

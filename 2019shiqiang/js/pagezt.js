@@ -19,163 +19,101 @@ $(function() {
 
     // 参选
     $('.ztbtn-canxuan').on('click', function() {
-        var cxStatus = rnd(0, 1); //随机生成0，1
-        if(cxStatus == 0) {
+		var cxStatus = rnd(0, 2); //随机生成0~2
+        if(cxStatus == '0') {
+			// 参与成功
             $('.ztbtn-canxuan').off('click');
             // 参选成功弹窗提示
-            $.ztMsg.Alert('gou', '参与成功！开始为自己拉票吧~', '进入我的参赛主页', '个人拉票页.html#navlink');
+            $.ztMsg.Alert('gou', '<span class="yellow f18">报名成功</span><br>可以去为自己拉票啦', '去拉票', '个人拉票页.html#navlink');
             // 参选成功文字变化和增加链接
-            $('.ztbtn-canxuan').html('我的主页<span class="zticon"></span>').removeClass('ztbtn-canxuan').attr('href', '个人拉票页.html#navlink');
+            $('.ztbtn-canxuan').html('已经报名').removeClass('ztbtn-canxuan').attr('href', '个人拉票页.html#navlink');
             return false;
-        }
+		}
+		else if (cxStatus == '1') {
+			voteTips('fail', '报名已经结束了，明年早点来哦！');
+		}
         else {
             // 参选失败弹窗提示
-            $.ztMsg.Confirm('tan', '需要 3 个或以上原创作品才能参加哟~', '去上传', 'http://www.zhisheji.com/zuopin/product/add/2/0');
+			$.ztMsg.Alert('tan', '需要 <span class="yellow f18">3</span> 个或以上原创<br>作品才能参加哟~', '上传作品', 'http://www.zhisheji.com/zuopin/product/add/2/0');
         }
     });
 
     /*
-     * 参选设计师
+     * 参赛设计师投票
     */
-    var voteNum =1; //投票次数
+    var voteNum = 10; //投票次数
     $('.list-election').on('click', '.ztbtn', function() {
         if(!$(this).hasClass('ztbtn-dis')) {
+			// 投票结束弹窗
+			// voteTips('fail', '<span class="yellow">投票已经结束</span>');
+
             if(voteNum == 0) {
                 // 投票次数用完
-                $.ztMsg.Alert('tan', '今天的投票数用完啦！明天再来哦~');
+                voteTips('suc', '<span class="yellow">明天再来吧,</span>今天的投票次数已用完。');
             }
             else {
-                $(this).addClass('ztbtn-dis').html('投票成功');
                 // 投票次数减1
                 voteNum--;
+                if (voteNum == 9) {
+					// 第一票弹窗
+					$.ztMsg.Alert('gou', '<span class="yellow f18">投票成功</span><br>连续投票7天、15天、25天、即可获得丰厚奖励', '确定');
+				}
+				else if (voteNum == 0) {
+					// 最后一票投完
+					voteTips('suc', '<span class="yellow">明天再来吧,</span>今天的投票次数已用完。');
+				}
+				else {
+					voteTips('suc', '您今天还可以投 <span class="yellow">' + voteNum + ' </span>票');
+				}
+                $(this).html('再投一票');
                 // 票数加1
                 $(this).parents('li').find('.num').html(+$(this).parents('li').find('.num').html() + 1);
-                voteTips('suc', '您今天还可以投 <span class="num">' + voteNum + ' </span>票');
             }
         };
-    });
+	});
+
+
+	/*
+	 * 投票送豪礼
+	*/
+	// 兑换记录
+	$('.btn-duihuan').on('click', function() {
+		var dhStatus = rnd(0, 1); //随机生成0~1
+		if (dhStatus == '0') {
+			// 没有兑换
+			voteTips('fail', '你还没有兑换过奖品');
+		}
+		else {
+			// 兑换记录
+			$('.ztpopup-lucydraw').show();
+		}
+	});
 
     /*
      * 竞猜
     */
-    // 点击竞猜
-    var selectBox;  // 弹窗取消时保留变量
-    $('.list-myelection').on('click', '.ztbtn', function() {
-        selectBox = $(this);
-        var imgSrc = selectBox.parents('li').find('img').attr('src');
-        // 竞猜个数判断，由于分页需要后台判断，这里前端做个展示
-        var guessNum = $('.list-myelection').find('.ztbtn-dis').length;;
-        // 竞猜数已有10个,不能竞猜直接提示
-        if(guessNum == 10) {
-            $.ztMsg.Alert('tan', '竞猜人数已满足十位，请等待结果公布。');
-            return false;
-        }
-
-        if(!$(this).hasClass('ztbtn-dis')) {
-            // 竞猜列表竞猜成功
-            $(this).addClass('ztbtn-dis').html('竞猜成功');
-
-            // 底部浮窗增加dom
-            var dom = '<img src="' + imgSrc + '" alt="" myid="' + selectBox.attr('myid') + '"><span class="icon-fail"></span>'
-            $('.fixed-guess').find('.img').eq(guessNum).html(dom);
-        }
-        else {
-            // 竞猜列表取消竞猜
-            $(this).removeClass('ztbtn-dis').html('竞猜TA');
-
-            // 判断myid相同，底部悬浮删除img
-            $.each($('.fixed-guess .img'), function(i) {
-                if($(this).find('img').attr('myid') == selectBox.attr('myid')) {
-                    $(this).html('');
-                    $(this).parents('.img-box').append($(this));
-                }
-            });
-
-            // 竞猜选中为0,底部悬浮隐藏
-            if(guessNum - 1 == 0) {
-                $('.fixed-guess').hide();
-            }
-        };
-
-        // 竞猜个数判断，由于分页需要后台判断，这里前端做个展示
-        guessNum = $('.list-myelection').find('.ztbtn-dis').length;;
-        $('.zt-election .tit').find('.num').html(guessNum);
-        $('.fixed-guess').find('.num').html(guessNum);
-
-        // 选中10个弹出确定弹窗
-        if(guessNum == 10) {
-            // 展示图像直接copy底部悬浮头像
-            $('.ztpopup-guess').find('.img-box').html($('.fixed-guess').find('.img-box').html());
-            // 弹出弹窗
-            $('.ztpopup-guess').show();
-            // 选中10个底部悬浮展示确定按钮
-            $('.fixed-guess .fixed-guess-btn').show();
-            // 提示框居中
-            var _widht = document.documentElement.clientWidth; //屏幕宽
-            var _height = document.documentElement.clientHeight; //屏幕高
-            var boxWidth = $('.ztpopup-guess .ztpopup-box').outerWidth();
-            var boxHeight = $('.ztpopup-guess .ztpopup-box').outerHeight();
-            $('.ztpopup-guess .ztpopup-box').css({
-                top: (_height - boxHeight) / 2 + 'px',
-                left: (_widht - boxWidth) / 2 + 'px'
-            });
-        }
-        // 选中1个显示底部浮窗
-        else if(guessNum == 1) {
-            $('.fixed-guess').show();
-        }
-        else {
-            $('.fixed-guess .fixed-guess-btn').hide();
-        }
-    });
-
-    // 竞猜10位确定
-    $('body').on('click', '.ztpopup-guess .ztbtn-sure', function() {
-        $.ztMsg.Alert('gou', '竞猜成功，请等待结果公布。');
-        $('.ztpopup-guess').hide();
-        $('.fixed-guess').hide();
-    })
-    // 竞猜10位取消
-    .on('click', '.ztpopup-guess .ztbtn-cancel', function() {
-        // 判断myid相同，竞猜列表取消选中
-        selectBox.removeClass('ztbtn-dis').html('竞猜TA');
-        // 底部悬浮删除img
-        $('.fixed-guess').find('.img').last().html('');
-        // 选中个数修改
-        $('.zt-election .tit').find('.num').html('9');
-        $('.fixed-guess').find('.num').html('9');
-        // 竞猜弹窗隐藏
-        $('.ztpopup-guess').hide();
-        // 选中不为10,底部悬浮确定按钮隐藏
-        $('.fixed-guess .fixed-guess-btn').hide();
-    })
-    // 底部悬浮竞猜取消
-    .on('click', '.fixed-guess .icon-fail', function() {
-        var _this = $(this);
-        // 判断myid相同，列表取消选中
-        $.each($('.list-myelection .ztbtn-dis'), function(i) {
-            if($(this).attr('myid') == _this.parents('.img').find('img').attr('myid')) {
-                $(this).removeClass('ztbtn-dis').html('竞猜TA');
-            }
-        });
-        // 底部悬浮删除img
-        _this.parents('.img-box').append(_this.parents('.img').html(''));
-        // 选中个数修改
-        var guessNum = $('.fixed-guess').find('.img img').length;
-        $('.zt-election .tit').find('.num').html(guessNum);
-        $('.fixed-guess').find('.num').html(guessNum);
-        // 选中为0,底部悬浮隐藏
-        if(guessNum == 0) {
-            $('.fixed-guess').hide();
-        }
-        // 选中不为10,底部悬浮确定按钮隐藏
-        $('.fixed-guess .fixed-guess-btn').hide();
-    })
-    // 底部悬浮竞猜确认
-    .on('click', '.fixed-guess .ztbtn-sure', function() {
-        $.ztMsg.Alert('gou', '竞猜成功，请等待结果公布。');
-        $('.ztpopup-guess').hide();
-        $('.fixed-guess').hide();
+	// 点击竞猜
+	if ($('.zt-supporter').find('li').length > 0) {
+		$('.zt-supporter').show();
+	}
+    $('.list-myelection').on('click', '.ztbtn-vote', function() {
+		if($(this).hasClass('dis')) {
+			$('.zt-supporter').find('.li' + $(this).attr('data-id')).remove();
+			$(this).removeClass('dis').html('猜TA入围');
+			if ($('.zt-supporter').find('li').length == '0') {
+				$('.zt-supporter').hide();
+			}
+			return false;
+		}
+		var $num = $('.zt-supporter').find('li').length;
+		if($num < 10) {
+			var selectBox = '<li class="li' + $(this).attr('data-id') + '"><a href="个人拉票页.html#navlink" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a><p><a href="个人拉票页.html#navlink" target="_blank">' + $(this).parents('li').find('h2').text() + '</a></p></li>';
+			$('.zt-supporter').show().find('.list ul').append(selectBox);
+			$(this).addClass('dis').html('取消');
+		}
+		else {
+			voteTips('fail', '只能选择10位');
+		}
     });
 
     /*
@@ -186,7 +124,7 @@ $(function() {
     $('.vote-copy').on('click', function() {
         $('#contents').val('我正在参加2018年度十强设计师竞选，求支持~ ' + window.location.href);
         copyToClipboard();
-        tipSave('suc', '复制成功');
+        voteTips('suc', '复制成功');
     });
 
     // 个人拉票页通知滚动
@@ -203,31 +141,42 @@ $(function() {
     // 个人拉票页投票
     $('.vote-box').on('click', '.ztbtn', function() {
         if(!$(this).hasClass('ztbtn-dis')) {
-            if(voteNum == 0) {
+            // 投票结束弹窗
+            // voteTips('fail', '<span class="yellow">投票已经结束</span>');
+
+            if (voteNum == 0) {
                 // 投票次数用完
-                $.ztMsg.Alert('tan', '今天的投票数用完啦！明天再来哦~');
-            }
-            else {
-                $(this).addClass('ztbtn-dis').find('p').html('投票成功');
+                voteTips('suc', '<span class="yellow">明天再来吧,</span>今天的投票次数已用完。');
+            } else {
                 // 投票次数减1
                 voteNum--;
+                if (voteNum == 9) {
+                    // 第一票弹窗
+                    $.ztMsg.Alert('gou', '<span class="yellow f18">投票成功</span><br>连续投票7天、15天、25天、即可获得丰厚奖励', '确定');
+                } else if (voteNum == 0) {
+                    // 最后一票投完
+                    voteTips('suc', '<span class="yellow">明天再来吧,</span>今天的投票次数已用完。');
+                } else {
+                    voteTips('suc', '您今天还可以投 <span class="yellow">' + voteNum + ' </span>票');
+				}
+				if ($(this).find('.icon-praise2').length) {
+					// 个人拉票页
+					$(this).find('p').html('再投一票');
+					$('.rank').find('.num').html(+$('.rank').find('.num').text() + 1);
+				}
+				else {
+					// 列表页
+					$(this).html('再投一票');
+				}
                 // 票数加1
-                $(this).parents('.zt-personal').find('.info .num').html(+$(this).parents('.zt-personal').find('.info .num').html() + 1);
-                // TA的支持者增加头像和昵称
-                var html = '<li>'
-                               +'<a href="#" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a>'
-                               +'<p><a href="#" target="_blank">新出炉小笼包</a></p>'
-                           +'</li>';
-                $('.supporter .list ul').find('li:last').remove();
-                $('.supporter .list ul').prepend(html);
-                // 滚动通知增加
-                var html = '新增点击 刚刚给 狂奔的蜗牛 投了宝贵的一票';
-                $('.notices ul').find('li').eq($('.notices').find('li').length - 2).html(html);
+                $(this).parents('li').find('.num').html(+$(this).parents('li').find('.num').html() + 1);
             }
         }
     });
 
-
+	/*
+	* 十强公布
+	*/
     // 公布结果保存地址
     $('.zt-publish').on('click', '.address .btn', function() {
         var len = 0;
@@ -322,7 +271,7 @@ $(function() {
         });
 	}
 
-	// 招聘通用下拉
+	// 通用下拉
 	$('body').on('mouseover', '.item-select dd', function() {
 		if ($(this).find('.select-list').is(':hidden')) {
 			$('.select-list').hide();
@@ -372,14 +321,14 @@ function voteTips(status, cont, times) {
         icon = 'fail'
     }
     times ? time = times : time = 1000
-    jQuery('body').append('<div class="vote-tips">' + '<span class="icon icon-' + icon + '"></span>' + '<span class="text">' + cont + '</span>' + '</div>');
-    jQuery('.vote-tips').css({
-        'margin-left': -jQuery('.vote-tips').outerWidth() / 2
+    $('body').append('<div class="vote-tips-mask"><div class="vote-tips">' + '<span class="icon icon-' + icon + '"></span>' + '<span class="text">' + cont + '</span>' + '</div></div>');
+    $('.vote-tips').css({
+        'margin-left': -$('.vote-tips').outerWidth() / 2
     }).show();
     if(tipTimeout) {
         clearTimeout(tipTimeout);
     }
     tipTimeout = setTimeout(function() {
-        jQuery('.vote-tips').remove();
+        $('.vote-tips-mask').remove();
     }, time);
 };
