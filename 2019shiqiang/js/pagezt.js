@@ -17,7 +17,7 @@ $(function() {
         }
     });
 
-    // 参选
+    // 报名
     $('.ztbtn-canxuan').on('click', function() {
 		var cxStatus = rnd(0, 2); //随机生成0~2
         if(cxStatus == '0') {
@@ -89,13 +89,37 @@ $(function() {
 		}
 	});
 
+	// 当前日期
+	if ($('.vote-date').length) {
+		var dateOfToday = Date.now();
+		var dayOfToday = (new Date().getDay() + 7) % 7;
+		var daysOfThisWeek = Array.from(new Array(7)).map((_, i) => {
+			var date = new Date(dateOfToday + (i - dayOfToday) * 1000 * 60 * 60 * 24)
+			return String(date.getDate()).padStart(2, '0')
+		});
+		var nowDay = new Date().getDate();
+		var today = nowDay >= 10 ? nowDay : '0' + nowDay;
+		$.each(daysOfThisWeek, function(i) {
+			if (today == daysOfThisWeek[i]) {
+				$('.vote-date').find('dl').eq(i).find('dd').html('<span class="today">' + daysOfThisWeek[i] + '</span>')
+			}
+			else {
+				$('.vote-date').find('dl').eq(i).find('dd').html('<span>' + daysOfThisWeek[i] + '</span>')
+			}
+
+		});
+	}
+
     /*
      * 竞猜
     */
-	// 点击竞猜
+
+	// 是否有竞猜
 	if ($('.zt-supporter').find('li').length > 0) {
 		$('.zt-supporter').show();
 	}
+
+	// 点击竞猜
     $('.list-myelection').on('click', '.ztbtn-vote', function() {
 		if($(this).hasClass('dis')) {
 			$('.zt-supporter').find('.li' + $(this).attr('data-id')).remove();
@@ -177,19 +201,41 @@ $(function() {
 	/*
 	* 十强公布
 	*/
-    // 公布结果保存地址
-    $('.zt-publish').on('click', '.address .btn', function() {
-        var len = 0;
-        $.each($(this).parents('.address').find('.input'), function(i) {
-            if(!$.trim($(this).val())) {
-                $.ztMsg.Alert('tan', $(this).parents('dl').find('dt').text() + '不能为空');
-                return false;
-            }
-            len++;
-        });
-        if(len == $(this).parents('.address').find('.input').length) {
-            $.ztMsg.Alert('gou', '提交成功');
-        }
+	// 公布结果保存地址
+	$('.zt-address .input').bind('input propertychange', function() {
+		var len = 0;
+		var _this = $(this);
+		$.each(_this.parents('.list').find('.input'), function(i) {
+		    if (!$.trim($(this).val())) {
+		        return false;
+		    }
+		    len++;
+		});
+		if (len == _this.parents('.list').find('.input').length) {
+		    $('.zt-address').find('.btn').removeClass('btn-dis').addClass('btn-submit');
+		}
+	});
+
+	$('.zt-address').on('blur', '.input', function() {
+	    var len = 0;
+	    var _this = $(this);
+	    $.each(_this.parents('.list').find('.input'), function(i) {
+	        if (!$.trim($(this).val())) {
+	            return false;
+	        }
+	        len++;
+	    });
+	    if (len == _this.parents('.list').find('.input').length) {
+	        console.log('==')
+	        $('.zt-address').find('.btn').removeClass('btn-dis').addClass('btn-submit');
+	    }
+	});
+
+    $('.zt-address').on('click', '.btn', function() {
+		if($(this).hasClass('btn-dis')) {
+			return false;
+		}
+		voteTips('suc', '保存成功')
         return false;
     });
 });
