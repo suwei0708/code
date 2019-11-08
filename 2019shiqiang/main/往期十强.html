@@ -112,7 +112,7 @@
 						<div class="fll">
 						    <a href="index.html#navlink">首页</a>
 						    <a href="参赛设计师.html#navlink">参赛设计师</a>
-						    <a href="投票送豪礼.html#navlink">投票送豪礼</a>
+						    <a href="投票送礼.html#navlink">投票送礼</a>
 						</div>
 						<div class="fr">
 						    <a href="竞猜十强.html#navlink">竞猜十强</a>
@@ -327,6 +327,14 @@
 		</div>
 
         <!-- 右侧悬浮 start -->
+		<div class="zt-talk">
+		    <div class="bdsharebuttonbox">
+		        <a href="javascript:;" class="bds_tsina icon-swb" data-cmd="tsina" title="分享到新浪微博"></a>
+		        <a href="javascript:;" class="bds_weixin icon-swx" data-cmd="weixin" title="分享到微信"></a>
+		        <a href="javascript:;" class="bds_sqq icon-sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+		    </div>
+		    <a href="javascript:;" class="back icon-back-top" id="goBack"></a>
+		</div>
         <!-- 右侧悬浮 end -->
         <!-- 专题内容 end -->
 
@@ -366,6 +374,22 @@
 
         <!-- 专题调用 js start -->
         <script src="../js/pagezt.js"></script>
-        <!-- 专题调用 js start -->
+        <!-- 专题调用 js end -->
+		<script>
+		    window._bd_share_config = {
+		        "common": {
+		            "bdSnsKey": {},
+		            'bdText': document.title,
+		            'bdDesc': document.getElementsByTagName('meta')['description'].content,
+		            'bdPic': $('.zt-banner').find('img').attr('src'),
+		            "bdMini": "2",
+		            "bdMiniList": false,
+		            "bdStyle": "0",
+		            "bdSize": "32"
+		        },
+		        "share": {}
+		    };
+		    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+		</script>
     </body>
 </html>

@@ -3,6 +3,17 @@ $(function() {
     /*
      * 首页
     */
+
+	// 导航 十强竞猜、十强公布未开始
+	$('.zt-nav').on('click', '.notimes', function() {
+		if($(this).text() == '竞猜十强') {
+			voteTips('fail', '<span class="yellow">竞猜十强未开始，过几天再来吧</span>')
+		}
+		else {
+			voteTips('fail', '<span class="yellow">十强设计师还未公布，过几天再来吧</span>')
+		}
+		return false;
+	});
     // 大赛时间
     var nowDate = new Date();
     var year = nowDate.getFullYear(); //得到年份
@@ -15,7 +26,22 @@ $(function() {
         if(today == $(this).data('time') || (today >= $(this).data('start') && today <= $(this).data('end'))) {
             $(this).addClass('cur');
         }
-    });
+	});
+
+	showCur();
+	var timer;
+	$(window).on('scroll', function() {
+	    clearInterval(timer);
+	    timer = setTimeout(showCur, 100);
+	});
+
+	function showCur() {
+	    if ($(window).scrollTop() > $(window).height()) {
+	        $('.zt-talk').show();
+	    } else {
+	        $('.zt-talk').hide();
+	    };
+	}
 
     // 报名
     $('.ztbtn-canxuan').on('click', function() {
@@ -26,7 +52,7 @@ $(function() {
             // 参选成功弹窗提示
             $.ztMsg.Alert('gou', '<span class="yellow f18">报名成功</span><br>可以去为自己拉票啦', '去拉票', '个人拉票页.html#navlink');
             // 参选成功文字变化和增加链接
-            $('.ztbtn-canxuan').html('已经报名').removeClass('ztbtn-canxuan').attr('href', '个人拉票页.html#navlink');
+            $('.ztbtn-canxuan').html('个人主页').removeClass('ztbtn-canxuan').attr('href', '个人拉票页.html#navlink');
             return false;
 		}
 		else if (cxStatus == '1') {
@@ -121,9 +147,9 @@ $(function() {
 
 	// 点击竞猜
     $('.list-myelection').on('click', '.ztbtn-vote', function() {
-		if($(this).hasClass('dis')) {
+		if($(this).hasClass('ztbtn-dis')) {
 			$('.zt-supporter').find('.li' + $(this).attr('data-id')).remove();
-			$(this).removeClass('dis').html('猜TA入围');
+			$(this).removeClass('ztbtn-dis').html('猜TA入围');
 			if ($('.zt-supporter').find('li').length == '0') {
 				$('.zt-supporter').hide();
 			}
@@ -133,7 +159,7 @@ $(function() {
 		if($num < 10) {
 			var selectBox = '<li class="li' + $(this).attr('data-id') + '"><a href="个人拉票页.html#navlink" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a><p><a href="个人拉票页.html#navlink" target="_blank">' + $(this).parents('li').find('h2').text() + '</a></p></li>';
 			$('.zt-supporter').show().find('.list ul').append(selectBox);
-			$(this).addClass('dis').html('取消');
+			$(this).addClass('ztbtn-dis').html('取消');
 		}
 		else {
 			voteTips('fail', '只能选择10位');
@@ -196,7 +222,33 @@ $(function() {
                 $(this).parents('li').find('.num').html(+$(this).parents('li').find('.num').html() + 1);
             }
         }
-    });
+	});
+
+	// 修改宣言
+	$('.zt-personal').on('click', '.icon-feedback', function() {
+		$('.ztpopup-xuanyan').find('.textarea').val($('.zt-personal').find('.xuanyan').html())
+		numbox();
+		$('.ztpopup-xuanyan').show();
+	});
+	// 保存宣言
+	$('.ztpopup-xuanyan').on('click', '.btn', function() {
+		if (!$('.ztpopup-xuanyan').find('.textarea').val()) {
+			voteTips('fail', '参赛宣言不能为空！');
+			return false;
+		}
+		$('.zt-personal').find('.xuanyan').html($('.ztpopup-xuanyan').find('.textarea').val());
+		voteTips('suc', '保存成功');
+		$('.ztpopup-xuanyan').hide();
+	});
+
+	// 字数判断
+	function numbox() {
+	    if ($('.num-box').length) {
+	        $.each($('.num-box'), function(i) {
+	            monitorVal($(this).parent().find('.input'), $(this).find('.num').text(), 'minus');
+	        });
+	    }
+	}
 
 	/*
 	* 十强公布
@@ -237,7 +289,7 @@ $(function() {
 		}
 		voteTips('suc', '保存成功')
         return false;
-    });
+	});
 });
 })(jQuery);
 
