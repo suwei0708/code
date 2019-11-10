@@ -2205,9 +2205,8 @@ body {
 			top: 50%;
 			left: 50%;
 			width: 624px;
-			height: 272px;
 			margin: -272px/2 0 0 -624px/2;
-			padding: 0;
+			padding: 0 0 15px;
 			dl {
 				font-size: 0;
 				color: #999;
@@ -2222,17 +2221,10 @@ body {
 						font-family: 'Noto Sans CJK SC Light', 'Source Han Sans CN Light', 'Microsoft Yahei';
 					}
 				}
-				dt {
-					border-bottom: 1px solid #363636;
-				}
-				a {
-					color: #666;
-					&:hover {
-						color: @yellow;
-					}
-				}
 				.item1 {
-				    width: 224px;
+					padding-left: 60px;
+					width: 224px - 60;
+					text-align: left !important;
 				}
 				.item2 {
 				    width: 160px;
@@ -2246,18 +2238,28 @@ body {
 						.text-e1;
 					}
 				}
+				.item4 {
+					padding-left: 60px;
+				    width: 324px;
+					text-align: left !important;
+				}
 				dt {
-					padding: 18px 0 14px;
+					padding: 15px 0;
 					font-size: 18px;
 					color: @yellow;
+					border-bottom: 1px solid #363636;
+				}
+				a {
+					color: #666;
+					&:hover {
+						color: @yellow;
+					}
 				}
 				.item {
-					padding: 12px 0;
+					padding: 5px 0;
 				}
 				dd {
-					margin: 8px 10px 0 0;
-					height: 60px * 3;
-					.ovy(a);
+					margin: 15px 10px 0 0;
 				}
 			}
             .ztpopup-ct {

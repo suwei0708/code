@@ -392,23 +392,30 @@
 						    </div>
 						</dd>
 					</dl>
+					<dl>
+					    <dt>
+					        <div class="item4">Adobe优惠券领取地址</div>
+					        <div class="item3">兑换地址</div>
+					    </dt>
+					    <dd>
+					        <div class="item">
+					            <div class="item4">Adobe旗舰店120优惠券</div>
+					            <div class="item3"><a href="#">www.zhisheji.com</a></div>
+					        </div>
+					        <div class="item">
+					            <div class="item4">Adobe旗舰店140优惠券</div>
+					            <div class="item3"><a href="#">www.zhisheji.com</a></div>
+					        </div>
+					        <div class="item">
+					            <div class="item4">Adobe旗舰店180优惠券</div>
+					            <div class="item3"><a href="#">www.zhisheji.com</a></div>
+					        </div>
+					    </dd>
+					</dl>
 		        </div>
 		    </div>
 		</div>
 		<!-- 兑换记录弹窗 end -->
-
-		<!-- 签到奖励弹窗 start -->
-		<div class="ztpopup-qiandao" style="display: block;">
-		    <div class="ztpopup-box">
-		        <a href="javascript:;" class="ztpopup-close" onclick="$('.ztpopup-qiandao').hide();"><span class="icon-fail"></span></a>
-		        <div class="ztpopup-tit">大作会员一个月</div>
-		        <div class="ztpopup-ct">
-					<p>你的专属兑换码<strong class="yellow">ZFTVCG</strong></p>
-		            <a href="javascript:;" class="btn">去兑换</a>
-		        </div>
-		    </div>
-		</div>
-		<!-- 签到奖励弹窗 end -->
 
         <!-- 通用js start-->
         <script src="http://www.zhisheji.com/home/js/jquery-1.9.1.min.js"></script>
@@ -436,6 +443,33 @@
 		        "share": {}
 		    };
 		    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+		</script>
+		<script>
+		    // var daysOfThisWeek = [];
+			var now = new Date();
+			// var weekFirstDay = new Date(now - (now.getDay()) * 86400000).getDate()
+			// var weekTwoDay = new Date((weekFirstDay / 1000 + 3 * 86400) * 1000).getDate()
+			// var weekThreeDay = new Date((weekFirstDay / 1000 + 4 * 86400) * 1000).getDate()
+			// var weekFourDay = new Date((weekFirstDay / 1000 + 5 * 86400) * 1000).getDate()
+			// var weekFiveDay = new Date((weekFirstDay / 1000 + 6 * 86400) * 1000).getDate()
+			// var weekSixDay = new Date((weekFirstDay / 1000 + 7 * 86400) * 1000).getDate()
+			// var weekLastDay = new Date((weekFirstDay / 1000 + 8 * 86400) * 1000).getDate()
+			// daysOfThisWeek.push(weekFirstDay, weekTwoDay, weekThreeDay, weekFourDay, weekFiveDay, weekSixDay, weekLastDay);
+			function getDates(currentTime) {//JS获取当前周从星期一到星期天的日期
+				var currentDate = new Date(currentTime)
+				var timesStamp = currentDate.getTime();
+				var currenDay = currentDate.getDate();
+				var dates = [];
+				for (var i = 0; i < 7; i++) {
+					var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
+					nowDay = nowDay.substring(nowDay.lastIndexOf("-")).replace('-', '');
+					nowDay = nowDay.substring(nowDay.lastIndexOf("月")).replace('月', '').replace('日', '');
+					today = nowDay >= 10 ? nowDay : '0' + nowDay;
+					dates.push(today);
+				}
+				return dates
+			}
+			console.log(getDates(now))
 		</script>
     </body>
 </html>

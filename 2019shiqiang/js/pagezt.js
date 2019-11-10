@@ -98,7 +98,6 @@ $(function() {
         };
 	});
 
-
 	/*
 	 * 投票送豪礼
 	*/
@@ -112,19 +111,28 @@ $(function() {
 		else {
 			// 兑换记录
 			$('.ztpopup-lucydraw').show();
+			centerObj('.ztpopup-lucydraw .ztpopup-box');
 		}
 	});
 
 	// 当前日期
 	if ($('.vote-date').length) {
-		var dateOfToday = Date.now();
-		var dayOfToday = (new Date().getDay() + 7) % 7;
-		var daysOfThisWeek = Array.from(new Array(7)).map((_, i) => {
-			var date = new Date(dateOfToday + (i - dayOfToday) * 1000 * 60 * 60 * 24)
-			return String(date.getDate()).padStart(2, '0')
-		});
-		var nowDay = new Date().getDate();
-		var today = nowDay >= 10 ? nowDay : '0' + nowDay;
+		function getDates(currentTime) { //JS获取当前周从星期一到星期天的日期
+		    var currentDate = new Date(currentTime)
+		    var timesStamp = currentDate.getTime();
+		    var currenDay = currentDate.getDate();
+		    var dates = [];
+		    for (var i = 0; i < 7; i++) {
+		        var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
+		        nowDay = nowDay.substring(nowDay.lastIndexOf("-")).replace('-', '');
+		        nowDay = nowDay.substring(nowDay.lastIndexOf("月")).replace('月', '').replace('日', '');
+		        today = nowDay >= 10 ? nowDay : '0' + nowDay;
+		        dates.push(today);
+		    }
+		    return dates
+		}
+		var now = new Date();
+		var daysOfThisWeek = getDates(now);
 		$.each(daysOfThisWeek, function(i) {
 			if (today == daysOfThisWeek[i]) {
 				$('.vote-date').find('dl').eq(i).find('dd').html('<span class="today">' + daysOfThisWeek[i] + '</span>')
@@ -132,8 +140,15 @@ $(function() {
 			else {
 				$('.vote-date').find('dl').eq(i).find('dd').html('<span>' + daysOfThisWeek[i] + '</span>')
 			}
-
 		});
+	}
+
+	// 是否展示兑换记录（其他页面跳转）
+	if ($('.btn-duihuan').length) {
+		if (getQueryString('popup') == 1) {
+			$('.ztpopup-lucydraw').show();
+			centerObj('.ztpopup-lucydraw .ztpopup-box');
+		}
 	}
 
     /*
@@ -430,3 +445,13 @@ function voteTips(status, cont, times) {
         $('.vote-tips-mask').remove();
     }, time);
 };
+
+function getQueryString(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) { return pair[1]; }
+    }
+    return (false);
+}

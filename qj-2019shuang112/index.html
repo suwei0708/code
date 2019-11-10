@@ -219,6 +219,21 @@
 		}, function () {
 			$('.countdown').html('已结束')
 		});
+
+		showCur();
+		var timer;
+		$(window).on('scroll', function() {
+			clearInterval(timer);
+			timer = setTimeout(showCur, 100);
+		});
+
+		function showCur() {
+			if ($(window).scrollTop() > $(window).height()) {
+				$('.btn-talk').show();
+			} else {
+				$('.btn-talk').hide();
+			};
+		}
 	</script>
 </body>
 </html>
