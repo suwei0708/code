@@ -34,7 +34,7 @@ $(function() {
     });
 
     /*
-     * 参选设计师
+     * 参赛设计师投票
     */
     var voteNum = 10; //投票次数
     $('.list-election').on('click', '.ztbtn', function() {
@@ -62,11 +62,102 @@ $(function() {
                 $(this).parents('li').find('.num').html(+$(this).parents('li').find('.num').html() + 1);
             }
         };
-    });
+	});
+
+	/*
+	 * 投票送豪礼
+	 */
+	// 兑换记录
+	$('.btn-duihuan').on('click', function() {
+	    var dhStatus = rnd(0, 1); //随机生成0~1
+	    if (dhStatus == '0') {
+	        // 没有兑换
+	        voteTips('fail', '你还没有兑换过奖品');
+	    } else {
+	        // 兑换记录
+	        $('.ztpopup-lucydraw').show();
+	    }
+	});
+
+	// 当前日期
+	if ($('.vote-date').length) {
+	    var currenDay;
+
+	    function getDates(currentTime) { //JS获取当前周从星期一到星期天的日期
+	        var currentDate = new Date(currentTime)
+	        var timesStamp = currentDate.getTime();
+	        currenDay = currentDate.getDate();
+	        var dates = [];
+	        for (var i = 0; i < 7; i++) {
+	            var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
+	            nowDay = nowDay.substring(nowDay.lastIndexOf("-")).replace('-', '');
+	            nowDay = nowDay.substring(nowDay.lastIndexOf("月")).replace('月', '').replace('日', '');
+	            today = nowDay >= 10 ? nowDay : '0' + nowDay;
+	            dates.push(today);
+	        }
+	        return dates
+	    }
+	    var now = new Date();
+	    var daysOfThisWeek = getDates(now);
+	    $.each(daysOfThisWeek, function(i) {
+	        if (currenDay == daysOfThisWeek[i]) {
+	            $('.vote-date').find('dl').eq(i).find('dd').html('<span class="today">' + daysOfThisWeek[i] + '</span>')
+	        } else {
+	            $('.vote-date').find('dl').eq(i).find('dd').html('<span>' + daysOfThisWeek[i] + '</span>')
+	        }
+	    });
+	}
+
+	// 是否展示兑换记录（其他页面跳转）
+	if ($('.btn-duihuan').length) {
+	    if (getQueryString('popup') == 1) {
+	        $('.ztpopup-lucydraw').show();
+	    }
+	}
+
+	/*
+	 * 竞猜
+	 */
+
+	// 是否有竞猜
+	if ($('.zt-supporter').find('li').length > 0) {
+	    $('.zt-supporter').show();
+	}
+
+	// 点击竞猜
+	$('.list-myelection').on('click', '.ztbtn-vote', function() {
+	    if ($(this).hasClass('ztbtn-dis')) {
+	        $('.zt-supporter').find('.li' + $(this).attr('data-id')).remove();
+	        $(this).removeClass('ztbtn-dis').html('猜TA入围');
+	        if ($('.zt-supporter').find('li').length == '0') {
+	            $('.zt-supporter').hide();
+	        }
+	        return false;
+	    }
+	    var $num = $('.zt-supporter').find('li').length;
+	    if ($num < 10) {
+	        var selectBox = '<li class="li' + $(this).attr('data-id') + '"><a href="个人拉票页.html#navlink" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a><p><a href="个人拉票页.html#navlink" target="_blank">' + $(this).parents('li').find('h2').text() + '</a></p></li>';
+	        $('.zt-supporter').show().find('.list ul').append(selectBox);
+	        $(this).addClass('ztbtn-dis').html('取消');
+	    } else {
+	        voteTips('fail', '只能选择10位');
+	    }
+	});
 
     /*
      * 个人主页
     */
+   // 个人拉票页通知滚动
+   // 无缝滚动
+   if ($('.notices').length) {
+       $('.notices').rollNoInterval().left();
+   };
+   if ($('.notices2').length) {
+       setTimeout(function() {
+           $('.notices2').rollNoInterval().left();
+       }, 3000);
+   };
+
     // 投票
     $('.vote-box').on('click', '.ztbtn', function() {
         if (!$(this).hasClass('ztbtn-dis')) {
@@ -93,7 +184,33 @@ $(function() {
 				$('.rank').find('.num').html(+$('.rank').find('.num').text() + 1);
             }
         }
-    });
+	});
+
+	// 修改宣言
+	$('.zt-personal').on('click', '.icon-feedback', function() {
+	    $('.ztpopup-xuanyan').find('.textarea').val($('.zt-personal').find('.xuanyan').html())
+	    numbox();
+	    $('.ztpopup-xuanyan').show();
+	});
+	// 保存宣言
+	$('.ztpopup-xuanyan').on('click', '.btn', function() {
+	    if (!$('.ztpopup-xuanyan').find('.textarea').val()) {
+	        voteTips('fail', '参赛宣言不能为空！');
+	        return false;
+	    }
+	    $('.zt-personal').find('.xuanyan').html($('.ztpopup-xuanyan').find('.textarea').val());
+	    voteTips('suc', '保存成功');
+	    $('.ztpopup-xuanyan').hide();
+	});
+
+	// 字数判断
+	function numbox() {
+	    if ($('.num-box').length) {
+	        $.each($('.num-box'), function(i) {
+	            monitorVal($(this).parent().find('.input'), $(this).find('.num').text(), 'minus');
+	        });
+	    }
+	}
 
 	/*
 	 * 十强公布
@@ -149,7 +266,7 @@ function copyToClipboard(){
 // $.ztMsg.Alert('icon', 'msg', 'btntxt', 'btnlink');
 // $.ztMsg.Confirm('icon', 'msg', 'btntxt', 'btnlink', func);
 (function() {
-    jQuery.ztMsg = {
+    $.ztMsg = {
         Alert: function(icon, msg, btntxt, btnlink) {
             GenerateHtml('alert', icon, msg, btntxt, btnlink);
             btnOk();
@@ -182,13 +299,13 @@ function copyToClipboard(){
         }
         _html += '</div></div>';
         //必须先将_html添加到body，再设置Css样式
-        jQuery('body').append(_html);
+        $('body').append(_html);
     }
 
     //确定按钮事件
     var btnOk = function(callback) {
-        jQuery('#zt-ok').on('click', function() {
-            jQuery('#ztpopup').remove();
+        $('#zt-ok').on('click', function() {
+            $('#ztpopup').remove();
             if (typeof(callback) == 'function') {
                 callback();
             }
@@ -196,8 +313,8 @@ function copyToClipboard(){
     }
     //取消按钮事件
     var btnNo = function() {
-        jQuery('#zt-no, #zt-close').on('click', function() {
-            jQuery('#ztpopup').remove();
+        $('#zt-no, #zt-close').on('click', function() {
+            $('#ztpopup').remove();
         });
     }
 })();
@@ -239,3 +356,26 @@ function getQueryString(variable) {
     }
     return (false);
 }
+
+function monitorVal(obj, nums, minus) {
+    if (minus) {
+        if ($(obj).nextAll('.num-box').find('.num').length) {
+            $(obj).nextAll('.num-box').find('.num').html(nums - $(obj).val().length);
+        }
+    } else {
+        if ($(obj).nextAll('.num-box').find('.num').length) {
+            $(obj).nextAll('.num-box').find('.num').html($(obj).val().length);
+        }
+    }
+    $(obj).unbind();
+    $(obj).bind('input propertychange', function() {
+        if ($(obj).val().length >= nums) {
+            $(obj).val($(obj).val().substr(0, nums));
+        }
+        if (minus) {
+            $(obj).nextAll('.num-box').find('.num').html(nums - $(obj).val().length);
+        } else {
+            $(obj).nextAll('.num-box').find('.num').html($(obj).val().length);
+        }
+    });
+};

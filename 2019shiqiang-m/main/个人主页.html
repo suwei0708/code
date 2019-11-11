@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-dpr="1" style="font-size: 32px;">
+<html data-dpr="1" style="font-size: 32px;">
 <head>
     <meta charset="UTF-8">
     <title>个人主页</title>
@@ -111,7 +111,7 @@
 		        </div>
 		    </div>
 
-		    <div class="supporter">
+		    <div class="zt-supporter">
 		        <div class="zt-tit">
 		            <img src="../images/tit-supporters.png" alt="">我的支持者
 		        </div>
@@ -243,12 +243,30 @@
 
 		</div>
 		<!-- 个人主页 end -->
+
+		<!-- 参赛宣言弹窗 start -->
+		<div class="ztpopup-xuanyan">
+		    <div class="ztpopup-box">
+		        <a href="javascript:;" class="ztpopup-close" onclick="$('.ztpopup-xuanyan').hide();"><span class="icon-fail"></span></a>
+		        <div class="ztpopup-tit">参赛宣言</div>
+		        <div class="ztpopup-ct">
+		            <div class="textarea-box">
+		                <textarea name="" class="input textarea" placeholder="参赛宣言"></textarea>
+		                <div class="num-box"><span class="num">30</span></div>
+		            </div>
+		            <a href="javascript:;" class="btn">保存</a>
+		        </div>
+		    </div>
+		</div>
+		<!-- 参赛宣言弹窗 end -->
     </div>
 
 	<script src="../js/jquery-3.2.1.min.js"></script>
 
     <!-- 上拉加载 -->
-    <script src="../js/dropload.js"></script>
+	<script src="../js/dropload.js"></script>
+	<!-- 滚动js -->
+    <script src="../js/rollSlide.js"></script>
 
 	<script src="../js/pagezt.js"></script>
 	<script>

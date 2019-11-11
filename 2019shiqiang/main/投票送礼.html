@@ -444,32 +444,5 @@
 		    };
 		    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
 		</script>
-		<script>
-		    // var daysOfThisWeek = [];
-			var now = new Date();
-			// var weekFirstDay = new Date(now - (now.getDay()) * 86400000).getDate()
-			// var weekTwoDay = new Date((weekFirstDay / 1000 + 3 * 86400) * 1000).getDate()
-			// var weekThreeDay = new Date((weekFirstDay / 1000 + 4 * 86400) * 1000).getDate()
-			// var weekFourDay = new Date((weekFirstDay / 1000 + 5 * 86400) * 1000).getDate()
-			// var weekFiveDay = new Date((weekFirstDay / 1000 + 6 * 86400) * 1000).getDate()
-			// var weekSixDay = new Date((weekFirstDay / 1000 + 7 * 86400) * 1000).getDate()
-			// var weekLastDay = new Date((weekFirstDay / 1000 + 8 * 86400) * 1000).getDate()
-			// daysOfThisWeek.push(weekFirstDay, weekTwoDay, weekThreeDay, weekFourDay, weekFiveDay, weekSixDay, weekLastDay);
-			function getDates(currentTime) {//JS获取当前周从星期一到星期天的日期
-				var currentDate = new Date(currentTime)
-				var timesStamp = currentDate.getTime();
-				var currenDay = currentDate.getDate();
-				var dates = [];
-				for (var i = 0; i < 7; i++) {
-					var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
-					nowDay = nowDay.substring(nowDay.lastIndexOf("-")).replace('-', '');
-					nowDay = nowDay.substring(nowDay.lastIndexOf("月")).replace('月', '').replace('日', '');
-					today = nowDay >= 10 ? nowDay : '0' + nowDay;
-					dates.push(today);
-				}
-				return dates
-			}
-			console.log(getDates(now))
-		</script>
     </body>
 </html>

@@ -117,10 +117,11 @@ $(function() {
 
 	// 当前日期
 	if ($('.vote-date').length) {
+		var currenDay;
 		function getDates(currentTime) { //JS获取当前周从星期一到星期天的日期
 		    var currentDate = new Date(currentTime)
 		    var timesStamp = currentDate.getTime();
-		    var currenDay = currentDate.getDate();
+		    currenDay = currentDate.getDate();
 		    var dates = [];
 		    for (var i = 0; i < 7; i++) {
 		        var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
@@ -134,7 +135,7 @@ $(function() {
 		var now = new Date();
 		var daysOfThisWeek = getDates(now);
 		$.each(daysOfThisWeek, function(i) {
-			if (today == daysOfThisWeek[i]) {
+			if (currenDay == daysOfThisWeek[i]) {
 				$('.vote-date').find('dl').eq(i).find('dd').html('<span class="today">' + daysOfThisWeek[i] + '</span>')
 			}
 			else {

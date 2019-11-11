@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html data-dpr="1" style="font-size: 32px;">
+<head>
+    <meta charset="UTF-8">
+    <title>投票送礼</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 页面适配js -->
+    <script src="../js/flexible.js"></script>
+    <link rel="stylesheet" href="../css/pagezt.css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- 专题导航 start -->
+        <div class="zt-nav">
+            <ul>
+                <li><a href="index.html">大赛首页</a></li>
+                <li><a href="参赛设计师.html">参赛设计师</a></li>
+                <li class="cur"><a href="投票送礼.html">投票送礼</a></li>
+                <li><a href="个人主页.html">个人主页</a></li>
+                <li><a href="竞猜十强.html">竞猜十强</a></li>
+                <li><a href="十强公布.html">十强公布</a></li>
+                <li><a href="往期十强.html">往期十强</a></li>
+            </ul>
+        </div>
+        <!-- 专题导航 end -->
+
+        <!-- 专题banner start -->
+        <div class="zt-banner">
+			<img src="../images/banner.jpg" alt="">
+			<a href="javascript:;" class="ztbtn ztbtn-yellow ztbtn-canxuan">参选十强</a>
+        </div>
+		<!-- 专题banner end -->
+
+		<!-- 投票送礼 start -->
+		<div class="zt-vote">
+		    <div class="zt-tit">
+		        <img src="../images/tit-vote.png" alt="">投票送礼
+		    </div>
+		    <div class="list">
+		        <div class="zt-rule">
+		            <div class="list">
+		                <ul>
+		                    <li>
+		                        <div class="title">
+		                            <img src="../images/icon-cjgz.png" width="105" alt="">
+		                            参选资格
+		                        </div>
+		                        <p>每天给参赛设计师投10票计算一次完成。</p>
+		                        <p>如中间间断则从新计算，熊猫办公VIP<br>3个月会员限量400个，先到先得。</p>
+		                        <p>活动时间11月18日 - 12月9日。</p>
+		                        <p>连续投票达成，凭兑换码兑换奖品。</p>
+		                        <p>&nbsp;</p>
+		                        <p><span class="arrow-r yellow btn-duihuan">兑换记录<span class="icon-youjiantou">&gt;</span></span></p>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		        <div class="vote-date">
+		            <div class="date">
+		                <dl>
+		                    <dt>日</dt>
+		                    <dd>
+		                        <!-- <span class="icon-gou">15</span> -->
+		                    </dd>
+		                </dl>
+		                <dl>
+		                    <dt>一</dt>
+		                    <dd>
+		                        <!-- <span class="today">15</span> -->
+		                    </dd>
+		                </dl>
+		                <dl>
+		                    <dt>二</dt>
+		                    <dd></dd>
+		                </dl>
+		                <dl>
+		                    <dt>三</dt>
+		                    <dd></dd>
+		                </dl>
+		                <dl>
+		                    <dt>四</dt>
+		                    <dd></dd>
+		                </dl>
+		                <dl>
+		                    <dt>五</dt>
+		                    <dd></dd>
+		                </dl>
+		                <dl>
+		                    <dt>六</dt>
+		                    <dd></dd>
+		                </dl>
+		            </div>
+		            <div class="info">
+		                <a href="参赛设计师.html" class="fr btn btn-vote">投票</a>
+		                <!-- <a href="javascript:;" class="fr btn">已投票</a> -->
+		                <img class="fll" src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" height="78" width="78" alt="">
+		                <div class="tt">你已连续投票1天</div>
+		                <div class="ct">今日投票完成（1 / 10）</div>
+		            </div>
+		        </div>
+		        <div class="vote-prize">
+		            <div class="item">
+		                <img src="../images/icon-vipdz.png" alt="">
+		                <p>连续投票7天<br>获得大作会员一个月<br><span>Adobe旗舰店满888减120优惠券</span></p>
+		            </div>
+		            <div class="item">
+		                <img src="../images/icon-vipxm.png" alt="">
+		                <p>连续投票15天<br>获得熊猫办公VIP 3个月<br><span>Adobe旗舰店满888减140优惠券</span></p>
+		            </div>
+		            <div class="item">
+		                <img src="../images/icon-vipqj.png" alt="">
+		                <p>连续投票25天<br>获得巧匠VIP一年<br><span>Adobe旗舰店满888减180优惠券</span></p>
+		            </div>
+		        </div>
+		        <div class="vote-prize">
+		            <div class="item item-dis">
+		                <img src="../images/icon-vipdz-gray.png" alt="">
+		                <p>已赠送完~</p>
+		            </div>
+		            <div class="item item-dis">
+		                <img src="../images/icon-vipxm-gray.png" alt="">
+		                <p>已赠送完~</p>
+		            </div>
+		            <div class="item item-dis">
+		                <img src="../images/icon-vipqj-gray.png" alt="">
+		                <p>已赠送完~</p>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- 投票送礼 end -->
+		<!-- 获奖名单 start -->
+		<div class="zt-luckdraw-win">
+		    <div class="zt-tit">
+		        <img src="../images/tit-winners.png" alt="">获奖名单
+		    </div>
+		    <div class="list" id="wrapper">
+		        <div class="no-luckdraw">
+		            <img src="../images/icon-libao.png" alt="">
+		            <p>暂时没有获奖人员</p>
+		        </div>
+		        <ul>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包1111</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包1111</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包1111</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包111</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包222</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包222</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包222</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包222</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包333</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包333</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包333</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a>
+		                <p class="name"><a href="#" target="_blank">小笼包444</a></p>
+		                <p>获得了<span>致设计笔记本+鼠标垫</span></p>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+		<!-- 获奖名单 end -->
+
+		<!-- 兑换记录弹窗 start -->
+		<div class="ztpopup-lucydraw">
+		    <div class="ztpopup-box">
+		        <a href="javascript:;" class="ztpopup-close" onclick="$('.ztpopup-lucydraw').hide();"><span class="icon-fail"></span></a>
+		        <div class="ztpopup-ct">
+		            <dl>
+		                <dt>
+		                    <div class="item1">生成时间</div>
+		                    <div class="item2">兑换码</div>
+		                    <div class="item3">兑换地址</div>
+		                </dt>
+		                <dd>
+		                    <div class="item">
+		                        <div class="item1">2019年11月24日</div>
+		                        <div class="item2">ZFTVCG</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                    <div class="item">
+		                        <div class="item1">2019年11月24日</div>
+		                        <div class="item2">ZFTVCG</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                    <div class="item">
+		                        <div class="item1">2019年11月24日</div>
+		                        <div class="item2">ZFTVCG</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                    <div class="item">
+		                        <div class="item1">2019年11月24日</div>
+		                        <div class="item2">ZFTVCG</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                    <div class="item">
+		                        <div class="item1">2019年11月24日</div>
+		                        <div class="item2">ZFTVCG</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                </dd>
+		            </dl>
+		            <dl>
+		                <dt>
+		                    <div class="item4">Adobe优惠券领取地址</div>
+		                    <div class="item3">兑换地址</div>
+		                </dt>
+		                <dd>
+		                    <div class="item">
+		                        <div class="item4">Adobe旗舰店120优惠券</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                    <div class="item">
+		                        <div class="item4">Adobe旗舰店140优惠券</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                    <div class="item">
+		                        <div class="item4">Adobe旗舰店180优惠券</div>
+		                        <div class="item3"><a href="#">www.zhisheji.com</a></div>
+		                    </div>
+		                </dd>
+		            </dl>
+		        </div>
+		    </div>
+		</div>
+		<!-- 兑换记录弹窗 end -->
+    </div>
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+
+    <!-- 上拉加载 -->
+    <script src="../js/dropload.js"></script>
+
+	<script src="../js/pagezt.js"></script>
+	<script>
+	    $(function() {
+	        // 上拉加载
+	        var curpage = 1; // 页数
+	        var totalpage = 5; // 总页数
+	        // dropload
+	        var dropload = $("#wrapper").dropload({
+	            scrollArea: window,
+	            domDown: {
+	                domClass: 'dropload-down',
+	                domRefresh: '<div class="dropload-refresh">上拉加载更多</div>',
+	                domLoad: '<div class="dropload-load"><img src="../images/loading.png" alt="" />正在加载</div>',
+	                domNoData: '<div class="dropload-noData">已无数据</div>'
+	            },
+	            loadDownFn: function(me) {
+	                // 判断是否只有一页或者加载完毕
+	                if (totalpage <= 1 || curpage == totalpage) {
+	                    me.lock();
+	                    me.noData();
+	                    me.resetload();
+	                    return;
+	                }
+	                // 加载页面 模拟延时加载
+	                setTimeout(function() {
+	                    var li;
+	                    for (i = 0; i < 10; i++) {
+	                        li = '<li><a href="#" target="_blank" class="fll"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="52" height="52" alt=""></a><p class="name"><a href="#" target="_blank">小笼包444</a></p><p>获得了<span>致设计笔记本+鼠标垫</span></p></li>';
+	                        $("#wrapper ul").append(li);
+	                    }
+	                    curpage = parseInt(curpage) + 1;
+	                    me.resetload();
+	                }, 1000);
+	            }
+	        });
+	    });
+	</script>
+</body>
+</html>

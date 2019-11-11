@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html data-dpr="1" style="font-size: 32px;">
+<head>
+    <meta charset="UTF-8">
+    <title>竞猜十强</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 页面适配js -->
+    <script src="../js/flexible.js"></script>
+    <link rel="stylesheet" href="../css/pagezt.css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- 专题导航 start -->
+        <div class="zt-nav">
+            <ul>
+                <li><a href="index.html">大赛首页</a></li>
+                <li><a href="参赛设计师.html">参赛设计师</a></li>
+                <li><a href="投票送礼.html">投票送礼</a></li>
+                <li><a href="个人主页.html">个人主页</a></li>
+                <li class="cur"><a href="竞猜十强.html">竞猜十强</a></li>
+                <li><a href="十强公布.html">十强公布</a></li>
+                <li><a href="往期十强.html">往期十强</a></li>
+            </ul>
+        </div>
+        <!-- 专题导航 end -->
+
+        <!-- 专题banner start -->
+        <div class="zt-banner">
+			<img src="../images/banner.jpg" alt="">
+			<a href="javascript:;" class="ztbtn ztbtn-yellow ztbtn-canxuan">参选十强</a>
+        </div>
+		<!-- 专题banner end -->
+
+		<!-- 大赛规则 start -->
+		<div class="zt-rule zt-rule2">
+		    <div class="list">
+		        <ul>
+		            <li class="li3 li4">
+		                <div class="title">
+		                    <img src="../images/icon-tpgz.png" width="102" alt="">
+		                    竞猜规则
+		                </div>
+		                <p>1、评选结束后如你竞猜的十位参赛设计师有八 位入选十强，即可获得设计书籍</p>
+		                <p>2、竞猜时间12月10日~12月16日</p>
+		                <p>3、竞猜期间可以对竞猜对象进行更换</p>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+		<!-- 大赛规则 end -->
+
+		<!-- 我的竞猜 start -->
+		<div class="zt-supporter" style="display: block;">
+		    <div class="zt-tit">
+		        <img src="../images/tit-topten.png" alt="">我的竞猜
+		    </div>
+		    <div class="list">
+		        <ul>
+		            <li>
+						<a href="个人主页.html" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a>
+						<p><a href="个人主页.html" target="_blank">奈良计画</a></p>
+					</li>
+					<li>
+						<a href="#"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a>
+						<p><a href="#">小笼包</a></p>
+					</li>
+		        </ul>
+		    </div>
+		</div>
+		<!-- 我的竞猜 end -->
+
+		<!-- 50强入围设计师 start -->
+		<div class="zt-election">
+		    <div class="zt-tit">
+		        <img src="../images/tit-designer.png" alt="">50强入围设计师
+		    </div>
+		    <div class="list list-myelection">
+		        <ul>
+		            <!-- <li>
+			                <div class="img"><a href="个人主页.html" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" height="96" width="96" alt=""></a></div>
+			                <h2><a href="个人主页.html" target="_blank">迪升<img src="http://www.zhisheji.com/home/images/zuzhizhe.png" alt=""><img src="http://www.zhisheji.com/home/images/tuijian.png" alt=""></a></h2>
+			                <p><span class="num">88</span>票</p>
+			                <div class="ztbtn-box" data-id="1"><a href="javascript:;" class="ztbtn">竞猜已结束</a></div>
+			            </li> -->
+		        </ul>
+		    </div>
+		</div>
+		<!-- 50强入围设计师 end -->
+    </div>
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+
+    <!-- 上拉加载 -->
+    <script src="../js/dropload.js"></script>
+
+	<script src="../js/pagezt.js"></script>
+	<script>
+	    // js模拟数据，添加程序时删掉
+	    var $len = 50;
+	    var $li;
+	    for (let index = 0; index < $len; index++) {
+	        $li += '<li><div class="img"><a href="个人主页.html"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" height="96" width="96" alt=""></a></div><h2><a href="个人主页.html">迪升' + index + '<img src="http://www.zhisheji.com/home/images/zuzhizhe.png" alt=""><img src="http://www.zhisheji.com/home/images/tuijian.png" alt=""></a></h2><p><span class="num">' + index + '</span>票</p><div class="ztbtn-box"><a href="javascript:;" class="ztbtn ztbtn-vote" data-id="' + (+index + 1) + '">猜TA入围</a></div></li>'
+	    }
+	    $('.list-myelection ul').html($li);
+	</script>
+</body>
+</html>
