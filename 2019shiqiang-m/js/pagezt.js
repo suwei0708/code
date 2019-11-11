@@ -1,17 +1,19 @@
 $(function() {
+	// 导航效果
+	centerNav('.zt-nav');
     /*
      * 首页
-    */
+     */
     // 大赛时间
     var nowDate = new Date();
     var year = nowDate.getFullYear(); //得到年份
-    var month = nowDate.getMonth() + 1;//得到月份
+    var month = nowDate.getMonth() + 1; //得到月份
     month = month < 10 ? '0' + month : month;
-    var date = nowDate.getDate();//得到日期
+    var date = nowDate.getDate(); //得到日期
     date = date < 10 ? '0' + date : date;
     var today = year + '' + month + '' + date;
     $.each($('.zt-times .list li'), function(i) {
-        if(today == $(this).data('time') || (today >= $(this).data('start') && today <= $(this).data('end'))) {
+        if (today == $(this).data('time') || (today >= $(this).data('start') && today <= $(this).data('end'))) {
             $(this).addClass('cur');
         }
     });
@@ -19,15 +21,14 @@ $(function() {
     // 参选
     $('.ztbtn-canxuan').on('click', function() {
         var cxStatus = rnd(0, 1); //随机生成0，1
-        if(cxStatus == 0) {
+        if (cxStatus == 0) {
             $('.ztbtn-canxuan').off('click');
             // 参选成功
             $.ztMsg.Alert('gou', '报名成功！开始为自己拉票吧~', '去拉票', '个人主页.html');
             // 参选成功文字变化和增加链接
             $('.ztbtn-canxuan').html('我的主页').removeClass('ztbtn-canxuan').attr('href', '个人主页.html');
             return false;
-        }
-        else {
+        } else {
             // 参选失败
             $.ztMsg.Confirm('tan', '需要 3 个或以上原创作品<br>才能参加哦');
         }
@@ -35,7 +36,7 @@ $(function() {
 
     /*
      * 参赛设计师投票
-    */
+     */
     var voteNum = 10; //投票次数
     $('.list-election').on('click', '.ztbtn', function() {
         if (!$(this).hasClass('ztbtn-dis')) {
@@ -62,101 +63,101 @@ $(function() {
                 $(this).parents('li').find('.num').html(+$(this).parents('li').find('.num').html() + 1);
             }
         };
-	});
+    });
 
-	/*
-	 * 投票送豪礼
-	 */
-	// 兑换记录
-	$('.btn-duihuan').on('click', function() {
-	    var dhStatus = rnd(0, 1); //随机生成0~1
-	    if (dhStatus == '0') {
-	        // 没有兑换
-	        voteTips('fail', '你还没有兑换过奖品');
-	    } else {
-	        // 兑换记录
-	        $('.ztpopup-lucydraw').show();
-	    }
-	});
+    /*
+     * 投票送豪礼
+     */
+    // 兑换记录
+    $('.btn-duihuan').on('click', function() {
+        var dhStatus = rnd(0, 1); //随机生成0~1
+        if (dhStatus == '0') {
+            // 没有兑换
+            voteTips('fail', '你还没有兑换过奖品');
+        } else {
+            // 兑换记录
+            $('.ztpopup-lucydraw').show();
+        }
+    });
 
-	// 当前日期
-	if ($('.vote-date').length) {
-	    var currenDay;
+    // 当前日期
+    if ($('.vote-date').length) {
+        var currenDay;
 
-	    function getDates(currentTime) { //JS获取当前周从星期一到星期天的日期
-	        var currentDate = new Date(currentTime)
-	        var timesStamp = currentDate.getTime();
-	        currenDay = currentDate.getDate();
-	        var dates = [];
-	        for (var i = 0; i < 7; i++) {
-	            var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
-	            nowDay = nowDay.substring(nowDay.lastIndexOf("-")).replace('-', '');
-	            nowDay = nowDay.substring(nowDay.lastIndexOf("月")).replace('月', '').replace('日', '');
-	            today = nowDay >= 10 ? nowDay : '0' + nowDay;
-	            dates.push(today);
-	        }
-	        return dates
-	    }
-	    var now = new Date();
-	    var daysOfThisWeek = getDates(now);
-	    $.each(daysOfThisWeek, function(i) {
-	        if (currenDay == daysOfThisWeek[i]) {
-	            $('.vote-date').find('dl').eq(i).find('dd').html('<span class="today">' + daysOfThisWeek[i] + '</span>')
-	        } else {
-	            $('.vote-date').find('dl').eq(i).find('dd').html('<span>' + daysOfThisWeek[i] + '</span>')
-	        }
-	    });
-	}
+        function getDates(currentTime) { //JS获取当前周从星期一到星期天的日期
+            var currentDate = new Date(currentTime)
+            var timesStamp = currentDate.getTime();
+            currenDay = currentDate.getDate();
+            var dates = [];
+            for (var i = 0; i < 7; i++) {
+                var nowDay = new Date(timesStamp + 24 * 60 * 60 * 1000 * (i - (currenDay + 11) % 7)).toLocaleDateString().replace(/\//g, '-');
+                nowDay = nowDay.substring(nowDay.lastIndexOf("-")).replace('-', '');
+                nowDay = nowDay.substring(nowDay.lastIndexOf("月")).replace('月', '').replace('日', '');
+                today = nowDay >= 10 ? nowDay : '0' + nowDay;
+                dates.push(today);
+            }
+            return dates
+        }
+        var now = new Date();
+        var daysOfThisWeek = getDates(now);
+        $.each(daysOfThisWeek, function(i) {
+            if (currenDay == daysOfThisWeek[i]) {
+                $('.vote-date').find('dl').eq(i).find('dd').html('<span class="today">' + daysOfThisWeek[i] + '</span>')
+            } else {
+                $('.vote-date').find('dl').eq(i).find('dd').html('<span>' + daysOfThisWeek[i] + '</span>')
+            }
+        });
+    }
 
-	// 是否展示兑换记录（其他页面跳转）
-	if ($('.btn-duihuan').length) {
-	    if (getQueryString('popup') == 1) {
-	        $('.ztpopup-lucydraw').show();
-	    }
-	}
+    // 是否展示兑换记录（其他页面跳转）
+    if ($('.btn-duihuan').length) {
+        if (getQueryString('popup') == 1) {
+            $('.ztpopup-lucydraw').show();
+        }
+    }
 
-	/*
-	 * 竞猜
-	 */
+    /*
+     * 竞猜
+     */
 
-	// 是否有竞猜
-	if ($('.zt-supporter').find('li').length > 0) {
-	    $('.zt-supporter').show();
-	}
+    // 是否有竞猜
+    if ($('.zt-supporter').find('li').length > 0) {
+        $('.zt-supporter').show();
+    }
 
-	// 点击竞猜
-	$('.list-myelection').on('click', '.ztbtn-vote', function() {
-	    if ($(this).hasClass('ztbtn-dis')) {
-	        $('.zt-supporter').find('.li' + $(this).attr('data-id')).remove();
-	        $(this).removeClass('ztbtn-dis').html('猜TA入围');
-	        if ($('.zt-supporter').find('li').length == '0') {
-	            $('.zt-supporter').hide();
-	        }
-	        return false;
-	    }
-	    var $num = $('.zt-supporter').find('li').length;
-	    if ($num < 10) {
-	        var selectBox = '<li class="li' + $(this).attr('data-id') + '"><a href="个人拉票页.html#navlink" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a><p><a href="个人拉票页.html#navlink" target="_blank">' + $(this).parents('li').find('h2').text() + '</a></p></li>';
-	        $('.zt-supporter').show().find('.list ul').append(selectBox);
-	        $(this).addClass('ztbtn-dis').html('取消');
-	    } else {
-	        voteTips('fail', '只能选择10位');
-	    }
-	});
+    // 点击竞猜
+    $('.list-myelection').on('click', '.ztbtn-vote', function() {
+        if ($(this).hasClass('ztbtn-dis')) {
+            $('.zt-supporter').find('.li' + $(this).attr('data-id')).remove();
+            $(this).removeClass('ztbtn-dis').html('猜TA入围');
+            if ($('.zt-supporter').find('li').length == '0') {
+                $('.zt-supporter').hide();
+            }
+            return false;
+        }
+        var $num = $('.zt-supporter').find('li').length;
+        if ($num < 10) {
+            var selectBox = '<li class="li' + $(this).attr('data-id') + '"><a href="个人拉票页.html#navlink" target="_blank"><img src="http://www.zhisheji.com/uc_server/data/avatar/000/14/64/10_avatar_middle.jpg" width="78" height="78" alt=""></a><p><a href="个人拉票页.html#navlink" target="_blank">' + $(this).parents('li').find('h2').text() + '</a></p></li>';
+            $('.zt-supporter').show().find('.list ul').append(selectBox);
+            $(this).addClass('ztbtn-dis').html('取消');
+        } else {
+            voteTips('fail', '只能选择10位');
+        }
+    });
 
     /*
      * 个人主页
-    */
-   // 个人拉票页通知滚动
-   // 无缝滚动
-   if ($('.notices').length) {
-       $('.notices').rollNoInterval().left();
-   };
-   if ($('.notices2').length) {
-       setTimeout(function() {
-           $('.notices2').rollNoInterval().left();
-       }, 3000);
-   };
+     */
+    // 个人拉票页通知滚动
+    // 无缝滚动
+    if ($('.notices').length) {
+        $('.notices').rollNoInterval().left();
+    };
+    if ($('.notices2').length) {
+        setTimeout(function() {
+            $('.notices2').rollNoInterval().left();
+        }, 3000);
+    };
 
     // 投票
     $('.vote-box').on('click', '.ztbtn', function() {
@@ -179,84 +180,84 @@ $(function() {
                 } else {
                     voteTips('suc', '您今天还可以投 <span class="yellow">' + voteNum + ' </span>票');
                 }
-				// 个人拉票页
-				$(this).find('p').html('再投一票');
-				$('.rank').find('.num').html(+$('.rank').find('.num').text() + 1);
+                // 个人拉票页
+                $(this).find('p').html('再投一票');
+                $('.rank').find('.num').html(+$('.rank').find('.num').text() + 1);
             }
         }
-	});
+    });
 
-	// 修改宣言
-	$('.zt-personal').on('click', '.icon-feedback', function() {
-	    $('.ztpopup-xuanyan').find('.textarea').val($('.zt-personal').find('.xuanyan').html())
-	    numbox();
-	    $('.ztpopup-xuanyan').show();
-	});
-	// 保存宣言
-	$('.ztpopup-xuanyan').on('click', '.btn', function() {
-	    if (!$('.ztpopup-xuanyan').find('.textarea').val()) {
-	        voteTips('fail', '参赛宣言不能为空！');
-	        return false;
-	    }
-	    $('.zt-personal').find('.xuanyan').html($('.ztpopup-xuanyan').find('.textarea').val());
-	    voteTips('suc', '保存成功');
-	    $('.ztpopup-xuanyan').hide();
-	});
+    // 修改宣言
+    $('.zt-personal').on('click', '.icon-feedback', function() {
+        $('.ztpopup-xuanyan').find('.textarea').val($('.zt-personal').find('.xuanyan').html())
+        numbox();
+        $('.ztpopup-xuanyan').show();
+    });
+    // 保存宣言
+    $('.ztpopup-xuanyan').on('click', '.btn', function() {
+        if (!$('.ztpopup-xuanyan').find('.textarea').val()) {
+            voteTips('fail', '参赛宣言不能为空！');
+            return false;
+        }
+        $('.zt-personal').find('.xuanyan').html($('.ztpopup-xuanyan').find('.textarea').val());
+        voteTips('suc', '保存成功');
+        $('.ztpopup-xuanyan').hide();
+    });
 
-	// 字数判断
-	function numbox() {
-	    if ($('.num-box').length) {
-	        $.each($('.num-box'), function(i) {
-	            monitorVal($(this).parent().find('.input'), $(this).find('.num').text(), 'minus');
-	        });
-	    }
-	}
+    // 字数判断
+    function numbox() {
+        if ($('.num-box').length) {
+            $.each($('.num-box'), function(i) {
+                monitorVal($(this).parent().find('.input'), $(this).find('.num').text(), 'minus');
+            });
+        }
+    }
 
-	/*
-	 * 十强公布
-	 */
-	// 公布结果保存地址
-	$('.zt-address .input').bind('input propertychange', function() {
-	    var len = 0;
-	    var _this = $(this);
-	    $.each(_this.parents('.list').find('.input'), function(i) {
-	        if (!$.trim($(this).val())) {
-	            return false;
-	        }
-	        len++;
-	    });
-	    if (len == _this.parents('.list').find('.input').length) {
-	        $('.zt-address').find('.btn').removeClass('btn-dis').addClass('btn-submit');
-	    }
-	});
+    /*
+     * 十强公布
+     */
+    // 公布结果保存地址
+    $('.zt-address .input').bind('input propertychange', function() {
+        var len = 0;
+        var _this = $(this);
+        $.each(_this.parents('.list').find('.input'), function(i) {
+            if (!$.trim($(this).val())) {
+                return false;
+            }
+            len++;
+        });
+        if (len == _this.parents('.list').find('.input').length) {
+            $('.zt-address').find('.btn').removeClass('btn-dis').addClass('btn-submit');
+        }
+    });
 
-	$('.zt-address').on('blur', '.input', function() {
-	    var len = 0;
-	    var _this = $(this);
-	    $.each(_this.parents('.list').find('.input'), function(i) {
-	        if (!$.trim($(this).val())) {
-	            return false;
-	        }
-	        len++;
-	    });
-	    if (len == _this.parents('.list').find('.input').length) {
-	        console.log('==')
-	        $('.zt-address').find('.btn').removeClass('btn-dis').addClass('btn-submit');
-	    }
-	});
+    $('.zt-address').on('blur', '.input', function() {
+        var len = 0;
+        var _this = $(this);
+        $.each(_this.parents('.list').find('.input'), function(i) {
+            if (!$.trim($(this).val())) {
+                return false;
+            }
+            len++;
+        });
+        if (len == _this.parents('.list').find('.input').length) {
+            console.log('==')
+            $('.zt-address').find('.btn').removeClass('btn-dis').addClass('btn-submit');
+        }
+    });
 
-	$('.zt-address').on('click', '.btn', function() {
-	    if ($(this).hasClass('btn-dis')) {
-	        return false;
-	    }
-	    voteTips('suc', '保存成功')
-	    return false;
-	});
+    $('.zt-address').on('click', '.btn', function() {
+        if ($(this).hasClass('btn-dis')) {
+            return false;
+        }
+        voteTips('suc', '保存成功')
+        return false;
+    });
 });
 
 /*复制代码到剪切板*/
-function copyToClipboard(){
-    var e = document.getElementById('contents');//对象是contents
+function copyToClipboard() {
+    var e = document.getElementById('contents'); //对象是contents
     e.select(); //选择对象
     document.execCommand('Copy'); //执行浏览器复制命令
 }
@@ -282,18 +283,16 @@ function copyToClipboard(){
     var GenerateHtml = function(type, icon, msg, btntxt, btnlink) {
         var _html = '<div id="ztpopup" class="ztpopup ztpopup-' + icon + '"><div id="ztpopup-box" class="ztpopup-box"><a href="javascript:;" class="ztpopup-close" id="zt-close"><span class="icon-guanbi1"></span></a>';
         _html += '<div class="ztpopup-ct"><span class="tipicon tipicon-' + icon + '"></span><p>' + msg + '</p></div>';
-        if(!btnlink) {
+        if (!btnlink) {
             btnlink = 'javascript:;'
         }
-        if(!btntxt) {
+        if (!btntxt) {
             btntxt = '确定'
-        }
-        else {
+        } else {
             if (type == 'alert') {
-                _html += '<div class="ztpopup-btn"><a class="ztbtn" id="zt-ok" href="' + btnlink + '">' + btntxt +'</a></div>';
-            }
-            else if (type == 'confirm') {
-                _html += '<div class="ztpopup-btn"><a class="ztbtn-sure" id="zt-ok" href="' + btnlink + '">' + btntxt +'</a>';
+                _html += '<div class="ztpopup-btn"><a class="ztbtn" id="zt-ok" href="' + btnlink + '">' + btntxt + '</a></div>';
+            } else if (type == 'confirm') {
+                _html += '<div class="ztpopup-btn"><a class="ztbtn-sure" id="zt-ok" href="' + btnlink + '">' + btntxt + '</a>';
                 _html += '<a class="ztbtn-cancel" id="zt-no" href="javascript:;">再看看</a></div>';
             }
         }
@@ -378,4 +377,13 @@ function monitorVal(obj, nums, minus) {
             $(obj).nextAll('.num-box').find('.num').html($(obj).val().length);
         }
     });
+};
+
+function centerNav(obj) {
+	var _this = $(obj).find('.cur');
+    var moveX = _this.position().left + _this.parent().scrollLeft();
+    var pageX = document.documentElement.clientWidth;
+    var blockWidth = _this.width();
+    var left = moveX - (pageX / 2) + (blockWidth / 2);
+    $(obj).scrollLeft(left);
 };
