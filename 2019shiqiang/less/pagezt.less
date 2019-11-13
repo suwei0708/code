@@ -1776,6 +1776,11 @@ body {
 				font-size: 0;
 				background: #101010;
 				.bdr(10px);
+
+				.scroll-list {
+					.ov(h);
+					height: 97px * 3;
+				}
                 ul {
                     padding-left: 40px;
                 }
@@ -1783,7 +1788,7 @@ body {
                     .dis(ib);
                     vertical-align: middle;
                     width: 285px;
-                    margin: 45px 0 0 10px;
+                    padding: 45px 0 0 10px;
                     img {
                         display: inline-block;
                         width: 52px;
@@ -2597,19 +2602,21 @@ body .bd_weixin_popup .bd_weixin_popup_foot {
 }
 
 .bd_weixin_popup {
-    width: 140px !important;
-    height: 140px !important;
+    width: 155px !important;
+    height: 155px !important;
     padding: 0 !important;
-    margin: 305px 0px 0px -45px;
+    margin: 305px 0px 0px -55px;
     border: 0 !important;
     .bd_weixin_popup_main {
-        min-height: 111px !important;
-        _height: 111px !important;
+        min-height: 155px !important;
+        _height: 155px !important;
         table {
-            width: 130px !important;
+			table-layout: fixed;
+            width: 155px !important;
+            height: 155px !important;
             border: 10px solid #fff !important;
             background: #fff;
-            margin: 0 0 0 6px !important;
+            margin: 0 !important;
         }
         td {
             overflow: hidden;
@@ -2618,7 +2625,7 @@ body .bd_weixin_popup .bd_weixin_popup_foot {
         }
 	}
 	.bd_weixin_popup_main {
-		padding: 5px 0 0 !important;
+		padding: 0 !important;
 	}
 }
 .bd_weixin_popup_foot {

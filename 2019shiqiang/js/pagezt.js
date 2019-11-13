@@ -306,6 +306,43 @@ $(function() {
 		voteTips('suc', '保存成功')
         return false;
 	});
+
+	// 通用下拉
+	$('body').on('mouseover', '.item-select dd', function() {
+		if ($(this).find('.select-list').is(':hidden')) {
+			$('.select-list').hide();
+			$('.item-select').css('z-index', 'auto');
+			$(this).parents('.item-select').css('z-index', '980');
+			$(this).find('.select-list').show();
+		}
+		return false;
+	})
+	.on('click', '.select-list li', function() {
+		var txtDom = $(this).parents('.item-select').find('.input');
+		if (txtDom.is('input')) {
+			txtDom.val($(this).text());
+		} else {
+			txtDom.html($(this).text());
+		}
+		txtDom.focus().blur();
+		$(this).parents('.select-list').hide();
+		$('.item-select').css('z-index', 'auto');
+		return false;
+	})
+	.on('mouseout', '.item-select dd', function() {
+		if ($('.select-list').is(':visible')) {
+			$('.select-list').hide();
+		}
+	});
+
+	// 无缝滚动
+	if ($('.scroll-list').length) {
+	    $('.scroll-list').myScroll({
+	        speed: 50, //数值越大，速度越慢
+	        rowHeight: 97, //li的高度
+	        len: 4
+	    });
+	};
 });
 })(jQuery);
 
@@ -384,34 +421,6 @@ $(function() {
             jQuery('#ztpopup').remove();
         });
 	}
-
-	// 通用下拉
-	$('body').on('mouseover', '.item-select dd', function() {
-		if ($(this).find('.select-list').is(':hidden')) {
-			$('.select-list').hide();
-			$('.item-select').css('z-index', 'auto');
-			$(this).parents('.item-select').css('z-index', '980');
-			$(this).find('.select-list').show();
-		}
-		return false;
-	})
-	.on('click', '.select-list li', function() {
-		var txtDom = $(this).parents('.item-select').find('.input');
-		if (txtDom.is('input')) {
-			txtDom.val($(this).text());
-		} else {
-			txtDom.html($(this).text());
-		}
-		txtDom.focus().blur();
-		$(this).parents('.select-list').hide();
-		$('.item-select').css('z-index', 'auto');
-		return false;
-	})
-	.on('mouseout', '.item-select dd', function() {
-		if ($('.select-list').is(':visible')) {
-			$('.select-list').hide();
-		}
-	});
 })();
 
 function rnd(n, m) {
@@ -456,3 +465,55 @@ function getQueryString(variable) {
     }
     return (false);
 }
+
+// 无缝滚动js
+(function($) {
+    $.fn.myScroll = function(options) {
+        //默认配置
+        var defaults = {
+            speed: 40, //滚动速度,值越大速度越慢
+            rowHeight: 24, //每行的高度
+            len: 1 //每行个数
+        };
+
+        var opts = $.extend({}, defaults, options),
+            intId = [];
+
+        function marquee(obj, step) {
+            obj.find("ul").animate({
+                marginTop: '-=1'
+            }, 0, function() {
+                var s = Math.abs(parseInt($(this).css("margin-top")));
+                if (s >= step) {
+                    $(this).find("li").slice(0, opts.len).appendTo($(this));
+                    $(this).css("margin-top", 0);
+                }
+            });
+        }
+
+        this.each(function(i) {
+            var sh = opts["rowHeight"],
+                speed = opts["speed"],
+                _this = $(this);
+            intId[i] = setInterval(function() {
+                if (_this.find("ul").height() <= _this.height()) {
+                    clearInterval(intId[i]);
+                } else {
+                    marquee(_this, sh);
+                }
+            }, speed);
+
+            _this.hover(function() {
+                clearInterval(intId[i]);
+            }, function() {
+                intId[i] = setInterval(function() {
+                    if (_this.find("ul").height() <= _this.height()) {
+                        clearInterval(intId[i]);
+                    } else {
+                        marquee(_this, sh);
+                    }
+                }, speed);
+            });
+        });
+    }
+})(jQuery);
