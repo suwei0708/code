@@ -49,7 +49,7 @@ a {
 @page-w: 1220px;
 @yellow: #ffcd34;
 @green: #4bc065;
-@red: #f43123;
+@red: #f75332;
 @blue: #0084ff;
 .wraps {
     .pos(r);
@@ -66,7 +66,7 @@ a {
     border-top: 5px solid #420d0f;
     border-bottom: 5px solid #420d0f;
     line-height: 80px;
-	background: @red;
+	background: #f43123;
 	text-align: center;
 	font-size: 0;
     a {
@@ -75,8 +75,8 @@ a {
 		width: 180px;
         font-size: 24px;
 		color: #fff;
-		border-left: 5px solid @red;
-    	border-right: 5px solid @red;
+		border-left: 5px solid #f43123;
+    	border-right: 5px solid #f43123;
         &:hover, &.cur {
 			border-left: 5px solid #420d0f;
     		border-right: 5px solid #420d0f;
@@ -102,11 +102,10 @@ a {
 		left: 50%;
 		.pos(a);
 		z-index: 6;
-		width: 240px;
+		width: 242px;
 		height: 123px;
 		font-size: 0;
-		margin: -123px / 2 0 0 -240px / 2;
-		background-position: 0 0;
+		margin: -123px / 2 0 0 -242px / 2;
 		border: 0;
 		input {
 			.pos(a);
@@ -118,9 +117,20 @@ a {
 			cursor: pointer;
 		}
 		&:hover {
-			width: 240px;
+			width: 242px;
 			border: 0;
-			background: url(../images/zticon.png) no-repeat -280px 0;
+		}
+		&.btn-up {
+		    background-position: 0 0;
+		    &:hover {
+		        background: url(../images/zticon.png) no-repeat -280px 0;
+		    }
+		}
+		&.btn-pub {
+		    background-position: 0 -140px;
+		    &:hover {
+		        background: url(../images/zticon.png) no-repeat -280px -140px;
+		    }
 		}
     }
 }
@@ -162,6 +172,8 @@ a {
 		max-width: none;
 	}
 }
+
+// 首页
 .img {
     .bg-img {
         .pos(a);
@@ -182,12 +194,13 @@ a {
     }
     &2 {
 		padding: 94px 0 0;
+		margin-bottom: -80px;
         img {
 			margin-left: -188px;
 		}
     }
     &3 {
-		padding: 3px 0 0;
+		padding: 83px 0 0;
         img {
 			margin-left: -203px;
 		}
@@ -230,19 +243,27 @@ a {
 		}
     }
     &9 {
+		.pos(r);
 		padding: 118px 0 0;
         img {
 			margin-left: 251px;
+		}
+		.yanhua {
+			.pos(a);
+			top: 72px;
+			right: -171px;
+			margin: 0;
 		}
     }
     &10 {
 		margin: 120px 0 0;
 		height: 190px;
 		border-top: 5px solid #000;
-		background: @red;
+		background: #f32e20;
         img {
 			width: 1460px;
-			margin: -262px 0 0 -160px;
+			top: -262px;
+			margin: 0 0 0 -160px;
 		}
     }
 }
@@ -278,6 +299,7 @@ a {
     }
 }
 
+// 全部作品
 .bg {
     .zsj-box {
         .tit {
@@ -309,85 +331,42 @@ a {
 	margin-top: 90px;
 }
 
+// 获奖公布
 .pub1 {
-    height: 658px;
-    background: url(../images/pub-img1.jpg) no-repeat center 0;
     color: #fff;
     text-align: center;
     h3 {
-        padding-top: 92px;
+        padding-top: 120px;
         line-height: 70px;
-        font-size: 48px;
-        font-family:"Noto Sans CJK SC Medium", "Source Han Sans CN Medium";
+		font-size: 48px;
+		font-weight: 700;
     }
     p {
-        padding-top: 26px;
-        line-height: 40px;
+        padding-top: 40px;
+        line-height: 42px;
         font-size: 24px;
-        font-family:"Noto Sans CJK SC", "Source Han Sans CN";
     }
     .ecode {
-        padding-top: 56px;
-        width: 195px;
-        height: 195px;
+        padding-top: 54px;
+        width: 339px;
         margin: 0 auto;
         img {
-            width: 195px;
-            height: 195px;
+            width: 339px;
         }
     }
 }
 
 .pub-tit {
-    height: 299px;
-    background: url(../images/tit-bg.png) no-repeat center 0;
+	padding: 80px 0 40px;
     text-align: center;
-    color: #fff;
-    h4 {
-        line-height: 50px;
-        padding-top: 60px;
-        font-size: 36px;
-        span {
-            font-size: 24px;
-        }
-    }
-    .price {
-        .ov(h);
-        height: 78px;
-        line-height: 78px;
-        font-size: 24px;
-        color: #fdcc21;
-        strong {
-            font-size: 72px;
-        }
-    }
     img {
+		.dis(ib);
         vertical-align: top;
-        margin-bottom: 7px;
-    }
-    p {
-        line-height: 36px;
-    }
-    .info {
-        .pos(r);
-        line-height: 35px;
-        padding-bottom: 20px;
-        margin-bottom: 25px;
-        &:after {
-            content: '';
-            .pos(a);
-            left: 50%;
-            bottom: 0;
-            width: 26px;
-            height: 4px;
-            background: #fff;
-        }
     }
 }
 
 .pub2 {
-    height: 745px;
-    background: url(../images/pub-img2.jpg) no-repeat center 0;
+    padding: 40px 0 0;
 
     .zsj-box {
         li {
@@ -433,8 +412,52 @@ a {
     }
 }
 .pub3 {
-    height: 796px;
-    background: url(../images/pub-img3.jpg) no-repeat center 0;
+    .zsj-box {
+        li {
+            width: 600px;
+            background: none;
+            .img-box {
+                .pos(r);
+                width: 600px;
+                height: 358px;
+                img {
+                    width: 600px;
+                    height: 358px;
+                }
+            }
+            .user {
+                padding: 21px 0 0;
+                .height(40px);
+                border: none;
+                .sjs-name {
+                    float: left;
+                    font-size: 18px;
+                    max-width: 200px;
+                    a {
+                        font-size: 18px;
+                        color: #fff;
+                        &:hover {
+                            color: @blue;
+                        }
+                    }
+                }
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+                h3 {
+                    padding: 0 0 0 50px;
+                    .height(40px);
+                    a {
+                        font-size: 18px;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+.pub4 {
     .zsj-box {
         li {
             width: 393px;
@@ -480,17 +503,8 @@ a {
     }
 }
 
-.pub4 {
-    height: 1039px;
-    background: url(../images/pub-img4.jpg) no-repeat center 0;
-    .pub-tit {
-        margin-bottom: 20px;
-    }
-}
 .pub5 {
-    .pub-tit {
-        margin-bottom: 65px;
-    }
+    padding: 0 0 70px;
 }
 
 .zt-talk {
