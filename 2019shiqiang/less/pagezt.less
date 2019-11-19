@@ -322,6 +322,7 @@ body {
 	            font-size: 0;
 	        }
 	        li {
+				.pos(r);
 	            .dis(ib);
 	            vertical-align: top;
 	            width: 282px;
@@ -330,6 +331,19 @@ body {
 	            text-align: center;
 				background: @gray;
 				.bdr(12px);
+				.rank {
+					.pos(a);
+					top: 0;
+					left: 0;
+					min-width: 96px;
+					padding: 0 10px;
+					line-height: 42px;
+					color: #fff;
+					background: @yellow;
+					font-size: 18px;
+					text-align: center;
+					.bdr(12px, 0, 12px, 0);
+				}
 	            .img {
 	                .ov(h);
 	                width: 96px;
@@ -368,6 +382,9 @@ body {
 				}
 				&:hover {
 					background: #fff;
+					.rank {
+						.dis(n);
+					}
 				}
 	            .ztbtn-box {
 	                padding: 25px 0 0;
